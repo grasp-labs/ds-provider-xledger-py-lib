@@ -1,12 +1,12 @@
-# {{PROJECT_NAME}}
+# ds-provider-xledger-py-lib
 
-![Python Versions](https://img.shields.io/badge/python-3.9%20|%203.10%20|%203.11%20|%203.12%20|%203.13-blue)
-[![PyPI version](https://badge.fury.io/py/{{PROJECT_NAME}}.svg?kill_cache=1)](https://badge.fury.io/py/{{PROJECT_NAME}})
-[![Build Status](https://github.com/grasp-labs/{{GITHUB_REPO}}/actions/workflows/build.yaml/badge.svg)](https://github.com/grasp-labs/{{GITHUB_REPO}}/actions/workflows/build.yaml)
-[![codecov](https://codecov.io/gh/grasp-labs/{{GITHUB_REPO}}/graph/badge.svg?token=EO3YCNCZFS)](https://codecov.io/gh/grasp-labs/{{GITHUB_REPO}})
+![Python Versions](https://img.shields.io/badge/python-3.9%20|%203.11%20|%203.12%20|%203.13%20|%203.14-blue)
+[![PyPI version](https://badge.fury.io/py/ds-provider-xledger-py-lib.svg?kill_cache=1)](https://badge.fury.io/py/ds-provider-xledger-py-lib)
+[![Build Status](https://github.com/grasp-labs/ds-provider-xledger-py-lib/actions/workflows/build.yaml/badge.svg)](https://github.com/grasp-labs/ds-provider-xledger-py-lib/actions/workflows/build.yaml)
+[![codecov](https://codecov.io/gh/grasp-labs/ds-provider-xledger-py-lib/graph/badge.svg?token=EO3YCNCZFS)](https://codecov.io/gh/grasp-labs/ds-provider-xledger-py-lib)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-DS package for {{PROJECT_NAME}}
+DS package for ds-provider-xledger-py-lib
 
 ## Quick Start
 
@@ -108,7 +108,15 @@ uv run pytest tests/test_example.py -v
 │   ├── workflows/            # CI/CD workflows
 │   └── CODEOWNERS            # Code ownership file
 ├── src/
-│   └── {{PYTHON_MODULE_NAME}}/     # Rename to your module name
+│   └── ds_provider_xledger_py_lib/     # Module name
+│       ├── __init__.py
+│       ├── linked_service/
+│       ├── dataset/
+│       ├── builtins/
+│       ├── serde/
+│       ├── utils/
+│       ├── resource.yaml         # Resource definition
+│       ├── py.typed              # Type hints
 │       └── __init__.py
 ├── .pre-commit-config.yaml   # Pre-commit hooks configuration
 ├── tests/                    # Test files
@@ -135,7 +143,7 @@ uv run pytest tests/test_example.py -v
 
 ## Requirements
 
-- Python 3.9+
+- Python 3.11+
 - [uv](https://github.com/astral-sh/uv) package manager
 - Make (for development commands)
 
