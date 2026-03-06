@@ -57,6 +57,7 @@ dev = [
     "sphinx-material>=0.0.35",
     "bandit>=1.7.0",
     "pandas-stubs>=2.1.0",
+    "python-dotenv>=1.0.0",
 ]
 test = [
     "pytest>=7.4.0",
