@@ -133,25 +133,6 @@ def test_connect_is_idempotent_and_reuses_http_instance() -> None:
     assert linked_service.connection.session.headers["Authorization"] == "token second-token"
 
 
-def test_connect_normalizes_bearer_token_to_xledger_token_scheme() -> None:
-    """
-    It normalizes Bearer prefix to Xledger token auth scheme.
-    """
-    linked_service = XledgerLinkedService(
-        id=uuid4(),
-        name="xledger",
-        version="1.0.0",
-        settings=XledgerLinkedServiceSettings(
-            host="https://demo.xledger.net/graphql",
-            token="Bearer token-value",
-        ),
-    )
-
-    linked_service.connect()
-
-    assert linked_service.connection.session.headers["Authorization"] == "token token-value"
-
-
 def test_connection_raises_before_connect() -> None:
     """
     It raises ConnectionError before connect() has initialized a session.

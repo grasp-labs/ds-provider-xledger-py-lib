@@ -155,7 +155,7 @@ def test_map_graphql_errors_to_exception_empty_errors_fallback() -> None:
     exc = map_graphql_errors_to_exception(errors=[])
 
     assert isinstance(exc, UnhandledXledgerException)
-    assert exc.message == "Unhandled Xledger error occurred."
+    assert exc.message == "Unhandled Xledger exception occurred."
 
 
 def test_map_graphql_errors_to_exception_uses_top_level_status_code() -> None:
@@ -200,3 +200,18 @@ def test_map_graphql_errors_to_exception_handles_non_dict_error() -> None:
 
     assert isinstance(exc, UnhandledXledgerException)
     assert exc.message == "Unknown Error"
+
+
+def test_map_graphql_errors_to_exception_checks_all_errors_for_match() -> None:
+    """
+    It keeps scanning errors until a known mapping rule matches.
+    """
+    exc = map_graphql_errors_to_exception(
+        errors=[
+            {"message": "Unexpected backend failure"},
+            {"message": "Cannot query field `foo` on type `Query`"},
+        ]
+    )
+
+    assert isinstance(exc, InvalidQueryException)
+    assert exc.message == "Invalid Xledger query."

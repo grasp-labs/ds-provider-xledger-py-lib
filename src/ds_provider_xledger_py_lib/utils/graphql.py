@@ -65,6 +65,13 @@ def map_graphql_errors_to_exception(
     Returns:
         The mapped exception.
     """
+    if not errors:
+        logger.error("GraphQL error list was empty; returning fallback exception.")
+        return _build_exception(
+            UnhandledXledgerException,
+            message="Unhandled Xledger exception occurred.",
+        )
+
     for error in errors:
         error_message, error_code, extension_code = _parse_error(error)
         status_code = _extract_status_code(error)
@@ -84,21 +91,19 @@ def map_graphql_errors_to_exception(
                 message=resolved_rule.message,
                 status_code=status_code,
             )
-        logger.error(
-            "Unhandled GraphQL error mapping (code=%s, extension_code=%s).",
+        logger.warning(
+            "No GraphQL mapping rule for error (code=%s, extension_code=%s); checking next error.",
             error_code,
             extension_code,
         )
-        return _build_exception(
-            UnhandledXledgerException,
-            message=error_message,
-            status_code=status_code,
-        )
 
-    logger.error("GraphQL error list was empty; returning fallback exception.")
+    first_error_message, _, _ = _parse_error(errors[0])
+    first_error_status_code = _extract_status_code(errors[0])
+    logger.error("No mapped GraphQL error found; returning fallback exception.")
     return _build_exception(
         UnhandledXledgerException,
-        message="Unhandled Xledger error occurred.",
+        message=first_error_message,
+        status_code=first_error_status_code,
     )
 
 
@@ -108,12 +113,13 @@ def _build_exception(
     message: str,
     status_code: int | None = None,
 ) -> Exception:
-    """Instantiate an exception using class defaults when status is missing.
+    """Instantiate an exception with explicit message and optional status code.
 
     Args:
         exc_cls: The exception class to instantiate.
         message: The message to include in the exception.
-        status_code: The HTTP-like status code to include in the exception.
+        status_code: Optional HTTP-like status code. When omitted, the
+            exception class handles its own default status behavior.
     """
     kwargs: dict[str, Any] = {"message": message}
     if status_code is not None:
