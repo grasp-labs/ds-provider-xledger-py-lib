@@ -1,0 +1,24 @@
+package-name: xledger
+name: xledger
+description: Xledger provider for the DS Business Workflow
+
+
+linked-service:
+  - name: Xledger
+    type: ds.resource.linked_service.xledger
+    version: 1.0.0
+    description: Xledger linked service
+    class_name: ds_provider_xledger_py_lib.linked_service.XledgerLinkedService
+
+dataset:
+  - name: Xledger
+    type: ds.resource.dataset.xledger
+    version: 1.0.0
+    description: Xledger dataset
+    class_name: ds_provider_xledger_py_lib.dataset.xledger.XledgerDataset
+
+  - name: Attachment
+    type: ds.resource.dataset.attachment
+    version: 1.0.0
+    description: Attachment dataset
+    class_name: ds_provider_xledger_py_lib.dataset.attachment.AttachmentDataset
