@@ -55,7 +55,7 @@ class _FakeHttp:
 
 def test_connect_sets_authorization_header() -> None:
     """
-    It sets the bearer token header when connecting.
+    It sets the Xledger token header when connecting.
     """
     linked_service = XledgerLinkedService(
         id=uuid4(),
@@ -69,7 +69,7 @@ def test_connect_sets_authorization_header() -> None:
 
     linked_service.connect()
 
-    assert linked_service.connection.session.headers["Authorization"] == "Bearer token-value"
+    assert linked_service.connection.session.headers["Authorization"] == "token token-value"
     assert linked_service.connection.session.headers["Content-Type"] == "application/json"
 
 
@@ -130,7 +130,26 @@ def test_connect_is_idempotent_and_reuses_http_instance() -> None:
     linked_service.connect()
 
     assert linked_service._http is initial_http
-    assert linked_service.connection.session.headers["Authorization"] == "Bearer second-token"
+    assert linked_service.connection.session.headers["Authorization"] == "token second-token"
+
+
+def test_connect_normalizes_bearer_token_to_xledger_token_scheme() -> None:
+    """
+    It normalizes Bearer prefix to Xledger token auth scheme.
+    """
+    linked_service = XledgerLinkedService(
+        id=uuid4(),
+        name="xledger",
+        version="1.0.0",
+        settings=XledgerLinkedServiceSettings(
+            host="https://demo.xledger.net/graphql",
+            token="Bearer token-value",
+        ),
+    )
+
+    linked_service.connect()
+
+    assert linked_service.connection.session.headers["Authorization"] == "token token-value"
 
 
 def test_connection_raises_before_connect() -> None:

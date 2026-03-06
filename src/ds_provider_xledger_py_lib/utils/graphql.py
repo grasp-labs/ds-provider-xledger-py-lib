@@ -11,8 +11,12 @@ from __future__ import annotations
 
 from typing import Any
 
+from ds_common_logger_py_lib import Logger
+
 from ..errors import UnhandledXledgerException
 from .rules import GraphQLErrorRuleBook
+
+logger = Logger.get_logger(__name__, package=True)
 
 
 def raise_for_graphql_errors(
@@ -31,12 +35,20 @@ def raise_for_graphql_errors(
         The original GraphQL response body when no error is present.
     """
     if not isinstance(body, dict):
+        logger.error(
+            "Invalid GraphQL response payload type received: %s",
+            type(body).__name__,
+        )
         raise UnhandledXledgerException(
             message="GraphQL response is not a JSON object",
         )
 
     errors = body.get("errors")
     if isinstance(errors, list) and errors:
+        logger.warning(
+            "GraphQL response contains %d error(s); mapping to typed exception.",
+            len(errors),
+        )
         raise map_graphql_errors_to_exception(errors=errors)
     return body
 
@@ -62,17 +74,28 @@ def map_graphql_errors_to_exception(
             error_message=error_message,
         )
         if resolved_rule is not None:
+            logger.warning(
+                "Mapped GraphQL error to %s (matched_by=%s).",
+                resolved_rule.exc_cls.__name__,
+                resolved_rule.matched_by,
+            )
             return _build_exception(
                 resolved_rule.exc_cls,
                 message=resolved_rule.message,
                 status_code=status_code,
             )
+        logger.error(
+            "Unhandled GraphQL error mapping (code=%s, extension_code=%s).",
+            error_code,
+            extension_code,
+        )
         return _build_exception(
             UnhandledXledgerException,
             message=error_message,
             status_code=status_code,
         )
 
+    logger.error("GraphQL error list was empty; returning fallback exception.")
     return _build_exception(
         UnhandledXledgerException,
         message="Unhandled Xledger error occurred.",

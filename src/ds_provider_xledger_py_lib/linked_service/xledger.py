@@ -45,7 +45,7 @@ class XledgerLinkedServiceSettings(LinkedServiceSettings):
 
     Attributes:
         host: Full GraphQL endpoint URL.
-        token: Bearer token used for API authentication.
+        token: API token used for Xledger ``Authorization`` header.
         headers: Optional additional default headers.
         timeout: Default request timeout in seconds.
     """
@@ -144,7 +144,7 @@ class XledgerLinkedService(
 
         self._http.session.headers.update(
             {
-                "Authorization": f"Bearer {token}",
+                "Authorization": f"token {token}",
                 "Content-Type": "application/json",
             }
         )

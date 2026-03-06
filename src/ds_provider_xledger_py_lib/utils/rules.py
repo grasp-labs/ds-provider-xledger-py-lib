@@ -38,6 +38,7 @@ class ResolvedRule(NamedTuple):
 
     exc_cls: type[Exception]
     message: str
+    matched_by: str
 
 
 class GraphQLErrorRuleBook:
@@ -101,25 +102,30 @@ class GraphQLErrorRuleBook:
         """
         message_lower = error_message.lower()
         for rule in cls._rules:
-            if cls._matches(
+            match_source = cls._match_source(
                 rule=rule,
                 message_lower=message_lower,
                 code=code,
                 extension_code=extension_code,
-            ):
+            )
+            if match_source is not None:
                 message = rule.default_message or error_message
-                return ResolvedRule(exc_cls=rule.exc_cls, message=message)
+                return ResolvedRule(
+                    exc_cls=rule.exc_cls,
+                    message=message,
+                    matched_by=match_source,
+                )
         return None
 
     @staticmethod
-    def _matches(
+    def _match_source(
         *,
         rule: Rule,
         message_lower: str,
         code: str,
         extension_code: str,
-    ) -> bool:
-        """Return True when the current error matches the provided rule.
+    ) -> str | None:
+        """Return the source used to match the provided rule.
 
         Args:
             rule: The rule to match.
@@ -128,10 +134,12 @@ class GraphQLErrorRuleBook:
             extension_code: The extension code to match.
 
         Returns:
-            True when the current error matches the provided rule.
+            A source label when the current error matches the provided rule.
         """
         if rule.code and code == rule.code:
-            return True
+            return "code"
         if rule.extension_code and extension_code == rule.extension_code:
-            return True
-        return bool(rule.message_keywords and any(keyword in message_lower for keyword in rule.message_keywords))
+            return "extension_code"
+        if rule.message_keywords and any(keyword in message_lower for keyword in rule.message_keywords):
+            return "message"
+        return None

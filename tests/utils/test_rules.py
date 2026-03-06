@@ -32,6 +32,7 @@ def test_rulebook_resolves_by_error_code() -> None:
     assert resolved is not None
     assert resolved.exc_cls is OutOfCreditException
     assert resolved.message == "Insufficient Xledger credits."
+    assert resolved.matched_by == "code"
 
 
 def test_rulebook_resolves_by_extension_code() -> None:
@@ -47,6 +48,7 @@ def test_rulebook_resolves_by_extension_code() -> None:
     assert resolved is not None
     assert resolved.exc_cls is InvalidMutationException
     assert resolved.message == "Invalid Xledger argument."
+    assert resolved.matched_by == "extension_code"
 
 
 def test_rulebook_resolves_by_message_keyword() -> None:
@@ -62,6 +64,7 @@ def test_rulebook_resolves_by_message_keyword() -> None:
     assert resolved is not None
     assert resolved.exc_cls is InvalidQueryException
     assert resolved.message == "Invalid Xledger query."
+    assert resolved.matched_by == "message"
 
 
 def test_rulebook_resolves_api_token_format_error_to_authentication_error() -> None:
@@ -77,6 +80,7 @@ def test_rulebook_resolves_api_token_format_error_to_authentication_error() -> N
     assert resolved is not None
     assert resolved.exc_cls is AuthenticationError
     assert "Bad format for API Token" in resolved.message
+    assert resolved.matched_by == "message"
 
 
 def test_rulebook_returns_none_when_unmatched() -> None:

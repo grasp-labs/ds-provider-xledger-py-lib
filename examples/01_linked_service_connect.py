@@ -13,10 +13,12 @@ This example demonstrates how to:
 from __future__ import annotations
 
 import logging
+import os
 from uuid import uuid4
 
 from ds_common_logger_py_lib import Logger
 from ds_resource_plugin_py_lib.common.resource.errors import ResourceException
+from dotenv import load_dotenv
 
 from ds_provider_xledger_py_lib.linked_service.xledger import (
     XledgerLinkedService,
@@ -25,6 +27,8 @@ from ds_provider_xledger_py_lib.linked_service.xledger import (
 
 Logger.configure(level=logging.DEBUG)
 logger = Logger.get_logger(__name__)
+
+load_dotenv()
 
 
 def main() -> None:
@@ -35,7 +39,7 @@ def main() -> None:
         version="1.0.0",
         settings=XledgerLinkedServiceSettings(
             host="https://demo.xledger.net/graphql",
-            token="your_token",
+            token=os.getenv("XLEDGER_TOKEN", ""),
             timeout=60,
         ),
     )
