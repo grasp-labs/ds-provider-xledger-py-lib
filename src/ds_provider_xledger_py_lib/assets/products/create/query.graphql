@@ -1,0 +1,8 @@
+mutation ($PlaceHolderInput: [AddProductsInput!]!) {
+  addProducts(inputs: $PlaceHolderInput) {
+    edges {
+      clientId
+      node { {{ FIELDS }} }
+    }
+  }
+}

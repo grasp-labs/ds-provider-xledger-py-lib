@@ -1,0 +1,12 @@
+{
+  entities(first: 1000) {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node { {{ FIELDS }} }
+    }
+  }
+}

@@ -1,0 +1,617 @@
+{
+  "name": "addSuppliers",
+  "type": "create",
+  "description": "Create Xledger Suppliers.",
+  "fields": [
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the XGL Dimension.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the XGL Dimension.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "companyNumber",
+      "type": "string",
+      "description": "The organisation number of the company.",
+      "required": false
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "description": "The email of the company.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "streetAddress",
+      "type": "string",
+      "description": "The street address of the company.",
+      "required": false
+    },
+    {
+      "name": "zipCode",
+      "type": "string",
+      "description": "The zip code of the company.",
+      "required": false
+    },
+    {
+      "name": "place",
+      "type": "string",
+      "description": "The place of the company.",
+      "required": false
+    },
+    {
+      "name": "streetAddress2",
+      "type": "string",
+      "description": "The second street address of the company.",
+      "required": false
+    },
+    {
+      "name": "zipCode2",
+      "type": "string",
+      "description": "The second zip code of the company.",
+      "required": false
+    },
+    {
+      "name": "place2",
+      "type": "string",
+      "description": "The second place of the company.",
+      "required": false
+    },
+    {
+      "name": "phone",
+      "type": "string",
+      "description": "The phone number of the company.",
+      "required": false
+    },
+    {
+      "name": "phoneNumber2",
+      "type": "string",
+      "description": "The second phone number of the company.",
+      "required": false
+    },
+    {
+      "name": "taxNumber",
+      "type": "string",
+      "description": "The tax number of the company.",
+      "required": false
+    },
+    {
+      "name": "bankAccount",
+      "type": "string",
+      "description": "The bank account of the company.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "paymentNotification",
+      "type": "string",
+      "description": "The payment notification of the company.",
+      "required": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The name of the company.",
+      "required": false
+    },
+    {
+      "name": "payDocCode",
+      "type": "string",
+      "description": "The pay doc code of the company.",
+      "required": false
+    },
+    {
+      "name": "payDocText",
+      "type": "string",
+      "description": "The pay doc text of the company.",
+      "required": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "int",
+      "description": "The unique identifier of owner.",
+      "required": false
+    },
+    {
+      "name": "owner_code",
+      "type": "string",
+      "description": "The code of the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_description",
+      "type": "string",
+      "description": "The description of the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_ownerCode",
+      "type": "int",
+      "description": "The owner code.",
+      "required": false
+    },
+    {
+      "name": "subledgerGroup_dbId",
+      "type": "int",
+      "description": "The unique identifier of the subledger group.",
+      "required": false
+    },
+    {
+      "name": "subledgerGroup_code",
+      "type": "string",
+      "description": "The code of the subledger group.",
+      "required": false
+    },
+    {
+      "name": "subledgerGroup_description",
+      "type": "string",
+      "description": "The description of the subledger group.",
+      "required": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "int",
+      "description": "The unique identifier of the currency.",
+      "required": false
+    },
+    {
+      "name": "currency_code",
+      "type": "string",
+      "description": "The code of the currency.",
+      "required": false
+    },
+    {
+      "name": "currency_description",
+      "type": "string",
+      "description": "The description of the currency.",
+      "required": false
+    },
+    {
+      "name": "payTerms_dbId",
+      "type": "int",
+      "description": "The unique identifier of the payment terms.",
+      "required": false
+    },
+    {
+      "name": "payTerms_code",
+      "type": "string",
+      "description": "The code of the payment terms.",
+      "required": false
+    },
+    {
+      "name": "payTerms_description",
+      "type": "string",
+      "description": "The description of the payment terms.",
+      "required": false
+    },
+    {
+      "name": "language_dbId",
+      "type": "int",
+      "description": "The unique identifier of the language.",
+      "required": false
+    },
+    {
+      "name": "language_dbSubId",
+      "type": "int",
+      "description": "The unique sub identifier of the language.",
+      "required": false
+    },
+    {
+      "name": "language_code",
+      "type": "string",
+      "description": "The code of the language.",
+      "required": false
+    },
+    {
+      "name": "language_description",
+      "type": "string",
+      "description": "The description of the language.",
+      "required": false
+    },
+    {
+      "name": "country_dbId",
+      "type": "int",
+      "description": "The unique identifier of the country.",
+      "required": false
+    },
+    {
+      "name": "country_code",
+      "type": "string",
+      "description": "The code of the country.",
+      "required": false
+    },
+    {
+      "name": "country_description",
+      "type": "string",
+      "description": "The description of the country.",
+      "required": false
+    },
+    {
+      "name": "country2_dbId",
+      "type": "int",
+      "description": "The unique identifier of the second country.",
+      "required": false
+    },
+    {
+      "name": "country2_code",
+      "type": "string",
+      "description": "The code of the second country.",
+      "required": false
+    },
+    {
+      "name": "country2_description",
+      "type": "string",
+      "description": "The description of the second country.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_flag1",
+      "type": "boolean",
+      "description": "The flag 1 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_flag2",
+      "type": "boolean",
+      "description": "The flag 2 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_flag3",
+      "type": "boolean",
+      "description": "The flag 3 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_flag4",
+      "type": "boolean",
+      "description": "The flag 4 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_date1",
+      "type": "datetime",
+      "description": "The date 1 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_date2",
+      "type": "datetime",
+      "description": "The date 2 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_date3",
+      "type": "datetime",
+      "description": "The date 3 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_date4",
+      "type": "datetime",
+      "description": "The date 4 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_value1",
+      "type": "float",
+      "description": "The value 1 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_value2",
+      "type": "float",
+      "description": "The value 2 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_value3",
+      "type": "float",
+      "description": "The value 3 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_value4",
+      "type": "float",
+      "description": "The value 4 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_number1",
+      "type": "int",
+      "description": "The number 1 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_number2",
+      "type": "int",
+      "description": "The number 2 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code1DbId",
+      "type": "int",
+      "description": "The unique identifier of the code 1 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code2DbId",
+      "type": "int",
+      "description": "The unique identifier of the code 2 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code3DbId",
+      "type": "int",
+      "description": "The unique identifier of the code 3 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code4DbId",
+      "type": "int",
+      "description": "The unique identifier of the code 4 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code5DbId",
+      "type": "int",
+      "description": "The unique identifier of the code 5 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code6DbId",
+      "type": "int",
+      "description": "The unique identifier of the code 6 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code7DbId",
+      "type": "int",
+      "description": "The unique identifier of the code 7 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code8DbId",
+      "type": "int",
+      "description": "The unique identifier of the code 8 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text1",
+      "type": "string",
+      "description": "The text 1 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text2",
+      "type": "string",
+      "description": "The text 2 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text3",
+      "type": "string",
+      "description": "The text 3 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text4",
+      "type": "string",
+      "description": "The text 4 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text5",
+      "type": "string",
+      "description": "The text 5 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text6",
+      "type": "string",
+      "description": "The text 6 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text7",
+      "type": "string",
+      "description": "The text 7 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text8",
+      "type": "string",
+      "description": "The text 8 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "int",
+      "description": "The unique identifier of the company.",
+      "required": false
+    },
+    {
+      "name": "company_code",
+      "type": "string",
+      "description": "The code of the company.",
+      "required": false
+    },
+    {
+      "name": "company_description",
+      "type": "string",
+      "description": "The description of the company.",
+      "required": false
+    },
+    {
+      "name": "payMethod_dbId",
+      "type": "int",
+      "description": "The unique identifier of the payment method.",
+      "required": false
+    },
+    {
+      "name": "payMethod_code",
+      "type": "string",
+      "description": "The code of the payment method.",
+      "required": false
+    },
+    {
+      "name": "payMethod_description",
+      "type": "string",
+      "description": "The description of the payment method.",
+      "required": false
+    },
+    {
+      "name": "fromDate",
+      "type": "datetime",
+      "description": "The from date.",
+      "required": false
+    },
+    {
+      "name": "toDate",
+      "type": "datetime",
+      "description": "The to date.",
+      "required": false
+    },
+    {
+      "name": "address_streetAddress",
+      "type": "string",
+      "description": "The street address of the address.",
+      "required": false
+    },
+    {
+      "name": "address_zipCode",
+      "type": "string",
+      "description": "The zip code of the address.",
+      "required": false
+    },
+    {
+      "name": "address_place",
+      "type": "string",
+      "description": "The town / place of the address.",
+      "required": false
+    },
+    {
+      "name": "address_state",
+      "type": "string",
+      "description": "The state of the address.",
+      "required": false
+    },
+    {
+      "name": "address_country",
+      "type": "string",
+      "description": "The country of the address.",
+      "required": false
+    },
+    {
+      "name": "billAddress_streetAddress",
+      "type": "string",
+      "description": "The street address of the billing address.",
+      "required": false
+    },
+    {
+      "name": "billAddress_zipCode",
+      "type": "string",
+      "description": "The zip code of the billing address.",
+      "required": false
+    },
+    {
+      "name": "billAddress_place",
+      "type": "string",
+      "description": "The town / place of the billing address.",
+      "required": false
+    },
+    {
+      "name": "billAddress_state",
+      "type": "string",
+      "description": "The state of the billing address.",
+      "required": false
+    },
+    {
+      "name": "billAddress_country",
+      "type": "string",
+      "description": "The country of the billing address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_streetAddress",
+      "type": "string",
+      "description": "The street address of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_zipCode",
+      "type": "string",
+      "description": "The zip code of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_place",
+      "type": "string",
+      "description": "The town / place of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_state",
+      "type": "string",
+      "description": "The state of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_country",
+      "type": "string",
+      "description": "The country of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "bank_dbId",
+      "type": "int",
+      "description": "The unique identifier of the bank.",
+      "required": false
+    },
+    {
+      "name": "bank_code",
+      "type": "string",
+      "description": "The code of the bank.",
+      "required": false
+    },
+    {
+      "name": "bank_description",
+      "type": "string",
+      "description": "The description of the bank.",
+      "required": false
+    },
+    {
+      "name": "bank_bankRouting",
+      "type": "string",
+      "description": "The bank routing.",
+      "required": false
+    },
+    {
+      "name": "bank_swift",
+      "type": "string",
+      "description": "The bank swift.",
+      "required": false
+    },
+    {
+      "name": "swift",
+      "type": "string",
+      "description": "The swift.",
+      "required": false
+    },
+    {
+      "name": "bankRouting",
+      "type": "string",
+      "description": "The bank routing.",
+      "required": false
+    }
+  ]
+}

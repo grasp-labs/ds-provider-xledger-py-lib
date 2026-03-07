@@ -1,0 +1,157 @@
+{
+  "name": "updateBankAccounts",
+  "type": "update",
+  "description": "Update Xledger bankaccounts dataset.",
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The primary key.",
+      "required": true
+    },
+    {
+      "name": "bankAccount",
+      "type": "string",
+      "description": "The actual bank account number associated with the owner.",
+      "required": false
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "Internal reference code for the bank account record.",
+      "required": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A descriptive label for the bank account.",
+      "required": false
+    },
+    {
+      "name": "fromDate",
+      "type": "datetime",
+      "description": "The date when the bank account becomes active in the system.",
+      "required": false
+    },
+    {
+      "name": "toDate",
+      "type": "datetime",
+      "description": "The date when the bank account is deactivated or closed.",
+      "required": false
+    },
+    {
+      "name": "country_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the country where the bank account is registered.",
+      "required": false
+    },
+    {
+      "name": "country_code",
+      "type": "string",
+      "description": "The ISO or system code for the country of the bank account.",
+      "required": false
+    },
+    {
+      "name": "country_description",
+      "type": "string",
+      "description": "The full name of the country where the bank account is located.",
+      "required": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the currency used in the bank account.",
+      "required": false
+    },
+    {
+      "name": "currency_code",
+      "type": "string",
+      "description": "The currency code (e.g., 'USD', 'EUR') for transactions in this account.",
+      "required": false
+    },
+    {
+      "name": "currency_description",
+      "type": "string",
+      "description": "The full name of the currency (e.g., 'US Dollar').",
+      "required": false
+    },
+    {
+      "name": "bank_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the bank institution.",
+      "required": false
+    },
+    {
+      "name": "bank_code",
+      "type": "string",
+      "description": "A short code representing the bank institution.",
+      "required": false
+    },
+    {
+      "name": "bank_description",
+      "type": "string",
+      "description": "The full name of the bank institution.",
+      "required": false
+    },
+    {
+      "name": "bank_bankRouting",
+      "type": "string",
+      "description": "The bank routing number used for domestic transfers.",
+      "required": false
+    },
+    {
+      "name": "bank_swift",
+      "type": "string",
+      "description": "The SWIFT/BIC code for international transfers.",
+      "required": false
+    },
+    {
+      "name": "bankAccType_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the type of bank account (e.g., checking, savings).",
+      "required": false
+    },
+    {
+      "name": "bankAccType_code",
+      "type": "string",
+      "description": "A short code representing the account type.",
+      "required": false
+    },
+    {
+      "name": "bankAccType_description",
+      "type": "string",
+      "description": "A descriptive name for the account type.",
+      "required": false
+    },
+    {
+      "name": "payMethod_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the payment method linked to this account.",
+      "required": false
+    },
+    {
+      "name": "payMethod_code",
+      "type": "string",
+      "description": "A short code representing the payment method.",
+      "required": false
+    },
+    {
+      "name": "payMethod_description",
+      "type": "string",
+      "description": "A descriptive name for the payment method.",
+      "required": false
+    },
+    {
+      "name": "isExpensed",
+      "type": "boolean",
+      "description": "Indicates whether transactions from this account are marked as expensed.",
+      "required": false
+    },
+    {
+      "name": "forPayroll",
+      "type": "boolean",
+      "description": "Indicates whether this account is used for payroll disbursements.",
+      "required": false
+    }
+  ]
+}

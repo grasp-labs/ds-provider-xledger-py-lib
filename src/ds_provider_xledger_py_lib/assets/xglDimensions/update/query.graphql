@@ -1,0 +1,8 @@
+mutation ($PlaceHolderInput: [UpdateXGLDimensionsInput!]!) {
+  updateXGLDimensions(inputs: $PlaceHolderInput) {
+    edges {
+      clientId
+      node { {{ FIELDS }} }
+    }
+  }
+}

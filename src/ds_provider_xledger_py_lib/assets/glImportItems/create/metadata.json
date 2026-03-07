@@ -1,0 +1,834 @@
+{
+  "name": "addGLImportItems",
+  "type": "create",
+  "description": "Create Xledger GLImportItems.",
+  "fields": [
+    {
+      "name": "transactionSource_dbId",
+      "type": "int",
+      "description": "The unique identifier of the transaction source.",
+      "required": false
+    },
+    {
+      "name": "transactionSource_code",
+      "type": "string",
+      "description": "The code representing the transaction source.",
+      "required": false
+    },
+    {
+      "name": "transactionSource_description",
+      "type": "string",
+      "description": "A description of the transaction source.",
+      "required": false
+    },
+    {
+      "name": "trRegNumber",
+      "type": "string",
+      "description": "The transaction registration number.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "postedDate",
+      "type": "datetime",
+      "description": "The date the transaction was posted.",
+      "required": false
+    },
+    {
+      "name": "invoiceDate",
+      "type": "datetime",
+      "description": "The date of the invoice.",
+      "required": false
+    },
+    {
+      "name": "account_dbId",
+      "type": "int",
+      "description": "The unique identifier of the account.",
+      "required": false
+    },
+    {
+      "name": "account_code",
+      "type": "string",
+      "description": "The code representing the account.",
+      "required": false
+    },
+    {
+      "name": "account_description",
+      "type": "string",
+      "description": "A description of the account.",
+      "required": false
+    },
+    {
+      "name": "dueDate",
+      "type": "datetime",
+      "description": "The due date of the invoice.",
+      "required": false
+    },
+    {
+      "name": "invoiceNumber",
+      "type": "string",
+      "description": "The invoice number.",
+      "required": false
+    },
+    {
+      "name": "taxRule_dbId",
+      "type": "int",
+      "description": "The unique identifier of the tax rule.",
+      "required": false
+    },
+    {
+      "name": "taxRule_code",
+      "type": "string",
+      "description": "The code representing the tax rule.",
+      "required": false
+    },
+    {
+      "name": "taxRule_description",
+      "type": "string",
+      "description": "A description of the tax rule.",
+      "required": false
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the invoice.",
+      "required": false
+    },
+    {
+      "name": "invoiceAmount",
+      "type": "string",
+      "description": "The amount of the invoice.",
+      "required": false
+    },
+    {
+      "name": "exchangeRate",
+      "type": "float",
+      "description": "The exchange rate.",
+      "required": false
+    },
+    {
+      "name": "amount",
+      "type": "string",
+      "description": "The amount of the GLImportItems.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "quantity",
+      "type": "string",
+      "description": "The quantity of the GLImportItems.",
+      "required": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "int",
+      "description": "The unique identifier of the currency.",
+      "required": false
+    },
+    {
+      "name": "currency_code",
+      "type": "string",
+      "description": "The code representing the currency.",
+      "required": false
+    },
+    {
+      "name": "currency_description",
+      "type": "string",
+      "description": "A description of the currency.",
+      "required": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "int",
+      "description": "The unique identifier of the first GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject1_code",
+      "type": "string",
+      "description": "The code representing the first GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject1_description",
+      "type": "string",
+      "description": "A description of the first GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "int",
+      "description": "The unique identifier of the second GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject2_code",
+      "type": "string",
+      "description": "The code representing the second GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject2_description",
+      "type": "string",
+      "description": "A description of the second GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "int",
+      "description": "The unique identifier of the third GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject3_code",
+      "type": "string",
+      "description": "The code representing the third GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject3_description",
+      "type": "string",
+      "description": "A description of the third GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "int",
+      "description": "The unique identifier of the fourth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject4_code",
+      "type": "string",
+      "description": "The code representing the fourth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject4_description",
+      "type": "string",
+      "description": "A description of the fourth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "int",
+      "description": "The unique identifier of the fifth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject5_code",
+      "type": "string",
+      "description": "The code representing the fifth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject5_description",
+      "type": "string",
+      "description": "A description of the fifth GL object.",
+      "required": false
+    },
+    {
+      "name": "transactionReg_dbId",
+      "type": "int",
+      "description": "The unique identifier of the transaction registration.",
+      "required": false
+    },
+    {
+      "name": "transactionReg_code",
+      "type": "string",
+      "description": "The code representing the transaction registration.",
+      "required": false
+    },
+    {
+      "name": "transactionReg_description",
+      "type": "string",
+      "description": "A description of the transaction registration.",
+      "required": false
+    },
+    {
+      "name": "subledger_dbId",
+      "type": "int",
+      "description": "The unique identifier of the subledger.",
+      "required": false
+    },
+    {
+      "name": "subledger_code",
+      "type": "string",
+      "description": "The code representing the subledger.",
+      "required": false
+    },
+    {
+      "name": "subledger_description",
+      "type": "string",
+      "description": "A description of the subledger.",
+      "required": false
+    },
+    {
+      "name": "slTransactionType_dbId",
+      "type": "int",
+      "description": "The unique identifier of the subledger transaction type.",
+      "required": false
+    },
+    {
+      "name": "slTransactionType_dbSubId",
+      "type": "int",
+      "description": "The unique identifier of the subledger transaction type sub identifier.",
+      "required": false
+    },
+    {
+      "name": "slTransactionType_code",
+      "type": "string",
+      "description": "The code representing the subledger transaction type.",
+      "required": false
+    },
+    {
+      "name": "slTransactionType_description",
+      "type": "string",
+      "description": "A description of the subledger transaction type.",
+      "required": false
+    },
+    {
+      "name": "bankAccount",
+      "type": "string",
+      "description": "The bank account.",
+      "required": false
+    },
+    {
+      "name": "extOrderNumber",
+      "type": "string",
+      "description": "The external order number.",
+      "required": false
+    },
+    {
+      "name": "ourRef_dbId",
+      "type": "int",
+      "description": "The unique identifier of our reference.",
+      "required": false
+    },
+    {
+      "name": "ourRef_code",
+      "type": "string",
+      "description": "The code representing our reference.",
+      "required": false
+    },
+    {
+      "name": "yourReference",
+      "type": "string",
+      "description": "Your reference.",
+      "required": false
+    },
+    {
+      "name": "payTerms_dbId",
+      "type": "int",
+      "description": "The unique identifier of the payment terms.",
+      "required": false
+    },
+    {
+      "name": "payTerms_code",
+      "type": "string",
+      "description": "The code representing the payment terms.",
+      "required": false
+    },
+    {
+      "name": "payTerms_description",
+      "type": "string",
+      "description": "A description of the payment terms.",
+      "required": false
+    },
+    {
+      "name": "payMethod_dbId",
+      "type": "int",
+      "description": "The unique identifier of the payment method.",
+      "required": false
+    },
+    {
+      "name": "payMethod_code",
+      "type": "string",
+      "description": "The code representing the payment method.",
+      "required": false
+    },
+    {
+      "name": "paymentStatus_dbId",
+      "type": "int",
+      "description": "The unique identifier of the payment status.",
+      "required": false
+    },
+    {
+      "name": "paymentStatus_dbSubId",
+      "type": "int",
+      "description": "The unique identifier of the payment status sub identifier.",
+      "required": false
+    },
+    {
+      "name": "paymentStatus_code",
+      "type": "string",
+      "description": "The code representing the payment status.",
+      "required": false
+    },
+    {
+      "name": "product_dbId",
+      "type": "int",
+      "description": "The unique identifier of the product.",
+      "required": false
+    },
+    {
+      "name": "product_code",
+      "type": "string",
+      "description": "The code representing the product.",
+      "required": false
+    },
+    {
+      "name": "product_description",
+      "type": "string",
+      "description": "A description of the product.",
+      "required": false
+    },
+    {
+      "name": "objectDef_dbId",
+      "type": "int",
+      "description": "The unique identifier of the object definition.",
+      "required": false
+    },
+    {
+      "name": "objectDef_code",
+      "type": "string",
+      "description": "The code representing the object definition.",
+      "required": false
+    },
+    {
+      "name": "objectDef_description",
+      "type": "string",
+      "description": "A description of the object definition.",
+      "required": false
+    },
+    {
+      "name": "objectValueDef_dbId",
+      "type": "int",
+      "description": "The unique identifier of the object value definition.",
+      "required": false
+    },
+    {
+      "name": "objectValueDef_code",
+      "type": "string",
+      "description": "The code representing the object value definition.",
+      "required": false
+    },
+    {
+      "name": "objectValueDef_description",
+      "type": "string",
+      "description": "A description of the object value definition.",
+      "required": false
+    },
+    {
+      "name": "payDocCode_dbId",
+      "type": "int",
+      "description": "The unique identifier of the payment document code.",
+      "required": false
+    },
+    {
+      "name": "payDocCode_code",
+      "type": "string",
+      "description": "The code representing the payment document code.",
+      "required": false
+    },
+    {
+      "name": "payDocCode_description",
+      "type": "string",
+      "description": "A description of the payment document code.",
+      "required": false
+    },
+    {
+      "name": "payDocText",
+      "type": "string",
+      "description": "The payment document text.",
+      "required": false
+    },
+    {
+      "name": "payCode_dbId",
+      "type": "int",
+      "description": "The unique identifier of the payment code.",
+      "required": false
+    },
+    {
+      "name": "payCode_dbSubId",
+      "type": "int",
+      "description": "The unique identifier of the payment code sub identifier.",
+      "required": false
+    },
+    {
+      "name": "payCode_code",
+      "type": "string",
+      "description": "The code representing the payment code.",
+      "required": false
+    },
+    {
+      "name": "payCode_description",
+      "type": "string",
+      "description": "A description of the payment code.",
+      "required": false
+    },
+    {
+      "name": "paymentReference",
+      "type": "string",
+      "description": "The payment reference.",
+      "required": false
+    },
+    {
+      "name": "collectCode_dbId",
+      "type": "int",
+      "description": "The unique identifier of the collection code.",
+      "required": false
+    },
+    {
+      "name": "collectCode_code",
+      "type": "string",
+      "description": "The code representing the collection code.",
+      "required": false
+    },
+    {
+      "name": "collectCode_description",
+      "type": "string",
+      "description": "A description of the collection code.",
+      "required": false
+    },
+    {
+      "name": "project_dbId",
+      "type": "int",
+      "description": "The unique identifier of the project.",
+      "required": false
+    },
+    {
+      "name": "project_code",
+      "type": "string",
+      "description": "The code representing the project.",
+      "required": false
+    },
+    {
+      "name": "project_description",
+      "type": "string",
+      "description": "A description of the project.",
+      "required": false
+    },
+    {
+      "name": "extIdentifier",
+      "type": "string",
+      "description": "The external identifier.",
+      "required": false
+    },
+    {
+      "name": "archive",
+      "type": "int",
+      "description": "The archive.",
+      "required": false
+    },
+    {
+      "name": "trItemNumber",
+      "type": "int",
+      "description": "The transaction item number.",
+      "required": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "int",
+      "description": "The unique identifier of the XGL.",
+      "required": false
+    },
+    {
+      "name": "xgl_code",
+      "type": "string",
+      "description": "The code representing the XGL.",
+      "required": false
+    },
+    {
+      "name": "xgl_description",
+      "type": "string",
+      "description": "A description of the XGL.",
+      "required": false
+    },
+    {
+      "name": "periodStart",
+      "type": "int",
+      "description": "The period start.",
+      "required": false
+    },
+    {
+      "name": "numberPeriod",
+      "type": "int",
+      "description": "The number of periods.",
+      "required": false
+    },
+    {
+      "name": "bankAccountRef_dbId",
+      "type": "int",
+      "description": "The unique identifier of the bank account reference.",
+      "required": false
+    },
+    {
+      "name": "regAmount",
+      "type": "string",
+      "description": "The registered amount.",
+      "required": false
+    },
+    {
+      "name": "taxAmount",
+      "type": "string",
+      "description": "The tax amount.",
+      "required": false
+    },
+    {
+      "name": "taxAmount2",
+      "type": "string",
+      "description": "The tax amount 2.",
+      "required": false
+    },
+    {
+      "name": "discountDate",
+      "type": "datetime",
+      "description": "The discount date.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "discountTaxRule_dbId",
+      "type": "int",
+      "description": "The unique identifier of the discount tax rule.",
+      "required": false
+    },
+    {
+      "name": "discountTaxRule_code",
+      "type": "string",
+      "description": "The code representing the discount tax rule.",
+      "required": false
+    },
+    {
+      "name": "discountTaxRule_description",
+      "type": "string",
+      "description": "A description of the discount tax rule.",
+      "required": false
+    },
+    {
+      "name": "discount",
+      "type": "float",
+      "description": "The discount.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "discountAmount",
+      "type": "string",
+      "description": "The discount amount.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "unit_dbId",
+      "type": "int",
+      "description": "The unique identifier of the unit.",
+      "required": false
+    },
+    {
+      "name": "unit_code",
+      "type": "string",
+      "description": "The code representing the unit.",
+      "required": false
+    },
+    {
+      "name": "unit_description",
+      "type": "string",
+      "description": "A description of the unit.",
+      "required": false
+    },
+    {
+      "name": "unitQuantity_dbId",
+      "type": "int",
+      "description": "The unique identifier of the unit quantity.",
+      "required": false
+    },
+    {
+      "name": "unitQuantity_dbSubId",
+      "type": "int",
+      "description": "The unique identifier of the unit quantity sub identifier.",
+      "required": false
+    },
+    {
+      "name": "unitQuantity_code",
+      "type": "string",
+      "description": "The code representing the unit quantity.",
+      "required": false
+    },
+    {
+      "name": "unitQuantity_description",
+      "type": "string",
+      "description": "A description of the unit quantity.",
+      "required": false
+    },
+    {
+      "name": "quantity2",
+      "type": "float",
+      "description": "The quantity 2.",
+      "required": false
+    },
+    {
+      "name": "quantity3",
+      "type": "float",
+      "description": "The quantity 3.",
+      "required": false
+    },
+    {
+      "name": "unitNumber_dbId",
+      "type": "int",
+      "description": "The unique identifier of the unit number.",
+      "required": false
+    },
+    {
+      "name": "unitNumber_dbSubId",
+      "type": "int",
+      "description": "The unique identifier of the unit number sub identifier.",
+      "required": false
+    },
+    {
+      "name": "unitNumber_code",
+      "type": "string",
+      "description": "The code representing the unit number.",
+      "required": false
+    },
+    {
+      "name": "unitNumber_description",
+      "type": "string",
+      "description": "A description of the unit number.",
+      "required": false
+    },
+    {
+      "name": "positionNumber",
+      "type": "int",
+      "description": "The position number.",
+      "required": false
+    },
+    {
+      "name": "workflow",
+      "type": "boolean",
+      "description": "The workflow.",
+      "required": false
+    },
+    {
+      "name": "jobLevel_dbId",
+      "type": "int",
+      "description": "The unique identifier of the job level.",
+      "required": false
+    },
+    {
+      "name": "jobLevel_dbSubId",
+      "type": "int",
+      "description": "The unique identifier of the job level sub identifier.",
+      "required": false
+    },
+    {
+      "name": "jobLevel_code",
+      "type": "string",
+      "description": "The code representing the job level.",
+      "required": false
+    },
+    {
+      "name": "jobLevel_description",
+      "type": "string",
+      "description": "A description of the job level.",
+      "required": false
+    },
+    {
+      "name": "invoiceFile",
+      "type": "string",
+      "description": "The invoice file.",
+      "required": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "int",
+      "description": "The unique identifier of the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_code",
+      "type": "string",
+      "description": "The code representing the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_description",
+      "type": "string",
+      "description": "A description of the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_ownerCode",
+      "type": "string",
+      "description": "The owner code.",
+      "required": false
+    },
+    {
+      "name": "amount3",
+      "type": "string",
+      "description": "The amount 3.",
+      "required": false
+    },
+    {
+      "name": "amount4",
+      "type": "string",
+      "description": "The amount 4.",
+      "required": false
+    },
+    {
+      "name": "amount5",
+      "type": "string",
+      "description": "The amount 5.",
+      "required": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "int",
+      "description": "The unique identifier of the company.",
+      "required": false
+    },
+    {
+      "name": "company_code",
+      "type": "string",
+      "description": "The code representing the company.",
+      "required": false
+    },
+    {
+      "name": "company_description",
+      "type": "string",
+      "description": "A description of the company.",
+      "required": false
+    },
+    {
+      "name": "invoiceFileInput_dbId",
+      "type": "int",
+      "description": "The unique identifier of the invoice file input.",
+      "required": false
+    },
+    {
+      "name": "invoiceFileInput_description",
+      "type": "string",
+      "description": "A description of the invoice file input.",
+      "required": false
+    },
+    {
+      "name": "importDefinition_dbId",
+      "type": "int",
+      "description": "The unique identifier of the import definition.",
+      "required": false
+    },
+    {
+      "name": "importDefinition_code",
+      "type": "string",
+      "description": "The code representing the import definition.",
+      "required": false
+    },
+    {
+      "name": "importDefinition_description",
+      "type": "string",
+      "description": "A description of the import definition.",
+      "required": false
+    }
+  ]
+}

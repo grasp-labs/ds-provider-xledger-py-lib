@@ -88,7 +88,7 @@ def map_graphql_errors_to_exception(
             )
             return _build_exception(
                 resolved_rule.exc_cls,
-                message=resolved_rule.message,
+                message=error_message if error_message else resolved_rule.message,
                 status_code=status_code,
             )
         logger.warning(
@@ -137,7 +137,7 @@ def _parse_error(error: Any) -> tuple[str, str, str]:
         A tuple containing the message, code, and extension code.
     """
     payload = error if isinstance(error, dict) else {}
-    message = str(payload.get("message", "Unknown Error"))
+    message = str(payload.get("message", ""))
     code = str(payload.get("code", "UNHANDLED_ERROR")).upper()
     extension_code = str(payload.get("extensions", {}).get("code", "UNHANDLED_ERROR")).upper()
     return message, code, extension_code

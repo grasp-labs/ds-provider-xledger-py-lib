@@ -1,0 +1,44 @@
+{
+  "name": "entities",
+  "type": "read",
+  "description": "Query entities.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The unique identifier of the entities.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code representing the entities.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A description of the entities.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner of the entities.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime",
+      "description": "The timestamp when the entities was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The timestamp when the entities was last modified.",
+      "default": true
+    }
+  ]
+}

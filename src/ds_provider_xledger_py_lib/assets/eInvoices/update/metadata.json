@@ -1,0 +1,38 @@
+{
+  "name": "updateEInvoices",
+  "type": "update",
+  "description": "Xledger E-Invoices dataset.",
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the e-invoice.",
+      "required": true,
+      "default": true
+    },
+    {
+      "name": "trInvoiceLevel_dbId",
+      "type": "int64",
+      "description": "The unique identifier for the invoice level.",
+      "required": false
+    },
+    {
+      "name": "trInvoiceLevel_dbSubId",
+      "type": "int64",
+      "description": "The unique identifier for the invoice level sub-id.",
+      "required": false
+    },
+    {
+      "name": "trInvoiceLevel_name",
+      "type": "string",
+      "description": "The name of the invoice level.",
+      "required": false
+    },
+    {
+      "name": "trInvoiceLevel_code",
+      "type": "string",
+      "description": "The code of the invoice level.",
+      "required": false
+    }
+  ]
+}

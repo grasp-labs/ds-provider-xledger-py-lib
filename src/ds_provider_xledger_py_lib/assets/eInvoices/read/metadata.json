@@ -1,0 +1,26 @@
+{
+  "name": "eInvoices",
+  "type": "read",
+  "description": "Xledger eInvoices dataset.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the eInvoice.",
+      "default": true
+    },
+    {
+      "name": "invoiceFile_url",
+      "type": "string",
+      "description": "The URL to the invoiceFile.",
+      "default": true
+    },
+    {
+      "name": "supplier_dbId",
+      "type": "int64",
+      "description": "The unique identifier for the supplier.",
+      "default": false
+    }
+  ]
+}

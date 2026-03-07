@@ -1,0 +1,56 @@
+{
+  "name": "objectValues",
+  "type": "read",
+  "description": "Query Object Values.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The unique identifier of the Object Values.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code representing the Object Values.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A description of the Object Values.",
+      "default": true
+    },
+    {
+        "name": "posting",
+        "type": "boolean",
+        "description": "The posting status of the object value.",
+        "default": true
+    },
+    {
+        "name": "dateFrom",
+        "type": "datetime64[ns]",
+        "description": "The date from which the object value is valid.",
+        "default": true
+    },
+    {
+        "name": "dateTo",
+        "type": "datetime64[ns]",
+        "description": "The date to which the object value is valid.",
+        "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime64[ns]",
+      "description": "The timestamp when the Object Value was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime64[ns]",
+      "description": "The timestamp when the Object Value was last modified.",
+      "default": true
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "name": "addCompanies",
+  "type": "create",
+  "description": "Create Xledger companies dataset.",
+  "fields": [
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the contact.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the contact.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "companyNumber",
+      "type": "string",
+      "description": "The organisation number of the company.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "description": "The email of the company.",
+      "required": false
+    },
+    {
+      "name": "taxNumber",
+      "type": "string",
+      "description": "The tax number of the company.",
+      "required": false
+    },
+    {
+      "name": "socialSec",
+      "type": "string",
+      "description": "The social security number of the company.",
+      "required": false
+    },
+    {
+      "name": "phone",
+      "type": "string",
+      "description": "The phone number of the company.",
+      "required": false
+    },
+    {
+      "name": "phone2",
+      "type": "string",
+      "description": "The second phone number of the company.",
+      "required": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "int64",
+      "description": "The unique identifier of owner.",
+      "required": false
+    },
+    {
+      "name": "owner_code",
+      "type": "string",
+      "description": "The code of the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_description",
+      "type": "string",
+      "description": "The description of the owner.",
+      "required": false
+    },
+    {
+      "name": "ownerCode",
+      "type": "string",
+      "description": "The owner code.",
+      "required": false
+    },
+    {
+      "name": "country_dbId",
+      "type": "string",
+      "description": "The unique identifier of country.",
+      "required": false
+    },
+    {
+      "name": "country_code",
+      "type": "string",
+      "description": "The code of the country.",
+      "required": false
+    },
+    {
+      "name": "country_description",
+      "type": "string",
+      "description": "The description / name of the country.",
+      "required": false
+    },
+    {
+      "name": "address_streetAddress",
+      "type": "string",
+      "description": "The street address of the address.",
+      "required": false
+    },
+    {
+      "name": "address_zipCode",
+      "type": "string",
+      "description": "The zip code for the address.",
+      "required": false
+    },
+    {
+      "name": "address_place",
+      "type": "string",
+      "description": "The town / place of the address.",
+      "required": false
+    },
+    {
+      "name": "address_state",
+      "type": "string",
+      "description": "The state / county of the address.",
+      "required": false
+    },
+    {
+      "name": "address_country",
+      "type": "string",
+      "description": "The country of the address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_streetAddress",
+      "type": "string",
+      "description": "The street address of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_zipCode",
+      "type": "string",
+      "description": "The zip code for the shipping address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_place",
+      "type": "string",
+      "description": "The town / place of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_state",
+      "type": "string",
+      "description": "The state / county of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_country",
+      "type": "string",
+      "description": "The country of the shipping address.",
+      "required": false
+    }
+  ]
+}

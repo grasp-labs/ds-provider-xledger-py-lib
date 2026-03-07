@@ -1,0 +1,6 @@
+mutation {
+  removeBankAccounts(dbIds: {{ DBIDS }}) {
+    numAffected
+    skippedDbIds
+  }
+}

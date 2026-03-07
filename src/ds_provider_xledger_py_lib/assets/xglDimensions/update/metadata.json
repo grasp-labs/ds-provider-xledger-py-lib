@@ -1,0 +1,251 @@
+{
+  "name": "updateXGLDimensions",
+  "type": "update",
+  "description": "Update Xledger XGL Dimensions.",
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The unique identifier of the XGL Dimension.",
+      "required": true,
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the XGL Dimension.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the XGL Dimension.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "allowPosting",
+      "type": "boolean",
+      "description": "Allow posting.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "field1_dbId",
+      "type": "Int64",
+      "description": "Field 1 dbId.",
+      "required": false
+    },
+    {
+      "name": "field1_code",
+      "type": "string",
+      "description": "Field 1 code.",
+      "required": false
+    },
+    {
+      "name": "field1_description",
+      "type": "string",
+      "description": "Field 1 description.",
+      "required": false
+    },
+    {
+      "name": "field2_dbId",
+      "type": "Int64",
+      "description": "Field 2 dbId.",
+      "required": false
+    },
+    {
+      "name": "field2_code",
+      "type": "string",
+      "description": "Field 2 code.",
+      "required": false
+    },
+    {
+      "name": "field2_description",
+      "type": "string",
+      "description": "Field 2 description.",
+      "required": false
+    },
+    {
+      "name": "field3_dbId",
+      "type": "Int64",
+      "description": "Field 3 dbId.",
+      "required": false
+    },
+    {
+      "name": "field3_code",
+      "type": "string",
+      "description": "Field 3 code.",
+      "required": false
+    },
+    {
+      "name": "field3_description",
+      "type": "string",
+      "description": "Field 3 description.",
+      "required": false
+    },
+    {
+      "name": "field4_dbId",
+      "type": "Int64",
+      "description": "Field 4 dbId.",
+      "required": false
+    },
+    {
+      "name": "field4_code",
+      "type": "string",
+      "description": "Field 4 code.",
+      "required": false
+    },
+    {
+      "name": "field4_description",
+      "type": "string",
+      "description": "Field 4 description.",
+      "required": false
+    },
+    {
+      "name": "field5_dbId",
+      "type": "string",
+      "description": "Field 5.",
+      "required": false
+    },
+    {
+      "name": "field5_code",
+      "type": "string",
+      "description": "Field 5.",
+      "required": false
+    },
+    {
+      "name": "field5_description",
+      "type": "string",
+      "description": "Field 5.",
+      "required": false
+    },
+    {
+      "name": "field6_dbId",
+      "type": "Int64",
+      "description": "Field 6 dbId.",
+      "required": false
+    },
+    {
+      "name": "field6_code",
+      "type": "string",
+      "description": "Field 6 code.",
+      "required": false
+    },
+    {
+      "name": "field6_description",
+      "type": "string",
+      "description": "Field 6 description.",
+      "required": false
+    },
+    {
+      "name": "field7_dbId",
+      "type": "Int64",
+      "description": "Field 7 dbId.",
+      "required": false
+    },
+    {
+      "name": "field7_code",
+      "type": "string",
+      "description": "Field 7 code.",
+      "required": false
+    },
+    {
+      "name": "field7_description",
+      "type": "string",
+      "description": "Field 7 description.",
+      "required": false
+    },
+    {
+      "name": "field8_dbId",
+      "type": "Int64",
+      "description": "Field 8 dbId.",
+      "required": false
+    },
+    {
+      "name": "field8_code",
+      "type": "string",
+      "description": "Field 8 code.",
+      "required": false
+    },
+    {
+      "name": "field8_description",
+      "type": "string",
+      "description": "Field 8 description.",
+      "required": false
+    },
+    {
+      "name": "field9_dbId",
+      "type": "Int64",
+      "description": "Field 9 DbId.",
+      "required": false
+    },
+    {
+      "name": "field9_code",
+      "type": "string",
+      "description": "Field 9 code.",
+      "required": false
+    },
+    {
+      "name": "field9_description",
+      "type": "string",
+      "description": "Field 9 description.",
+      "required": false
+    },
+    {
+      "name": "field10_dbId",
+      "type": "Int64",
+      "description": "Field 10 dbId.",
+      "required": false
+    },
+    {
+      "name": "field10_code",
+      "type": "string",
+      "description": "Field 10 code.",
+      "required": false
+    },
+    {
+      "name": "field10_description",
+      "type": "string",
+      "description": "Field 10 description.",
+      "required": false
+    },
+    {
+      "name": "field11_dbId",
+      "type": "Int64",
+      "description": "Field 11 dbId.",
+      "required": false
+    },
+    {
+      "name": "field11_code",
+      "type": "string",
+      "description": "Field 11 code.",
+      "required": false
+    },
+    {
+      "name": "field11_description",
+      "type": "string",
+      "description": "Field 11 description.",
+      "required": false
+    },
+    {
+      "name": "field12_dbId",
+      "type": "Int64",
+      "description": "Field 12 dbId.",
+      "required": false
+    },
+    {
+      "name": "field12_code",
+      "type": "string",
+      "description": "Field 12 code.",
+      "required": false
+    },
+    {
+      "name": "field12_description",
+      "type": "string",
+      "description": "Field 12 description.",
+      "required": false
+    }
+  ]
+}

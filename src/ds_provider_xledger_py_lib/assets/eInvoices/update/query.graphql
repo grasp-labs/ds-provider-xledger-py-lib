@@ -1,0 +1,8 @@
+mutation ($PlaceHolderInput: [UpdateEInvoicesInput!]!) {
+  updateEInvoices(inputs: $PlaceHolderInput) {
+    edges {
+      clientId
+      node { {{ FIELDS }} }
+    }
+  }
+}

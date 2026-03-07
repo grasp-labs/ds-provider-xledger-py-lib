@@ -1,0 +1,923 @@
+{
+  "name": "updateProjects",
+  "type": "update",
+  "description": "Update Xledger Projects dataset.",
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the project.",
+      "required": true,
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the project.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the project.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "extIdentifier",
+      "type": "string",
+      "description": "The external identifier of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_flag1",
+      "type": "bool",
+      "description": "The flexi field flag1 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_flag2",
+      "type": "bool",
+      "description": "The flexi field flag2 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_flag3",
+      "type": "bool",
+      "description": "The flexi field flag3 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_flag4",
+      "type": "bool",
+      "description": "The flexi field flag4 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_date1",
+      "type": "datetime64[ns]",
+      "description": "The flexi field date1 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_date2",
+      "type": "datetime64[ns]",
+      "description": "The flexi field date2 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_date3",
+      "type": "datetime64[ns]",
+      "description": "The flexi field date3 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_date4",
+      "type": "datetime64[ns]",
+      "description": "The flexi field date4 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_value1",
+      "type": "float64",
+      "description": "The flexi field value1 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_value2",
+      "type": "float64",
+      "description": "The flexi field value2 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_value3",
+      "type": "float64",
+      "description": "The flexi field value3 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_value4",
+      "type": "float64",
+      "description": "The flexi field value4 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_number1",
+      "type": "int",
+      "description": "The flexi field number1 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_number2",
+      "type": "int",
+      "description": "The flexi field number2 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code1DbId",
+      "type": "int",
+      "description": "The flexi field code1DbId of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code2DbId",
+      "type": "int",
+      "description": "The flexi field code2DbId of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code3DbId",
+      "type": "int",
+      "description": "The flexi field code3DbId of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code4DbId",
+      "type": "int",
+      "description": "The flexi field code4DbId of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code5DbId",
+      "type": "int",
+      "description": "The flexi field code5DbId of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code6DbId",
+      "type": "int",
+      "description": "The flexi field code6DbId of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code7DbId",
+      "type": "int",
+      "description": "The flexi field code7DbId of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code8DbId",
+      "type": "int",
+      "description": "The flexi field code8DbId of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text1",
+      "type": "string",
+      "description": "The flexi field text1 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text2",
+      "type": "string",
+      "description": "The flexi field text2 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text3",
+      "type": "string",
+      "description": "The flexi field text3 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text4",
+      "type": "string",
+      "description": "The flexi field text4 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text5",
+      "type": "string",
+      "description": "The flexi field text5 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text6",
+      "type": "string",
+      "description": "The flexi field text6 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text7",
+      "type": "string",
+      "description": "The flexi field text7 of the project.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text8",
+      "type": "string",
+      "description": "The flexi field text8 of the project.",
+      "required": false
+    },
+    {
+      "name": "ourSales_dbId",
+      "type": "int64",
+      "description": "The ourSales dbid of the customer.",
+      "required": false
+    },
+    {
+      "name": "ourSales_code",
+      "type": "string",
+      "description": "The ourSales code of the customer.",
+      "required": false
+    },
+    {
+      "name": "ourRef_dbId",
+      "type": "int64",
+      "description": "The ourRef dbid of the customer.",
+      "required": false
+    },
+    {
+      "name": "ourRef_code",
+      "type": "string",
+      "description": "The ourRef code of the customer.",
+      "required": false
+    },
+    {
+      "name": "externalContact_dbId",
+      "type": "int64",
+      "description": "The external contact reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "externalContact_code",
+      "type": "string",
+      "description": "The external contact reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "int64",
+      "description": "The glObject1 dbid of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject1_code",
+      "type": "string",
+      "description": "The glObject1 code of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject1_description",
+      "type": "string",
+      "description": "The glObject1 description of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "int64",
+      "description": "The glObject2 dbid of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject2_code",
+      "type": "string",
+      "description": "The glObject2 code of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject2_description",
+      "type": "string",
+      "description": "The glObject2 description of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "int64",
+      "description": "The glObject3 dbid of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject3_code",
+      "type": "string",
+      "description": "The glObject3 code of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject3_description",
+      "type": "string",
+      "description": "The glObject3 description of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "int64",
+      "description": "The glObject4 dbid of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject4_code",
+      "type": "string",
+      "description": "The glObject4 code of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject4_description",
+      "type": "string",
+      "description": "The glObject4 description of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "int64",
+      "description": "The glObject5 dbid of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject5_code",
+      "type": "string",
+      "description": "The glObject5 code of the customer.",
+      "required": false
+    },
+    {
+      "name": "glObject5_description",
+      "type": "string",
+      "description": "The glObject5 description of the customer.",
+      "required": false
+    },
+    {
+      "name": "yourReference",
+      "type": "string",
+      "description": "Your reference value for the project.",
+      "required": false
+    },
+    {
+      "name": "extOrder",
+      "type": "string",
+      "description": "The external order reference for the project.",
+      "required": false
+    },
+    {
+      "name": "contract",
+      "type": "string",
+      "description": "The contract reference for the project.",
+      "required": false
+    },
+    {
+      "name": "overview",
+      "type": "string",
+      "description": "The overview of the project.",
+      "required": false
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text description for the project.",
+      "required": false
+    },
+    {
+      "name": "invoiceHeader",
+      "type": "string",
+      "description": "The invoice header for the project.",
+      "required": false
+    },
+    {
+      "name": "invoiceFooter",
+      "type": "string",
+      "description": "The invoice footer for the project.",
+      "required": false
+    },
+    {
+      "name": "activity",
+      "type": "bool",
+      "description": "Activity status of the project.",
+      "required": false
+    },
+    {
+      "name": "expenseLedger",
+      "type": "bool",
+      "description": "Expense ledger status of the project.",
+      "required": false
+    },
+    {
+      "name": "external",
+      "type": "bool",
+      "description": "External status of the project.",
+      "required": false
+    },
+    {
+      "name": "billable",
+      "type": "bool",
+      "description": "Billable status of the project.",
+      "required": false
+    },
+    {
+      "name": "timesheetEntry",
+      "type": "bool",
+      "description": "Timesheet entry status of the project.",
+      "required": false
+    },
+    {
+      "name": "projectManager_dbId",
+      "type": "int64",
+      "description": "The project manager reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "projectManager_code",
+      "type": "string",
+      "description": "The project manager reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "projectManager_description",
+      "type": "string",
+      "description": "The project manager reference description for the project.",
+      "required": false
+    },
+    {
+      "name": "subledger_dbId",
+      "type": "int64",
+      "description": "The subledger reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "subledger_code",
+      "type": "string",
+      "description": "The subledger reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "subledger_description",
+      "type": "string",
+      "description": "The subledger reference description for the project.",
+      "required": false
+    },
+    {
+      "name": "fromDate",
+      "type": "datetime64[ns]",
+      "description": "The start date for the project.",
+      "required": false
+    },
+    {
+      "name": "toDate",
+      "type": "datetime64[ns]",
+      "description": "The end date for the project.",
+      "required": false
+    },
+    {
+      "name": "projectOwner_dbId",
+      "type": "int64",
+      "description": "The project owner reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "projectOwner_code",
+      "type": "string",
+      "description": "The project owner reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "projectOwner_description",
+      "type": "string",
+      "description": "The project owner reference description for the project.",
+      "required": false
+    },
+    {
+      "name": "projectOwner_ownerCode",
+      "type": "int",
+      "description": "The project owner reference for the project.",
+      "required": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "int64",
+      "description": "The currency dbid of the customer.",
+      "required": false
+    },
+    {
+      "name": "currency_code",
+      "type": "string",
+      "description": "The currency code of the customer.",
+      "required": false
+    },
+    {
+      "name": "currency_description",
+      "type": "string",
+      "description": "The currency description of the customer.",
+      "required": false
+    },
+    {
+      "name": "mainProject_dbId",
+      "type": "int64",
+      "description": "The main project reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "mainProject_code",
+      "type": "string",
+      "description": "The main project reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "mainProject_description",
+      "type": "string",
+      "description": "The main project reference description for the project.",
+      "required": false
+    },
+    {
+      "name": "projectGroup_dbId",
+      "type": "int64",
+      "description": "The project group reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "projectGroup_code",
+      "type": "string",
+      "description": "The project group reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "projectGroup_description",
+      "type": "string",
+      "description": "The project group reference description for the project.",
+      "required": false
+    },
+    {
+      "name": "priceGroup_dbId",
+      "type": "int64",
+      "description": "The price group reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "priceGroup_code",
+      "type": "string",
+      "description": "The price group reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "priceGroup_description",
+      "type": "string",
+      "description": "The price group reference description for the project.",
+      "required": false
+    },
+    {
+      "name": "fixedClient",
+      "type": "bool",
+      "description": "Fixed client status of the project.",
+      "required": false
+    },
+    {
+      "name": "assignment",
+      "type": "bool",
+      "description": "Assignment status of the project.",
+      "required": false
+    },
+    {
+      "name": "allowPosting",
+      "type": "bool",
+      "description": "Allow posting status of the project.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "fundProject",
+      "type": "bool",
+      "description": "Fund project status of the project.",
+      "required": false
+    },
+    {
+      "name": "pmSoInvoiceLevel_dbId",
+      "type": "int64",
+      "description": "The PM SO invoice level reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "pmSoInvoiceLevel_dbSubId",
+      "type": "int",
+      "description": "The PM SO invoice level reference dbSubId for the project.",
+      "required": false
+    },
+    {
+      "name": "pmSoInvoiceLevel_name",
+      "type": "string",
+      "description": "The PM SO invoice level reference name for the project.",
+      "required": false
+    },
+    {
+      "name": "pmSoInvoiceLevel_code",
+      "type": "string",
+      "description": "The PM SO invoice level reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "soOrderLevel_dbId",
+      "type": "int64",
+      "description": "The SO order level reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "soOrderLevel_dbSubId",
+      "type": "int",
+      "description": "The SO order level reference dbSubId for the project.",
+      "required": false
+    },
+    {
+      "name": "soOrderLevel_name",
+      "type": "string",
+      "description": "The SO order level reference name for the project.",
+      "required": false
+    },
+    {
+      "name": "soOrderLevel_code",
+      "type": "string",
+      "description": "The SO order level reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_dbId",
+      "type": "int64",
+      "description": "The invoice delivery method reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_dbSubId",
+      "type": "int",
+      "description": "The invoice delivery method reference dbSubId for the project.",
+      "required": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_name",
+      "type": "string",
+      "description": "The invoice delivery method reference name for the project.",
+      "required": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_code",
+      "type": "string",
+      "description": "The invoice delivery method reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "reportSetup_dbId",
+      "type": "int64",
+      "description": "The report setup reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "reportSetup_code",
+      "type": "string",
+      "description": "The report setup reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "reportSetup_description",
+      "type": "string",
+      "description": "The report setup reference description for the project.",
+      "required": false
+    },
+    {
+      "name": "pricelist_dbId",
+      "type": "int64",
+      "description": "The pricelist reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "pricelist_code",
+      "type": "string",
+      "description": "The pricelist reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "pricelist_description",
+      "type": "string",
+      "description": "The pricelist reference description for the project.",
+      "required": false
+    },
+    {
+      "name": "invoiceLayout_dbId",
+      "type": "int64",
+      "description": "The invoice layout reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "invoiceLayout_dbSubId",
+      "type": "int",
+      "description": "The invoice layout reference dbSubId for the project.",
+      "required": false
+    },
+    {
+      "name": "invoiceLayout_name",
+      "type": "string",
+      "description": "The invoice layout reference name for the project.",
+      "required": false
+    },
+    {
+      "name": "invoiceLayout_code",
+      "type": "string",
+      "description": "The invoice layout reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "int64",
+      "description": "The unique identifier for company object of the project.",
+      "required": false
+    },
+    {
+      "name": "company_code",
+      "type": "string",
+      "description": "The code for company object of the project.",
+      "required": false
+    },
+    {
+      "name": "company_description",
+      "type": "string",
+      "description": "The description for company object of the project.",
+      "required": false
+    },
+    {
+      "name": "accessControl",
+      "type": "bool",
+      "description": "Access control status of the project.",
+      "required": false
+    },
+    {
+      "name": "shortInfo",
+      "type": "string",
+      "description": "Short information about the project.",
+      "required": false
+    },
+    {
+      "name": "shortInternalInfo",
+      "type": "string",
+      "description": "Short internal information about the project.",
+      "required": false
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "description": "The email of the project.",
+      "required": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "int64",
+      "description": "The xgl dbid of the customer.",
+      "required": false
+    },
+    {
+      "name": "xgl_code",
+      "type": "string",
+      "description": "The xgl code of the customer.",
+      "required": false
+    },
+    {
+      "name": "xgl_description",
+      "type": "string",
+      "description": "The xgl description of the customer.",
+      "required": false
+    },
+    {
+      "name": "taxRule_dbId",
+      "type": "int64",
+      "description": "The tax rule reference dbId for the project.",
+      "required": false
+    },
+    {
+      "name": "taxRule_code",
+      "type": "string",
+      "description": "The tax rule reference code for the project.",
+      "required": false
+    },
+    {
+      "name": "taxRule_description",
+      "type": "string",
+      "description": "The tax rule reference description for the project.",
+      "required": false
+    },
+    {
+      "name": "billAddress_streetAddress",
+      "type": "string",
+      "description": "The billing street address of the project.",
+      "required": false
+    },
+    {
+      "name": "billAddress_zipCode",
+      "type": "string",
+      "description": "The billing zip code of the project.",
+      "required": false
+    },
+    {
+      "name": "billAddress_place",
+      "type": "string",
+      "description": "The billing place of the project.",
+      "required": false
+    },
+    {
+      "name": "billAddress_state",
+      "type": "string",
+      "description": "The billing state of the project.",
+      "required": false
+    },
+    {
+      "name": "billAddress_country",
+      "type": "string",
+      "description": "The billing country of the project.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_streetAddress",
+      "type": "string",
+      "description": "The shipping street address of the project.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_zipCode",
+      "type": "string",
+      "description": "The shipping zip code of the project.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_place",
+      "type": "string",
+      "description": "The shipping place of the project.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_state",
+      "type": "string",
+      "description": "The shipping state of the project.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_country",
+      "type": "string",
+      "description": "The shipping country of the project.",
+      "required": false
+    },
+    {
+      "name": "totalCost",
+      "type": "string",
+      "description": "Total project cost.",
+      "required": false
+    },
+    {
+      "name": "totalEstimateHours",
+      "type": "float64",
+      "description": "Total project estimate.",
+      "required": false
+    },
+    {
+      "name": "contractedRevenue",
+      "type": "string",
+      "description": "Contract revenue of the project.",
+      "required": false
+    },
+    {
+      "name": "shippingTerms_dbId",
+      "type": "int64",
+      "description": "Project shipping terms dbId.",
+      "required": false
+    },
+    {
+      "name": "shippingTerms_code",
+      "type": "string",
+      "description": "Project shipping terms code.",
+      "required": false
+    },
+    {
+      "name": "shippingTerms_description",
+      "type": "string",
+      "description": "Project shipping terms description.",
+      "required": false
+    },
+    {
+      "name": "invoiceRule_dbId",
+      "type": "int64",
+      "description": "Project invoice rule dbId.",
+      "required": false
+    },
+    {
+      "name": "invoiceRule_code",
+      "type": "string",
+      "description": "Project invoice rule code.",
+      "required": false
+    },
+    {
+      "name": "invoiceRule_description",
+      "type": "string",
+      "description": "Project invoice rule description.",
+      "required": false
+    },
+    {
+      "name": "fundRecipient_dbId",
+      "type": "int64",
+      "description": "Project fund recipient dbId.",
+      "required": false
+    },
+    {
+      "name": "fundRecipient_code",
+      "type": "string",
+      "description": "Project fund recipient code.",
+      "required": false
+    },
+    {
+      "name": "fundRecipient_description",
+      "type": "string",
+      "description": "Project fund recipient description.",
+      "required": false
+    }
+  ]
+}

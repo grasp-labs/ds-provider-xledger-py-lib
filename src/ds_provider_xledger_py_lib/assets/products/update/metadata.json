@@ -1,0 +1,331 @@
+{
+  "name": "updateProducts",
+  "type": "update",
+  "description": "Update Xledger Products.",
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The dbId of the Product.",
+      "required": true,
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the Product.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the Product.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "sortNumber",
+      "type": "int",
+      "description": "The sort number of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "int",
+      "description": "The GL Object 1 of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject1_code",
+      "type": "string",
+      "description": "The GL Object 1 code of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject1_description",
+      "type": "string",
+      "description": "The GL Object 1 description of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "int",
+      "description": "The GL Object 2 of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject2_code",
+      "type": "string",
+      "description": "The GL Object 2 code of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject2_description",
+      "type": "string",
+      "description": "The GL Object 2 description of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "int",
+      "description": "The GL Object 3 of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject3_code",
+      "type": "string",
+      "description": "The GL Object 3 code of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject3_description",
+      "type": "string",
+      "description": "The GL Object 3 description of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "int",
+      "description": "The GL Object 4 of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject4_code",
+      "type": "string",
+      "description": "The GL Object 4 code of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject4_description",
+      "type": "string",
+      "description": "The GL Object 4 description of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "int",
+      "description": "The GL Object 5 of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject5_code",
+      "type": "string",
+      "description": "The GL Object 5 code of the Product.",
+      "required": false
+    },
+    {
+      "name": "glObject5_description",
+      "type": "string",
+      "description": "The GL Object 5 description of the Product.",
+      "required": false
+    },
+    {
+      "name": "project_dbId",
+      "type": "int",
+      "description": "The Project of the Product.",
+      "required": false
+    },
+    {
+      "name": "project_code",
+      "type": "string",
+      "description": "The Project code of the Product.",
+      "required": false
+    },
+    {
+      "name": "project_description",
+      "type": "string",
+      "description": "The Project description of the Product.",
+      "required": false
+    },
+    {
+      "name": "forSale",
+      "type": "boolean",
+      "description": "The for sale of the Product.",
+      "required": false
+    },
+    {
+      "name": "productGroup_dbId",
+      "type": "int",
+      "description": "The Product Group of the Product.",
+      "required": false
+    },
+    {
+      "name": "productGroup_code",
+      "type": "string",
+      "description": "The Product Group code of the Product.",
+      "required": false
+    },
+    {
+      "name": "productGroup_description",
+      "type": "string",
+      "description": "The Product Group description of the Product.",
+      "required": false
+    },
+    {
+      "name": "allowPosting",
+      "type": "boolean",
+      "description": "The allow posting of the Product.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "inStock",
+      "type": "boolean",
+      "description": "The in stock of the Product.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "useWarehouse",
+      "type": "boolean",
+      "description": "The use warehouse of the Product.",
+      "required": false
+    },
+    {
+      "name": "taxRule_dbId",
+      "type": "int",
+      "description": "The Tax Rule of the Product.",
+      "required": false
+    },
+    {
+      "name": "taxRule_code",
+      "type": "string",
+      "description": "The Tax Rule code of the Product.",
+      "required": false
+    },
+    {
+      "name": "taxRule_description",
+      "type": "string",
+      "description": "The Tax Rule description of the Product.",
+      "required": false
+    },
+    {
+      "name": "availableForPurchase",
+      "type": "boolean",
+      "description": "The available for purchase of the Product.",
+      "required": false
+    },
+    {
+      "name": "overview",
+      "type": "string",
+      "description": "The overview of the Product.",
+      "required": false
+    },
+    {
+      "name": "productInfo",
+      "type": "string",
+      "description": "The product info of the Product.",
+      "required": false
+    },
+    {
+      "name": "salesPrice",
+      "type": "float",
+      "description": "The sales price of the Product.",
+      "required": false
+    },
+    {
+      "name": "manufacturer_dbId",
+      "type": "int",
+      "description": "The Manufacturer of the Product.",
+      "required": false
+    },
+    {
+      "name": "manufacturer_code",
+      "type": "string",
+      "description": "The Manufacturer code of the Product.",
+      "required": false
+    },
+    {
+      "name": "manufacturer_description",
+      "type": "string",
+      "description": "The Manufacturer description of the Product.",
+      "required": false
+    },
+    {
+      "name": "supplier_dbId",
+      "type": "int",
+      "description": "The Supplier of the Product.",
+      "required": false
+    },
+    {
+      "name": "supplier_code",
+      "type": "string",
+      "description": "The Supplier code of the Product.",
+      "required": false
+    },
+    {
+      "name": "supplier_description",
+      "type": "string",
+      "description": "The Supplier description of the Product.",
+      "required": false
+    },
+    {
+      "name": "partNo",
+      "type": "string",
+      "description": "The part no of the Product.",
+      "required": false
+    },
+    {
+      "name": "volume",
+      "type": "float",
+      "description": "The volume of the Product.",
+      "required": false
+    },
+    {
+      "name": "weight",
+      "type": "float",
+      "description": "The weight of the Product.",
+      "required": false
+    },
+    {
+      "name": "unit_dbId",
+      "type": "int",
+      "description": "The Unit of the Product.",
+      "required": false
+    },
+    {
+      "name": "unit_code",
+      "type": "string",
+      "description": "The Unit code of the Product.",
+      "required": false
+    },
+    {
+      "name": "unit_description",
+      "type": "string",
+      "description": "The Unit description of the Product.",
+      "required": false
+    },
+    {
+      "name": "costPrice",
+      "type": "float",
+      "description": "The cost price of the Product.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "useSerialNo",
+      "type": "boolean",
+      "description": "The use serial no of the Product.",
+      "required": false
+    },
+    {
+      "name": "useLotNo",
+      "type": "boolean",
+      "description": "The use lot no of the Product.",
+      "required": false
+    },
+    {
+      "name": "hasDateLimit",
+      "type": "boolean",
+      "description": "The has date limit of the Product.",
+      "required": false
+    },
+    {
+      "name": "model",
+      "type": "string",
+      "description": "The model of the Product.",
+      "required": false
+    }
+  ]
+}

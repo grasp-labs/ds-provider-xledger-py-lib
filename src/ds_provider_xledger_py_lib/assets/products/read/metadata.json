@@ -1,0 +1,62 @@
+{
+  "name": "products",
+  "type": "read",
+  "description": "Query Products.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The unique identifier of the Product.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code representing the Product.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A description of the Product.",
+      "default": true
+    },
+    {
+      "name": "costPrice",
+      "type": "string",
+      "description": "The email of the Product.",
+      "default": true
+    },
+    {
+      "name": "inStock",
+      "type": "boolean",
+      "description": "Is the Product in stock.",
+      "default": true
+    },
+    {
+      "name": "allowPosting",
+      "type": "boolean",
+      "description": "Is the Product allowed to be posted.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int",
+      "description": "The unique identifier of the Products's owner.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime",
+      "description": "The timestamp when the Products was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The timestamp when the Products was last modified.",
+      "default": true
+    }
+  ]
+}

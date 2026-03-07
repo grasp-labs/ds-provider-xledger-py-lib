@@ -1,0 +1,50 @@
+{
+  "name": "xglDimensions",
+  "type": "read",
+  "description": "Xledger xglDimensions dataset.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The unique identifier of the XGL Dimension.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code representing the XGL Dimension.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A description of the XGL Dimension.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime",
+      "description": "The timestamp when the XGL Dimension was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The timestamp when the XGL Dimension was last modified.",
+      "default": true
+    },
+    {
+      "name": "allowPosting",
+      "type": "boolean",
+      "description": "Specifies whether posting is allowed for this dimension.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int",
+      "description": "The unique identifier of the dimension's owner.",
+      "default": true
+    }
+  ]
+}

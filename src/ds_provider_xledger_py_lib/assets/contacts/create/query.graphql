@@ -1,0 +1,8 @@
+mutation ($PlaceHolderInput: [AddContactsInput!]!) {
+  addContacts(inputs: $PlaceHolderInput) {
+    edges {
+      clientId
+      node { {{ FIELDS }} }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "name": "subledgers",
+  "type": "read",
+  "description": "Query Subledgers.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The unique identifier of the Subledger.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code representing the Subledger.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A description of the Subledger.",
+      "default": true
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "description": "The email of the Subledger.",
+      "default": true
+    },
+    {
+      "name": "contract",
+      "type": "string",
+      "description": "The contract of the Subledger.",
+      "default": true
+    },
+    {
+      "name": "companyDbId",
+      "type": "int",
+      "description": "The unique identifier of the Subledger's company.",
+      "default": true
+    },
+    {
+      "name": "bankAccount",
+      "type": "string",
+      "description": "The bank account of the Subledger.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int",
+      "description": "The unique identifier of the Subledger's owner.",
+      "default": true
+    },
+    {
+      "name": "yourReference",
+      "type": "string",
+      "description": "Your reference.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime",
+      "description": "The timestamp when the Subledger was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The timestamp when the Subledger was last modified.",
+      "default": true
+    }
+  ]
+}

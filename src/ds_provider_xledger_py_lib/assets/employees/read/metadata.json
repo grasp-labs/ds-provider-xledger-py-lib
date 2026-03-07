@@ -1,0 +1,494 @@
+{
+  "name": "employees",
+  "type": "read",
+  "description": "Xledger employees dataset.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the employee.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the employee.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the employee.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime[ns]",
+      "description": "The timestamp when the employee was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime[ns]",
+      "description": "The timestamp when the employee was modified.",
+      "default": true
+    },
+    {
+      "name": "employmentFrom",
+      "type": "datetime64[ns]",
+      "description": "The employmentFrom value of the employee.",
+      "default": true
+    },
+    {
+      "name": "employmentTo",
+      "type": "datetime64[ns]",
+      "description": "The employmentTo value of the employee.",
+      "default": true
+    },
+    {
+      "name": "dateFrom",
+      "type": "datetime64[ns]",
+      "description": "The dateFrom value of the employee.",
+      "default": true
+    },
+    {
+      "name": "dateTo",
+      "type": "datetime64[ns]",
+      "description": "The dateTo value of the employee.",
+      "default": true
+    },
+    {
+      "name": "anniversaryDate",
+      "type": "datetime64[ns]",
+      "description": "The anniversary date value of the employee.",
+      "default": false
+    },
+    {
+      "name": "contactDbId",
+      "type": "int64",
+      "description": "The contactDbId for the employee.",
+      "default": false
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "description": "The email for the employee.",
+      "default": false
+    },
+    {
+      "name": "employeeGroupDbId",
+      "type": "int64",
+      "description": "The employeeGroupDbId of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemCode1DbId",
+      "type": "int64",
+      "description": "The flexifielditem code 1 dbid value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemCode2DbId",
+      "type": "int64",
+      "description": "The flexifielditem code 2 dbid value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItem_code3DbId",
+      "type": "int64",
+      "description": "The flexifielditem code 3 dbid value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemCode4DbId",
+      "type": "int64",
+      "description": "The flexifielditem code 4 dbid value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemCode5DbId",
+      "type": "int64",
+      "description": "The flexifielditem code 5 dbid value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemCode6DbId",
+      "type": "int64",
+      "description": "The flexifielditem code 6 dbid value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemCode7DbId",
+      "type": "int64",
+      "description": "The flexifielditem code 7 dbid value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemCode8DbId",
+      "type": "int64",
+      "description": "The flexifielditem code 8 dbid value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemDate1",
+      "type": "datetime64[ns]",
+      "description": "The flexifielditem date 1 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemDate2",
+      "type": "datetime64[ns]",
+      "description": "The flexifielditem date 2 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemDate3",
+      "type": "datetime64[ns]",
+      "description": "The flexifielditem date 3 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemDate4",
+      "type": "datetime64[ns]",
+      "description": "The flexifielditem date 4 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemFlag1",
+      "type": "bool",
+      "description": "The flexifielditem flag 1 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemFlag2",
+      "type": "bool",
+      "description": "The flexifielditem flag 2 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemFlag3",
+      "type": "bool",
+      "description": "The flexifielditem flag 3 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemFlag4",
+      "type": "bool",
+      "description": "The flexifielditem flag 4 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemNumber1",
+      "type": "int64",
+      "description": "The flexifielditem number 1 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemNumber2",
+      "type": "int64",
+      "description": "The flexifielditem number 2 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemText1",
+      "type": "string",
+      "description": "The flexifielditem text 1 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemText2",
+      "type": "string",
+      "description": "The flexifielditem text 2 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemText3",
+      "type": "string",
+      "description": "The flexifielditem text 3 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemText4",
+      "type": "string",
+      "description": "The flexifielditem text 4 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemText5",
+      "type": "string",
+      "description": "The flexifielditem text 5 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemText6",
+      "type": "string",
+      "description": "The flexifielditem text 6 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemText7",
+      "type": "string",
+      "description": "The flexifielditem text 7 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemText8",
+      "type": "string",
+      "description": "The flexifielditem text 8 value of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemValue1",
+      "type": "float64",
+      "description": "The flexifielditem value 1 of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemValue2",
+      "type": "float64",
+      "description": "The flexifielditem value 2 of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemValue3",
+      "type": "float64",
+      "description": "The flexifielditem value 3 of the employee.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldItemValue4",
+      "type": "float64",
+      "description": "The flexifielditem value 4 of the employee.",
+      "default": false
+    },
+    {
+      "name": "flextime",
+      "type": "bool",
+      "description": "The flextime value of the employee.",
+      "default": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "int64",
+      "description": "The glObject1 dbid of the employee.",
+      "default": false
+    },
+    {
+      "name": "glObject1_code",
+      "type": "string",
+      "description": "The glObject1 code of the employee.",
+      "default": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "int64",
+      "description": "The glObject2 dbid of the employee.",
+      "default": false
+    },
+    {
+      "name": "glObject2_code",
+      "type": "string",
+      "description": "The glObject2 code of the employee.",
+      "default": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "int64",
+      "description": "The glObject3 dbid of the employee.",
+      "default": false
+    },
+    {
+      "name": "glObject3_code",
+      "type": "string",
+      "description": "The glObject3 code of the employee.",
+      "default": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "int64",
+      "description": "The glObject4 dbid of the employee.",
+      "default": false
+    },
+    {
+      "name": "glObject4_code",
+      "type": "string",
+      "description": "The glObject4 code of the employee.",
+      "default": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "int64",
+      "description": "The glObject5 dbid of the employee.",
+      "default": false
+    },
+    {
+      "name": "glObject5_code",
+      "type": "string",
+      "description": "The glObject5 code of the employee.",
+      "default": false
+    },
+    {
+      "name": "hasFlexiField",
+      "type": "bool",
+      "description": "The hasFlexiField value of the employee.",
+      "default": false
+    },
+    {
+      "name": "info",
+      "type": "string",
+      "description": "The info value of the employee.",
+      "default": false
+    },
+    {
+      "name": "internalInfo",
+      "type": "string",
+      "description": "The internal info value of the employee.",
+      "default": false
+    },
+    {
+      "name": "managerPhone",
+      "type": "string",
+      "description": "The manager phone value of the employee.",
+      "default": false
+    },
+    {
+      "name": "noticeDate",
+      "type": "datetime64[ns]",
+      "description": "The notice date value of the employee.",
+      "default": false
+    },
+    {
+      "name": "overtime",
+      "type": "bool",
+      "description": "The overtime value of the employee.",
+      "default": false
+    },
+    {
+      "name": "overview",
+      "type": "string",
+      "description": "The overview value of the employee.",
+      "default": false
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int64",
+      "description": "The owner dbid of the employee.",
+      "default": false
+    },
+    {
+      "name": "seniorityDate",
+      "type": "datetime64[ns]",
+      "description": "The seniority date value of the employee.",
+      "default": false
+    },
+    {
+      "name": "socialSecurityMasked",
+      "type": "string",
+      "description": "The socialSecurityMasked value of the employee.",
+      "default": false
+    },
+    {
+      "name": "subledgerDbId",
+      "type": "int64",
+      "description": "The subledger dbid of the employee.",
+      "default": false
+    },
+    {
+      "name": "timebased",
+      "type": "bool",
+      "description": "The timebased value of the employee.",
+      "default": false
+    },
+    {
+      "name": "timesheet",
+      "type": "bool",
+      "description": "The timesheet value of the employee.",
+      "default": false
+    },
+    {
+      "name": "trialTo",
+      "type": "datetime64[ns]",
+      "description": "The trialTo value of the employee.",
+      "default": false
+    },
+    {
+      "name": "userDbId",
+      "type": "int64",
+      "description": "The user dbid of the employee.",
+      "default": false
+    },
+    {
+      "name": "employeeType_dbId",
+      "type": "int64",
+      "description": "The employeeType dbid of the employee.",
+      "default": false
+    },
+    {
+      "name": "employeeType_code",
+      "type": "string",
+      "description": "The employeeType code of the employee.",
+      "default": false
+    },
+    {
+      "name": "employeeType_description",
+      "type": "string",
+      "description": "The employeeType description of the employee.",
+      "default": false
+    },
+    {
+      "name": "employeeGroup_dbId",
+      "type": "int64",
+      "description": "The employeeGroup dbid of the employee.",
+      "default": false
+    },
+    {
+      "name": "employeeGroup_code",
+      "type": "string",
+      "description": "The employeeGroup code of the employee.",
+      "default": false
+    },
+    {
+      "name": "employeeGroup_description",
+      "type": "string",
+      "description": "The employeeGroup description of the employee.",
+      "default": false
+    },
+    {
+      "name": "contact_dbId",
+      "type": "int64",
+      "description": "The contact dbid of the employee.",
+      "default": false
+    },
+    {
+      "name": "contact_code",
+      "type": "string",
+      "description": "The contact code of the employee.",
+      "default": false
+    },
+    {
+      "name": "contact_description",
+      "type": "string",
+      "description": "The contact description of the employee.",
+      "default": false
+    },
+    {
+      "name": "contact_companyPerson",
+      "type": "string",
+      "description": "The contact company person of the employee.",
+      "default": false
+    },
+    {
+      "name": "contact_createdAt",
+      "type": "datetime64[ns]",
+      "description": "The contact createdAt value of the employee.",
+      "default": false
+    },
+    {
+      "name": "contact_email",
+      "type": "string",
+      "description": "The contact description of the employee.",
+      "default": false
+    }
+  ]
+}

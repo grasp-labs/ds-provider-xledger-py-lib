@@ -1,0 +1,8 @@
+mutation ($PlaceHolderInput: [UpdateSuppliersInput!]!) {
+  updateSuppliers(inputs: $PlaceHolderInput) {
+    edges {
+      clientId
+      node { {{ FIELDS }} }
+    }
+  }
+}

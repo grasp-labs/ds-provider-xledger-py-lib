@@ -1,0 +1,32 @@
+{
+  "name": "pricelists",
+  "type": "read",
+  "description": "Xledger pricelists dataset.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the accountBalance.",
+      "default": true
+    },
+    {
+      "name": "price",
+      "type": "string",
+      "description": "The code",
+      "default": false
+    },
+    {
+      "name": "product_code",
+      "type": "string",
+      "description": "The code",
+      "default": false
+    },
+    {
+      "name": "pricelistDbId",
+      "type": "int64",
+      "description": "The code",
+      "default": false
+    }
+  ]
+}

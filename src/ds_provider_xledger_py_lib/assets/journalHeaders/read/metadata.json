@@ -1,0 +1,32 @@
+{
+  "name": "journalHeaders",
+  "type": "read",
+  "description": "Read journal headers.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the import item.",
+      "default": true
+    },
+    {
+      "name": "trRegNumber",
+      "type": "int64",
+      "description": "The transaction registration number.",
+      "default": false
+    },
+    {
+      "name": "transactionNumber",
+      "type": "int64",
+      "description": "The transaction number.",
+      "default": false
+    },
+    {
+      "name": "transProcessLevel_name",
+      "type": "string",
+      "description": "The process level name.",
+      "default": false
+    }
+  ]
+}

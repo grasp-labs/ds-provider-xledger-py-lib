@@ -54,7 +54,7 @@ def test_raise_for_graphql_errors_maps_invalid_query() -> None:
     """
     It maps invalid query-like failures to InvalidQueryException.
     """
-    with pytest.raises(InvalidQueryException, match=r"Invalid Xledger query\."):
+    with pytest.raises(InvalidQueryException, match=r"Cannot query field `foo` on type `Query`"):
         raise_for_graphql_errors(
             body={"errors": [{"message": "Cannot query field `foo` on type `Query`"}]},
         )
@@ -64,7 +64,7 @@ def test_raise_for_graphql_errors_maps_invalid_mutation() -> None:
     """
     It maps invalid mutation-like failures to InvalidMutationException.
     """
-    with pytest.raises(InvalidMutationException, match=r"Invalid Xledger argument\."):
+    with pytest.raises(InvalidMutationException, match=r"Invalid mutation payload"):
         raise_for_graphql_errors(
             body={
                 "errors": [
@@ -199,7 +199,7 @@ def test_map_graphql_errors_to_exception_handles_non_dict_error() -> None:
     exc = map_graphql_errors_to_exception(errors=["boom"])
 
     assert isinstance(exc, UnhandledXledgerException)
-    assert exc.message == "Unknown Error"
+    assert exc.message == ""
 
 
 def test_map_graphql_errors_to_exception_checks_all_errors_for_match() -> None:
@@ -214,4 +214,4 @@ def test_map_graphql_errors_to_exception_checks_all_errors_for_match() -> None:
     )
 
     assert isinstance(exc, InvalidQueryException)
-    assert exc.message == "Invalid Xledger query."
+    assert exc.message == "Cannot query field `foo` on type `Query`"

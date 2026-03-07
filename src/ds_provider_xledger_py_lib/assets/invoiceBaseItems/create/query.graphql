@@ -1,0 +1,8 @@
+mutation ($PlaceHolderInput: [AddInvoiceBaseItemsInput!]!) {
+  addInvoiceBaseItems(inputs: $PlaceHolderInput) {
+    edges {
+      clientId
+      node { {{ FIELDS }} }
+    }
+  }
+}

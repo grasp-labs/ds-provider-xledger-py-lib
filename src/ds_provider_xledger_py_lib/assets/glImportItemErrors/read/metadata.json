@@ -1,0 +1,92 @@
+{
+  "name": "glImportItemErrors",
+  "type": "read",
+  "description": "GL Import items errors.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the import item.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime[ns]",
+      "description": "The timestamp when the company was created.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int64",
+      "description": "The unique identifier for owner.",
+      "default": false
+    },
+    {
+      "name": "message",
+      "type": "string",
+      "description": "The error message.",
+      "default": false
+    },
+    {
+      "name": "errorLevelDbId",
+      "type": "int64",
+      "description": "The error level identifier.",
+      "default": false
+    },
+    {
+      "name": "transactionDbId",
+      "type": "int64",
+      "description": "The transaction dbId.",
+      "default": false
+    },
+    {
+      "name": "errorLevel_dbId",
+      "type": "int64",
+      "description": "",
+      "default": false
+    },
+    {
+      "name": "errorLevel_ownerDbId",
+      "type": "int64",
+      "description": "",
+      "default": false
+    },
+    {
+      "name": "errorLevel_code",
+      "type": "string",
+      "description": "",
+      "default": false
+    },
+    {
+      "name": "errorLevel_name",
+      "type": "string",
+      "description": "",
+      "default": false
+    },
+    {
+      "name": "errorLevel_definitionId",
+      "type": "int64",
+      "description": "",
+      "default": false
+    },
+    {
+      "name": "errorLevel_dbSubId",
+      "type": "int64",
+      "description": "",
+      "default": false
+    },
+    {
+      "name": "objectValue_dbId",
+      "type": "int64",
+      "description": "",
+      "default": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "int64",
+      "description": "",
+      "default": false
+    }
+  ]
+}

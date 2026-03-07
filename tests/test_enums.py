@@ -1,12 +1,10 @@
 """
 **File:** ``test_enums.py``
-**Region:** ``tests/test_enums``
+**Region:** ``tests``
 
-ResourceType enum tests.
-
-Covers:
-- Enum value definitions and string representations.
-- Enum membership and comparison operations.
+Description
+-----------
+Unit tests for provider enums and string-based enum semantics.
 """
 
 from __future__ import annotations

@@ -1,0 +1,836 @@
+{
+  "name": "addContacts",
+  "type": "create",
+  "description": "Create xledger contacts dataset.",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "The unique identifier for the contact.",
+      "required": true,
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the contact.",
+      "required": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The name of the contact.",
+      "required": false
+    },
+    {
+      "name": "firstName",
+      "type": "string",
+      "description": "The first name of the contact.",
+      "required": false
+    },
+    {
+      "name": "lastName",
+      "type": "string",
+      "description": "The last name of the contact.",
+      "required": false
+    },
+    {
+      "name": "middleName",
+      "type": "string",
+      "description": "The middle name of the contact.",
+      "required": false
+    },
+    {
+      "name": "initials",
+      "type": "string",
+      "description": "The initials of the contact.",
+      "required": false
+    },
+    {
+      "name": "aliasName",
+      "type": "string",
+      "description": "The alias name of the contact.",
+      "required": false
+    },
+    {
+      "name": "maidenName",
+      "type": "string",
+      "description": "The maiden name of the contact.",
+      "required": false
+    },
+    {
+      "name": "suffix",
+      "type": "string",
+      "description": "The suffix of the contact.",
+      "required": false
+    },
+    {
+      "name": "jobTitle",
+      "type": "string",
+      "description": "The job title of the contact.",
+      "required": false
+    },
+    {
+      "name": "profession",
+      "type": "string",
+      "description": "The profession of the contact.",
+      "required": false
+    },
+    {
+      "name": "birthday",
+      "type": "datetime[ns]",
+      "description": "The birthday of the contact.",
+      "required": false
+    },
+    {
+      "name": "socialSec",
+      "type": "string",
+      "description": "The social security number of the contact.",
+      "required": false
+    },
+    {
+      "name": "personalId",
+      "type": "string",
+      "description": "The personal identifier of the contact.",
+      "required": false
+    },
+    {
+      "name": "companyName",
+      "type": "string",
+      "description": "The name of the company of the contact.",
+      "required": false
+    },
+    {
+      "name": "companyContact",
+      "type": "boolean",
+      "description": "The company contact of the contact.",
+      "required": false
+    },
+    {
+      "name": "phone",
+      "type": "string",
+      "description": "The phone number of the contact.",
+      "required": false
+    },
+    {
+      "name": "phone2",
+      "type": "string",
+      "description": "The phone number 2 of the contact.",
+      "required": false
+    },
+    {
+      "name": "phone3",
+      "type": "string",
+      "description": "The phone number 3 of the contact.",
+      "required": false
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "description": "The email of the contact.",
+      "required": false
+    },
+    {
+      "name": "email2",
+      "type": "string",
+      "description": "The email 2 of the contact.",
+      "required": false
+    },
+    {
+      "name": "email3",
+      "type": "string",
+      "description": "The email 3 of the contact.",
+      "required": false
+    },
+    {
+      "name": "fromDate",
+      "type": "datetime[ns]",
+      "description": "The fromDate of the contact.",
+      "required": false
+    },
+    {
+      "name": "toDate",
+      "type": "datetime[ns]",
+      "description": "The toDate of the contact.",
+      "required": false
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "The notes of the contact.",
+      "required": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the contact.",
+      "required": false
+    },
+    {
+      "name": "customer",
+      "type": "boolean",
+      "description": "The customer of the contact.",
+      "required": false
+    },
+    {
+      "name": "donor",
+      "type": "boolean",
+      "description": "The donor of the contact.",
+      "required": false
+    },
+    {
+      "name": "supplier",
+      "type": "boolean",
+      "description": "The supplier of the contact.",
+      "required": false
+    },
+    {
+      "name": "contactPhoneList",
+      "type": "string",
+      "description": "The contact phone list of the contact.",
+      "required": false
+    },
+    {
+      "name": "contactEmailList",
+      "type": "string",
+      "description": "The contact email list of the contact.",
+      "required": false
+    },
+    {
+      "name": "companyNumber",
+      "type": "string",
+      "description": "The organisation number of the company of the contact.",
+      "required": false
+    },
+    {
+      "name": "gender_dbId",
+      "type": "int64",
+      "description": "The unique identifier",
+      "required": false
+    },
+    {
+      "name": "gender_dbSubId",
+      "type": "int64",
+      "description": "The unique sub identifier",
+      "required": false
+    },
+    {
+      "name": "gender_code",
+      "type": "string",
+      "description": "The code identifier",
+      "required": false
+    },
+    {
+      "name": "gender_name",
+      "type": "string",
+      "description": "The name of the gender.",
+      "required": false
+    },
+    {
+      "name": "personalIdType_dbId",
+      "type": "int64",
+      "description": "The unique identifier",
+      "required": false
+    },
+    {
+      "name": "personalIdType_dbSubId",
+      "type": "int64",
+      "description": "The unique sub identifier",
+      "required": false
+    },
+    {
+      "name": "personalIdType_code",
+      "type": "string",
+      "description": "The code identifier",
+      "required": false
+    },
+    {
+      "name": "personalIdType_name",
+      "type": "string",
+      "description": "The name of the personal identifier type.",
+      "required": false
+    },
+    {
+      "name": "country_dbId",
+      "type": "int64",
+      "description": "The unique identifier",
+      "required": false
+    },
+    {
+      "name": "country_code",
+      "type": "string",
+      "description": "The code identifier",
+      "required": false
+    },
+    {
+      "name": "country_description",
+      "type": "string",
+      "description": "The description of the country.",
+      "required": false
+    },
+    {
+      "name": "deathDate",
+      "type": "datetime[ns]",
+      "description": "The death date of the contact.",
+      "required": false
+    },
+    {
+      "name": "address_streetAddress",
+      "type": "string",
+      "description": "The street address of the contact.",
+      "required": false
+    },
+    {
+      "name": "address_zipCode",
+      "type": "string",
+      "description": "The zip code of the contact.",
+      "required": false
+    },
+    {
+      "name": "address_place",
+      "type": "string",
+      "description": "The place of the contact.",
+      "required": false
+    },
+    {
+      "name": "address_state",
+      "type": "string",
+      "description": "The state of the contact.",
+      "required": false
+    },
+    {
+      "name": "address_country",
+      "type": "string",
+      "description": "The country of the contact.",
+      "required": false
+    },
+    {
+      "name": "billAddress_streetAddress",
+      "type": "string",
+      "description": "The street address of the billing address.",
+      "required": false
+    },
+    {
+      "name": "billAddress_zipCode",
+      "type": "string",
+      "description": "The zip code of the billing address.",
+      "required": false
+    },
+    {
+      "name": "billAddress_place",
+      "type": "string",
+      "description": "The place of the billing address.",
+      "required": false
+    },
+    {
+      "name": "billAddress_state",
+      "type": "string",
+      "description": "The state of the billing address.",
+      "required": false
+    },
+    {
+      "name": "billAddress_country",
+      "type": "string",
+      "description": "The country of the billing address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_streetAddress",
+      "type": "string",
+      "description": "The street address of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_zipCode",
+      "type": "string",
+      "description": "The zip code of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_place",
+      "type": "string",
+      "description": "The place of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_state",
+      "type": "string",
+      "description": "The state of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "shipAddress_country",
+      "type": "string",
+      "description": "The country of the shipping address.",
+      "required": false
+    },
+    {
+      "name": "homeAddress_streetAddress",
+      "type": "string",
+      "description": "The street address of the home address.",
+      "required": false
+    },
+    {
+      "name": "homeAddress_zipCode",
+      "type": "string",
+      "description": "The zip code of the home address.",
+      "required": false
+    },
+    {
+      "name": "homeAddress_place",
+      "type": "string",
+      "description": "The place of the home address.",
+      "required": false
+    },
+    {
+      "name": "homeAddress_state",
+      "type": "string",
+      "description": "The state of the home address.",
+      "required": false
+    },
+    {
+      "name": "homeAddress_country",
+      "type": "string",
+      "description": "The country of the home address.",
+      "required": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "int64",
+      "description": "The unique identifier for the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_code",
+      "type": "string",
+      "description": "The code identifier for the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_description",
+      "type": "string",
+      "description": "The description of the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_ownerCode",
+      "type": "string",
+      "description": "The owner code of the owner.",
+      "required": false
+    },
+    {
+      "name": "emailType_dbId",
+      "type": "int64",
+      "description": "The unique identifier",
+      "required": false
+    },
+    {
+      "name": "emailType_dbSubId",
+      "type": "int64",
+      "description": "The unique sub identifier",
+      "required": false
+    },
+    {
+      "name": "emailType_code",
+      "type": "string",
+      "description": "The code identifier",
+      "required": false
+    },
+    {
+      "name": "emailType_name",
+      "type": "string",
+      "description": "The name of the email type.",
+      "required": false
+    },
+    {
+      "name": "emailType2_dbId",
+      "type": "int64",
+      "description": "The unique identifier",
+      "required": false
+    },
+    {
+      "name": "emailType2_dbSubId",
+      "type": "int64",
+      "description": "The unique sub identifier",
+      "required": false
+    },
+    {
+      "name": "emailType2_code",
+      "type": "string",
+      "description": "The code identifier",
+      "required": false
+    },
+    {
+      "name": "emailType2_name",
+      "type": "string",
+      "description": "The name of the email type 2.",
+      "required": false
+    },
+    {
+      "name": "emailType3_dbId",
+      "type": "int64",
+      "description": "The unique identifier",
+      "required": false
+    },
+    {
+      "name": "emailType3_dbSubId",
+      "type": "int64",
+      "description": "The unique sub identifier",
+      "required": false
+    },
+    {
+      "name": "emailType3_code",
+      "type": "string",
+      "description": "The code identifier",
+      "required": false
+    },
+    {
+      "name": "emailType3_name",
+      "type": "string",
+      "description": "The name of the email type 3.",
+      "required": false
+    },
+    {
+      "name": "phoneType_dbId",
+      "type": "int64",
+      "description": "The unique identifier",
+      "required": false
+    },
+    {
+      "name": "phoneType_dbSubId",
+      "type": "int64",
+      "description": "The unique sub identifier",
+      "required": false
+    },
+    {
+      "name": "phoneType_code",
+      "type": "string",
+      "description": "The code identifier",
+      "required": false
+    },
+    {
+      "name": "phoneType_name",
+      "type": "string",
+      "description": "The name of the phone type.",
+      "required": false
+    },
+    {
+      "name": "phoneType2_dbId",
+      "type": "int64",
+      "description": "The unique identifier",
+      "required": false
+    },
+    {
+      "name": "phoneType2_dbSubId",
+      "type": "int64",
+      "description": "The unique sub identifier",
+      "required": false
+    },
+    {
+      "name": "phoneType2_code",
+      "type": "string",
+      "description": "The code identifier",
+      "required": false
+    },
+    {
+      "name": "phoneType2_name",
+      "type": "string",
+      "description": "The name of the phone type 2.",
+      "required": false
+    },
+    {
+      "name": "phoneType3_dbId",
+      "type": "int64",
+      "description": "The unique identifier",
+      "required": false
+    },
+    {
+      "name": "phoneType3_dbSubId",
+      "type": "int64",
+      "description": "The unique sub identifier",
+      "required": false
+    },
+    {
+      "name": "doNotCall",
+      "type": "boolean",
+      "description": "The do not call of the contact.",
+      "required": false
+    },
+    {
+      "name": "noEmail",
+      "type": "boolean",
+      "description": "The no email of the contact.",
+      "required": false
+    },
+    {
+      "name": "noMail",
+      "type": "boolean",
+      "description": "The no mail of the contact.",
+      "required": false
+    },
+    {
+      "name": "noSms",
+      "type": "boolean",
+      "description": "The no sms of the contact.",
+      "required": false
+    },
+    {
+      "name": "noTul",
+      "type": "boolean",
+      "description": "The no tul of the contact.",
+      "required": false
+    },
+    {
+      "name": "maritalStatus_dbId",
+      "type": "int64",
+      "description": "The unique identifier",
+      "required": false
+    },
+    {
+      "name": "maritalStatus_code",
+      "type": "string",
+      "description": "The code identifier",
+      "required": false
+    },
+    {
+      "name": "maritalStatus_description",
+      "type": "string",
+      "description": "The description of the marital status.",
+      "required": false
+    },
+    {
+      "name": "language_dbId",
+      "type": "int64",
+      "description": "The unique identifier",
+      "required": false
+    },
+    {
+      "name": "language_dbSubId",
+      "type": "int64",
+      "description": "The unique sub identifier",
+      "required": false
+    },
+    {
+      "name": "language_code",
+      "type": "string",
+      "description": "The code identifier",
+      "required": false
+    },
+    {
+      "name": "language_name",
+      "type": "string",
+      "description": "The name of the language.",
+      "required": false
+    },
+    {
+      "name": "contactGroup_dbId",
+      "type": "int64",
+      "description": "The unique identifier",
+      "required": false
+    },
+    {
+      "name": "contactGroup_code",
+      "type": "string",
+      "description": "The code identifier",
+      "required": false
+    },
+    {
+      "name": "contactGroup_description",
+      "type": "string",
+      "description": "The description of the contact group.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_flag1",
+      "type": "boolean",
+      "description": "The flag1 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_flag2",
+      "type": "boolean",
+      "description": "The flag2 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_flag3",
+      "type": "boolean",
+      "description": "The flag3 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_flag4",
+      "type": "boolean",
+      "description": "The flag4 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_date1",
+      "type": "datetime[ns]",
+      "description": "The date1 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_date2",
+      "type": "datetime[ns]",
+      "description": "The date2 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_date3",
+      "type": "datetime[ns]",
+      "description": "The date3 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_date4",
+      "type": "datetime[ns]",
+      "description": "The date4 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_value1",
+      "type": "float64",
+      "description": "The value1 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_value2",
+      "type": "float64",
+      "description": "The value2 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_value3",
+      "type": "float64",
+      "description": "The value3 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_value4",
+      "type": "float64",
+      "description": "The value4 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_number1",
+      "type": "int64",
+      "description": "The number1 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_number2",
+      "type": "int64",
+      "description": "The number2 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code1DbId",
+      "type": "int64",
+      "description": "The code1 db identifier of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code2DbId",
+      "type": "int64",
+      "description": "The code2 db identifier of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code3DbId",
+      "type": "int64",
+      "description": "The code3 db identifier of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code4DbId",
+      "type": "int64",
+      "description": "The code4 db identifier of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code5DbId",
+      "type": "int64",
+      "description": "The code5 db identifier of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code6DbId",
+      "type": "int64",
+      "description": "The code6 db identifier of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code7DbId",
+      "type": "int64",
+      "description": "The code7 db identifier of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_code8DbId",
+      "type": "int64",
+      "description": "The code8 db identifier of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text1",
+      "type": "string",
+      "description": "The text1 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text2",
+      "type": "string",
+      "description": "The text2 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text3",
+      "type": "string",
+      "description": "The text3 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text4",
+      "type": "string",
+      "description": "The text4 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text5",
+      "type": "string",
+      "description": "The text5 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text6",
+      "type": "string",
+      "description": "The text6 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text7",
+      "type": "string",
+      "description": "The text7 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldItem_text8",
+      "type": "string",
+      "description": "The text8 of the flexi field item.",
+      "required": false
+    },
+    {
+      "name": "prefix",
+      "type": "string",
+      "description": "The prefix of the contact.",
+      "required": false
+    },
+    {
+      "name": "companyPerson",
+      "type": "boolean",
+      "description": "Flag to create Company/Person, if the contact address dbId is not 0.",
+      "required": false
+    }
+  ]
+}
