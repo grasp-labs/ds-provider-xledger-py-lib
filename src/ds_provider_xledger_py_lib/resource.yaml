@@ -16,9 +16,3 @@ dataset:
     version: 1.0.0
     description: Xledger dataset
     class_name: ds_provider_xledger_py_lib.dataset.xledger.XledgerDataset
-
-  - name: Attachment
-    type: ds.resource.dataset.attachment
-    version: 1.0.0
-    description: Attachment dataset
-    class_name: ds_provider_xledger_py_lib.dataset.attachment.AttachmentDataset
