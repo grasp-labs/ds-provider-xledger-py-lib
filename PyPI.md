@@ -24,6 +24,124 @@ from ds_provider_xledger_py_lib import __version__
 print(f"ds-provider-xledger-py-lib version: {__version__}")
 ```
 
+## Features
+
+- Linked service support for Xledger GraphQL authentication and connectivity checks
+- Dataset operations for read, create, update, and delete workflows
+- Pagination and checkpoint support for resilient read operations
+- Structured GraphQL error mapping into provider-specific exceptions
+
+## Usage
+
+### 1) Test linked service connection
+
+```python
+from uuid import uuid4
+
+from ds_provider_xledger_py_lib.linked_service import (
+    XledgerLinkedService,
+    XledgerLinkedServiceSettings,
+)
+
+linked_service = XledgerLinkedService(
+    id=uuid4(),
+    name="xledger-linked-service",
+    version="1.0.0",
+    settings=XledgerLinkedServiceSettings(
+        host="https://demo.xledger.net/graphql",
+        token="YOUR_XLEDGER_TOKEN",
+        timeout=60,
+    ),
+)
+
+success, message = linked_service.test_connection()
+print(success, message)
+```
+
+### 2) Read data from an entrypoint
+
+```python
+from uuid import uuid4
+
+from ds_provider_xledger_py_lib.dataset import XledgerDataset, XledgerDatasetSettings
+from ds_provider_xledger_py_lib.dataset.xledger import XledgerReadSettings
+from ds_provider_xledger_py_lib.linked_service import XledgerLinkedService, XledgerLinkedServiceSettings
+
+linked_service = XledgerLinkedService(
+    id=uuid4(),
+    name="xledger-linked-service",
+    version="1.0.0",
+    settings=XledgerLinkedServiceSettings(
+        host="https://demo.xledger.net/graphql",
+        token="YOUR_XLEDGER_TOKEN",
+        timeout=60,
+    ),
+)
+
+dataset = XledgerDataset(
+    id=uuid4(),
+    name="xledger-dataset-read",
+    version="1.0.0",
+    linked_service=linked_service,
+    settings=XledgerDatasetSettings(
+        entrypoint="employees",
+        read=XledgerReadSettings(
+            columns=["dbId", "code", "description"],
+            pagination=True,
+            first=1000,
+        ),
+    ),
+)
+
+linked_service.connect()
+dataset.read()
+print(dataset.output.head())
+```
+
+### 3) Update rows
+
+```python
+from uuid import uuid4
+
+import pandas as pd
+from ds_provider_xledger_py_lib.dataset import XledgerDataset, XledgerDatasetSettings
+from ds_provider_xledger_py_lib.dataset.xledger import XledgerUpdateSettings
+from ds_provider_xledger_py_lib.linked_service import XledgerLinkedService, XledgerLinkedServiceSettings
+
+linked_service = XledgerLinkedService(
+    id=uuid4(),
+    name="xledger-linked-service",
+    version="1.0.0",
+    settings=XledgerLinkedServiceSettings(
+        host="https://demo.xledger.net/graphql",
+        token="YOUR_XLEDGER_TOKEN",
+        timeout=60,
+    ),
+)
+
+dataset = XledgerDataset(
+    id=uuid4(),
+    name="xledger-dataset-update",
+    version="1.0.0",
+    linked_service=linked_service,
+    settings=XledgerDatasetSettings(
+        entrypoint="employees",
+        update=XledgerUpdateSettings(
+            return_columns=["dbId", "code", "description"],
+        ),
+    ),
+)
+
+dataset.input = pd.DataFrame(
+    [{"dbId": 1, "code": "EMP-001", "description": "Updated employee"}]
+)
+linked_service.connect()
+dataset.update()
+print(dataset.output)
+```
+
+For complete runnable scripts, see the repository's `examples/` folder.
+
 ## Requirements
 
 - Python 3.11 or higher
