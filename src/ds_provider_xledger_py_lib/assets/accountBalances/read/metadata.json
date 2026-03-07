@@ -1,0 +1,109 @@
+{
+  "name": "accountBalances",
+  "type": "read",
+  "description": "Xledger accountBalances dataset.",
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the accountBalance.",
+      "default": true
+    },
+    {
+      "name": "amount",
+      "type": "string",
+      "description": "The monetary value of a transaction or balance.",
+      "default": true
+    },
+    {
+      "name": "owner_dbId",
+      "type": "int64",
+      "description": "The unique identifier for the owner.",
+      "default": true
+    },
+    {
+      "name": "owner_code",
+      "type": "string",
+      "description": "The code identifier for the owner.",
+      "default": true
+    },
+    {
+      "name": "account_dbId",
+      "type": "int64",
+      "description": "The unique identifier for the account.",
+      "default": true
+    },
+    {
+      "name": "account_code",
+      "type": "string",
+      "description": "The code identifier for the account.",
+      "default": true
+    },
+    {
+      "name": "period_fiscalYear",
+      "type": "int64",
+      "description": "The fiscal year of period for the account.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalPeriod",
+      "type": "int64",
+      "description": "The fiscal period for the account.",
+      "default": false
+    },
+    {
+      "name": "periodId",
+      "type": "int64",
+      "description": "The period id for the account.",
+      "default": false
+    },
+    {
+      "name": "amount2",
+      "type": "string",
+      "description": "The amount2 value for the account.",
+      "default": false
+    },
+    {
+      "name": "amount3",
+      "type": "string",
+      "description": "The amount3 value for the account.",
+      "default": false
+    },
+    {
+      "name": "amount4",
+      "type": "string",
+      "description": "The amount4 value for the account.",
+      "default": false
+    },
+    {
+      "name": "amount5",
+      "type": "string",
+      "description": "The amount5 value for the account.",
+      "default": false
+    },
+    {
+      "name": "monthNumber",
+      "type": "int64",
+      "description": "The month number for the account.",
+      "default": false
+    },
+    {
+      "name": "periodNumber",
+      "type": "int64",
+      "description": "The period number for the account.",
+      "default": false
+    },
+    {
+      "name": "quantity",
+      "type": "float64",
+      "description": "The quantity value of the account.",
+      "default": false
+    },
+    {
+      "name": "quantityBudget",
+      "type": "string",
+      "description": "The quantityBudget value of the account.",
+      "default": false
+    }
+  ]
+}

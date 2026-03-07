@@ -1,0 +1,68 @@
+{
+  "name": "glImportItems",
+  "type": "read",
+  "description": "Query glImportItems.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The unique identifier of the glImportItems.",
+      "default": true
+    },
+    {
+      "name": "amount",
+      "type": "string",
+      "description": "The amount of the glImportItems.",
+      "default": true
+    },
+    {
+      "name": "discount",
+      "type": "string",
+      "description": "The discount of the glImportItems.",
+      "default": true
+    },
+    {
+      "name": "discountAmount",
+      "type": "string",
+      "description": "The discount amount of the glImportItems.",
+      "default": true
+    },
+    {
+      "name": "discountDate",
+      "type": "datetime",
+      "description": "The discount date of the glImportItems.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime",
+      "description": "The timestamp when the glImportItems was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The timestamp when the glImportItems was last modified.",
+      "default": true
+    },
+    {
+      "name": "trRegNumber",
+      "type": "int",
+      "description": "The transaction registration number of the glImportItems.",
+      "default": true
+    },
+    {
+      "name": "jobLevelDbId",
+      "type": "int",
+      "description": "The job level dbId of the glImportItems.",
+      "default": true
+    },
+    {
+      "name": "jobLevel_name",
+      "type": "string",
+      "description": "The job level name of the glImportItems.",
+      "default": true
+    }
+  ]
+}

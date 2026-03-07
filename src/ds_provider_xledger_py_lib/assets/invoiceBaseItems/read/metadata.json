@@ -1,0 +1,56 @@
+{
+  "name": "invoiceBaseItems",
+  "type": "read",
+  "description": "Query InvoiceBaseItems.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The unique identifier of the InvoiceBaseItem.",
+      "default": true
+    },
+    {
+      "name": "amount",
+      "type": "string",
+      "description": "The amount of the InvoiceBaseItem.",
+      "default": true
+    },
+    {
+      "name": "comment",
+      "type": "string",
+      "description": "A comment on the InvoiceBaseItem.",
+      "default": true
+    },
+    {
+      "name": "extOrder",
+      "type": "string",
+      "description": "The external order of the InvoiceBaseItem.",
+      "default": true
+    },
+    {
+      "name": "toDate",
+      "type": "datetime",
+      "description": "The end date of the InvoiceBaseItem.",
+      "default": true
+    },
+    {
+      "name": "fromDate",
+      "type": "datetime",
+      "description": "The start date of the InvoiceBaseItem.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime",
+      "description": "The timestamp when the InvoiceBaseItem was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The timestamp when the InvoiceBaseItem was last modified.",
+      "default": true
+    }
+  ]
+}

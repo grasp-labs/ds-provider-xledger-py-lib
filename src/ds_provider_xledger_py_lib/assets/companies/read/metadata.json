@@ -1,0 +1,92 @@
+{
+  "name": "companies",
+  "type": "read",
+  "description": "Xledger companies dataset.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the company.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the company.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the company.",
+      "default": true
+    },
+    {
+      "name": "companyNumber",
+      "type": "string",
+      "description": "The organisation number of the company.",
+      "default": true
+    },
+    {
+      "name": "companyName",
+      "type": "string",
+      "description": "The name of the company.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime[ns]",
+      "description": "The timestamp when the company was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime[ns]",
+      "description": "The timestamp when the company was modified.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int64",
+      "description": "The unique identifier for owner.",
+      "default": false
+    },
+    {
+      "name": "address_dbId",
+      "type": "int64",
+      "description": "The unique identifier for the address.",
+      "default": false
+    },
+    {
+      "name": "address_streetAddress",
+      "type": "string",
+      "description": "The street address of the address.",
+      "default": false
+    },
+    {
+      "name": "address_place",
+      "type": "string",
+      "description": "The town / place of the address.",
+      "default": false
+    },
+    {
+      "name": "address_zipCode",
+      "type": "string",
+      "description": "The zip code for the address.",
+      "default": false
+    },
+    {
+      "name": "address_country_code",
+      "type": "string",
+      "description": "The country of the address.",
+      "default": false
+    },
+    {
+      "name": "address_country_description",
+      "type": "string",
+      "description": "The description of the country of the address.",
+      "default": false
+    }
+  ]
+}

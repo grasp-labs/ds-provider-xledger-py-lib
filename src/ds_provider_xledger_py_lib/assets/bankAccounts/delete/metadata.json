@@ -1,0 +1,19 @@
+{
+  "name": "removeBankAccounts",
+  "type": "delete",
+  "description": "Delete Xledger bankaccounts dataset.",
+  "fields": [
+    {
+      "name": "numAffected",
+      "type": "int64",
+      "description": "The number of bank accounts that were removed.",
+      "required": false
+    },
+    {
+      "name": "skippedDbIds",
+      "type": "object",
+      "description": "The database identifiers of the bank accounts that were not removed.",
+      "required": false
+    }
+  ]
+}

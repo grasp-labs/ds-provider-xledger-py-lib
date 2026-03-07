@@ -1,6 +1,6 @@
 """
 **File:** ``test_version.py``
-**Region:** ``ds-provider-xledger-py-lib``
+**Region:** ``tests``
 
 Description
 -----------

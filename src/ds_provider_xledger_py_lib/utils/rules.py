@@ -71,6 +71,7 @@ class GraphQLErrorRuleBook:
         ),
         Rule(
             exc_cls=InvalidQueryException,
+            extension_code="ARGUMENTS_OF_CORRECT_TYPE",
             message_keywords=("cannot query field",),
             default_message="Invalid Xledger query.",
         ),

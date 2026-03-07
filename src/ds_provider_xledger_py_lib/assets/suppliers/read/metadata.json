@@ -1,0 +1,80 @@
+{
+  "name": "suppliers",
+  "type": "read",
+  "description": "Query Suppliers.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The unique identifier of the Supplier.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code representing the Supplier.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A description of the Supplier.",
+      "default": true
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "description": "The email of the Supplier.",
+      "default": true
+    },
+    {
+      "name": "contract",
+      "type": "string",
+      "description": "The contract of the Supplier.",
+      "default": true
+    },
+    {
+      "name": "companyDbId",
+      "type": "int",
+      "description": "The unique identifier of the Supplier's company.",
+      "default": true
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number (orgnr) of the Supplier's company.",
+      "default": true
+    },
+    {
+      "name": "bankAccount",
+      "type": "string",
+      "description": "The bank account of the Supplier.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int",
+      "description": "The unique identifier of the Supplier's owner.",
+      "default": true
+    },
+    {
+      "name": "yourReference",
+      "type": "string",
+      "description": "Your reference.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime",
+      "description": "The timestamp when the Supplier was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The timestamp when the Supplier was last modified.",
+      "default": true
+    }
+  ]
+}

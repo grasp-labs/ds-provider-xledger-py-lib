@@ -1,0 +1,50 @@
+{
+  "name": "projects",
+  "type": "read",
+  "description": "Query Projects.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The unique identifier of the Project.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code representing the Project.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A description of the Project.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime",
+      "description": "The timestamp when the Project was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The timestamp when the Project was last modified.",
+      "default": true
+    },
+    {
+      "name": "allowPosting",
+      "type": "boolean",
+      "description": "Specifies whether posting is allowed for this project.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int",
+      "description": "The unique identifier of the project's owner.",
+      "default": true
+    }
+  ]
+}

@@ -30,6 +30,40 @@ class OperationType(StrEnum):
     """
 
     READ = "read"
+    """Read operation"""
     CREATE = "create"
+    """Create operation"""
     UPDATE = "update"
+    """Update operation"""
     DELETE = "delete"
+    """Delete operation"""
+
+
+class ObjectStatus(StrEnum):
+    """
+    Constants for Xledger object status.
+    """
+
+    ALL = "ALL"
+    """All objects"""
+    OPEN = "OPEN"
+    """Open objects"""
+    CLOSED = "CLOSED"
+    """Closed objects"""
+
+
+class OwnerSet(StrEnum):
+    """
+    Constants for Xledger owner set.
+    """
+
+    CURRENT = "CURRENT"
+    """Current owner set"""
+    UPPER = "UPPER"
+    """Upper owner set"""
+    LOWER = "LOWER"
+    """Lower owner set"""
+    MINE = "MINE"
+    """Mine owner set"""
+    ALL = "ALL"
+    """All owner sets"""

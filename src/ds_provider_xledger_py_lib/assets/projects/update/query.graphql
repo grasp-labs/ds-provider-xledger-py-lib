@@ -1,0 +1,8 @@
+mutation ($PlaceHolderInput: [UpdateProjectsInput!]!) {
+  updateProjects(inputs: $PlaceHolderInput) {
+    edges {
+      clientId
+      node { {{ FIELDS }} }
+    }
+  }
+}

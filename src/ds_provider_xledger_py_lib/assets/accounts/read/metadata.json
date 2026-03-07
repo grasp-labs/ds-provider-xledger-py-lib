@@ -1,0 +1,44 @@
+{
+  "name": "accounts",
+  "type": "read",
+  "description": "Xledger accounts dataset.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the accountBalance.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The accountnumber",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The account description",
+      "default": true
+    },
+    {
+      "name": "credit",
+      "type": "boolean",
+      "description": "If the account is a credit account",
+      "default": true
+    },
+    {
+      "name": "accountGroup_description",
+      "type": "string",
+      "description": "The name or description of the account group",
+      "default": true
+    },
+    {
+      "name": "owner_description",
+      "type": "string",
+      "description": "The name or description of the owner",
+      "default": true
+    }
+  ]
+}

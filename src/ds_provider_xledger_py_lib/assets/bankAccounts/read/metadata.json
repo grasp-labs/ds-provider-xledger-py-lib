@@ -1,0 +1,266 @@
+{
+  "name": "bankAccounts",
+  "type": "read",
+  "description": "Xledger bankAccounts dataset.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The primary key.",
+      "default": false
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime[ns]",
+      "description": "The timestamp when the record was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime[ns]",
+      "description": "The timestamp when the record was last modified.",
+      "default": true
+    },
+    {
+      "name": "fromDate",
+      "type": "datetime",
+      "description": "The date when the bank account becomes active in the system.",
+      "default": false
+    },
+    {
+      "name": "toDate",
+      "type": "datetime",
+      "description": "The date when the bank account is deactivated or closed.",
+      "default": false
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "Internal reference code for the bank account record.",
+      "default": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A descriptive label for the bank account.",
+      "default": false
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int64",
+      "description": "The unique identifier for the account owner.",
+      "default": false
+    },
+    {
+      "name": "paymentToken",
+      "type": "string",
+      "description": "A token used for secure payment processing linked to this account.",
+      "default": false
+    },
+    {
+      "name": "bankAccount",
+      "type": "string",
+      "description": "The actual bank account number associated with the owner.",
+      "default": false
+    },
+    {
+      "name": "yearTo",
+      "type": "int64",
+      "description": "The fiscal year until which this account is valid or active.",
+      "default": false
+    },
+    {
+      "name": "periodTo",
+      "type": "int64",
+      "description": "The fiscal period until which this account is valid or active.",
+      "default": false
+    },
+    {
+      "name": "isExpensed",
+      "type": "boolean",
+      "description": "Indicates whether transactions from this account are marked as expensed.",
+      "default": false
+    },
+    {
+      "name": "forPayroll",
+      "type": "boolean",
+      "description": "Indicates whether this account is used for payroll disbursements.",
+      "default": false
+    },
+    {
+      "name": "cvv",
+      "type": "int64",
+      "description": "The CVV code if the account is linked to a payment card.",
+      "default": false
+    },
+    {
+      "name": "bankAccType_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the type of bank account (e.g., checking, savings).",
+      "default": false
+    },
+    {
+      "name": "bankAccType_code",
+      "type": "string",
+      "description": "A short code representing the account type.",
+      "default": false
+    },
+    {
+      "name": "bankAccType_description",
+      "type": "string",
+      "description": "A descriptive name for the account type.",
+      "default": false
+    },
+    {
+      "name": "payMethod_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the payment method linked to this account.",
+      "default": false
+    },
+    {
+      "name": "payMethod_code",
+      "type": "string",
+      "description": "A short code representing the payment method.",
+      "default": false
+    },
+    {
+      "name": "payMethod_description",
+      "type": "string",
+      "description": "A descriptive name for the payment method.",
+      "default": false
+    },
+    {
+      "name": "paymentCardType_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the payment card type linked to this account.",
+      "default": false
+    },
+    {
+      "name": "paymentCardType_code",
+      "type": "string",
+      "description": "A short code representing the payment card type.",
+      "default": false
+    },
+    {
+      "name": "paymentCardType_description",
+      "type": "string",
+      "description": "A descriptive name for the payment card type.",
+      "default": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "int64",
+      "description": "The unique database identifier for the account owner (e.g., company).",
+      "default": false
+    },
+    {
+      "name": "owner_code",
+      "type": "string",
+      "description": "A short code representing the account owner.",
+      "default": false
+    },
+    {
+      "name": "owner_description",
+      "type": "string",
+      "description": "A descriptive name or details about the account owner.",
+      "default": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the company linked to the bank account.",
+      "default": false
+    },
+    {
+      "name": "company_code",
+      "type": "string",
+      "description": "A short code representing the company associated with the account.",
+      "default": false
+    },
+    {
+      "name": "company_description",
+      "type": "string",
+      "description": "The full name or description of the company linked to the account.",
+      "default": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the currency used in the bank account.",
+      "default": false
+    },
+    {
+      "name": "currency_code",
+      "type": "string",
+      "description": "The currency code (e.g., 'USD', 'EUR') for transactions in this account.",
+      "default": false
+    },
+    {
+      "name": "currency_description",
+      "type": "string",
+      "description": "The full name of the currency (e.g., 'US Dollar').",
+      "default": false
+    },
+    {
+      "name": "billAddress_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the billing address associated with this account.",
+      "default": false
+    },
+    {
+      "name": "country_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the country where the bank account is registered.",
+      "default": false
+    },
+    {
+      "name": "country_code",
+      "type": "string",
+      "description": "The ISO or system code for the country of the bank account.",
+      "default": false
+    },
+    {
+      "name": "country_description",
+      "type": "string",
+      "description": "The full name of the country where the bank account is located.",
+      "default": false
+    },
+    {
+      "name": "bank_dbId",
+      "type": "string",
+      "description": "The unique database identifier for the bank institution.",
+      "default": false
+    },
+    {
+      "name": "bank_code",
+      "type": "string",
+      "description": "A short code representing the bank institution.",
+      "default": false
+    },
+    {
+      "name": "bank_description",
+      "type": "string",
+      "description": "The full name of the bank institution.",
+      "default": false
+    },
+    {
+      "name": "bank_bankRouting",
+      "type": "string",
+      "description": "The bank routing number used for domestic transfers.",
+      "default": false
+    },
+    {
+      "name": "bank_swift",
+      "type": "string",
+      "description": "The SWIFT/BIC code for international transfers.",
+      "default": false
+    },
+    {
+      "name": "bankRecord_dbId",
+      "type": "int64",
+      "description": "The unique database identifier for the bank record.",
+      "default": false
+    }
+  ]
+}

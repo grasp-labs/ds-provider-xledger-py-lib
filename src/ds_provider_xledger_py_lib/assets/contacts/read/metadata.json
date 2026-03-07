@@ -1,0 +1,98 @@
+{
+  "name": "contacts",
+  "type": "read",
+  "description": "Xledger contacts dataset.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the contact.",
+      "default": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "The ID of the contact.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int64",
+      "description": "The unique identifier for the owner of the contact.",
+      "default": false
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code for the contact.",
+      "default": false
+    },
+    {
+      "name": "companyContact",
+      "type": "string",
+      "description": "The contact information for the company.",
+      "default": false
+    },
+    {
+      "name": "companyName",
+      "type": "string",
+      "description": "The name of the company associated with the contact.",
+      "default": false
+    },
+    {
+      "name": "companyPerson",
+      "type": "string",
+      "description": "The person associated with the company contact.",
+      "default": false
+    },
+    {
+      "name": "firstName",
+      "type": "string",
+      "description": "The first name of the contact.",
+      "default": false
+    },
+    {
+      "name": "middleName",
+      "type": "string",
+      "description": "The middle name of the contact.",
+      "default": false
+    },
+    {
+      "name": "lastName",
+      "type": "string",
+      "description": "The last name of the contact.",
+      "default": false
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "description": "The email address of the contact.",
+      "default": false
+    },
+    {
+      "name": "fromDate",
+      "type": "date",
+      "description": "The start date associated with the contact.",
+      "default": false
+    },
+    {
+      "name": "toDate",
+      "type": "date",
+      "description": "The end date associated with the contact.",
+      "default": false
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime",
+      "description": "The date and time when the contact was created.",
+      "default": false
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The date and time when the contact was last modified.",
+      "default": false
+    }
+  ]
+}

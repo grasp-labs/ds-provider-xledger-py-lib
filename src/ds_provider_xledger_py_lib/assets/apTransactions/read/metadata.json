@@ -1,0 +1,50 @@
+{
+  "name": "apTransactions",
+  "type": "read",
+  "description": "Read payable transactions.",
+  "supportPagination": true,
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the import item.",
+      "default": true
+    },
+    {
+      "name": "invoiceNumber",
+      "type": "string",
+      "description": "The invoice number.",
+      "default": false
+    },
+    {
+      "name": "subledgerDbId",
+      "type": "int64",
+      "description": "The subledger dbId.",
+      "default": false
+    },
+    {
+      "name": "headerTransactionSourceDbId",
+      "type": "int64",
+      "description": "The transaction source dbId of the header.",
+      "default": false
+    },
+    {
+      "name": "transactionHeader_transactionNumber",
+      "type": "int64",
+      "description": "The header transaction number.",
+      "default": false
+    },
+    {
+      "name": "transactionHeader_trRegNumber",
+      "type": "int64",
+      "description": "The header transaction registration number.",
+      "default": false
+    },
+    {
+      "name": "transactionHeader_trProcessLevel_name",
+      "type": "string",
+      "description": "The header processing level name.",
+      "default": false
+    }
+  ]
+}

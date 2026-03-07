@@ -1,0 +1,8 @@
+mutation ($PlaceHolderInput: [AddGLImportItemsInput!]!) {
+  addGLImportItems(inputs: $PlaceHolderInput) {
+    edges {
+      clientId
+      node { {{ FIELDS }} }
+    }
+  }
+}

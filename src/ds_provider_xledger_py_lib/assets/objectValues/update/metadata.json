@@ -1,0 +1,79 @@
+{
+  "name": "updateObjectValues",
+  "type": "update",
+  "description": "Update Xledger Object Values.",
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The dbId of the object value.",
+      "required": true,
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the object value.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the object value.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "dateFrom",
+      "type": "datetime64[ns]",
+      "description": "The date from which the object value is valid.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "dateTo",
+      "type": "datetime64[ns]",
+      "description": "The date to which the object value is valid.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "levelParent_dbId",
+      "type": "int",
+      "description": "The level parent dbId of the object value.",
+      "required": false
+    },
+    {
+      "name": "levelParent_code",
+      "type": "string",
+      "description": "The level parent code of the object value.",
+      "required": false
+    },
+    {
+      "name": "levelParent_description",
+      "type": "string",
+      "description": "The level parent description of the object value.",
+      "required": false
+    },
+    {
+      "name": "posting",
+      "type": "boolean",
+      "description": "The posting status of the object value.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "text1",
+      "type": "string",
+      "description": "The text1 of the object value.",
+      "required": false
+    },
+    {
+      "name": "text2",
+      "type": "string",
+      "description": "The text2 of the object value.",
+      "required": false
+    }
+  ]
+}
