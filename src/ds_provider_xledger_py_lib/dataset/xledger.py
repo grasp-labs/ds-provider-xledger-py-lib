@@ -39,7 +39,7 @@ logger = Logger.get_logger(__name__, package=True)
 class XledgerReadSettings(DatasetSettings):
     """Settings for Xledger read operations."""
 
-    first: int = 5000
+    first: int = 1000
     """The number of records to return."""
     last: int | None = None
     """The last record to return."""
