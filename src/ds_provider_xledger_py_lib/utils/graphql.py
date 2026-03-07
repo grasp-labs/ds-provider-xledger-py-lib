@@ -69,7 +69,6 @@ def map_graphql_errors_to_exception(
         logger.error("GraphQL error list was empty; returning fallback exception.")
         return _build_exception(
             UnhandledXledgerException,
-            message="Unhandled Xledger exception occurred.",
         )
 
     for error in errors:
@@ -110,18 +109,20 @@ def map_graphql_errors_to_exception(
 def _build_exception(
     exc_cls: type[Exception],
     *,
-    message: str,
+    message: str | None = None,
     status_code: int | None = None,
 ) -> Exception:
     """Instantiate an exception with explicit message and optional status code.
 
     Args:
         exc_cls: The exception class to instantiate.
-        message: The message to include in the exception.
+        message: Optional message to include in the exception.
         status_code: Optional HTTP-like status code. When omitted, the
             exception class handles its own default status behavior.
     """
-    kwargs: dict[str, Any] = {"message": message}
+    kwargs: dict[str, Any] = {}
+    if message and message.strip():
+        kwargs["message"] = message
     if status_code is not None:
         kwargs["status_code"] = status_code
     return exc_cls(**kwargs)
@@ -137,9 +138,9 @@ def _parse_error(error: Any) -> tuple[str, str, str]:
         A tuple containing the message, code, and extension code.
     """
     payload = error if isinstance(error, dict) else {}
-    message = str(payload.get("message", ""))
-    code = str(payload.get("code", "UNHANDLED_ERROR")).upper()
-    extension_code = str(payload.get("extensions", {}).get("code", "UNHANDLED_ERROR")).upper()
+    message = str(payload.get("message", "")).strip()
+    code = str(payload.get("code", "")).strip()
+    extension_code = str(payload.get("extensions", {}).get("code", "")).strip()
     return message, code, extension_code
 
 

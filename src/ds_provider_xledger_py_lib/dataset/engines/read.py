@@ -12,7 +12,6 @@ from __future__ import annotations
 from dataclasses import dataclass, field, replace
 from typing import TYPE_CHECKING, Any
 
-import pandas as pd
 from ds_common_logger_py_lib import Logger
 from ds_common_serde_py_lib.serializable import Serializable
 
@@ -20,6 +19,7 @@ from ...utils.graphql import raise_for_graphql_errors
 from ...utils.query_builder import build_query
 
 if TYPE_CHECKING:
+    import pandas as pd
     from ds_protocol_http_py_lib.utils.http.provider import Http
 
     from ...serde.deserializer import XledgerDeserializer
@@ -50,7 +50,7 @@ class ReadEngine:
     host: str
     deserializer: XledgerDeserializer
     metadata: MetaData
-    output: pd.DataFrame = field(default_factory=pd.DataFrame, init=False)
+    output: list[pd.DataFrame] = field(default_factory=list, init=False)
     checkpoint: Checkpoint = field(default_factory=Checkpoint, init=False)
 
     def execute(
@@ -65,9 +65,11 @@ class ReadEngine:
             read_settings: Effective read settings for query rendering/pagination.
             checkpoint: Existing checkpoint state to continue from.
         """
-        frames: list[pd.DataFrame] = []
-        seen_cursors: set[str] = set()
+        total_rows = 0
+        self.output = []
         self.checkpoint = Checkpoint.deserialize(checkpoint or {})
+        seen_cursors: set[str] = set()
+
         logger.debug(
             "Starting read execution (pagination_enabled=%s, checkpoint_after=%s, settings=%s).",
             read_settings.pagination,
@@ -105,12 +107,15 @@ class ReadEngine:
             body = response.json()
             raise_for_graphql_errors(body=body)
 
-            page_frame = self.deserializer(
+            frame = self.deserializer(
                 body,
                 metadata=self.metadata,
                 operation_settings=read_settings,
             )
-            frames.append(page_frame)
+
+            self.output.append(frame)
+            total_rows += len(frame.index)
+
             has_next_page = self.deserializer.get_next(
                 body,
                 metadata=self.metadata,
@@ -121,11 +126,10 @@ class ReadEngine:
             )
             self.checkpoint.after = end_cursor
             self.checkpoint.has_next_page = has_next_page
-            self.output = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
             logger.debug(
                 "Read page processed (rows=%d, total_rows=%d, has_next_page=%s).",
-                len(page_frame.index),
-                len(self.output.index),
+                len(frame.index),
+                total_rows,
                 has_next_page,
             )
 
@@ -148,7 +152,7 @@ class ReadEngine:
             read_settings = replace(read_settings, after=end_cursor, before=None)
             logger.debug(
                 "Continuing pagination (page_index=%d, next_cursor=%s, seen_cursors=%d).",
-                len(frames),
+                len(self.output),
                 end_cursor,
                 len(seen_cursors),
             )

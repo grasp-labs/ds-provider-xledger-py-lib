@@ -74,7 +74,7 @@ def test_read_wraps_resource_exception_and_persists_reader_state(
 
     class _FakeReader:
         def __init__(self, **_: object) -> None:
-            self.output = expected_frame
+            self.output = [expected_frame]
             self.checkpoint = Checkpoint(after="c-1", has_next_page=False)
 
         def execute(self, **_: object) -> None:

@@ -18,6 +18,7 @@ protocol dataset:
 from dataclasses import dataclass, field
 from typing import Any, Generic, NoReturn, TypeVar
 
+import pandas as pd
 from ds_common_logger_py_lib import Logger
 from ds_resource_plugin_py_lib.common.resource.dataset import DatasetSettings, TabularDataset
 from ds_resource_plugin_py_lib.common.resource.dataset.errors import CreateError, DeleteError, ReadError, UpdateError
@@ -181,7 +182,7 @@ class XledgerDataset(
                 details=exc.details,
             ) from exc
         finally:
-            self.output = reader.output
+            self.output = pd.concat(reader.output, ignore_index=True) if reader.output else pd.DataFrame()
             self.checkpoint = reader.checkpoint.serialize()
 
     def create(self) -> None:

@@ -38,6 +38,11 @@ def _read_body(*, has_next_page: bool, cursor: str | None, db_id: str) -> dict[s
     }
 
 
+def _concat_output(output: list[pd.DataFrame]) -> pd.DataFrame:
+    """Materialize read-engine page frames into a single dataframe for assertions."""
+    return pd.concat(output, ignore_index=True) if output else pd.DataFrame()
+
+
 def test_execute_reads_single_page_when_pagination_disabled(
     read_metadata: MetaData,
     fake_http_factory: type[FakeHttp],
@@ -56,7 +61,7 @@ def test_execute_reads_single_page_when_pagination_disabled(
     engine.execute(read_settings=XledgerReadSettings(first=2, pagination=False), checkpoint=None)
 
     assert len(fake_http.requests) == 1
-    assert engine.output.to_dict(orient="records") == [{"dbId": "1", "name": "Name-1"}]
+    assert _concat_output(engine.output).to_dict(orient="records") == [{"dbId": "1", "name": "Name-1"}]
     assert engine.checkpoint.after == "c1"
     assert engine.checkpoint.has_next_page is True
 
@@ -91,7 +96,7 @@ def test_execute_paginates_and_resumes_from_checkpoint(
     assert 'after: "resume-cursor"' in fake_http.requests[0]["json"]["query"]
     assert "first: 1" in fake_http.requests[1]["json"]["query"]
     assert 'after: "c2"' in fake_http.requests[1]["json"]["query"]
-    assert engine.output["dbId"].tolist() == ["2", "3"]
+    assert _concat_output(engine.output)["dbId"].tolist() == ["2", "3"]
     assert engine.checkpoint.after == "c3"
     assert engine.checkpoint.has_next_page is False
 
@@ -114,8 +119,9 @@ def test_execute_stops_when_response_has_next_without_end_cursor(
     engine.execute(read_settings=XledgerReadSettings(pagination=True), checkpoint=None)
 
     assert len(fake_http.requests) == 1
-    assert isinstance(engine.output, pd.DataFrame)
-    assert engine.output.empty is True
+    assert isinstance(engine.output, list)
+    assert len(engine.output) == 1
+    assert engine.output[0].empty is True
     assert engine.checkpoint.after is None
     assert engine.checkpoint.has_next_page is True
 
@@ -143,7 +149,7 @@ def test_execute_stops_on_repeated_cursor(
     engine.execute(read_settings=XledgerReadSettings(pagination=True), checkpoint=None)
 
     assert len(fake_http.requests) == 2
-    assert engine.output["dbId"].tolist() == ["1", "2"]
+    assert _concat_output(engine.output)["dbId"].tolist() == ["1", "2"]
     assert engine.checkpoint.after == "same"
 
 
@@ -165,7 +171,7 @@ def test_execute_with_pagination_uses_single_request_when_no_next_page(
     engine.execute(read_settings=XledgerReadSettings(pagination=True), checkpoint=None)
 
     assert len(fake_http.requests) == 1
-    assert engine.output["dbId"].tolist() == ["1"]
+    assert _concat_output(engine.output)["dbId"].tolist() == ["1"]
 
 
 def test_execute_renders_enum_query_arguments_without_quotes(

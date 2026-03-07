@@ -173,6 +173,7 @@ def test_map_graphql_errors_to_exception_uses_top_level_status_code() -> None:
 
     assert isinstance(exc, UnhandledXledgerException)
     assert exc.status_code == 418
+    assert exc.message == "Unexpected backend failure"
 
 
 def test_map_graphql_errors_to_exception_uses_extension_status_code() -> None:
@@ -190,6 +191,7 @@ def test_map_graphql_errors_to_exception_uses_extension_status_code() -> None:
 
     assert isinstance(exc, UnhandledXledgerException)
     assert exc.status_code == 429
+    assert exc.message == "Unexpected backend failure"
 
 
 def test_map_graphql_errors_to_exception_handles_non_dict_error() -> None:
@@ -199,7 +201,7 @@ def test_map_graphql_errors_to_exception_handles_non_dict_error() -> None:
     exc = map_graphql_errors_to_exception(errors=["boom"])
 
     assert isinstance(exc, UnhandledXledgerException)
-    assert exc.message == ""
+    assert exc.message == "Unhandled Xledger exception occurred."
 
 
 def test_map_graphql_errors_to_exception_checks_all_errors_for_match() -> None:
