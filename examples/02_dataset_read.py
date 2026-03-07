@@ -20,17 +20,12 @@ from uuid import uuid4
 from dotenv import load_dotenv
 from ds_common_logger_py_lib import Logger
 from ds_resource_plugin_py_lib.common.resource.errors import ResourceException
-import pandas as pd
 
 from ds_provider_xledger_py_lib.dataset import XledgerDataset, XledgerDatasetSettings
 from ds_provider_xledger_py_lib.dataset.xledger import XledgerReadSettings
 from ds_provider_xledger_py_lib.linked_service import XledgerLinkedService, XledgerLinkedServiceSettings
-from ds_provider_xledger_py_lib.enums import ObjectStatus
 
-Logger.configure(
-    level=logging.DEBUG,
-    # logger_levels={"ds.protocol.http": logging.WARNING},
-)
+Logger.configure(level=logging.DEBUG)
 logger = Logger.get_logger(__name__)
 
 load_dotenv()
