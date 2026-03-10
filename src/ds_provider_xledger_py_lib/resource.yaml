@@ -5,7 +5,7 @@ description: Xledger provider for the DS Business Workflow
 
 linked-service:
   - name: Xledger
-    type: ds.resource.linked_service.xledger
+    type: ds.resource.linked-service.xledger
     version: 1.0.0
     description: Xledger linked service
     class_name: ds_provider_xledger_py_lib.linked_service.XledgerLinkedService
