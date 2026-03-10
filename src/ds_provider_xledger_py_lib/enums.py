@@ -19,9 +19,9 @@ class ResourceType(StrEnum):
     Constants for Xledger provider.
     """
 
-    LINKED_SERVICE = "ds.resource.linked_service.xledger"
+    LINKED_SERVICE = "ds.resource.linked-service.xledger"
     DATASET = "ds.resource.dataset.xledger"
-    DATASET_ATTACHMENT = "ds.resource.dataset.xledger_attachment"
+    DATASET_ATTACHMENT = "ds.resource.dataset.xledger-attachment"
 
 
 class OperationType(StrEnum):

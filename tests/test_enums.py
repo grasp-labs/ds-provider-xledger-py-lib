@@ -16,7 +16,7 @@ def test_resource_type_linked_service_value() -> None:
     """
     It exposes the correct linked service type value.
     """
-    assert ResourceType.LINKED_SERVICE == "ds.resource.linked_service.xledger"
+    assert ResourceType.LINKED_SERVICE == "ds.resource.linked-service.xledger"
     assert isinstance(ResourceType.LINKED_SERVICE, str)
 
 
@@ -25,7 +25,7 @@ def test_resource_type_dataset_value() -> None:
     It exposes the correct dataset type value.
     """
     assert ResourceType.DATASET == "ds.resource.dataset.xledger"
-    assert ResourceType.DATASET_ATTACHMENT == "ds.resource.dataset.xledger_attachment"
+    assert ResourceType.DATASET_ATTACHMENT == "ds.resource.dataset.xledger-attachment"
     assert isinstance(ResourceType.DATASET, str)
 
 
@@ -42,8 +42,8 @@ def test_resource_type_enum_comparison() -> None:
     """
     It supports equality comparison with strings.
     """
-    assert ResourceType.LINKED_SERVICE == "ds.resource.linked_service.xledger"
+    assert ResourceType.LINKED_SERVICE == "ds.resource.linked-service.xledger"
     assert ResourceType.DATASET == "ds.resource.dataset.xledger"
-    assert ResourceType.DATASET_ATTACHMENT == "ds.resource.dataset.xledger_attachment"
+    assert ResourceType.DATASET_ATTACHMENT == "ds.resource.dataset.xledger-attachment"
     assert ResourceType.LINKED_SERVICE != ResourceType.DATASET
     assert ResourceType.LINKED_SERVICE != ResourceType.DATASET_ATTACHMENT
