@@ -74,7 +74,7 @@ def build_query(
     requested_fields = query_kwargs.pop("fields", None)
     rendered = _render_template(
         template=metadata.query,
-        field_names=_resolve_fields(metadata=metadata, requested_fields=requested_fields),
+        field_names=resolve_query_fields(metadata=metadata, requested_fields=requested_fields),
         variables={},
     )
     return _apply_query_arguments(query=rendered, **query_kwargs)
@@ -98,7 +98,7 @@ def build_mutation(
     """
     return _render_template(
         template=metadata.query,
-        field_names=_resolve_fields(metadata=metadata, requested_fields=return_fields),
+        field_names=resolve_query_fields(metadata=metadata, requested_fields=return_fields),
         variables=variables,
     )
 
@@ -142,7 +142,7 @@ def _build_selection_set(fields: list[str]) -> str:
         cursor = tree
         for part in parts[:-1]:
             cursor = cursor.setdefault(part, {})
-        cursor[parts[-1]] = cursor.get(parts[-1], {})
+        cursor.setdefault(parts[-1], {})
     return _format_tree(tree)
 
 
@@ -165,28 +165,37 @@ def _format_tree(tree: dict[str, Any]) -> str:
     return " ".join(parts)
 
 
-def _resolve_fields(
+def resolve_query_fields(
     *,
     metadata: MetaData,
     requested_fields: list[str] | None,
+    required_fields: list[str] | None = None,
 ) -> list[str]:
     """Resolve fields to render for query/mutation selection.
 
     Args:
         metadata: Operation metadata.
         requested_fields: Requested fields to include in the selection set.
+        required_fields: Additional fields that must be included in the selection
+            set when missing from the resolved field list.
 
     Returns:
         List of fields to include in the selection set.
     """
     if requested_fields is not None:
-        return [str(field) for field in requested_fields]
+        resolved_fields = [str(field) for field in requested_fields]
+    else:
+        default_fields = [field.name for field in metadata.fields if field.default]
+        resolved_fields = default_fields or [field.name for field in metadata.fields]
 
-    default_fields = [field.name for field in metadata.fields if field.default]
-    if default_fields:
-        return default_fields
+    if not required_fields:
+        return resolved_fields
 
-    return [field.name for field in metadata.fields]
+    augmented_fields = list(resolved_fields)
+    for field_name in required_fields:
+        if field_name not in augmented_fields:
+            augmented_fields.append(field_name)
+    return augmented_fields
 
 
 def _apply_query_arguments(
@@ -203,7 +212,10 @@ def _apply_query_arguments(
     Returns:
         The updated query string.
     """
-    query_args = _extract_query_args(query)
+    existing_args = _extract_query_args(query)
+    if existing_args is None:
+        return query
+    query_args = existing_args
     for key, arg_name in _QUERY_ARG_MAPPINGS:
         value = kwargs.get(key)
         if value is None:
@@ -213,23 +225,21 @@ def _apply_query_arguments(
             arg_name=arg_name,
             value_literal=_to_graphql_literal(value),
         )
-    if not re.search(r"\(.*?\)", query, re.S):
-        return query
     return re.sub(r"\(.*?\)", f"({query_args})", query, count=1, flags=re.S)
 
 
-def _extract_query_args(query: str) -> str:
+def _extract_query_args(query: str) -> str | None:
     """Extract query arguments from a query string.
 
     Args:
         query: The query string.
 
     Returns:
-        The query arguments string.
+        The query arguments string, or ``None`` if the query has no argument block.
     """
     match = re.search(r"\((.*?)\)", query, re.S)
     if not match:
-        return ""
+        return None
     return match.group(1).strip()
 
 
@@ -248,7 +258,7 @@ def _upsert_query_arg(*, query_args: str, arg_name: str, value_literal: str) -> 
     replacement = f"{arg_name}: {value_literal}"
     if re.search(pattern, query_args, re.S):
         return re.sub(pattern, replacement, query_args, count=1, flags=re.S)
-    if not query_args.strip():
+    if not query_args:
         return replacement
     return f"{query_args}, {replacement}"
 
@@ -293,11 +303,11 @@ def _assign_nested_key(*, target: dict[str, Any], key: str, value: Any) -> None:
         return
 
     root_key, nested_key = key.split("_", 1)
-    nested_obj = target.get(root_key)
+    nested_obj = target.setdefault(root_key, {})
     if not isinstance(nested_obj, dict):
         nested_obj = {}
         target[root_key] = nested_obj
-    nested_obj[nested_key] = value
+    _assign_nested_key(target=nested_obj, key=nested_key, value=value)
 
 
 def _build_placeholder_input(*, records: list[dict[str, Any]], allowed_fields: set[str]) -> list[dict[str, Any]]:
@@ -310,11 +320,9 @@ def _build_placeholder_input(*, records: list[dict[str, Any]], allowed_fields: s
     Returns:
         List of placeholder input.
     """
-    payload: list[dict[str, Any]] = []
-    for index, record in enumerate(records):
-        node = _build_node(record=record, allowed_fields=allowed_fields)
-        payload.append({"clientId": str(index), "node": node})
-    return payload
+    return [
+        {"clientId": str(i), "node": _build_node(record=record, allowed_fields=allowed_fields)} for i, record in enumerate(records)
+    ]
 
 
 def _build_node(*, record: dict[str, Any], allowed_fields: set[str]) -> dict[str, Any]:

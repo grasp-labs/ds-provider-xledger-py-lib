@@ -39,8 +39,8 @@ logger = Logger.get_logger(__name__, package=True)
 class XledgerReadSettings(DatasetSettings):
     """Settings for Xledger read operations."""
 
-    first: int = 1000
-    """The number of records to return."""
+    first: int | None = 1000
+    """Page size. Use ``None`` to fall back to ``metadata.pagination.first`` when set."""
     last: int | None = None
     """The last record to return."""
     before: str | None = None
@@ -55,8 +55,8 @@ class XledgerReadSettings(DatasetSettings):
     """The object status to return."""
     columns: list[str] | None = None
     """The columns to return."""
-    pagination: bool = False
-    """Whether to return pagination information."""
+    limit: int | None = None
+    """The limit to apply to the query."""
 
 
 @dataclass(kw_only=True)

@@ -14,7 +14,9 @@ from typing import TYPE_CHECKING, Any, cast
 import pandas as pd
 from ds_resource_plugin_py_lib.common.serde.deserialize.base import DataDeserializer
 
+from ..dataset.engines._read_incremental import greatest_incremental_value
 from ..enums import OperationType
+from ..errors import IncrementalFieldMissingException
 from ..utils.dataframe import edges_to_dataframe
 
 if TYPE_CHECKING:
@@ -51,6 +53,9 @@ class XledgerDeserializer(DataDeserializer):
         edges = root.get("edges")
         if isinstance(edges, list):
             return edges_to_dataframe(edges=edges, columns=columns)
+        if metadata.type == OperationType.READ.value and "edges" in root:
+            return pd.DataFrame(columns=columns)
+
         return pd.json_normalize([root], sep="_").reindex(columns=columns)
 
     def get_next(  # type: ignore[override]
@@ -101,6 +106,62 @@ class XledgerDeserializer(DataDeserializer):
                 cursor = last_edge.get("cursor")
                 return str(cursor) if cursor is not None else None
         return None
+
+    def get_incremental_watermark(
+        self,
+        value: Any,
+        *,
+        metadata: MetaData,
+    ) -> Any:
+        """Return the highest incremental field value from a read response.
+
+        Uses ``metadata.incremental`` for the node field name and strategy (``kind``).
+        When read metadata has no incremental section, returns ``None`` without
+        inspecting the payload.
+
+        Args:
+            value: GraphQL response body.
+            metadata: Read operation metadata.
+
+        Returns:
+            The highest field value found in the current page, or ``None`` when
+            incremental is not configured or the page has no comparable values.
+
+        Raises:
+            IncrementalFieldMissingException: If rows are present but the incremental
+                field is missing from every returned node.
+            InvalidIncrementalWatermarkException: If watermark values are invalid for
+                the configured strategy (via ``greatest_incremental_value``).
+            UnsupportedIncrementalKindException: If incremental ``kind`` is not
+                supported (via ``greatest_incremental_value``).
+        """
+        if metadata.incremental is None:
+            return None
+
+        field_name = metadata.incremental.field
+        incremental_kind = metadata.incremental.kind
+
+        payload = cast("dict[str, Any]", value)
+        connection = _connection_payload(payload=payload, metadata=metadata)
+        edges = connection.get("edges")
+        if not isinstance(edges, list) or not edges:
+            return None
+
+        nodes = [edge["node"] for edge in edges if isinstance(edge, dict) and isinstance(edge.get("node"), dict)]
+        if not nodes:
+            return None
+
+        if all(field_name not in node for node in nodes):
+            raise IncrementalFieldMissingException(
+                f"Incremental field '{field_name}' is missing from read response for '{metadata.name}'.",
+                details={"entrypoint": metadata.name, "field": field_name},
+            )
+
+        values = [node[field_name] for node in nodes if node.get(field_name) is not None]
+        if not values:
+            return None
+
+        return greatest_incremental_value(values, kind=incremental_kind)
 
 
 def _root_payload(*, payload: dict[str, Any], metadata: MetaData) -> Any:
