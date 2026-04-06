@@ -2,7 +2,16 @@
   "name": "journalHeaders",
   "type": "read",
   "description": "Read journal headers.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -11,21 +20,267 @@
       "default": true
     },
     {
-      "name": "trRegNumber",
-      "type": "int64",
-      "description": "The transaction registration number.",
-      "default": false
-    },
-    {
       "name": "transactionNumber",
       "type": "int64",
       "description": "The transaction number.",
+      "default": true
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the journal header.",
+      "default": false
+    },
+    {
+      "name": "postedDate",
+      "type": "string",
+      "description": "The posting date of the journal header.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the journal header.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the journal header.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the journal header.",
+      "default": false
+    },
+    {
+      "name": "importedAt",
+      "type": "string",
+      "description": "The import timestamp of the journal header.",
+      "default": false
+    },
+    {
+      "name": "registeredAt",
+      "type": "string",
+      "description": "The registration timestamp of the journal header.",
+      "default": false
+    },
+    {
+      "name": "archive",
+      "type": "string",
+      "description": "Indicates whether the journal header is archive.",
+      "default": false
+    },
+    {
+      "name": "fiscalYear",
+      "type": "string",
+      "description": "The fiscal year of the journal header.",
+      "default": false
+    },
+    {
+      "name": "invoiceFile_dbId",
+      "type": "string",
+      "description": "The unique identifier of the invoice file.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the job level.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_name",
+      "type": "string",
+      "description": "The name of the job level.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the job level.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the job level.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the job level.",
+      "default": false
+    },
+    {
+      "name": "period_dbId",
+      "type": "string",
+      "description": "The unique identifier of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_monthNumber",
+      "type": "string",
+      "description": "The month number of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalPeriod",
+      "type": "string",
+      "description": "The fiscal period of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalYear",
+      "type": "string",
+      "description": "The fiscal year of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_year",
+      "type": "string",
+      "description": "The year of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "processType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the process type.",
+      "default": false
+    },
+    {
+      "name": "processType_name",
+      "type": "string",
+      "description": "The name of the process type.",
+      "default": false
+    },
+    {
+      "name": "processType_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the process type.",
+      "default": false
+    },
+    {
+      "name": "processType_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the process type.",
+      "default": false
+    },
+    {
+      "name": "processType_definitionId",
+      "type": "string",
+      "description": "The definition id of the process type.",
+      "default": false
+    },
+    {
+      "name": "transactionSource_dbId",
+      "type": "string",
+      "description": "The unique identifier of the transaction source.",
+      "default": false
+    },
+    {
+      "name": "transactionSource_code",
+      "type": "string",
+      "description": "The code of the transaction source.",
+      "default": false
+    },
+    {
+      "name": "transProcessLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the transaction process level.",
       "default": false
     },
     {
       "name": "transProcessLevel_name",
       "type": "string",
       "description": "The process level name.",
+      "default": false
+    },
+    {
+      "name": "transProcessLevel_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "transProcessLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "transProcessLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "trProcessAction_dbId",
+      "type": "string",
+      "description": "The unique identifier of the transaction process action.",
+      "default": false
+    },
+    {
+      "name": "trProcessAction_name",
+      "type": "string",
+      "description": "The name of the transaction process action.",
+      "default": false
+    },
+    {
+      "name": "trProcessAction_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the transaction process action.",
+      "default": false
+    },
+    {
+      "name": "trProcessAction_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the transaction process action.",
+      "default": false
+    },
+    {
+      "name": "trProcessAction_definitionId",
+      "type": "string",
+      "description": "The definition id of the transaction process action.",
+      "default": false
+    },
+    {
+      "name": "trProcessLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "trProcessLevel_name",
+      "type": "string",
+      "description": "The name of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "trProcessLevel_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "trProcessLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "trProcessLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "user_dbId",
+      "type": "string",
+      "description": "The unique identifier of the user.",
       "default": false
     }
   ]

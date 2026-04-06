@@ -2,7 +2,16 @@
   "name": "suppliers",
   "type": "read",
   "description": "Query Suppliers.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 5000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -29,27 +38,21 @@
       "default": true
     },
     {
-      "name": "contract",
+      "name": "fromDate",
       "type": "string",
-      "description": "The contract of the Supplier.",
-      "default": true
+      "description": "The start date of the supplier.",
+      "default": false
     },
     {
-      "name": "companyDbId",
-      "type": "int",
-      "description": "The unique identifier of the Supplier's company.",
-      "default": true
+      "name": "toDate",
+      "type": "string",
+      "description": "The end date of the supplier.",
+      "default": false
     },
     {
-      "name": "company_companyNumber",
-      "type": "string",
-      "description": "The company number (orgnr) of the Supplier's company.",
-      "default": true
-    },
-    {
-      "name": "bankAccount",
-      "type": "string",
-      "description": "The bank account of the Supplier.",
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The timestamp when the Supplier was last modified.",
       "default": true
     },
     {
@@ -59,22 +62,58 @@
       "default": true
     },
     {
+      "name": "contract",
+      "type": "string",
+      "description": "The contract of the Supplier.",
+      "default": true
+    },
+    {
       "name": "yourReference",
       "type": "string",
       "description": "Your reference.",
       "default": true
     },
     {
-      "name": "createdAt",
-      "type": "datetime",
-      "description": "The timestamp when the Supplier was created.",
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company.",
+      "default": false
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number (orgnr) of the Supplier's company.",
       "default": true
     },
     {
-      "name": "modifiedAt",
-      "type": "datetime",
-      "description": "The timestamp when the Supplier was last modified.",
-      "default": true
+      "name": "glObject1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 5.",
+      "default": false
     }
   ]
 }

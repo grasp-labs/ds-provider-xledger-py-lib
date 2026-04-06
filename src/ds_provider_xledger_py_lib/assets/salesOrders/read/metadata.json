@@ -1,0 +1,431 @@
+{
+  "name": "salesOrders",
+  "type": "read",
+  "description": "Xledger salesOrders dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the sales order.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the sales order.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the sales order.",
+      "default": true
+    },
+    {
+      "name": "invoiceNumber",
+      "type": "string",
+      "description": "The invoice number of the sales order.",
+      "default": true
+    },
+    {
+      "name": "orderNumber",
+      "type": "string",
+      "description": "The order number of the sales order.",
+      "default": true
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the sales order.",
+      "default": false
+    },
+    {
+      "name": "amount",
+      "type": "string",
+      "description": "The amount of the sales order.",
+      "default": false
+    },
+    {
+      "name": "dueDate",
+      "type": "string",
+      "description": "The due date of the sales order.",
+      "default": false
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the sales order.",
+      "default": false
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the sales order.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the sales order.",
+      "default": false
+    },
+    {
+      "name": "extOrderNumber",
+      "type": "string",
+      "description": "The ext order number of the sales order.",
+      "default": false
+    },
+    {
+      "name": "invoiceAmount",
+      "type": "string",
+      "description": "The invoice amount of the sales order.",
+      "default": false
+    },
+    {
+      "name": "remainingAmount",
+      "type": "string",
+      "description": "The remaining amount of the sales order.",
+      "default": false
+    },
+    {
+      "name": "taxAmount",
+      "type": "string",
+      "description": "The tax amount of the sales order.",
+      "default": false
+    },
+    {
+      "name": "deliveryDate",
+      "type": "string",
+      "description": "The delivery date of the sales order.",
+      "default": false
+    },
+    {
+      "name": "invoiceDate",
+      "type": "string",
+      "description": "The invoice date of the sales order.",
+      "default": false
+    },
+    {
+      "name": "orderDate",
+      "type": "string",
+      "description": "The order date of the sales order.",
+      "default": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "The id of the sales order.",
+      "default": false
+    },
+    {
+      "name": "subledgerDbId",
+      "type": "string",
+      "description": "The subledger identifier of the sales order.",
+      "default": false
+    },
+    {
+      "name": "dateConfirmed",
+      "type": "string",
+      "description": "The date confirmed of the sales order.",
+      "default": false
+    },
+    {
+      "name": "extIdentifier",
+      "type": "string",
+      "description": "The external identifier of the sales order.",
+      "default": false
+    },
+    {
+      "name": "headerInfo",
+      "type": "string",
+      "description": "The header info of the sales order.",
+      "default": false
+    },
+    {
+      "name": "remainingInvoice",
+      "type": "string",
+      "description": "The remaining invoice of the sales order.",
+      "default": false
+    },
+    {
+      "name": "xorder",
+      "type": "string",
+      "description": "The xorder of the sales order.",
+      "default": false
+    },
+    {
+      "name": "yourReference",
+      "type": "string",
+      "description": "The your reference of the sales order.",
+      "default": false
+    },
+    {
+      "name": "bankAccount_dbId",
+      "type": "string",
+      "description": "The unique identifier of the bank account.",
+      "default": false
+    },
+    {
+      "name": "billAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the billing address.",
+      "default": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company.",
+      "default": false
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number of the company.",
+      "default": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "string",
+      "description": "The unique identifier of the currency.",
+      "default": false
+    },
+    {
+      "name": "customer_dbId",
+      "type": "string",
+      "description": "The unique identifier of the customer.",
+      "default": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 5.",
+      "default": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_dbId",
+      "type": "string",
+      "description": "The unique identifier of the invoice delivery method.",
+      "default": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_name",
+      "type": "string",
+      "description": "The name of the invoice delivery method.",
+      "default": false
+    },
+    {
+      "name": "invoiceFile_dbId",
+      "type": "string",
+      "description": "The unique identifier of the invoice file.",
+      "default": false
+    },
+    {
+      "name": "ourRef_dbId",
+      "type": "string",
+      "description": "The unique identifier of the our ref.",
+      "default": false
+    },
+    {
+      "name": "ourSales_dbId",
+      "type": "string",
+      "description": "The unique identifier of the our sales.",
+      "default": false
+    },
+    {
+      "name": "prepaidLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the prepaid level.",
+      "default": false
+    },
+    {
+      "name": "prepaidLevel_name",
+      "type": "string",
+      "description": "The name of the prepaid level.",
+      "default": false
+    },
+    {
+      "name": "prepaidLevel_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the prepaid level.",
+      "default": false
+    },
+    {
+      "name": "prepaidLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the prepaid level.",
+      "default": false
+    },
+    {
+      "name": "prepaidLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the prepaid level.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the ship address.",
+      "default": false
+    },
+    {
+      "name": "slType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the sl type.",
+      "default": false
+    },
+    {
+      "name": "slType_name",
+      "type": "string",
+      "description": "The name of the sl type.",
+      "default": false
+    },
+    {
+      "name": "slType_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the sl type.",
+      "default": false
+    },
+    {
+      "name": "slType_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the sl type.",
+      "default": false
+    },
+    {
+      "name": "slType_definitionId",
+      "type": "string",
+      "description": "The definition id of the sl type.",
+      "default": false
+    },
+    {
+      "name": "soInvoiceProcessing_dbId",
+      "type": "string",
+      "description": "The unique identifier of the so invoice processing.",
+      "default": false
+    },
+    {
+      "name": "soInvoiceProcessing_name",
+      "type": "string",
+      "description": "The name of the so invoice processing.",
+      "default": false
+    },
+    {
+      "name": "soInvoiceProcessing_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the so invoice processing.",
+      "default": false
+    },
+    {
+      "name": "soInvoiceProcessing_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the so invoice processing.",
+      "default": false
+    },
+    {
+      "name": "soInvoiceProcessing_definitionId",
+      "type": "string",
+      "description": "The definition id of the so invoice processing.",
+      "default": false
+    },
+    {
+      "name": "soOrderLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the so order level.",
+      "default": false
+    },
+    {
+      "name": "soOrderLevel_name",
+      "type": "string",
+      "description": "The name of the so order level.",
+      "default": false
+    },
+    {
+      "name": "soOrderLevel_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the so order level.",
+      "default": false
+    },
+    {
+      "name": "soOrderLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the so order level.",
+      "default": false
+    },
+    {
+      "name": "soOrderLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the so order level.",
+      "default": false
+    },
+    {
+      "name": "soOrderType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the so order type.",
+      "default": false
+    },
+    {
+      "name": "soOrderType_name",
+      "type": "string",
+      "description": "The name of the so order type.",
+      "default": false
+    },
+    {
+      "name": "soOrderType_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the so order type.",
+      "default": false
+    },
+    {
+      "name": "soOrderType_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the so order type.",
+      "default": false
+    },
+    {
+      "name": "soOrderType_definitionId",
+      "type": "string",
+      "description": "The definition id of the so order type.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
+    }
+  ]
+}

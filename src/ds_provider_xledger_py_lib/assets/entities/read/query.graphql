@@ -1,5 +1,5 @@
 {
-  entities(first: 1000) {
+  entities() {
     pageInfo {
       hasNextPage
       hasPreviousPage

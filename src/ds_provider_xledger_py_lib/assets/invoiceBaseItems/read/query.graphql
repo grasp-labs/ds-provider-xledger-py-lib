@@ -1,5 +1,5 @@
 {
-  invoiceBaseItems(first: 1000) {
+  invoiceBaseItems() {
     pageInfo {
       hasNextPage
       hasPreviousPage

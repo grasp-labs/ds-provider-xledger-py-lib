@@ -1,5 +1,5 @@
 {
-  suppliers(first: 1000) {
+  suppliers() {
     pageInfo {
       hasNextPage
       hasPreviousPage

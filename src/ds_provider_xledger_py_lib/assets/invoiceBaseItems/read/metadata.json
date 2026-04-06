@@ -2,7 +2,16 @@
   "name": "invoiceBaseItems",
   "type": "read",
   "description": "Query InvoiceBaseItems.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -11,33 +20,33 @@
       "default": true
     },
     {
+      "name": "orderNumber",
+      "type": "string",
+      "description": "The order number of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the invoice base item.",
+      "default": false
+    },
+    {
       "name": "amount",
       "type": "string",
       "description": "The amount of the InvoiceBaseItem.",
       "default": true
     },
     {
-      "name": "comment",
-      "type": "string",
-      "description": "A comment on the InvoiceBaseItem.",
-      "default": true
-    },
-    {
-      "name": "extOrder",
-      "type": "string",
-      "description": "The external order of the InvoiceBaseItem.",
+      "name": "fromDate",
+      "type": "datetime",
+      "description": "The start date of the InvoiceBaseItem.",
       "default": true
     },
     {
       "name": "toDate",
       "type": "datetime",
       "description": "The end date of the InvoiceBaseItem.",
-      "default": true
-    },
-    {
-      "name": "fromDate",
-      "type": "datetime",
-      "description": "The start date of the InvoiceBaseItem.",
       "default": true
     },
     {
@@ -51,6 +60,516 @@
       "type": "datetime",
       "description": "The timestamp when the InvoiceBaseItem was last modified.",
       "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "extProductNumber",
+      "type": "string",
+      "description": "The ext product number of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "lineNumber",
+      "type": "string",
+      "description": "The line number of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "costAmount",
+      "type": "string",
+      "description": "The cost amount of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "invoiceAmount",
+      "type": "string",
+      "description": "The invoice amount of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "taxAmount",
+      "type": "string",
+      "description": "The tax amount of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "invoiceDate",
+      "type": "string",
+      "description": "The invoice date of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "transactionDate",
+      "type": "string",
+      "description": "The transaction date of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderDetailDbId",
+      "type": "string",
+      "description": "The sales order detail db id of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderHeaderDbId",
+      "type": "string",
+      "description": "The sales order header db id of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "approved",
+      "type": "string",
+      "description": "Indicates whether the invoice base item is approved.",
+      "default": false
+    },
+    {
+      "name": "comment",
+      "type": "string",
+      "description": "A comment on the InvoiceBaseItem.",
+      "default": true
+    },
+    {
+      "name": "contract",
+      "type": "string",
+      "description": "The contract of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "costPrice",
+      "type": "string",
+      "description": "The cost price of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "discount",
+      "type": "string",
+      "description": "The discount of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "discountPercent",
+      "type": "string",
+      "description": "The discount percent of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "extGL",
+      "type": "string",
+      "description": "The ext gl of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "extIdentifier",
+      "type": "string",
+      "description": "The external identifier of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "extOrder",
+      "type": "string",
+      "description": "The external order of the InvoiceBaseItem.",
+      "default": true
+    },
+    {
+      "name": "extSupplierReference",
+      "type": "string",
+      "description": "The ext supplier reference of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "footerInfo",
+      "type": "string",
+      "description": "The footer info of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "headerInfo",
+      "type": "string",
+      "description": "The header info of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "numberOfPeriods",
+      "type": "string",
+      "description": "The number of periods of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "order",
+      "type": "string",
+      "description": "The order of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "orderedBy",
+      "type": "string",
+      "description": "The ordered by of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "originalQuantity",
+      "type": "string",
+      "description": "The original quantity of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "paymentReference",
+      "type": "string",
+      "description": "The payment reference of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "quantity",
+      "type": "string",
+      "description": "The quantity of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "unitPrice",
+      "type": "string",
+      "description": "The unit price of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "yourReference",
+      "type": "string",
+      "description": "The your reference of the invoice base item.",
+      "default": false
+    },
+    {
+      "name": "activity_dbId",
+      "type": "string",
+      "description": "The unique identifier of the activity.",
+      "default": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company.",
+      "default": false
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number of the company.",
+      "default": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "string",
+      "description": "The unique identifier of the currency.",
+      "default": false
+    },
+    {
+      "name": "employee_dbId",
+      "type": "string",
+      "description": "The unique identifier of the employee.",
+      "default": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 5.",
+      "default": false
+    },
+    {
+      "name": "import_dbId",
+      "type": "string",
+      "description": "The unique identifier of the import.",
+      "default": false
+    },
+    {
+      "name": "import_name",
+      "type": "string",
+      "description": "The name of the import.",
+      "default": false
+    },
+    {
+      "name": "import_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the import.",
+      "default": false
+    },
+    {
+      "name": "import_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the import.",
+      "default": false
+    },
+    {
+      "name": "import_definitionId",
+      "type": "string",
+      "description": "The definition id of the import.",
+      "default": false
+    },
+    {
+      "name": "incomeElement_dbId",
+      "type": "string",
+      "description": "The unique identifier of the income element.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the job level.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_name",
+      "type": "string",
+      "description": "The name of the job level.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the job level.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the job level.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the job level.",
+      "default": false
+    },
+    {
+      "name": "ourRef_dbId",
+      "type": "string",
+      "description": "The unique identifier of the our ref.",
+      "default": false
+    },
+    {
+      "name": "ourSales_dbId",
+      "type": "string",
+      "description": "The unique identifier of the our sales.",
+      "default": false
+    },
+    {
+      "name": "payTerms_dbId",
+      "type": "string",
+      "description": "The unique identifier of the pay terms.",
+      "default": false
+    },
+    {
+      "name": "periodStartTmp_dbId",
+      "type": "string",
+      "description": "The unique identifier of the period start tmp.",
+      "default": false
+    },
+    {
+      "name": "periodStartTmp_monthNumber",
+      "type": "string",
+      "description": "The month number of the period start tmp.",
+      "default": false
+    },
+    {
+      "name": "periodStartTmp_fiscalPeriod",
+      "type": "string",
+      "description": "The fiscal period of the period start tmp.",
+      "default": false
+    },
+    {
+      "name": "periodStartTmp_fiscalYear",
+      "type": "string",
+      "description": "The fiscal year of the period start tmp.",
+      "default": false
+    },
+    {
+      "name": "periodStartTmp_year",
+      "type": "string",
+      "description": "The year of the period start tmp.",
+      "default": false
+    },
+    {
+      "name": "product_dbId",
+      "type": "string",
+      "description": "The unique identifier of the product.",
+      "default": false
+    },
+    {
+      "name": "productItem_dbId",
+      "type": "string",
+      "description": "The unique identifier of the product item.",
+      "default": false
+    },
+    {
+      "name": "settlementType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the settlement type.",
+      "default": false
+    },
+    {
+      "name": "settlementType_name",
+      "type": "string",
+      "description": "The name of the settlement type.",
+      "default": false
+    },
+    {
+      "name": "settlementType_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the settlement type.",
+      "default": false
+    },
+    {
+      "name": "settlementType_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the settlement type.",
+      "default": false
+    },
+    {
+      "name": "settlementType_definitionId",
+      "type": "string",
+      "description": "The definition id of the settlement type.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the ship address.",
+      "default": false
+    },
+    {
+      "name": "slType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the sl type.",
+      "default": false
+    },
+    {
+      "name": "slType_name",
+      "type": "string",
+      "description": "The name of the sl type.",
+      "default": false
+    },
+    {
+      "name": "slType_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the sl type.",
+      "default": false
+    },
+    {
+      "name": "slType_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the sl type.",
+      "default": false
+    },
+    {
+      "name": "slType_definitionId",
+      "type": "string",
+      "description": "The definition id of the sl type.",
+      "default": false
+    },
+    {
+      "name": "soDetailsLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the so details level.",
+      "default": false
+    },
+    {
+      "name": "soDetailsLevel_name",
+      "type": "string",
+      "description": "The name of the so details level.",
+      "default": false
+    },
+    {
+      "name": "soDetailsLevel_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the so details level.",
+      "default": false
+    },
+    {
+      "name": "soDetailsLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the so details level.",
+      "default": false
+    },
+    {
+      "name": "soDetailsLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the so details level.",
+      "default": false
+    },
+    {
+      "name": "subledger_dbId",
+      "type": "string",
+      "description": "The unique identifier of the subledger.",
+      "default": false
+    },
+    {
+      "name": "subledgerKey_dbId",
+      "type": "string",
+      "description": "The unique identifier of the subledger key.",
+      "default": false
+    },
+    {
+      "name": "subscriptionSetup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the subscription setup.",
+      "default": false
+    },
+    {
+      "name": "taxRule_dbId",
+      "type": "string",
+      "description": "The unique identifier of the tax rule.",
+      "default": false
+    },
+    {
+      "name": "warehouse_dbId",
+      "type": "string",
+      "description": "The unique identifier of the warehouse.",
+      "default": false
+    },
+    {
+      "name": "workOrder_dbId",
+      "type": "string",
+      "description": "The unique identifier of the work order.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
+    },
+    {
+      "name": "xlg_dbId",
+      "type": "string",
+      "description": "The unique identifier of the xlg.",
+      "default": false
     }
   ]
 }

@@ -2,7 +2,12 @@
   "name": "glImportItemErrors",
   "type": "read",
   "description": "GL Import items errors.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": null,
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -23,12 +28,6 @@
       "default": false
     },
     {
-      "name": "message",
-      "type": "string",
-      "description": "The error message.",
-      "default": false
-    },
-    {
       "name": "errorLevelDbId",
       "type": "int64",
       "description": "The error level identifier.",
@@ -41,51 +40,57 @@
       "default": false
     },
     {
-      "name": "errorLevel_dbId",
-      "type": "int64",
-      "description": "",
-      "default": false
+      "name": "message",
+      "type": "string",
+      "description": "The error message.",
+      "default": true
     },
     {
-      "name": "errorLevel_ownerDbId",
+      "name": "errorLevel_dbId",
       "type": "int64",
-      "description": "",
+      "description": "The unique identifier of the error level.",
       "default": false
     },
     {
       "name": "errorLevel_code",
       "type": "string",
-      "description": "",
-      "default": false
+      "description": "The code of the error level.",
+      "default": true
     },
     {
       "name": "errorLevel_name",
       "type": "string",
-      "description": "",
-      "default": false
+      "description": "The name of the error level.",
+      "default": true
     },
     {
-      "name": "errorLevel_definitionId",
+      "name": "errorLevel_ownerDbId",
       "type": "int64",
-      "description": "",
+      "description": "The owner identifier of the error level.",
       "default": false
     },
     {
       "name": "errorLevel_dbSubId",
       "type": "int64",
-      "description": "",
+      "description": "The db sub id of the error level.",
+      "default": false
+    },
+    {
+      "name": "errorLevel_definitionId",
+      "type": "int64",
+      "description": "The definition id of the error level.",
       "default": false
     },
     {
       "name": "objectValue_dbId",
       "type": "int64",
-      "description": "",
+      "description": "The unique identifier of the object value.",
       "default": false
     },
     {
       "name": "owner_dbId",
       "type": "int64",
-      "description": "",
+      "description": "The unique identifier of the owner.",
       "default": false
     }
   ]

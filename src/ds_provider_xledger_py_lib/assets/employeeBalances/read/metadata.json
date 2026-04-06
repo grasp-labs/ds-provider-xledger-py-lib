@@ -1,0 +1,91 @@
+{
+  "name": "employeeBalances",
+  "type": "read",
+  "description": "Xledger employeeBalances dataset.",
+  "pattern": "direct",
+  "incremental": null,
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the employee balance.",
+      "default": true
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the employee balance.",
+      "default": true
+    },
+    {
+      "name": "balance",
+      "type": "string",
+      "description": "The balance of the employee balance.",
+      "default": true
+    },
+    {
+      "name": "dateFrom",
+      "type": "string",
+      "description": "The start date of the employee balance.",
+      "default": true
+    },
+    {
+      "name": "dateTo",
+      "type": "string",
+      "description": "The end date of the employee balance.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the employee balance.",
+      "default": false
+    },
+    {
+      "name": "startBalance",
+      "type": "string",
+      "description": "The start balance of the employee balance.",
+      "default": false
+    },
+    {
+      "name": "employee_dbId",
+      "type": "string",
+      "description": "The unique identifier of the employee.",
+      "default": false
+    },
+    {
+      "name": "employee_anniversaryDate",
+      "type": "string",
+      "description": "The anniversary date of the employee.",
+      "default": false
+    },
+    {
+      "name": "employee_seniorityDate",
+      "type": "string",
+      "description": "The seniority date of the employee.",
+      "default": false
+    },
+    {
+      "name": "employee_contact_birthday",
+      "type": "string",
+      "description": "The birthday of the contact.",
+      "default": false
+    },
+    {
+      "name": "rateElement_dbId",
+      "type": "string",
+      "description": "The unique identifier of the rate element.",
+      "default": false
+    },
+    {
+      "name": "rateElement_description",
+      "type": "string",
+      "description": "The description of the rate element.",
+      "default": false
+    }
+  ]
+}

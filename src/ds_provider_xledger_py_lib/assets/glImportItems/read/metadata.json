@@ -2,7 +2,16 @@
   "name": "glImportItems",
   "type": "read",
   "description": "Query glImportItems.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -11,28 +20,34 @@
       "default": true
     },
     {
+      "name": "invoiceNumber",
+      "type": "string",
+      "description": "The invoice number of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the gl import item.",
+      "default": false
+    },
+    {
       "name": "amount",
       "type": "string",
       "description": "The amount of the glImportItems.",
       "default": true
     },
     {
-      "name": "discount",
+      "name": "dueDate",
       "type": "string",
-      "description": "The discount of the glImportItems.",
-      "default": true
+      "description": "The due date of the gl import item.",
+      "default": false
     },
     {
-      "name": "discountAmount",
+      "name": "postedDate",
       "type": "string",
-      "description": "The discount amount of the glImportItems.",
-      "default": true
-    },
-    {
-      "name": "discountDate",
-      "type": "datetime",
-      "description": "The discount date of the glImportItems.",
-      "default": true
+      "description": "The posting date of the gl import item.",
+      "default": false
     },
     {
       "name": "createdAt",
@@ -47,10 +62,76 @@
       "default": true
     },
     {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "extOrderNumber",
+      "type": "string",
+      "description": "The ext order number of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "positionNumber",
+      "type": "string",
+      "description": "The position number of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "trItemNumber",
+      "type": "string",
+      "description": "The tr item number of the gl import item.",
+      "default": false
+    },
+    {
       "name": "trRegNumber",
       "type": "int",
       "description": "The transaction registration number of the glImportItems.",
       "default": true
+    },
+    {
+      "name": "discountAmount",
+      "type": "string",
+      "description": "The discount amount of the glImportItems.",
+      "default": true
+    },
+    {
+      "name": "invoiceAmount",
+      "type": "string",
+      "description": "The invoice amount of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "regAmount",
+      "type": "string",
+      "description": "The reg amount of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "taxAmount",
+      "type": "string",
+      "description": "The tax amount of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "discountDate",
+      "type": "datetime",
+      "description": "The discount date of the glImportItems.",
+      "default": true
+    },
+    {
+      "name": "invoiceDate",
+      "type": "string",
+      "description": "The invoice date of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "importDefinitionDbId",
+      "type": "string",
+      "description": "The import definition db id of the gl import item.",
+      "default": false
     },
     {
       "name": "jobLevelDbId",
@@ -59,10 +140,118 @@
       "default": true
     },
     {
-      "name": "jobLevel_name",
+      "name": "amount3",
       "type": "string",
-      "description": "The job level name of the glImportItems.",
+      "description": "The amount 3 of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "amount4",
+      "type": "string",
+      "description": "The amount 4 of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "amount5",
+      "type": "string",
+      "description": "The amount 5 of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "archive",
+      "type": "string",
+      "description": "Indicates whether the gl import item is archive.",
+      "default": false
+    },
+    {
+      "name": "discount",
+      "type": "string",
+      "description": "The discount of the glImportItems.",
       "default": true
+    },
+    {
+      "name": "exchangeRate",
+      "type": "string",
+      "description": "The exchange rate of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "extIdentifier",
+      "type": "string",
+      "description": "The external identifier of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "fiscalPeriod",
+      "type": "string",
+      "description": "The fiscal period of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "fiscalYear",
+      "type": "string",
+      "description": "The fiscal year of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "numberPeriod",
+      "type": "string",
+      "description": "The number period of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "payDocText",
+      "type": "string",
+      "description": "The pay doc text of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "paymentReference",
+      "type": "string",
+      "description": "The payment reference of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "periodStart",
+      "type": "string",
+      "description": "The period start of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "quantity",
+      "type": "string",
+      "description": "The quantity of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "quantity2",
+      "type": "string",
+      "description": "The quantity 2 of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "quantity3",
+      "type": "string",
+      "description": "The quantity 3 of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "taxAmount2",
+      "type": "string",
+      "description": "The tax amount 2 of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "workflow",
+      "type": "string",
+      "description": "The workflow of the gl import item.",
+      "default": false
+    },
+    {
+      "name": "yourReference",
+      "type": "string",
+      "description": "The your reference of the gl import item.",
+      "default": false
     }
   ]
 }

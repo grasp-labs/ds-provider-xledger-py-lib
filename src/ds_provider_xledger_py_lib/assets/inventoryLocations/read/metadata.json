@@ -1,0 +1,71 @@
+{
+  "name": "inventoryLocations",
+  "type": "read",
+  "description": "Xledger inventoryLocations dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the inventory location.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the inventory location.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the inventory location.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the inventory location.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the inventory location.",
+      "default": true
+    },
+    {
+      "name": "inventoryRoute",
+      "type": "string",
+      "description": "The inventory route of the inventory location.",
+      "default": false
+    },
+    {
+      "name": "placement",
+      "type": "string",
+      "description": "The placement of the inventory location.",
+      "default": false
+    },
+    {
+      "name": "locationType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the location type.",
+      "default": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "string",
+      "description": "The unique identifier of the owner.",
+      "default": false
+    }
+  ]
+}

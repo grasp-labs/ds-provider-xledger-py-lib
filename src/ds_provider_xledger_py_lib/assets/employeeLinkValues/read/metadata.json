@@ -1,0 +1,101 @@
+{
+  "name": "employeeLinkValues",
+  "type": "read",
+  "description": "Xledger employeeLinkValues dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the employee link value.",
+      "default": true
+    },
+    {
+      "name": "dateFrom",
+      "type": "string",
+      "description": "The start date of the employee link value.",
+      "default": true
+    },
+    {
+      "name": "dateTo",
+      "type": "string",
+      "description": "The end date of the employee link value.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the employee link value.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the employee link value.",
+      "default": true
+    },
+    {
+      "name": "employeeDbId",
+      "type": "string",
+      "description": "The employee db id of the employee link value.",
+      "default": false
+    },
+    {
+      "name": "linkDbId",
+      "type": "string",
+      "description": "The link db id of the employee link value.",
+      "default": false
+    },
+    {
+      "name": "date1",
+      "type": "string",
+      "description": "The date 1 of the employee link value.",
+      "default": false
+    },
+    {
+      "name": "date2",
+      "type": "string",
+      "description": "The date 2 of the employee link value.",
+      "default": false
+    },
+    {
+      "name": "number1",
+      "type": "string",
+      "description": "The number 1 of the employee link value.",
+      "default": false
+    },
+    {
+      "name": "object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object.",
+      "default": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "string",
+      "description": "The unique identifier of the owner.",
+      "default": false
+    },
+    {
+      "name": "position_dbId",
+      "type": "string",
+      "description": "The unique identifier of the position.",
+      "default": false
+    },
+    {
+      "name": "value_dbId",
+      "type": "string",
+      "description": "The unique identifier of the value.",
+      "default": false
+    }
+  ]
+}

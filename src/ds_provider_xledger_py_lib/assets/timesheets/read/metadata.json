@@ -1,0 +1,233 @@
+{
+  "name": "timesheets",
+  "type": "read",
+  "description": "Xledger timesheets dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the timesheet.",
+      "default": true
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the timesheet.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the timesheet.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the timesheet.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "approvedAt",
+      "type": "string",
+      "description": "The approved at of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "assignmentDate",
+      "type": "string",
+      "description": "The assignment date of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "headerApprovedAt",
+      "type": "string",
+      "description": "The header approved at of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "projectDbId",
+      "type": "string",
+      "description": "The project db id of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "approved",
+      "type": "string",
+      "description": "Indicates whether the timesheet is approved.",
+      "default": false
+    },
+    {
+      "name": "comment",
+      "type": "string",
+      "description": "The comment of the timesheet.",
+      "default": true
+    },
+    {
+      "name": "hourlyCost",
+      "type": "string",
+      "description": "The hourly cost of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "hourlyRevenueCurrency",
+      "type": "string",
+      "description": "The hourly revenue currency of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "income",
+      "type": "string",
+      "description": "The income of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "invoiced",
+      "type": "string",
+      "description": "The invoiced of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "invoiceHours",
+      "type": "string",
+      "description": "The invoice hours of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "isHeaderApproved",
+      "type": "string",
+      "description": "Indicates whether the timesheet is header approved.",
+      "default": false
+    },
+    {
+      "name": "payroll",
+      "type": "string",
+      "description": "The payroll of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "posted",
+      "type": "string",
+      "description": "The posted of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "timeFrom",
+      "type": "string",
+      "description": "The time from of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "timeTo",
+      "type": "string",
+      "description": "The time to of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "workingHours",
+      "type": "string",
+      "description": "The working hours of the timesheet.",
+      "default": false
+    },
+    {
+      "name": "activity_dbId",
+      "type": "string",
+      "description": "The unique identifier of the activity.",
+      "default": false
+    },
+    {
+      "name": "approvedBy_dbId",
+      "type": "string",
+      "description": "The unique identifier of the approver.",
+      "default": false
+    },
+    {
+      "name": "assignment_dbId",
+      "type": "string",
+      "description": "The unique identifier of the assignment.",
+      "default": false
+    },
+    {
+      "name": "employee_dbId",
+      "type": "string",
+      "description": "The unique identifier of the employee.",
+      "default": false
+    },
+    {
+      "name": "object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object.",
+      "default": false
+    },
+    {
+      "name": "objectValue_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object value.",
+      "default": false
+    },
+    {
+      "name": "salesOrderDetail_dbId",
+      "type": "string",
+      "description": "The unique identifier of the sales order detail.",
+      "default": false
+    },
+    {
+      "name": "subledger_dbId",
+      "type": "string",
+      "description": "The unique identifier of the subledger.",
+      "default": false
+    },
+    {
+      "name": "timesheetStatus_dbId",
+      "type": "string",
+      "description": "The unique identifier of the timesheet status.",
+      "default": false
+    },
+    {
+      "name": "timesheetStatus_name",
+      "type": "string",
+      "description": "The name of the timesheet status.",
+      "default": false
+    },
+    {
+      "name": "timesheetStatus_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the timesheet status.",
+      "default": false
+    },
+    {
+      "name": "timesheetStatus_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the timesheet status.",
+      "default": false
+    },
+    {
+      "name": "timesheetStatus_definitionId",
+      "type": "string",
+      "description": "The definition id of the timesheet status.",
+      "default": false
+    },
+    {
+      "name": "timeType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the time type.",
+      "default": false
+    }
+  ]
+}

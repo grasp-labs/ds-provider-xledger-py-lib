@@ -1,5 +1,5 @@
 {
-  objectValues(first: 1000) {
+  objectValues() {
     pageInfo {
       hasNextPage
       hasPreviousPage

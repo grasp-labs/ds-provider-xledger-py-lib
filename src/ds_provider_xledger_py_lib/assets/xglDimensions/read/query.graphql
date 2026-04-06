@@ -1,5 +1,5 @@
 {
-  xglDimensions(first: 1000) {
+  xglDimensions() {
     pageInfo {
       hasNextPage
       hasPreviousPage

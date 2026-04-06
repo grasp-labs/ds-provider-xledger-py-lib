@@ -1,5 +1,5 @@
 {
-  bankAccounts(first: 1000) {
+  bankAccounts() {
     pageInfo {
       hasNextPage
       hasPreviousPage

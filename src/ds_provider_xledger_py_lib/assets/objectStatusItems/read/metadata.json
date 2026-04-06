@@ -1,0 +1,47 @@
+{
+  "name": "objectStatusItems",
+  "type": "read",
+  "description": "Xledger objectStatusItems dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 10000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the object status item.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the object status item.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the object status item.",
+      "default": false
+    },
+    {
+      "name": "objectKindDbId",
+      "type": "string",
+      "description": "The object kind db id of the object status item.",
+      "default": true
+    },
+    {
+      "name": "objectValueDbId",
+      "type": "string",
+      "description": "The object value db id of the object status item.",
+      "default": true
+    }
+  ]
+}

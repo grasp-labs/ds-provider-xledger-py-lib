@@ -1,0 +1,389 @@
+{
+  "name": "payrollEntryItems",
+  "type": "read",
+  "description": "Xledger payrollEntryItems dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the payroll entry item.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The incremental watermark field for the payrollEntryItems dataset.",
+      "default": true
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the payroll entry item.",
+      "default": true
+    },
+    {
+      "name": "dateFrom",
+      "type": "string",
+      "description": "The start date of the payroll entry item.",
+      "default": true
+    },
+    {
+      "name": "dateTo",
+      "type": "string",
+      "description": "The end date of the payroll entry item.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "lastDate",
+      "type": "string",
+      "description": "The last date of the payroll entry item.",
+      "default": true
+    },
+    {
+      "name": "nextDate",
+      "type": "string",
+      "description": "The next date of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "employeeDbId",
+      "type": "string",
+      "description": "The employee db id of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "extIdentifier",
+      "type": "string",
+      "description": "The external identifier of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "outputValue",
+      "type": "string",
+      "description": "The output value of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "rate1",
+      "type": "string",
+      "description": "The rate 1 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "rate2",
+      "type": "string",
+      "description": "The rate 2 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "rate3",
+      "type": "string",
+      "description": "The rate 3 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "rate4",
+      "type": "string",
+      "description": "The rate 4 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "rate5",
+      "type": "string",
+      "description": "The rate 5 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "rate6",
+      "type": "string",
+      "description": "The rate 6 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "rate7",
+      "type": "string",
+      "description": "The rate 7 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetGl",
+      "type": "string",
+      "description": "The reset gl of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetGlObject1",
+      "type": "string",
+      "description": "The reset gl object 1 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetGlObject2",
+      "type": "string",
+      "description": "The reset gl object 2 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetGlObject3",
+      "type": "string",
+      "description": "The reset gl object 3 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetGlObject4",
+      "type": "string",
+      "description": "The reset gl object 4 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetGlObject5",
+      "type": "string",
+      "description": "The reset gl object 5 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetRate1",
+      "type": "string",
+      "description": "The reset rate 1 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetRate2",
+      "type": "string",
+      "description": "The reset rate 2 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetRate3",
+      "type": "string",
+      "description": "The reset rate 3 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetRate4",
+      "type": "string",
+      "description": "The reset rate 4 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetRate5",
+      "type": "string",
+      "description": "The reset rate 5 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetRate6",
+      "type": "string",
+      "description": "The reset rate 6 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "resetRate7",
+      "type": "string",
+      "description": "The reset rate 7 of the payroll entry item.",
+      "default": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company.",
+      "default": false
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number of the company.",
+      "default": false
+    },
+    {
+      "name": "frequencySetup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the frequency setup.",
+      "default": false
+    },
+    {
+      "name": "frequencySetup_description",
+      "type": "string",
+      "description": "The description of the frequency setup.",
+      "default": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "glObject1_code",
+      "type": "string",
+      "description": "The code of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "glObject2_code",
+      "type": "string",
+      "description": "The code of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "glObject3_code",
+      "type": "string",
+      "description": "The code of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "glObject4_code",
+      "type": "string",
+      "description": "The code of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 5.",
+      "default": false
+    },
+    {
+      "name": "glObject5_code",
+      "type": "string",
+      "description": "The code of the general ledger object 5.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the job level.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_name",
+      "type": "string",
+      "description": "The name of the job level.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the job level.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the job level.",
+      "default": false
+    },
+    {
+      "name": "jobLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the job level.",
+      "default": false
+    },
+    {
+      "name": "payrollRunSetup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the payroll run setup.",
+      "default": false
+    },
+    {
+      "name": "payrollRunSetup_description",
+      "type": "string",
+      "description": "The description of the payroll run setup.",
+      "default": false
+    },
+    {
+      "name": "payrollRunSetup_frequencySetup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the frequency setup.",
+      "default": false
+    },
+    {
+      "name": "payrollRunSetup_frequencySetup_code",
+      "type": "string",
+      "description": "The code of the frequency setup.",
+      "default": false
+    },
+    {
+      "name": "pdSetup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the pd setup.",
+      "default": false
+    },
+    {
+      "name": "pdSetup_code",
+      "type": "string",
+      "description": "The code of the pd setup.",
+      "default": false
+    },
+    {
+      "name": "pdSetup_description",
+      "type": "string",
+      "description": "The description of the pd setup.",
+      "default": false
+    },
+    {
+      "name": "position_dbId",
+      "type": "string",
+      "description": "The unique identifier of the position.",
+      "default": false
+    },
+    {
+      "name": "status_dbId",
+      "type": "string",
+      "description": "The unique identifier of the status.",
+      "default": false
+    },
+    {
+      "name": "subledger_dbId",
+      "type": "string",
+      "description": "The unique identifier of the subledger.",
+      "default": false
+    },
+    {
+      "name": "sysPd_dbId",
+      "type": "string",
+      "description": "The unique identifier of the sys pd.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
+    }
+  ]
+}

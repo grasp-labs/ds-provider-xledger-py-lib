@@ -2,7 +2,16 @@
   "name": "accounts",
   "type": "read",
   "description": "Xledger accounts dataset.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -23,22 +32,172 @@
       "default": true
     },
     {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The timestamp when the account was last modified.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the account.",
+      "default": false
+    },
+    {
+      "name": "asset",
+      "type": "string",
+      "description": "The asset of the account.",
+      "default": false
+    },
+    {
+      "name": "balanceSheet",
+      "type": "string",
+      "description": "The balance sheet of the account.",
+      "default": false
+    },
+    {
+      "name": "cost",
+      "type": "string",
+      "description": "The cost of the account.",
+      "default": false
+    },
+    {
       "name": "credit",
       "type": "boolean",
       "description": "If the account is a credit account",
       "default": true
     },
     {
-      "name": "accountGroup_description",
+      "name": "equity",
       "type": "string",
-      "description": "The name or description of the account group",
-      "default": true
+      "description": "The equity of the account.",
+      "default": false
     },
     {
-      "name": "owner_description",
+      "name": "finance",
       "type": "string",
-      "description": "The name or description of the owner",
-      "default": true
+      "description": "The finance of the account.",
+      "default": false
+    },
+    {
+      "name": "liabilities",
+      "type": "string",
+      "description": "The liabilities of the account.",
+      "default": false
+    },
+    {
+      "name": "posting",
+      "type": "string",
+      "description": "Indicates whether the account is posting.",
+      "default": false
+    },
+    {
+      "name": "revenue",
+      "type": "string",
+      "description": "The revenue of the account.",
+      "default": false
+    },
+    {
+      "name": "accountGroup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the account group.",
+      "default": false
+    },
+    {
+      "name": "accountIndicator_dbId",
+      "type": "string",
+      "description": "The unique identifier of the account indicator.",
+      "default": false
+    },
+    {
+      "name": "accountIndicator_name",
+      "type": "string",
+      "description": "The name of the account indicator.",
+      "default": false
+    },
+    {
+      "name": "accountIndicator_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the account indicator.",
+      "default": false
+    },
+    {
+      "name": "accountIndicator_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the account indicator.",
+      "default": false
+    },
+    {
+      "name": "accountIndicator_definitionId",
+      "type": "string",
+      "description": "The definition id of the account indicator.",
+      "default": false
+    },
+    {
+      "name": "chartOfAccount_dbId",
+      "type": "string",
+      "description": "The unique identifier of the chart of account.",
+      "default": false
+    },
+    {
+      "name": "chartOfAccount_name",
+      "type": "string",
+      "description": "The name of the chart of account.",
+      "default": false
+    },
+    {
+      "name": "chartOfAccount_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the chart of account.",
+      "default": false
+    },
+    {
+      "name": "chartOfAccount_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the chart of account.",
+      "default": false
+    },
+    {
+      "name": "chartOfAccount_definitionId",
+      "type": "string",
+      "description": "The definition id of the chart of account.",
+      "default": false
+    },
+    {
+      "name": "ledgerType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the ledger type.",
+      "default": false
+    },
+    {
+      "name": "ledgerType_name",
+      "type": "string",
+      "description": "The name of the ledger type.",
+      "default": false
+    },
+    {
+      "name": "ledgerType_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the ledger type.",
+      "default": false
+    },
+    {
+      "name": "ledgerType_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the ledger type.",
+      "default": false
+    },
+    {
+      "name": "ledgerType_definitionId",
+      "type": "string",
+      "description": "The definition id of the ledger type.",
+      "default": false
+    },
+    {
+      "name": "sysAccount_dbId",
+      "type": "string",
+      "description": "The unique identifier of the sys account.",
+      "default": false
     }
   ]
 }

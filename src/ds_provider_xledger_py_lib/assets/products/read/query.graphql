@@ -1,5 +1,5 @@
 {
-  products(first: 1000) {
+  products() {
     pageInfo {
       hasNextPage
       hasPreviousPage

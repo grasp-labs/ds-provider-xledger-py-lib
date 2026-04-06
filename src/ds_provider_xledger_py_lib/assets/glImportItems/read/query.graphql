@@ -1,5 +1,5 @@
 {
-  glImportItems(first: 1000) {
+  glImportItems() {
     pageInfo {
       hasNextPage
       hasPreviousPage

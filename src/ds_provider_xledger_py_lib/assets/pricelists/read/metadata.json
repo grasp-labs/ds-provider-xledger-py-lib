@@ -2,7 +2,16 @@
   "name": "pricelists",
   "type": "read",
   "description": "Xledger pricelists dataset.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -11,21 +20,105 @@
       "default": true
     },
     {
-      "name": "price",
+      "name": "fromDate",
       "type": "string",
-      "description": "The code",
-      "default": false
+      "description": "The start date of the pricelist.",
+      "default": true
     },
     {
-      "name": "product_code",
+      "name": "toDate",
       "type": "string",
-      "description": "The code",
+      "description": "The end date of the pricelist.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the pricelist.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the pricelist.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the pricelist.",
       "default": false
     },
     {
       "name": "pricelistDbId",
       "type": "int64",
       "description": "The code",
+      "default": false
+    },
+    {
+      "name": "price",
+      "type": "string",
+      "description": "The code",
+      "default": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "string",
+      "description": "The unique identifier of the currency.",
+      "default": false
+    },
+    {
+      "name": "object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object.",
+      "default": false
+    },
+    {
+      "name": "object_code",
+      "type": "string",
+      "description": "The code of the object.",
+      "default": false
+    },
+    {
+      "name": "object_description",
+      "type": "string",
+      "description": "The description of the object.",
+      "default": false
+    },
+    {
+      "name": "object_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the object.",
+      "default": false
+    },
+    {
+      "name": "object_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "objectValue_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object value.",
+      "default": false
+    },
+    {
+      "name": "product_dbId",
+      "type": "string",
+      "description": "The unique identifier of the product.",
+      "default": false
+    },
+    {
+      "name": "project_dbId",
+      "type": "string",
+      "description": "The unique identifier of the project.",
+      "default": false
+    },
+    {
+      "name": "unit_dbId",
+      "type": "string",
+      "description": "The unique identifier of the unit.",
       "default": false
     }
   ]

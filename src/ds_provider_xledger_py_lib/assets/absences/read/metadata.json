@@ -1,0 +1,149 @@
+{
+  "name": "absences",
+  "type": "read",
+  "description": "Xledger absences dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "fromDate",
+    "filter_field": "fromDate_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the absence.",
+      "default": true
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the absence.",
+      "default": false
+    },
+    {
+      "name": "fromDate",
+      "type": "string",
+      "description": "The start date of the absence.",
+      "default": true
+    },
+    {
+      "name": "toDate",
+      "type": "string",
+      "description": "The end date of the absence.",
+      "default": true
+    },
+    {
+      "name": "approvedDate",
+      "type": "string",
+      "description": "The approval date of the absence.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the absence.",
+      "default": false
+    },
+    {
+      "name": "approved",
+      "type": "string",
+      "description": "Indicates whether the absence is approved.",
+      "default": false
+    },
+    {
+      "name": "comment",
+      "type": "string",
+      "description": "The comment of the absence.",
+      "default": true
+    },
+    {
+      "name": "leavePercent",
+      "type": "string",
+      "description": "The leave percent of the absence.",
+      "default": false
+    },
+    {
+      "name": "timeFrom",
+      "type": "string",
+      "description": "The time from of the absence.",
+      "default": false
+    },
+    {
+      "name": "timeTo",
+      "type": "string",
+      "description": "The time to of the absence.",
+      "default": false
+    },
+    {
+      "name": "absenceCode_dbId",
+      "type": "string",
+      "description": "The unique identifier of the absence code.",
+      "default": false
+    },
+    {
+      "name": "absenceCode_code",
+      "type": "string",
+      "description": "The code of the absence code.",
+      "default": false
+    },
+    {
+      "name": "absenceCode_description",
+      "type": "string",
+      "description": "The description of the absence code.",
+      "default": false
+    },
+    {
+      "name": "absenceCode_posting",
+      "type": "string",
+      "description": "Indicates whether the absence code is posting.",
+      "default": false
+    },
+    {
+      "name": "absenceCode_source_dbId",
+      "type": "string",
+      "description": "The unique identifier of the source.",
+      "default": false
+    },
+    {
+      "name": "absenceCode_source_code",
+      "type": "string",
+      "description": "The code of the source.",
+      "default": false
+    },
+    {
+      "name": "absenceCode_source_name",
+      "type": "string",
+      "description": "The name of the source.",
+      "default": false
+    },
+    {
+      "name": "approvedBy_dbId",
+      "type": "string",
+      "description": "The unique identifier of the approver.",
+      "default": false
+    },
+    {
+      "name": "approvedBy_email",
+      "type": "string",
+      "description": "The email address of the approver.",
+      "default": false
+    },
+    {
+      "name": "employee_dbId",
+      "type": "string",
+      "description": "The unique identifier of the employee.",
+      "default": false
+    },
+    {
+      "name": "position_dbId",
+      "type": "string",
+      "description": "The unique identifier of the position.",
+      "default": false
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  apTransactions(first: 1000) {
+  apTransactions() {
     pageInfo {
       hasNextPage
       hasPreviousPage

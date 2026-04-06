@@ -1,0 +1,113 @@
+{
+  "name": "productGroups",
+  "type": "read",
+  "description": "Xledger productGroups dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the product group.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the product group.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the product group.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the product group.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the product group.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the product group.",
+      "default": false
+    },
+    {
+      "name": "costCalculation_dbId",
+      "type": "string",
+      "description": "The unique identifier of the cost calculation.",
+      "default": false
+    },
+    {
+      "name": "costCalculation_name",
+      "type": "string",
+      "description": "The name of the cost calculation.",
+      "default": false
+    },
+    {
+      "name": "costCalculation_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the cost calculation.",
+      "default": false
+    },
+    {
+      "name": "costCalculation_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the cost calculation.",
+      "default": false
+    },
+    {
+      "name": "costCalculation_definitionId",
+      "type": "string",
+      "description": "The definition id of the cost calculation.",
+      "default": false
+    },
+    {
+      "name": "priorityQueue_dbId",
+      "type": "string",
+      "description": "The unique identifier of the priority queue.",
+      "default": false
+    },
+    {
+      "name": "priorityQueue_name",
+      "type": "string",
+      "description": "The name of the priority queue.",
+      "default": false
+    },
+    {
+      "name": "priorityQueue_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the priority queue.",
+      "default": false
+    },
+    {
+      "name": "priorityQueue_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the priority queue.",
+      "default": false
+    },
+    {
+      "name": "priorityQueue_definitionId",
+      "type": "string",
+      "description": "The definition id of the priority queue.",
+      "default": false
+    }
+  ]
+}

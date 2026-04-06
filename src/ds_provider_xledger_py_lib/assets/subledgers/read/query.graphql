@@ -1,5 +1,5 @@
 {
-  subledgers(first: 1000) {
+  subledgers() {
     pageInfo {
       hasNextPage
       hasPreviousPage
