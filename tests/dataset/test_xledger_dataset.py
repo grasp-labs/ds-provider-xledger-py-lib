@@ -44,7 +44,7 @@ def _build_dataset(linked_service_factory: object) -> XledgerDataset:
         linked_service=linked_service,
         settings=XledgerDatasetSettings(
             entrypoint="bankAccounts",
-            read=XledgerReadSettings(first=2, pagination=True),
+            read=XledgerReadSettings(first=2),
             create=XledgerCreateSettings(return_columns=["dbId", "name"]),
             update=XledgerUpdateSettings(return_columns=["dbId", "name"]),
             delete=XledgerDeleteSettings(return_columns=["dbId"]),
@@ -75,7 +75,12 @@ def test_read_wraps_resource_exception_and_persists_reader_state(
     class _FakeReader:
         def __init__(self, **_: object) -> None:
             self.output = [expected_frame]
-            self.checkpoint = Checkpoint(after="c-1", has_next_page=False)
+            self.checkpoint = Checkpoint.deserialize(
+                {
+                    "incremental": {"value": None},
+                    "pagination": {"value": "c-1"},
+                }
+            )
 
         def execute(self, **_: object) -> None:
             raise ReadError(message="upstream failure", details={"origin": "reader"})
@@ -86,7 +91,10 @@ def test_read_wraps_resource_exception_and_persists_reader_state(
         dataset.read()
 
     assert dataset.output.equals(expected_frame)
-    assert dataset.checkpoint == {"after": "c-1", "has_next_page": False}
+    assert dataset.checkpoint == {
+        "incremental": {"value": None},
+        "pagination": {"value": "c-1"},
+    }
 
 
 def test_create_update_delete_are_noop_for_empty_input(linked_service_factory: object) -> None:

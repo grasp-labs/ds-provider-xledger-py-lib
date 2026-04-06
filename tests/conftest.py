@@ -20,7 +20,7 @@ from ds_provider_xledger_py_lib.linked_service.xledger import (
     XledgerLinkedService,
     XledgerLinkedServiceSettings,
 )
-from ds_provider_xledger_py_lib.utils.introspection import MetaData, MetaField
+from ds_provider_xledger_py_lib.utils.introspection import MetaData, MetaField, PaginationMetaData
 
 
 @dataclass
@@ -62,8 +62,8 @@ def read_metadata() -> MetaData:
             MetaField(name="name", type="string", description="", default=True),
             MetaField(name="company_code", type="string", description="", default=False),
         ],
-        query=("query { items(first: 1000) { edges { cursor node { {{ FIELDS }} } } pageInfo { hasNextPage } } }"),
-        supportPagination=True,
+        query=("query { items() { edges { cursor node { {{ FIELDS }} } } pageInfo { hasNextPage } } }"),
+        pagination=PaginationMetaData(kind="cursor", first=1000),
     )
 
 

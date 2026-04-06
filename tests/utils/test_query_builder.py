@@ -22,6 +22,7 @@ from ds_provider_xledger_py_lib.utils.query_builder import (
     build_mutation,
     build_query,
     build_variables,
+    resolve_query_fields,
 )
 
 
@@ -116,6 +117,23 @@ def test_build_query_renders_requested_fields_and_arguments(read_metadata: MetaD
     assert 'objectStatus: "active"' in query
 
 
+def test_build_query_injects_first_into_empty_connection_template(read_metadata: MetaData) -> None:
+    """
+    Read templates use an empty argument list; page size is supplied when rendering the query.
+    """
+    assert read_metadata.pagination is not None
+    first = read_metadata.pagination.first
+    assert first is not None
+
+    query = build_query(
+        metadata=read_metadata,
+        fields=["dbId", "name"],
+        first=first,
+    )
+
+    assert f"first: {first}" in query
+
+
 def test_build_query_renders_enum_arguments_without_quotes(read_metadata: MetaData) -> None:
     """
     It renders Enum/StrEnum values as GraphQL enum literals.
@@ -130,6 +148,17 @@ def test_build_query_renders_enum_arguments_without_quotes(read_metadata: MetaDa
     assert "first: 10" in query
     assert "ownerSet: CURRENT" in query
     assert "objectStatus: OPEN" in query
+
+
+def test_resolve_query_fields_appends_required_fields_without_duplication(read_metadata: MetaData) -> None:
+    """
+    It appends required fields after resolving the canonical read field list.
+    """
+    assert resolve_query_fields(
+        metadata=read_metadata,
+        requested_fields=None,
+        required_fields=["company_code", "dbId"],
+    ) == ["dbId", "name", "company_code"]
 
 
 def test_build_mutation_renders_fields_and_dbids_token(delete_metadata: MetaData) -> None:
@@ -227,11 +256,11 @@ def test_upsert_query_arg_returns_single_pair_for_empty_args() -> None:
     assert updated == "first: 1000"
 
 
-def test_extract_query_args_returns_empty_without_argument_block() -> None:
+def test_extract_query_args_returns_none_without_argument_block() -> None:
     """
-    It returns empty string when query has no argument section.
+    It returns None when query has no argument section.
     """
-    assert _extract_query_args("query { customers { edges { node { dbId } } } }") == ""
+    assert _extract_query_args("query { customers { edges { node { dbId } } } }") is None
 
 
 def test_apply_query_arguments_returns_original_query_when_no_arg_block() -> None:
@@ -254,3 +283,13 @@ def test_assign_nested_key_handles_flat_and_nested_keys() -> None:
     _assign_nested_key(target=target, key="company_vat", value="VAT-7")
 
     assert target == {"name": "Ada", "company": {"code": "C01", "vat": "VAT-7"}}
+
+
+def test_assign_nested_key_handles_three_level_nesting() -> None:
+    """
+    It recursively nests values for fields with more than one underscore separator.
+    """
+    target: dict[str, object] = {}
+    _assign_nested_key(target=target, key="company_address_city", value="Oslo")
+
+    assert target == {"company": {"address": {"city": "Oslo"}}}

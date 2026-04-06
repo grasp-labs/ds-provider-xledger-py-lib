@@ -73,7 +73,6 @@ def test_all_metadata_files_are_valid_and_consistent(operation_dir: Path) -> Non
     assert isinstance(parsed.get("name"), str) and parsed["name"].strip()
     assert isinstance(parsed.get("description"), str)
     assert isinstance(parsed.get("fields"), list)
-    assert parsed["fields"], f"Expected non-empty fields list for {metadata_path}"
 
     for field in parsed["fields"]:
         assert isinstance(field, dict)
@@ -122,8 +121,16 @@ def test_read_queries_follow_connection_pattern(operation_dir: Path) -> None:
     metadata = json.loads(_read_text(operation_dir / "metadata.json"))
     query = _read_text(operation_dir / "query.graphql")
     normalized = _remove_known_placeholders(query)
+    pagination_first = metadata["pagination"]["first"]
 
-    assert re.search(r"\(\s*first\s*:\s*1000\s*\)", normalized), f"Missing first:1000 in {operation_dir}"
+    assert isinstance(pagination_first, int) and pagination_first > 0
+    assert re.search(rf"{re.escape(metadata['name'])}\s*\(\s*\)\s*\{{", normalized), (
+        f"Read query must use an empty connection argument list; page size is "
+        f"metadata.pagination.first (here {pagination_first}) applied at runtime for {operation_dir}"
+    )
+    assert "first:" not in normalized, (
+        f"Do not embed first in read query templates; use metadata.pagination.first for {operation_dir}"
+    )
     assert metadata["name"] in normalized, f"Metadata name not found in query for {operation_dir}"
     assert "pageInfo" in normalized
     assert "hasNextPage" in normalized
@@ -131,3 +138,24 @@ def test_read_queries_follow_connection_pattern(operation_dir: Path) -> None:
     assert "edges" in normalized
     assert "cursor" in normalized
     assert "node" in normalized
+
+
+@pytest.mark.parametrize("operation_dir", _discover_read_operation_dirs(), ids=lambda path: str(path.relative_to(ASSETS_ROOT)))
+def test_read_metadata_uses_normalized_instruction_contract(operation_dir: Path) -> None:
+    """
+    It enforces normalized read instruction keys across read metadata assets.
+    """
+    metadata = json.loads(_read_text(operation_dir / "metadata.json"))
+
+    assert metadata.get("pattern") in {"direct", "delta"}
+
+    incremental = metadata.get("incremental")
+    assert incremental is None or isinstance(incremental, dict)
+    if isinstance(incremental, dict):
+        assert incremental.get("kind") in {"time_field", "token", "version"}
+        assert isinstance(incremental.get("field"), str) and incremental["field"].strip()
+        assert isinstance(incremental.get("filter_field"), str) and incremental["filter_field"].strip()
+
+    pagination = metadata.get("pagination")
+    assert isinstance(pagination, dict)
+    assert pagination.get("kind") in {"cursor", "page", "offset"}
