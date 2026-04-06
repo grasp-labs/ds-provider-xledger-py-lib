@@ -87,7 +87,7 @@ dataset = XledgerDataset(
         entrypoint="employees",
         read=XledgerReadSettings(
             columns=["dbId", "code", "description"],
-            pagination=True,
+            limit=1000,
             first=1000,
         ),
     ),
