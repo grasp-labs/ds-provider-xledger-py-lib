@@ -105,6 +105,34 @@ def test_compose_incremental_filter_returns_only_boundary_when_filter_was_empty(
     ) == {"modifiedAt_gte": "2025-02-01T00:00:00Z"}
 
 
+def test_compose_incremental_filter_flattens_existing_top_level_and() -> None:
+    """
+    It appends incremental boundary directly to an existing top-level AND list.
+    """
+    incremental = _sample_incremental()
+    checkpoint = Checkpoint.deserialize({"incremental": {"value": "2025-02-01T00:00:00Z"}, "pagination": {"value": None}})
+    existing = {
+        "AND": [
+            {"dbId": 25080390},
+            {"code_gte": "200"},
+        ],
+    }
+
+    result = compose_incremental_filter(
+        existing_filter=existing,
+        checkpoint=checkpoint,
+        incremental=incremental,
+    )
+
+    assert result == {
+        "AND": [
+            {"dbId": 25080390},
+            {"code_gte": "200"},
+            {"modifiedAt_gte": "2025-02-01T00:00:00Z"},
+        ],
+    }
+
+
 def test_remove_incremental_boundary_strips_nested_and_or_clauses() -> None:
     """
     It removes incremental keys inside logical filter groups.

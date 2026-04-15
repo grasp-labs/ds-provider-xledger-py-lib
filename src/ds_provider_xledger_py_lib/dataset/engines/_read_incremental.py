@@ -104,6 +104,8 @@ def compose_incremental_filter(
     incremental_filter = {incremental.filter_field: boundary}
     if cleaned_filter is None:
         return incremental_filter
+    if tuple(cleaned_filter.keys()) == ("AND",) and isinstance(cleaned_filter["AND"], list):
+        return {"AND": [*cleaned_filter["AND"], incremental_filter]}
     return {"AND": [cleaned_filter, incremental_filter]}
 
 
