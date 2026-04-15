@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from ...utils.introspection import IncrementalMetaData
     from ._read_checkpoint import Checkpoint
 
-_LOGICAL_FILTER_KEYS = ("and", "or")
+_LOGICAL_FILTER_KEYS = ("AND", "OR")
 
 FilterDict = dict[str, Any]
 
@@ -104,7 +104,7 @@ def compose_incremental_filter(
     incremental_filter = {incremental.filter_field: boundary}
     if cleaned_filter is None:
         return incremental_filter
-    return {"and": [cleaned_filter, incremental_filter]}
+    return {"AND": [cleaned_filter, incremental_filter]}
 
 
 def remove_incremental_boundary(
@@ -145,15 +145,6 @@ def remove_incremental_boundary(
                     cleaned_items.append(item)
             if cleaned_items:
                 cleaned_filter[key] = cleaned_items
-            continue
-
-        if key == "not" and isinstance(value, dict):
-            cleaned_not = remove_incremental_boundary(
-                existing_filter=value,
-                incremental=incremental,
-            )
-            if cleaned_not:
-                cleaned_filter[key] = cleaned_not
             continue
 
         cleaned_filter[key] = value

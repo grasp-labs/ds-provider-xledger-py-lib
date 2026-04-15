@@ -39,7 +39,7 @@ logger = Logger.get_logger(__name__, package=True)
 class XledgerReadSettings(DatasetSettings):
     """Settings for Xledger read operations."""
 
-    first: int | None = 1000
+    first: int | None = None
     """Page size. Use ``None`` to fall back to ``metadata.pagination.first`` when set."""
     last: int | None = None
     """The last record to return."""

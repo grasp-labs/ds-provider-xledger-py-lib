@@ -84,7 +84,7 @@ def test_compose_incremental_filter_replaces_user_boundary_and_wraps_with_and() 
     )
 
     assert result == {
-        "and": [
+        "AND": [
             {"isActive": {"eq": True}},
             {"modifiedAt_gte": "2025-02-01T00:00:00Z"},
         ],
@@ -105,29 +105,27 @@ def test_compose_incremental_filter_returns_only_boundary_when_filter_was_empty(
     ) == {"modifiedAt_gte": "2025-02-01T00:00:00Z"}
 
 
-def test_remove_incremental_boundary_strips_nested_and_or_not_clauses() -> None:
+def test_remove_incremental_boundary_strips_nested_and_or_clauses() -> None:
     """
     It removes incremental keys inside logical filter groups.
     """
     incremental = _sample_incremental()
     existing = {
-        "and": [
+        "AND": [
             {"modifiedAt_gte": "2024-01-01T00:00:00Z", "code": {"eq": "A"}},
             {"modifiedAt_gte": "2024-06-01T00:00:00Z"},
         ],
-        "or": [
+        "OR": [
             {"modifiedAt_gte": "2024-01-01T00:00:00Z"},
             {"status": {"eq": "OPEN"}},
         ],
-        "not": {"modifiedAt_gte": "2024-01-01T00:00:00Z", "code": {"eq": "X"}},
     }
 
     cleaned = remove_incremental_boundary(existing_filter=existing, incremental=incremental)
 
     assert cleaned == {
-        "and": [{"code": {"eq": "A"}}],
-        "or": [{"status": {"eq": "OPEN"}}],
-        "not": {"code": {"eq": "X"}},
+        "AND": [{"code": {"eq": "A"}}],
+        "OR": [{"status": {"eq": "OPEN"}}],
     }
 
 
@@ -137,7 +135,7 @@ def test_remove_incremental_boundary_drops_empty_logical_groups() -> None:
     """
     incremental = _sample_incremental()
     existing = {
-        "and": [{"modifiedAt_gte": "2024-01-01T00:00:00Z"}],
+        "AND": [{"modifiedAt_gte": "2024-01-01T00:00:00Z"}],
     }
 
     assert remove_incremental_boundary(existing_filter=existing, incremental=incremental) is None
@@ -158,7 +156,7 @@ def test_remove_incremental_boundary_preserves_non_dict_items_in_logical_lists()
     """
     incremental = _sample_incremental()
     existing = {
-        "and": [
+        "AND": [
             "not-a-dict",
             {"modifiedAt_gte": "2024-01-01T00:00:00Z", "code": {"eq": "A"}},
         ],
@@ -166,7 +164,7 @@ def test_remove_incremental_boundary_preserves_non_dict_items_in_logical_lists()
 
     cleaned = remove_incremental_boundary(existing_filter=existing, incremental=incremental)
 
-    assert cleaned == {"and": ["not-a-dict", {"code": {"eq": "A"}}]}
+    assert cleaned == {"AND": ["not-a-dict", {"code": {"eq": "A"}}]}
 
 
 def test_greatest_incremental_value_empty_returns_none() -> None:

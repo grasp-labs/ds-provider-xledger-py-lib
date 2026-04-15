@@ -6,7 +6,7 @@
   "incremental": {
     "kind": "time_field",
     "field": "modifiedAt",
-    "filter_field": "modifiedAt_gt"
+    "filter_field": "modifiedAt_gte"
   },
   "pagination": {
     "kind": "cursor",
