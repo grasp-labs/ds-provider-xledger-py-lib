@@ -56,7 +56,7 @@ class XledgerReadSettings(DatasetSettings):
     columns: list[str] | None = None
     """The columns to return."""
     limit: int | None = None
-    """The limit to apply to the query."""
+    """Dataset read-scope cap on total rows collected across paginated ``read()`` execution."""
 
 
 @dataclass(kw_only=True)
