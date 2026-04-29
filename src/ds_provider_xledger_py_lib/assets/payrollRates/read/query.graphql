@@ -1,0 +1,12 @@
+{
+  payrollRates() {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node { {{ FIELDS }} }
+    }
+  }
+}

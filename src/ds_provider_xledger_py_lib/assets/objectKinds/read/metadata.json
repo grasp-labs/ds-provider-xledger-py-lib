@@ -1,0 +1,35 @@
+{
+  "name": "objectKinds",
+  "type": "read",
+  "description": "Xledger objectKinds dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The name of the object kind.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The incremental watermark field for the objectKinds dataset.",
+      "default": true
+    }
+  ]
+}

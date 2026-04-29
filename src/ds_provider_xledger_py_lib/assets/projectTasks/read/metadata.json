@@ -1,0 +1,137 @@
+{
+  "name": "projectTasks",
+  "type": "read",
+  "description": "Xledger projectTasks dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the project task.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the project task.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the project task.",
+      "default": true
+    },
+    {
+      "name": "fixedObjectValue",
+      "type": "string",
+      "description": "The fixed object value of the project task.",
+      "default": false
+    },
+    {
+      "name": "fixedProduct",
+      "type": "string",
+      "description": "The fixed product of the project task.",
+      "default": false
+    },
+    {
+      "name": "fixedTimeType",
+      "type": "string",
+      "description": "The fixed time type of the project task.",
+      "default": false
+    },
+    {
+      "name": "activity_dbId",
+      "type": "string",
+      "description": "The unique identifier of the activity.",
+      "default": false
+    },
+    {
+      "name": "incomeElement_dbId",
+      "type": "string",
+      "description": "The unique identifier of the income element.",
+      "default": false
+    },
+    {
+      "name": "object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object.",
+      "default": false
+    },
+    {
+      "name": "object_code",
+      "type": "string",
+      "description": "The code of the object.",
+      "default": true
+    },
+    {
+      "name": "object_description",
+      "type": "string",
+      "description": "The description of the object.",
+      "default": true
+    },
+    {
+      "name": "object_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the object.",
+      "default": false
+    },
+    {
+      "name": "object_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "objectValue_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object value.",
+      "default": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "string",
+      "description": "The unique identifier of the owner.",
+      "default": false
+    },
+    {
+      "name": "product_dbId",
+      "type": "string",
+      "description": "The unique identifier of the product.",
+      "default": false
+    },
+    {
+      "name": "project_dbId",
+      "type": "string",
+      "description": "The unique identifier of the project.",
+      "default": false
+    },
+    {
+      "name": "projectGroup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the project group.",
+      "default": false
+    },
+    {
+      "name": "timeType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the time type.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  timesheets() {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node { {{ FIELDS }} }
+    }
+  }
+}

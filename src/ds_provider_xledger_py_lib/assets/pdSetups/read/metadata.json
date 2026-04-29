@@ -1,0 +1,59 @@
+{
+  "name": "pdSetups",
+  "type": "read",
+  "description": "Xledger pdSetups dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the pd setup.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the pd setup.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the pd setup.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The incremental watermark field for the pdSetups dataset.",
+      "default": true
+    },
+    {
+      "name": "owner_dbId",
+      "type": "string",
+      "description": "The unique identifier of the owner.",
+      "default": false
+    },
+    {
+      "name": "owner_code",
+      "type": "string",
+      "description": "The code of the owner.",
+      "default": true
+    },
+    {
+      "name": "owner_description",
+      "type": "string",
+      "description": "The description of the owner.",
+      "default": true
+    }
+  ]
+}

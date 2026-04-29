@@ -2,7 +2,16 @@
   "name": "projects",
   "type": "read",
   "description": "Query Projects.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -23,6 +32,30 @@
       "default": true
     },
     {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the project.",
+      "default": false
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "description": "The email address of the project.",
+      "default": false
+    },
+    {
+      "name": "fromDate",
+      "type": "string",
+      "description": "The start date of the project.",
+      "default": false
+    },
+    {
+      "name": "toDate",
+      "type": "string",
+      "description": "The end date of the project.",
+      "default": false
+    },
+    {
       "name": "createdAt",
       "type": "datetime",
       "description": "The timestamp when the Project was created.",
@@ -35,16 +68,658 @@
       "default": true
     },
     {
+      "name": "ownerDbId",
+      "type": "int",
+      "description": "The unique identifier of the project's owner.",
+      "default": true
+    },
+    {
+      "name": "progressDate",
+      "type": "string",
+      "description": "The progress date of the project.",
+      "default": false
+    },
+    {
+      "name": "accessControl",
+      "type": "string",
+      "description": "The access control of the project.",
+      "default": false
+    },
+    {
+      "name": "activity",
+      "type": "string",
+      "description": "The activity of the project.",
+      "default": false
+    },
+    {
       "name": "allowPosting",
       "type": "boolean",
       "description": "Specifies whether posting is allowed for this project.",
       "default": true
     },
     {
-      "name": "ownerDbId",
-      "type": "int",
-      "description": "The unique identifier of the project's owner.",
-      "default": true
+      "name": "assignment",
+      "type": "string",
+      "description": "The assignment of the project.",
+      "default": false
+    },
+    {
+      "name": "billable",
+      "type": "string",
+      "description": "The billable of the project.",
+      "default": false
+    },
+    {
+      "name": "contract",
+      "type": "string",
+      "description": "The contract of the project.",
+      "default": false
+    },
+    {
+      "name": "contractedRevenue",
+      "type": "string",
+      "description": "The contracted revenue of the project.",
+      "default": false
+    },
+    {
+      "name": "expenseLedger",
+      "type": "string",
+      "description": "The expense ledger of the project.",
+      "default": false
+    },
+    {
+      "name": "external",
+      "type": "string",
+      "description": "The external of the project.",
+      "default": false
+    },
+    {
+      "name": "extIdentifier",
+      "type": "string",
+      "description": "The external identifier of the project.",
+      "default": false
+    },
+    {
+      "name": "extOrder",
+      "type": "string",
+      "description": "The ext order of the project.",
+      "default": false
+    },
+    {
+      "name": "fixedClient",
+      "type": "string",
+      "description": "The fixed client of the project.",
+      "default": false
+    },
+    {
+      "name": "fundProject",
+      "type": "string",
+      "description": "The fund project of the project.",
+      "default": false
+    },
+    {
+      "name": "invoiceFooter",
+      "type": "string",
+      "description": "The invoice footer of the project.",
+      "default": false
+    },
+    {
+      "name": "invoiceHeader",
+      "type": "string",
+      "description": "The invoice header of the project.",
+      "default": false
+    },
+    {
+      "name": "overview",
+      "type": "string",
+      "description": "The overview of the project.",
+      "default": false
+    },
+    {
+      "name": "pctCompleted",
+      "type": "string",
+      "description": "The pct completed of the project.",
+      "default": false
+    },
+    {
+      "name": "shortInfo",
+      "type": "string",
+      "description": "The short info of the project.",
+      "default": false
+    },
+    {
+      "name": "shortInternalInfo",
+      "type": "string",
+      "description": "The short internal info of the project.",
+      "default": false
+    },
+    {
+      "name": "timesheetEntry",
+      "type": "string",
+      "description": "The timesheet entry of the project.",
+      "default": false
+    },
+    {
+      "name": "totalCost",
+      "type": "string",
+      "description": "The total cost of the project.",
+      "default": false
+    },
+    {
+      "name": "totalEstimateHours",
+      "type": "string",
+      "description": "The total estimate hours of the project.",
+      "default": false
+    },
+    {
+      "name": "totalRevenue",
+      "type": "string",
+      "description": "The total revenue of the project.",
+      "default": false
+    },
+    {
+      "name": "yearlyCost",
+      "type": "string",
+      "description": "The yearly cost of the project.",
+      "default": false
+    },
+    {
+      "name": "yearlyEstimateHours",
+      "type": "string",
+      "description": "The yearly estimate hours of the project.",
+      "default": false
+    },
+    {
+      "name": "yearlyRevenue",
+      "type": "string",
+      "description": "The yearly revenue of the project.",
+      "default": false
+    },
+    {
+      "name": "yourReference",
+      "type": "string",
+      "description": "The your reference of the project.",
+      "default": false
+    },
+    {
+      "name": "billAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the billing address.",
+      "default": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company.",
+      "default": false
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number of the company.",
+      "default": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "string",
+      "description": "The unique identifier of the currency.",
+      "default": false
+    },
+    {
+      "name": "customer_dbId",
+      "type": "string",
+      "description": "The unique identifier of the customer.",
+      "default": false
+    },
+    {
+      "name": "externalContact_dbId",
+      "type": "string",
+      "description": "The unique identifier of the external contact.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_dbId",
+      "type": "string",
+      "description": "The unique identifier of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date1",
+      "type": "string",
+      "description": "The date 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date2",
+      "type": "string",
+      "description": "The date 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date3",
+      "type": "string",
+      "description": "The date 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date4",
+      "type": "string",
+      "description": "The date 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag1",
+      "type": "string",
+      "description": "The flag 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag2",
+      "type": "string",
+      "description": "The flag 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag3",
+      "type": "string",
+      "description": "The flag 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag4",
+      "type": "string",
+      "description": "The flag 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_number1",
+      "type": "string",
+      "description": "The number 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_number2",
+      "type": "string",
+      "description": "The number 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text1",
+      "type": "string",
+      "description": "The text 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text2",
+      "type": "string",
+      "description": "The text 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text3",
+      "type": "string",
+      "description": "The text 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text4",
+      "type": "string",
+      "description": "The text 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text5",
+      "type": "string",
+      "description": "The text 5 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text6",
+      "type": "string",
+      "description": "The text 6 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text7",
+      "type": "string",
+      "description": "The text 7 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text8",
+      "type": "string",
+      "description": "The text 8 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value1",
+      "type": "string",
+      "description": "The value 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value2",
+      "type": "string",
+      "description": "The value 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value3",
+      "type": "string",
+      "description": "The value 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value4",
+      "type": "string",
+      "description": "The value 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 1.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 2.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 3.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 4.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 5.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code6_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 6.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code7_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 7.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code8_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 8.",
+      "default": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 5.",
+      "default": false
+    },
+    {
+      "name": "incomePeriodization_dbId",
+      "type": "string",
+      "description": "The unique identifier of the income periodization.",
+      "default": false
+    },
+    {
+      "name": "incomePeriodization_name",
+      "type": "string",
+      "description": "The name of the income periodization.",
+      "default": false
+    },
+    {
+      "name": "incomePeriodization_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the income periodization.",
+      "default": false
+    },
+    {
+      "name": "incomePeriodization_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the income periodization.",
+      "default": false
+    },
+    {
+      "name": "incomePeriodization_definitionId",
+      "type": "string",
+      "description": "The definition id of the income periodization.",
+      "default": false
+    },
+    {
+      "name": "incomeSpec_dbId",
+      "type": "string",
+      "description": "The unique identifier of the income spec.",
+      "default": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_dbId",
+      "type": "string",
+      "description": "The unique identifier of the invoice delivery method.",
+      "default": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_name",
+      "type": "string",
+      "description": "The name of the invoice delivery method.",
+      "default": false
+    },
+    {
+      "name": "invoiceProject_dbId",
+      "type": "string",
+      "description": "The unique identifier of the invoice project.",
+      "default": false
+    },
+    {
+      "name": "invoiceRule_dbId",
+      "type": "string",
+      "description": "The unique identifier of the invoice rule.",
+      "default": false
+    },
+    {
+      "name": "latePaymentCode_dbId",
+      "type": "string",
+      "description": "The unique identifier of the late payment code.",
+      "default": false
+    },
+    {
+      "name": "mainProject_dbId",
+      "type": "string",
+      "description": "The unique identifier of the main project.",
+      "default": false
+    },
+    {
+      "name": "ourRef_dbId",
+      "type": "string",
+      "description": "The unique identifier of the our ref.",
+      "default": false
+    },
+    {
+      "name": "ourSales_dbId",
+      "type": "string",
+      "description": "The unique identifier of the our sales.",
+      "default": false
+    },
+    {
+      "name": "paymentTerms_dbId",
+      "type": "string",
+      "description": "The unique identifier of the payment terms.",
+      "default": false
+    },
+    {
+      "name": "pmSoInvoiceLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the pm so invoice level.",
+      "default": false
+    },
+    {
+      "name": "pmSoInvoiceLevel_name",
+      "type": "string",
+      "description": "The name of the pm so invoice level.",
+      "default": false
+    },
+    {
+      "name": "pmSoInvoiceLevel_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the pm so invoice level.",
+      "default": false
+    },
+    {
+      "name": "pmSoInvoiceLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the pm so invoice level.",
+      "default": false
+    },
+    {
+      "name": "pmSoInvoiceLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the pm so invoice level.",
+      "default": false
+    },
+    {
+      "name": "priceGroup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the price group.",
+      "default": false
+    },
+    {
+      "name": "pricelist_dbId",
+      "type": "string",
+      "description": "The unique identifier of the pricelist.",
+      "default": false
+    },
+    {
+      "name": "projectGroup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the project group.",
+      "default": false
+    },
+    {
+      "name": "projectManager_dbId",
+      "type": "string",
+      "description": "The unique identifier of the project manager.",
+      "default": false
+    },
+    {
+      "name": "projectOwner_dbId",
+      "type": "string",
+      "description": "The unique identifier of the project owner.",
+      "default": false
+    },
+    {
+      "name": "reportSetup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the report setup.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the ship address.",
+      "default": false
+    },
+    {
+      "name": "shippingTerms_dbId",
+      "type": "string",
+      "description": "The unique identifier of the shipping terms.",
+      "default": false
+    },
+    {
+      "name": "soOrderLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the so order level.",
+      "default": false
+    },
+    {
+      "name": "soOrderLevel_name",
+      "type": "string",
+      "description": "The name of the so order level.",
+      "default": false
+    },
+    {
+      "name": "soOrderLevel_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the so order level.",
+      "default": false
+    },
+    {
+      "name": "soOrderLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the so order level.",
+      "default": false
+    },
+    {
+      "name": "soOrderLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the so order level.",
+      "default": false
+    },
+    {
+      "name": "subledger_dbId",
+      "type": "string",
+      "description": "The unique identifier of the subledger.",
+      "default": false
+    },
+    {
+      "name": "taxRule_dbId",
+      "type": "string",
+      "description": "The unique identifier of the tax rule.",
+      "default": false
+    },
+    {
+      "name": "user_dbId",
+      "type": "string",
+      "description": "The unique identifier of the user.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  pricelists(first: 1000) {
+  pricelists() {
     pageInfo {
       hasNextPage
       hasPreviousPage

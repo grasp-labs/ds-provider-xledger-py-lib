@@ -2,7 +2,16 @@
   "name": "contacts",
   "type": "read",
   "description": "Xledger contacts dataset.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -11,63 +20,27 @@
       "default": true
     },
     {
-      "name": "id",
-      "type": "string",
-      "description": "The ID of the contact.",
-      "default": true
-    },
-    {
-      "name": "ownerDbId",
-      "type": "int64",
-      "description": "The unique identifier for the owner of the contact.",
-      "default": false
-    },
-    {
       "name": "code",
       "type": "string",
       "description": "The code for the contact.",
-      "default": false
+      "default": true
     },
     {
-      "name": "companyContact",
+      "name": "name",
       "type": "string",
-      "description": "The contact information for the company.",
-      "default": false
-    },
-    {
-      "name": "companyName",
-      "type": "string",
-      "description": "The name of the company associated with the contact.",
-      "default": false
-    },
-    {
-      "name": "companyPerson",
-      "type": "string",
-      "description": "The person associated with the company contact.",
-      "default": false
-    },
-    {
-      "name": "firstName",
-      "type": "string",
-      "description": "The first name of the contact.",
-      "default": false
-    },
-    {
-      "name": "middleName",
-      "type": "string",
-      "description": "The middle name of the contact.",
-      "default": false
-    },
-    {
-      "name": "lastName",
-      "type": "string",
-      "description": "The last name of the contact.",
-      "default": false
+      "description": "The name of the contact.",
+      "default": true
     },
     {
       "name": "email",
       "type": "string",
       "description": "The email address of the contact.",
+      "default": true
+    },
+    {
+      "name": "phone",
+      "type": "string",
+      "description": "The phone number of the contact.",
       "default": false
     },
     {
@@ -92,6 +65,672 @@
       "name": "modifiedAt",
       "type": "datetime",
       "description": "The date and time when the contact was last modified.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int64",
+      "description": "The unique identifier for the owner of the contact.",
+      "default": false
+    },
+    {
+      "name": "aliasName",
+      "type": "string",
+      "description": "The alias name of the contact.",
+      "default": false
+    },
+    {
+      "name": "companyName",
+      "type": "string",
+      "description": "The name of the company associated with the contact.",
+      "default": false
+    },
+    {
+      "name": "firstName",
+      "type": "string",
+      "description": "The first name of the contact.",
+      "default": false
+    },
+    {
+      "name": "lastName",
+      "type": "string",
+      "description": "The last name of the contact.",
+      "default": false
+    },
+    {
+      "name": "maidenName",
+      "type": "string",
+      "description": "The maiden name of the contact.",
+      "default": false
+    },
+    {
+      "name": "middleName",
+      "type": "string",
+      "description": "The middle name of the contact.",
+      "default": false
+    },
+    {
+      "name": "noEmail",
+      "type": "string",
+      "description": "The no email of the contact.",
+      "default": false
+    },
+    {
+      "name": "deathDate",
+      "type": "string",
+      "description": "The death date of the contact.",
+      "default": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "The ID of the contact.",
+      "default": true
+    },
+    {
+      "name": "personalId",
+      "type": "string",
+      "description": "The personal id of the contact.",
+      "default": false
+    },
+    {
+      "name": "age",
+      "type": "string",
+      "description": "The age of the contact.",
+      "default": false
+    },
+    {
+      "name": "birthday",
+      "type": "string",
+      "description": "The birthday of the contact.",
+      "default": false
+    },
+    {
+      "name": "companyContact",
+      "type": "string",
+      "description": "The contact information for the company.",
+      "default": false
+    },
+    {
+      "name": "doNotCall",
+      "type": "string",
+      "description": "The do not call of the contact.",
+      "default": false
+    },
+    {
+      "name": "email2",
+      "type": "string",
+      "description": "The email 2 of the contact.",
+      "default": false
+    },
+    {
+      "name": "email3",
+      "type": "string",
+      "description": "The email 3 of the contact.",
+      "default": false
+    },
+    {
+      "name": "initials",
+      "type": "string",
+      "description": "The initials of the contact.",
+      "default": false
+    },
+    {
+      "name": "jobTitle",
+      "type": "string",
+      "description": "The job title of the contact.",
+      "default": false
+    },
+    {
+      "name": "noMail",
+      "type": "string",
+      "description": "The no mail of the contact.",
+      "default": false
+    },
+    {
+      "name": "noSms",
+      "type": "string",
+      "description": "The no sms of the contact.",
+      "default": false
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "The notes of the contact.",
+      "default": false
+    },
+    {
+      "name": "noTul",
+      "type": "string",
+      "description": "The no tul of the contact.",
+      "default": false
+    },
+    {
+      "name": "phone2",
+      "type": "string",
+      "description": "The phone 2 of the contact.",
+      "default": false
+    },
+    {
+      "name": "phone3",
+      "type": "string",
+      "description": "The phone 3 of the contact.",
+      "default": false
+    },
+    {
+      "name": "prefix",
+      "type": "string",
+      "description": "The prefix of the contact.",
+      "default": false
+    },
+    {
+      "name": "profession",
+      "type": "string",
+      "description": "The profession of the contact.",
+      "default": false
+    },
+    {
+      "name": "socialSec",
+      "type": "string",
+      "description": "The social sec of the contact.",
+      "default": false
+    },
+    {
+      "name": "suffix",
+      "type": "string",
+      "description": "The suffix of the contact.",
+      "default": false
+    },
+    {
+      "name": "address_dbId",
+      "type": "string",
+      "description": "The unique identifier of the address.",
+      "default": false
+    },
+    {
+      "name": "address_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the address.",
+      "default": false
+    },
+    {
+      "name": "address_zipCode",
+      "type": "string",
+      "description": "The zip code of the address.",
+      "default": false
+    },
+    {
+      "name": "address_place",
+      "type": "string",
+      "description": "The place of the address.",
+      "default": false
+    },
+    {
+      "name": "address_streetAddress",
+      "type": "string",
+      "description": "The street address of the address.",
+      "default": false
+    },
+    {
+      "name": "address_country_dbId",
+      "type": "string",
+      "description": "The unique identifier of the country.",
+      "default": false
+    },
+    {
+      "name": "address_country_code",
+      "type": "string",
+      "description": "The code of the country.",
+      "default": false
+    },
+    {
+      "name": "address_country_description",
+      "type": "string",
+      "description": "The description of the country.",
+      "default": false
+    },
+    {
+      "name": "billAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the billing address.",
+      "default": false
+    },
+    {
+      "name": "billAddress_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the billing address.",
+      "default": false
+    },
+    {
+      "name": "billAddress_zipCode",
+      "type": "string",
+      "description": "The zip code of the billing address.",
+      "default": false
+    },
+    {
+      "name": "billAddress_place",
+      "type": "string",
+      "description": "The place of the billing address.",
+      "default": false
+    },
+    {
+      "name": "billAddress_streetAddress",
+      "type": "string",
+      "description": "The street address of the billing address.",
+      "default": false
+    },
+    {
+      "name": "billAddress_country_dbId",
+      "type": "string",
+      "description": "The unique identifier of the country.",
+      "default": false
+    },
+    {
+      "name": "billAddress_country_code",
+      "type": "string",
+      "description": "The code of the country.",
+      "default": false
+    },
+    {
+      "name": "billAddress_country_description",
+      "type": "string",
+      "description": "The description of the country.",
+      "default": false
+    },
+    {
+      "name": "comMethod_dbId",
+      "type": "string",
+      "description": "The unique identifier of the com method.",
+      "default": false
+    },
+    {
+      "name": "comMethod_name",
+      "type": "string",
+      "description": "The name of the com method.",
+      "default": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company.",
+      "default": false
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number of the company.",
+      "default": false
+    },
+    {
+      "name": "contactGroup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the contact group.",
+      "default": false
+    },
+    {
+      "name": "countryId_dbId",
+      "type": "string",
+      "description": "The unique identifier of the country id.",
+      "default": false
+    },
+    {
+      "name": "exitReason_dbId",
+      "type": "string",
+      "description": "The unique identifier of the exit reason.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_dbId",
+      "type": "string",
+      "description": "The unique identifier of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date1",
+      "type": "string",
+      "description": "The date 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date2",
+      "type": "string",
+      "description": "The date 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date3",
+      "type": "string",
+      "description": "The date 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date4",
+      "type": "string",
+      "description": "The date 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag1",
+      "type": "string",
+      "description": "The flag 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag2",
+      "type": "string",
+      "description": "The flag 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag3",
+      "type": "string",
+      "description": "The flag 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag4",
+      "type": "string",
+      "description": "The flag 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_number1",
+      "type": "string",
+      "description": "The number 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_number2",
+      "type": "string",
+      "description": "The number 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text1",
+      "type": "string",
+      "description": "The text 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text2",
+      "type": "string",
+      "description": "The text 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text3",
+      "type": "string",
+      "description": "The text 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text4",
+      "type": "string",
+      "description": "The text 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text5",
+      "type": "string",
+      "description": "The text 5 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text6",
+      "type": "string",
+      "description": "The text 6 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text7",
+      "type": "string",
+      "description": "The text 7 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text8",
+      "type": "string",
+      "description": "The text 8 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value1",
+      "type": "string",
+      "description": "The value 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value2",
+      "type": "string",
+      "description": "The value 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value3",
+      "type": "string",
+      "description": "The value 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value4",
+      "type": "string",
+      "description": "The value 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 1.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 2.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 3.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 4.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 5.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code6_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 6.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code7_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 7.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code8_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 8.",
+      "default": false
+    },
+    {
+      "name": "gender_dbId",
+      "type": "string",
+      "description": "The unique identifier of the gender.",
+      "default": false
+    },
+    {
+      "name": "gender_code",
+      "type": "string",
+      "description": "The code of the gender.",
+      "default": false
+    },
+    {
+      "name": "gender_name",
+      "type": "string",
+      "description": "The name of the gender.",
+      "default": false
+    },
+    {
+      "name": "gender_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the gender.",
+      "default": false
+    },
+    {
+      "name": "gender_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the gender.",
+      "default": false
+    },
+    {
+      "name": "gender_definitionId",
+      "type": "string",
+      "description": "The definition id of the gender.",
+      "default": false
+    },
+    {
+      "name": "homeAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the home address.",
+      "default": false
+    },
+    {
+      "name": "homeAddress_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the home address.",
+      "default": false
+    },
+    {
+      "name": "homeAddress_zipCode",
+      "type": "string",
+      "description": "The zip code of the home address.",
+      "default": false
+    },
+    {
+      "name": "homeAddress_place",
+      "type": "string",
+      "description": "The place of the home address.",
+      "default": false
+    },
+    {
+      "name": "homeAddress_streetAddress",
+      "type": "string",
+      "description": "The street address of the home address.",
+      "default": false
+    },
+    {
+      "name": "homeAddress_country_dbId",
+      "type": "string",
+      "description": "The unique identifier of the country.",
+      "default": false
+    },
+    {
+      "name": "homeAddress_country_code",
+      "type": "string",
+      "description": "The code of the country.",
+      "default": false
+    },
+    {
+      "name": "homeAddress_country_description",
+      "type": "string",
+      "description": "The description of the country.",
+      "default": false
+    },
+    {
+      "name": "language_dbId",
+      "type": "string",
+      "description": "The unique identifier of the language.",
+      "default": false
+    },
+    {
+      "name": "language_name",
+      "type": "string",
+      "description": "The name of the language.",
+      "default": false
+    },
+    {
+      "name": "maritalStatus_dbId",
+      "type": "string",
+      "description": "The unique identifier of the marital status.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the ship address.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the ship address.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_zipCode",
+      "type": "string",
+      "description": "The zip code of the ship address.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_place",
+      "type": "string",
+      "description": "The place of the ship address.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_streetAddress",
+      "type": "string",
+      "description": "The street address of the ship address.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_country_dbId",
+      "type": "string",
+      "description": "The unique identifier of the country.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_country_code",
+      "type": "string",
+      "description": "The code of the country.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_country_description",
+      "type": "string",
+      "description": "The description of the country.",
+      "default": false
+    },
+    {
+      "name": "user_dbId",
+      "type": "string",
+      "description": "The unique identifier of the user.",
+      "default": false
+    },
+    {
+      "name": "userId_dbId",
+      "type": "string",
+      "description": "The unique identifier of the user id.",
       "default": false
     }
   ]

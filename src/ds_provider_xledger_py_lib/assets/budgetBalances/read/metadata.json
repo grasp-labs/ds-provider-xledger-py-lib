@@ -1,0 +1,241 @@
+{
+  "name": "budgetBalances",
+  "type": "read",
+  "description": "Xledger budgetBalances dataset.",
+  "pattern": "direct",
+  "incremental": null,
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the budget balance.",
+      "default": true
+    },
+    {
+      "name": "amount",
+      "type": "string",
+      "description": "The amount of the budget balance.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the budget balance.",
+      "default": false
+    },
+    {
+      "name": "accountDbId",
+      "type": "string",
+      "description": "The account db id of the budget balance.",
+      "default": false
+    },
+    {
+      "name": "budgetDbId",
+      "type": "string",
+      "description": "The budget db id of the budget balance.",
+      "default": false
+    },
+    {
+      "name": "glObject1DbId",
+      "type": "string",
+      "description": "The gl object 1 db id of the budget balance.",
+      "default": false
+    },
+    {
+      "name": "glObject2DbId",
+      "type": "string",
+      "description": "The gl object 2 db id of the budget balance.",
+      "default": false
+    },
+    {
+      "name": "glObject3DbId",
+      "type": "string",
+      "description": "The gl object 3 db id of the budget balance.",
+      "default": false
+    },
+    {
+      "name": "glObject4DbId",
+      "type": "string",
+      "description": "The gl object 4 db id of the budget balance.",
+      "default": false
+    },
+    {
+      "name": "glObject5DbId",
+      "type": "string",
+      "description": "The gl object 5 db id of the budget balance.",
+      "default": false
+    },
+    {
+      "name": "amount3",
+      "type": "string",
+      "description": "The amount 3 of the budget balance.",
+      "default": false
+    },
+    {
+      "name": "amount4",
+      "type": "string",
+      "description": "The amount 4 of the budget balance.",
+      "default": false
+    },
+    {
+      "name": "amount5",
+      "type": "string",
+      "description": "The amount 5 of the budget balance.",
+      "default": false
+    },
+    {
+      "name": "quantity",
+      "type": "string",
+      "description": "The quantity of the budget balance.",
+      "default": false
+    },
+    {
+      "name": "budget_dbId",
+      "type": "string",
+      "description": "The unique identifier of the budget.",
+      "default": false
+    },
+    {
+      "name": "budget_code",
+      "type": "string",
+      "description": "The code of the budget.",
+      "default": true
+    },
+    {
+      "name": "budget_description",
+      "type": "string",
+      "description": "The description of the budget.",
+      "default": false
+    },
+    {
+      "name": "budget_dateFrom",
+      "type": "string",
+      "description": "The start date of the budget.",
+      "default": false
+    },
+    {
+      "name": "budget_dateTo",
+      "type": "string",
+      "description": "The end date of the budget.",
+      "default": false
+    },
+    {
+      "name": "budget_createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the budget.",
+      "default": false
+    },
+    {
+      "name": "budget_modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the budget.",
+      "default": false
+    },
+    {
+      "name": "budget_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the budget.",
+      "default": false
+    },
+    {
+      "name": "budget_id",
+      "type": "string",
+      "description": "The id of the budget.",
+      "default": false
+    },
+    {
+      "name": "budget_objectKindDbId",
+      "type": "string",
+      "description": "The object kind db id of the budget.",
+      "default": false
+    },
+    {
+      "name": "budget_posting",
+      "type": "string",
+      "description": "Indicates whether the budget is posting.",
+      "default": false
+    },
+    {
+      "name": "budget_source_name",
+      "type": "string",
+      "description": "The name of the source.",
+      "default": true
+    },
+    {
+      "name": "period_dbId",
+      "type": "string",
+      "description": "The unique identifier of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_code",
+      "type": "string",
+      "description": "The code of the accounting period.",
+      "default": true
+    },
+    {
+      "name": "period_description",
+      "type": "string",
+      "description": "The description of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_fromDate",
+      "type": "string",
+      "description": "The start date of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_toDate",
+      "type": "string",
+      "description": "The end date of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_monthNumber",
+      "type": "string",
+      "description": "The month number of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalPeriod",
+      "type": "string",
+      "description": "The fiscal period of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalYear",
+      "type": "string",
+      "description": "The fiscal year of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalYearStartMonth",
+      "type": "string",
+      "description": "The fiscal year start month of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_year",
+      "type": "string",
+      "description": "The year of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "unitQuantity_name",
+      "type": "string",
+      "description": "The name of the unit quantity.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
+    }
+  ]
+}

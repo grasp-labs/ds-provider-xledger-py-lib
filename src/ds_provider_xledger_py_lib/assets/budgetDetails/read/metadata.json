@@ -1,0 +1,167 @@
+{
+  "name": "budgetDetails",
+  "type": "read",
+  "description": "Xledger budgetDetails dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the budget detail.",
+      "default": true
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the budget detail.",
+      "default": true
+    },
+    {
+      "name": "amount",
+      "type": "string",
+      "description": "The amount of the budget detail.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the budget detail.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the budget detail.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the budget detail.",
+      "default": false
+    },
+    {
+      "name": "budgetDbId",
+      "type": "string",
+      "description": "The budget db id of the budget detail.",
+      "default": false
+    },
+    {
+      "name": "periodDbId",
+      "type": "string",
+      "description": "The period db id of the budget detail.",
+      "default": false
+    },
+    {
+      "name": "amount3",
+      "type": "string",
+      "description": "The amount 3 of the budget detail.",
+      "default": false
+    },
+    {
+      "name": "amount4",
+      "type": "string",
+      "description": "The amount 4 of the budget detail.",
+      "default": false
+    },
+    {
+      "name": "amount5",
+      "type": "string",
+      "description": "The amount 5 of the budget detail.",
+      "default": false
+    },
+    {
+      "name": "account_code",
+      "type": "string",
+      "description": "The code of the account.",
+      "default": false
+    },
+    {
+      "name": "account_description",
+      "type": "string",
+      "description": "The description of the account.",
+      "default": false
+    },
+    {
+      "name": "account_owner_description",
+      "type": "string",
+      "description": "The description of the owner.",
+      "default": false
+    },
+    {
+      "name": "budget_description",
+      "type": "string",
+      "description": "The description of the budget.",
+      "default": false
+    },
+    {
+      "name": "currency_code",
+      "type": "string",
+      "description": "The code of the currency.",
+      "default": false
+    },
+    {
+      "name": "currency_description",
+      "type": "string",
+      "description": "The description of the currency.",
+      "default": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 5.",
+      "default": false
+    },
+    {
+      "name": "period_monthNumber",
+      "type": "string",
+      "description": "The month number of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_year",
+      "type": "string",
+      "description": "The year of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
+    }
+  ]
+}

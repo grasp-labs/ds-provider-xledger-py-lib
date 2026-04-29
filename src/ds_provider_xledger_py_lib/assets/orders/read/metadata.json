@@ -1,0 +1,701 @@
+{
+  "name": "orders",
+  "type": "read",
+  "description": "Xledger orders dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the order.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the order.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the order.",
+      "default": true
+    },
+    {
+      "name": "orderNumber",
+      "type": "string",
+      "description": "The order number of the order.",
+      "default": true
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the order.",
+      "default": false
+    },
+    {
+      "name": "approvedDate",
+      "type": "string",
+      "description": "The approval date of the order.",
+      "default": false
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the order.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the order.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the order.",
+      "default": false
+    },
+    {
+      "name": "grossAmount",
+      "type": "string",
+      "description": "The gross amount of the order.",
+      "default": false
+    },
+    {
+      "name": "invoiceAmount",
+      "type": "string",
+      "description": "The invoice amount of the order.",
+      "default": false
+    },
+    {
+      "name": "deliveredDate",
+      "type": "string",
+      "description": "The delivered date of the order.",
+      "default": false
+    },
+    {
+      "name": "earliestDeliveryDate",
+      "type": "string",
+      "description": "The earliest delivery date of the order.",
+      "default": false
+    },
+    {
+      "name": "estimatedDeliveryDate",
+      "type": "string",
+      "description": "The estimated delivery date of the order.",
+      "default": false
+    },
+    {
+      "name": "estimatedShippingDate",
+      "type": "string",
+      "description": "The estimated shipping date of the order.",
+      "default": false
+    },
+    {
+      "name": "latestDeliveryDate",
+      "type": "string",
+      "description": "The latest delivery date of the order.",
+      "default": false
+    },
+    {
+      "name": "orderDate",
+      "type": "string",
+      "description": "The order date of the order.",
+      "default": false
+    },
+    {
+      "name": "shippingDate",
+      "type": "string",
+      "description": "The shipping date of the order.",
+      "default": false
+    },
+    {
+      "name": "transferredBillingDate",
+      "type": "string",
+      "description": "The transferred billing date of the order.",
+      "default": false
+    },
+    {
+      "name": "archive",
+      "type": "string",
+      "description": "Indicates whether the order is archive.",
+      "default": false
+    },
+    {
+      "name": "confirmed",
+      "type": "string",
+      "description": "The confirmed of the order.",
+      "default": false
+    },
+    {
+      "name": "contract",
+      "type": "string",
+      "description": "The contract of the order.",
+      "default": false
+    },
+    {
+      "name": "customer",
+      "type": "string",
+      "description": "The customer of the order.",
+      "default": false
+    },
+    {
+      "name": "deliveryTerm",
+      "type": "string",
+      "description": "The delivery term of the order.",
+      "default": false
+    },
+    {
+      "name": "extGL",
+      "type": "string",
+      "description": "The ext gl of the order.",
+      "default": false
+    },
+    {
+      "name": "extOrder",
+      "type": "string",
+      "description": "The ext order of the order.",
+      "default": false
+    },
+    {
+      "name": "internalInfo",
+      "type": "string",
+      "description": "The internal information of the order.",
+      "default": false
+    },
+    {
+      "name": "invoiceFooter",
+      "type": "string",
+      "description": "The invoice footer of the order.",
+      "default": false
+    },
+    {
+      "name": "invoiceHeader",
+      "type": "string",
+      "description": "The invoice header of the order.",
+      "default": false
+    },
+    {
+      "name": "orderedBy",
+      "type": "string",
+      "description": "The ordered by of the order.",
+      "default": false
+    },
+    {
+      "name": "packingSlipNo",
+      "type": "string",
+      "description": "The packing slip no of the order.",
+      "default": false
+    },
+    {
+      "name": "shippingReference",
+      "type": "string",
+      "description": "The shipping reference of the order.",
+      "default": false
+    },
+    {
+      "name": "shippingText",
+      "type": "string",
+      "description": "The shipping text of the order.",
+      "default": false
+    },
+    {
+      "name": "splitted",
+      "type": "string",
+      "description": "The splitted of the order.",
+      "default": false
+    },
+    {
+      "name": "yourReference",
+      "type": "string",
+      "description": "The your reference of the order.",
+      "default": false
+    },
+    {
+      "name": "bankAccount_dbId",
+      "type": "string",
+      "description": "The unique identifier of the bank account.",
+      "default": false
+    },
+    {
+      "name": "billAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the billing address.",
+      "default": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company.",
+      "default": false
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number of the company.",
+      "default": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "string",
+      "description": "The unique identifier of the currency.",
+      "default": false
+    },
+    {
+      "name": "details_dbId",
+      "type": "string",
+      "description": "The unique identifier of the details.",
+      "default": false
+    },
+    {
+      "name": "details_orderNumber",
+      "type": "string",
+      "description": "The order number of the details.",
+      "default": false
+    },
+    {
+      "name": "details_text",
+      "type": "string",
+      "description": "The text of the details.",
+      "default": false
+    },
+    {
+      "name": "details_amount",
+      "type": "string",
+      "description": "The amount of the details.",
+      "default": false
+    },
+    {
+      "name": "details_createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the details.",
+      "default": false
+    },
+    {
+      "name": "details_modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the details.",
+      "default": false
+    },
+    {
+      "name": "details_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the details.",
+      "default": false
+    },
+    {
+      "name": "details_invoiceAmount",
+      "type": "string",
+      "description": "The invoice amount of the details.",
+      "default": false
+    },
+    {
+      "name": "details_taxAmount",
+      "type": "string",
+      "description": "The tax amount of the details.",
+      "default": false
+    },
+    {
+      "name": "details_purchaseDate",
+      "type": "string",
+      "description": "The purchase date of the details.",
+      "default": false
+    },
+    {
+      "name": "details_receivedDate",
+      "type": "string",
+      "description": "The received date of the details.",
+      "default": false
+    },
+    {
+      "name": "details_billedQuantity",
+      "type": "string",
+      "description": "The billed quantity of the details.",
+      "default": false
+    },
+    {
+      "name": "details_costPrice",
+      "type": "string",
+      "description": "The cost price of the details.",
+      "default": false
+    },
+    {
+      "name": "details_discount",
+      "type": "string",
+      "description": "The discount of the details.",
+      "default": false
+    },
+    {
+      "name": "details_discountPercent",
+      "type": "string",
+      "description": "The discount percent of the details.",
+      "default": false
+    },
+    {
+      "name": "details_extProductNo",
+      "type": "string",
+      "description": "The ext product no of the details.",
+      "default": false
+    },
+    {
+      "name": "details_info",
+      "type": "string",
+      "description": "The information of the details.",
+      "default": false
+    },
+    {
+      "name": "details_lineNo",
+      "type": "string",
+      "description": "The line no of the details.",
+      "default": false
+    },
+    {
+      "name": "details_lotNo",
+      "type": "string",
+      "description": "The lot no of the details.",
+      "default": false
+    },
+    {
+      "name": "details_originalQuantity",
+      "type": "string",
+      "description": "The original quantity of the details.",
+      "default": false
+    },
+    {
+      "name": "details_purchase",
+      "type": "string",
+      "description": "The purchase of the details.",
+      "default": false
+    },
+    {
+      "name": "details_purchaseQuantity",
+      "type": "string",
+      "description": "The purchase quantity of the details.",
+      "default": false
+    },
+    {
+      "name": "details_quantity",
+      "type": "string",
+      "description": "The quantity of the details.",
+      "default": false
+    },
+    {
+      "name": "details_received",
+      "type": "string",
+      "description": "The received of the details.",
+      "default": false
+    },
+    {
+      "name": "details_shippedQuantity",
+      "type": "string",
+      "description": "The shipped quantity of the details.",
+      "default": false
+    },
+    {
+      "name": "details_taxAmount2",
+      "type": "string",
+      "description": "The tax amount 2 of the details.",
+      "default": false
+    },
+    {
+      "name": "details_unitPrice",
+      "type": "string",
+      "description": "The unit price of the details.",
+      "default": false
+    },
+    {
+      "name": "details_unitPriceFactor",
+      "type": "string",
+      "description": "The unit price factor of the details.",
+      "default": false
+    },
+    {
+      "name": "details_glObject1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "details_glObject2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "details_glObject3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "details_glObject4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "details_glObject5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 5.",
+      "default": false
+    },
+    {
+      "name": "details_product_dbId",
+      "type": "string",
+      "description": "The unique identifier of the product.",
+      "default": false
+    },
+    {
+      "name": "details_shipAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the ship address.",
+      "default": false
+    },
+    {
+      "name": "details_xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 5.",
+      "default": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_dbId",
+      "type": "string",
+      "description": "The unique identifier of the invoice delivery method.",
+      "default": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_name",
+      "type": "string",
+      "description": "The name of the invoice delivery method.",
+      "default": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the invoice delivery method.",
+      "default": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the invoice delivery method.",
+      "default": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_definitionId",
+      "type": "string",
+      "description": "The definition id of the invoice delivery method.",
+      "default": false
+    },
+    {
+      "name": "invoiceMethod_dbId",
+      "type": "string",
+      "description": "The unique identifier of the invoice method.",
+      "default": false
+    },
+    {
+      "name": "invoiceMethod_name",
+      "type": "string",
+      "description": "The name of the invoice method.",
+      "default": false
+    },
+    {
+      "name": "invoiceMethod_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the invoice method.",
+      "default": false
+    },
+    {
+      "name": "invoiceMethod_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the invoice method.",
+      "default": false
+    },
+    {
+      "name": "invoiceMethod_definitionId",
+      "type": "string",
+      "description": "The definition id of the invoice method.",
+      "default": false
+    },
+    {
+      "name": "lgOrderLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the lg order level.",
+      "default": false
+    },
+    {
+      "name": "lgOrderLevel_name",
+      "type": "string",
+      "description": "The name of the lg order level.",
+      "default": false
+    },
+    {
+      "name": "lgOrderLevel_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the lg order level.",
+      "default": false
+    },
+    {
+      "name": "lgOrderLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the lg order level.",
+      "default": false
+    },
+    {
+      "name": "lgOrderLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the lg order level.",
+      "default": false
+    },
+    {
+      "name": "lgOrderType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the lg order type.",
+      "default": false
+    },
+    {
+      "name": "lgOrderType_name",
+      "type": "string",
+      "description": "The name of the lg order type.",
+      "default": false
+    },
+    {
+      "name": "lgOrderType_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the lg order type.",
+      "default": false
+    },
+    {
+      "name": "lgOrderType_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the lg order type.",
+      "default": false
+    },
+    {
+      "name": "lgOrderType_definitionId",
+      "type": "string",
+      "description": "The definition id of the lg order type.",
+      "default": false
+    },
+    {
+      "name": "orderFile_dbId",
+      "type": "string",
+      "description": "The unique identifier of the order file.",
+      "default": false
+    },
+    {
+      "name": "orderType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the order type.",
+      "default": false
+    },
+    {
+      "name": "ourRef_dbId",
+      "type": "string",
+      "description": "The unique identifier of the our ref.",
+      "default": false
+    },
+    {
+      "name": "ourSales_dbId",
+      "type": "string",
+      "description": "The unique identifier of the our sales.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the ship address.",
+      "default": false
+    },
+    {
+      "name": "signatureFile_dbId",
+      "type": "string",
+      "description": "The unique identifier of the signature file.",
+      "default": false
+    },
+    {
+      "name": "soInvoiceProcessing_dbId",
+      "type": "string",
+      "description": "The unique identifier of the so invoice processing.",
+      "default": false
+    },
+    {
+      "name": "soInvoiceProcessing_name",
+      "type": "string",
+      "description": "The name of the so invoice processing.",
+      "default": false
+    },
+    {
+      "name": "soInvoiceProcessing_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the so invoice processing.",
+      "default": false
+    },
+    {
+      "name": "soInvoiceProcessing_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the so invoice processing.",
+      "default": false
+    },
+    {
+      "name": "soInvoiceProcessing_definitionId",
+      "type": "string",
+      "description": "The definition id of the so invoice processing.",
+      "default": false
+    },
+    {
+      "name": "subledger_dbId",
+      "type": "string",
+      "description": "The unique identifier of the subledger.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
+    }
+  ]
+}

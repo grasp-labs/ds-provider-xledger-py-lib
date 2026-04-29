@@ -1,0 +1,191 @@
+{
+  "name": "payrollRates",
+  "type": "read",
+  "description": "Xledger payrollRates dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the payroll rate.",
+      "default": true
+    },
+    {
+      "name": "dateFrom",
+      "type": "string",
+      "description": "The start date of the payroll rate.",
+      "default": true
+    },
+    {
+      "name": "dateTo",
+      "type": "string",
+      "description": "The end date of the payroll rate.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the payroll rate.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the payroll rate.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the payroll rate.",
+      "default": false
+    },
+    {
+      "name": "employeeDbId",
+      "type": "string",
+      "description": "The employee db id of the payroll rate.",
+      "default": false
+    },
+    {
+      "name": "rateElementDbId",
+      "type": "string",
+      "description": "The rate element db id of the payroll rate.",
+      "default": false
+    },
+    {
+      "name": "rate",
+      "type": "string",
+      "description": "The rate of the payroll rate.",
+      "default": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "string",
+      "description": "The unique identifier of the currency.",
+      "default": false
+    },
+    {
+      "name": "link_dbId",
+      "type": "string",
+      "description": "The unique identifier of the link.",
+      "default": false
+    },
+    {
+      "name": "link_code",
+      "type": "string",
+      "description": "The code of the link.",
+      "default": false
+    },
+    {
+      "name": "link_description",
+      "type": "string",
+      "description": "The description of the link.",
+      "default": false
+    },
+    {
+      "name": "linkObject_dbId",
+      "type": "string",
+      "description": "The unique identifier of the link object.",
+      "default": false
+    },
+    {
+      "name": "linkObject_code",
+      "type": "string",
+      "description": "The code of the link object.",
+      "default": false
+    },
+    {
+      "name": "linkObject_description",
+      "type": "string",
+      "description": "The description of the link object.",
+      "default": false
+    },
+    {
+      "name": "linkObject_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the link object.",
+      "default": false
+    },
+    {
+      "name": "linkObject_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "linkValue_dbId",
+      "type": "string",
+      "description": "The unique identifier of the link value.",
+      "default": false
+    },
+    {
+      "name": "linkValue_code",
+      "type": "string",
+      "description": "The code of the link value.",
+      "default": false
+    },
+    {
+      "name": "linkValue_description",
+      "type": "string",
+      "description": "The description of the link value.",
+      "default": false
+    },
+    {
+      "name": "object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object.",
+      "default": false
+    },
+    {
+      "name": "object_code",
+      "type": "string",
+      "description": "The code of the object.",
+      "default": false
+    },
+    {
+      "name": "object_description",
+      "type": "string",
+      "description": "The description of the object.",
+      "default": false
+    },
+    {
+      "name": "objectValue_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object value.",
+      "default": false
+    },
+    {
+      "name": "objectValue_code",
+      "type": "string",
+      "description": "The code of the object value.",
+      "default": false
+    },
+    {
+      "name": "objectValue_description",
+      "type": "string",
+      "description": "The description of the object value.",
+      "default": false
+    },
+    {
+      "name": "position_dbId",
+      "type": "string",
+      "description": "The unique identifier of the position.",
+      "default": false
+    },
+    {
+      "name": "position_description",
+      "type": "string",
+      "description": "The description of the position.",
+      "default": false
+    }
+  ]
+}

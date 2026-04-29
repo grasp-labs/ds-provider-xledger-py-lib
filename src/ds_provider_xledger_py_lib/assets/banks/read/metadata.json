@@ -1,0 +1,179 @@
+{
+  "name": "banks",
+  "type": "read",
+  "description": "Xledger banks dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the bank.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the bank.",
+      "default": true
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "The description of the bank.",
+      "default": true
+    },
+    {
+      "name": "phone",
+      "type": "string",
+      "description": "The phone number of the bank.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the bank.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the bank.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the bank.",
+      "default": true
+    },
+    {
+      "name": "bankName",
+      "type": "string",
+      "description": "The bank name of the bank.",
+      "default": true
+    },
+    {
+      "name": "fractionalRoutingNumber",
+      "type": "string",
+      "description": "The fractional routing number of the bank.",
+      "default": false
+    },
+    {
+      "name": "clearingCode",
+      "type": "string",
+      "description": "The clearing code of the bank.",
+      "default": false
+    },
+    {
+      "name": "internalId",
+      "type": "string",
+      "description": "The internal id of the bank.",
+      "default": false
+    },
+    {
+      "name": "bankRegister",
+      "type": "string",
+      "description": "The bank register of the bank.",
+      "default": false
+    },
+    {
+      "name": "bankRouting",
+      "type": "string",
+      "description": "The bank routing of the bank.",
+      "default": false
+    },
+    {
+      "name": "bankTransit",
+      "type": "string",
+      "description": "The bank transit of the bank.",
+      "default": false
+    },
+    {
+      "name": "branch",
+      "type": "string",
+      "description": "The branch of the bank.",
+      "default": false
+    },
+    {
+      "name": "fax",
+      "type": "string",
+      "description": "The fax of the bank.",
+      "default": false
+    },
+    {
+      "name": "isBankingCenter",
+      "type": "string",
+      "description": "Indicates whether the bank is a banking center.",
+      "default": false
+    },
+    {
+      "name": "swift",
+      "type": "string",
+      "description": "The swift of the bank.",
+      "default": false
+    },
+    {
+      "name": "swiftOutbound",
+      "type": "string",
+      "description": "The swift outbound of the bank.",
+      "default": false
+    },
+    {
+      "name": "swiftReimbursementBank",
+      "type": "string",
+      "description": "The swift reimbursement bank of the bank.",
+      "default": false
+    },
+    {
+      "name": "address_streetNumber",
+      "type": "string",
+      "description": "The street number of the address.",
+      "default": false
+    },
+    {
+      "name": "address_zipCode",
+      "type": "string",
+      "description": "The zip code of the address.",
+      "default": false
+    },
+    {
+      "name": "address_fullAddress",
+      "type": "string",
+      "description": "The full address of the address.",
+      "default": false
+    },
+    {
+      "name": "address_place",
+      "type": "string",
+      "description": "The place of the address.",
+      "default": false
+    },
+    {
+      "name": "address_streetAddress",
+      "type": "string",
+      "description": "The street address of the address.",
+      "default": false
+    },
+    {
+      "name": "address_zipCodeExt",
+      "type": "string",
+      "description": "The zip code ext of the address.",
+      "default": false
+    },
+    {
+      "name": "address_country_code",
+      "type": "string",
+      "description": "The code of the country.",
+      "default": false
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "name": "exchangeRates",
+  "type": "read",
+  "description": "Xledger exchangeRates dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the exchange rate.",
+      "default": true
+    },
+    {
+      "name": "fromDate",
+      "type": "string",
+      "description": "The start date of the exchange rate.",
+      "default": true
+    },
+    {
+      "name": "toDate",
+      "type": "string",
+      "description": "The end date of the exchange rate.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the exchange rate.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the exchange rate.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "currencyFromCode",
+      "type": "string",
+      "description": "The currency from code of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "currencyToCode",
+      "type": "string",
+      "description": "The currency to code of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "currencyFromDbId",
+      "type": "string",
+      "description": "The currency from db id of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "currencyToDbId",
+      "type": "string",
+      "description": "The currency to db id of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "currencyUnit",
+      "type": "string",
+      "description": "The currency unit of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "exchangeRate",
+      "type": "string",
+      "description": "The exchange rate of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "exchangeRate2",
+      "type": "string",
+      "description": "The exchange rate 2 of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "exchangeType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the exchange type.",
+      "default": false
+    }
+  ]
+}

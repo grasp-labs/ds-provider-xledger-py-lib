@@ -2,7 +2,16 @@
   "name": "products",
   "type": "read",
   "description": "Query Products.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -23,30 +32,6 @@
       "default": true
     },
     {
-      "name": "costPrice",
-      "type": "string",
-      "description": "The email of the Product.",
-      "default": true
-    },
-    {
-      "name": "inStock",
-      "type": "boolean",
-      "description": "Is the Product in stock.",
-      "default": true
-    },
-    {
-      "name": "allowPosting",
-      "type": "boolean",
-      "description": "Is the Product allowed to be posted.",
-      "default": true
-    },
-    {
-      "name": "ownerDbId",
-      "type": "int",
-      "description": "The unique identifier of the Products's owner.",
-      "default": true
-    },
-    {
       "name": "createdAt",
       "type": "datetime",
       "description": "The timestamp when the Products was created.",
@@ -57,6 +42,396 @@
       "type": "datetime",
       "description": "The timestamp when the Products was last modified.",
       "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int",
+      "description": "The unique identifier of the Products's owner.",
+      "default": true
+    },
+    {
+      "name": "allowPosting",
+      "type": "boolean",
+      "description": "Is the Product allowed to be posted.",
+      "default": true
+    },
+    {
+      "name": "averagePrice",
+      "type": "string",
+      "description": "The average price of the product.",
+      "default": false
+    },
+    {
+      "name": "costPrice",
+      "type": "string",
+      "description": "The email of the Product.",
+      "default": true
+    },
+    {
+      "name": "dateLimit",
+      "type": "string",
+      "description": "The date limit of the product.",
+      "default": false
+    },
+    {
+      "name": "exchangeRate",
+      "type": "string",
+      "description": "The exchange rate of the product.",
+      "default": false
+    },
+    {
+      "name": "expenses",
+      "type": "string",
+      "description": "The expenses of the product.",
+      "default": false
+    },
+    {
+      "name": "forSale",
+      "type": "string",
+      "description": "The for sale of the product.",
+      "default": false
+    },
+    {
+      "name": "inStock",
+      "type": "boolean",
+      "description": "Is the Product in stock.",
+      "default": true
+    },
+    {
+      "name": "internalInfo",
+      "type": "string",
+      "description": "The internal information of the product.",
+      "default": false
+    },
+    {
+      "name": "location",
+      "type": "string",
+      "description": "The location of the product.",
+      "default": false
+    },
+    {
+      "name": "lotNo",
+      "type": "string",
+      "description": "The lot no of the product.",
+      "default": false
+    },
+    {
+      "name": "model",
+      "type": "string",
+      "description": "The model of the product.",
+      "default": false
+    },
+    {
+      "name": "partNo",
+      "type": "string",
+      "description": "The part no of the product.",
+      "default": false
+    },
+    {
+      "name": "purchase",
+      "type": "string",
+      "description": "The purchase of the product.",
+      "default": false
+    },
+    {
+      "name": "salesPrice",
+      "type": "string",
+      "description": "The sales price of the product.",
+      "default": false
+    },
+    {
+      "name": "serialNo",
+      "type": "string",
+      "description": "The serial no of the product.",
+      "default": false
+    },
+    {
+      "name": "supplier",
+      "type": "string",
+      "description": "The supplier of the product.",
+      "default": false
+    },
+    {
+      "name": "unit",
+      "type": "string",
+      "description": "The unit of the product.",
+      "default": false
+    },
+    {
+      "name": "variable",
+      "type": "string",
+      "description": "The variable of the product.",
+      "default": false
+    },
+    {
+      "name": "volume",
+      "type": "string",
+      "description": "The volume of the product.",
+      "default": false
+    },
+    {
+      "name": "warehouse",
+      "type": "string",
+      "description": "The warehouse of the product.",
+      "default": false
+    },
+    {
+      "name": "weight",
+      "type": "string",
+      "description": "The weight of the product.",
+      "default": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "string",
+      "description": "The unique identifier of the currency.",
+      "default": false
+    },
+    {
+      "name": "fileFile_dbId",
+      "type": "string",
+      "description": "The unique identifier of the file file.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_dbId",
+      "type": "string",
+      "description": "The unique identifier of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date1",
+      "type": "string",
+      "description": "The date 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date2",
+      "type": "string",
+      "description": "The date 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date3",
+      "type": "string",
+      "description": "The date 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date4",
+      "type": "string",
+      "description": "The date 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag1",
+      "type": "string",
+      "description": "The flag 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag2",
+      "type": "string",
+      "description": "The flag 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag3",
+      "type": "string",
+      "description": "The flag 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag4",
+      "type": "string",
+      "description": "The flag 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_number1",
+      "type": "string",
+      "description": "The number 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_number2",
+      "type": "string",
+      "description": "The number 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text1",
+      "type": "string",
+      "description": "The text 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text2",
+      "type": "string",
+      "description": "The text 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text3",
+      "type": "string",
+      "description": "The text 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text4",
+      "type": "string",
+      "description": "The text 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text5",
+      "type": "string",
+      "description": "The text 5 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text6",
+      "type": "string",
+      "description": "The text 6 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text7",
+      "type": "string",
+      "description": "The text 7 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text8",
+      "type": "string",
+      "description": "The text 8 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value1",
+      "type": "string",
+      "description": "The value 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value2",
+      "type": "string",
+      "description": "The value 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value3",
+      "type": "string",
+      "description": "The value 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value4",
+      "type": "string",
+      "description": "The value 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 1.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 2.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 3.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 4.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 5.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code6_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 6.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code7_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 7.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code8_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 8.",
+      "default": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 5.",
+      "default": false
+    },
+    {
+      "name": "productGroup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the product group.",
+      "default": false
+    },
+    {
+      "name": "taxRule_dbId",
+      "type": "string",
+      "description": "The unique identifier of the tax rule.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
     }
   ]
 }

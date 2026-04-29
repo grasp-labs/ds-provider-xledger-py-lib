@@ -2,9 +2,18 @@
   "name": "customers",
   "type": "read",
   "description": "Xledger companies dataset.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 5000
+  },
   "fields": [
-     {
+    {
       "name": "dbId",
       "type": "int64",
       "description": "The unique identifier for the customer.",
@@ -29,16 +38,16 @@
       "default": true
     },
     {
-      "name": "bankAccount",
-      "type": "string",
-      "description": "The bankAccount of the customer.",
-      "default": true
+      "name": "fromDate",
+      "type": "datetime64[ns]",
+      "description": "The fromDate of the customer.",
+      "default": false
     },
     {
-      "name": "createdAt",
-      "type": "datetime[ns]",
-      "description": "The timestamp when the customer was created.",
-      "default": true
+      "name": "toDate",
+      "type": "datetime64[ns]",
+      "description": "The toDate of the customer.",
+      "default": false
     },
     {
       "name": "modifiedAt",
@@ -53,21 +62,15 @@
       "default": false
     },
     {
-      "name": "extIdentifier",
+      "name": "contract",
       "type": "string",
-      "description": "The external identifier of the customer.",
+      "description": "The contract of the customer.",
       "default": false
     },
     {
-      "name": "fromDate",
-      "type": "datetime64[ns]",
-      "description": "The fromDate of the customer.",
-      "default": false
-    },
-    {
-      "name": "toDate",
-      "type": "datetime64[ns]",
-      "description": "The toDate of the customer.",
+      "name": "yourReference",
+      "type": "string",
+      "description": "The your reference of the customer.",
       "default": false
     },
     {
@@ -77,63 +80,9 @@
       "default": false
     },
     {
-      "name": "company_code",
-      "type": "string",
-      "description": "The code for company object of the customer.",
-      "default": false
-    },
-    {
-      "name": "company_description",
-      "type": "string",
-      "description": "The description for company object of the customer.",
-      "default": false
-    },
-    {
       "name": "company_companyNumber",
       "type": "string",
       "description": "The organisation number for company object of the customer.",
-      "default": false
-    },
-    {
-      "name": "company_companyName",
-      "type": "string",
-      "description": "The company name for company object of the customer.",
-      "default": false
-    },
-    {
-      "name": "company_email",
-      "type": "string",
-      "description": "The email for company object of the customer.",
-      "default": false
-    },
-    {
-      "name": "address_dbId",
-      "type": "int64",
-      "description": "The unique identifier for address object of the customer.",
-      "default": false
-    },
-    {
-      "name": "address_fullAddress",
-      "type": "string",
-      "description": "The full address for address object of the customer.",
-      "default": false
-    },
-    {
-      "name": "address_streetAddress",
-      "type": "string",
-      "description": "The street address for address object of the customer.",
-      "default": false
-    },
-    {
-      "name": "address_place",
-      "type": "string",
-      "description": "The place / town for address object of the customer.",
-      "default": false
-    },
-    {
-      "name": "address_zipCode",
-      "type": "string",
-      "description": "The zip code for address object of the customer.",
       "default": false
     },
     {
@@ -143,33 +92,15 @@
       "default": false
     },
     {
-      "name": "glObject1_code",
-      "type": "string",
-      "description": "The glObject1 code of the customer.",
-      "default": false
-    },
-    {
       "name": "glObject2_dbId",
       "type": "int64",
       "description": "The glObject2 dbid of the customer.",
       "default": false
     },
     {
-      "name": "glObject2_code",
-      "type": "string",
-      "description": "The glObject2 code of the customer.",
-      "default": false
-    },
-    {
       "name": "glObject3_dbId",
       "type": "int64",
       "description": "The glObject3 dbid of the customer.",
-      "default": false
-    },
-    {
-      "name": "glObject3_code",
-      "type": "string",
-      "description": "The glObject3 code of the customer.",
       "default": false
     },
     {
@@ -182,18 +113,6 @@
       "name": "glObject5_dbId",
       "type": "int64",
       "description": "The glObject5 dbid of the customer.",
-      "default": false
-    },
-    {
-      "name": "currency_dbId",
-      "type": "int64",
-      "description": "The currency dbid of the customer.",
-      "default": false
-    },
-    {
-      "name": "currency_code",
-      "type": "string",
-      "description": "The currency code of the customer.",
       "default": false
     }
   ]

@@ -1,5 +1,5 @@
 {
-  employees(first: 1000) {
+  employees() {
     pageInfo {
       hasNextPage
       hasPreviousPage

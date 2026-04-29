@@ -1,5 +1,5 @@
 {
-  contacts(first: 1000) {
+  contacts() {
     pageInfo {
       hasNextPage
       hasPreviousPage

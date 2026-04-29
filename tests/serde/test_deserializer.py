@@ -9,15 +9,29 @@ Unit tests for GraphQL response deserialization and output column resolution.
 
 from __future__ import annotations
 
+import pytest
+
 from ds_provider_xledger_py_lib.dataset.xledger import XledgerCreateSettings, XledgerReadSettings
 from ds_provider_xledger_py_lib.enums import OperationType
+from ds_provider_xledger_py_lib.errors import IncrementalFieldMissingException, InvalidIncrementalWatermarkException
 from ds_provider_xledger_py_lib.serde.deserializer import (
     XledgerDeserializer,
     _connection_payload,
     _resolve_output_columns,
     _root_payload,
 )
-from ds_provider_xledger_py_lib.utils.introspection import MetaData, MetaField
+from ds_provider_xledger_py_lib.utils.introspection import IncrementalMetaData, MetaData, MetaField
+
+
+@pytest.fixture
+def read_metadata_incremental(read_metadata: MetaData) -> MetaData:
+    """Read metadata with a typical ``time_field`` incremental section."""
+    read_metadata.incremental = IncrementalMetaData(
+        kind="time_field",
+        field="modifiedAt",
+        filter_field="modifiedAt_gte",
+    )
+    return read_metadata
 
 
 def test_deserializer_returns_empty_frame_when_root_missing(read_metadata: MetaData) -> None:
@@ -60,6 +74,29 @@ def test_deserializer_flattens_edges_into_selected_columns(read_metadata: MetaDa
         {"dbId": "1", "company_code": "C01"},
         {"dbId": "2", "company_code": "C02"},
     ]
+
+
+def test_deserializer_returns_empty_frame_when_connection_edges_are_null(read_metadata: MetaData) -> None:
+    """
+    It treats connection payloads with null edges as empty read results.
+    """
+    payload = {
+        "data": {
+            "items": {
+                "edges": None,
+                "pageInfo": {"hasNextPage": False},
+            }
+        }
+    }
+
+    result = XledgerDeserializer()(
+        payload,
+        metadata=read_metadata,
+        operation_settings=XledgerReadSettings(),
+    )
+
+    assert result.empty is True
+    assert list(result.columns) == ["dbId", "name"]
 
 
 def test_deserializer_normalizes_non_edge_root_payload(create_metadata: MetaData) -> None:
@@ -137,3 +174,128 @@ def test_root_and_connection_payload_helpers_handle_invalid_shapes(read_metadata
     payload = {"data": "not-a-dict"}
     assert _root_payload(payload=payload, metadata=read_metadata) is None
     assert _connection_payload(payload=payload, metadata=read_metadata) == {}
+
+
+def test_get_incremental_watermark_returns_none_when_all_values_are_null(
+    read_metadata_incremental: MetaData,
+) -> None:
+    """
+    It returns None when the incremental field is present in every node but all values are null.
+    """
+    payload = {
+        "data": {
+            "items": {
+                "edges": [
+                    {"cursor": "c1", "node": {"dbId": "1", "modifiedAt": None}},
+                    {"cursor": "c2", "node": {"dbId": "2", "modifiedAt": None}},
+                ],
+                "pageInfo": {"hasNextPage": False},
+            }
+        }
+    }
+
+    result = XledgerDeserializer().get_incremental_watermark(
+        payload,
+        metadata=read_metadata_incremental,
+    )
+
+    assert result is None
+
+
+def test_get_incremental_watermark_raises_when_field_absent_from_all_nodes(
+    read_metadata_incremental: MetaData,
+) -> None:
+    """
+    It raises IncrementalFieldMissingException when the incremental field key is absent from every node.
+    """
+    payload = {
+        "data": {
+            "items": {
+                "edges": [
+                    {"cursor": "c1", "node": {"dbId": "1"}},
+                    {"cursor": "c2", "node": {"dbId": "2"}},
+                ],
+                "pageInfo": {"hasNextPage": False},
+            }
+        }
+    }
+
+    with pytest.raises(IncrementalFieldMissingException, match="modifiedAt"):
+        XledgerDeserializer().get_incremental_watermark(
+            payload,
+            metadata=read_metadata_incremental,
+        )
+
+
+def test_get_incremental_watermark_raises_on_unparseable_time_field(
+    read_metadata_incremental: MetaData,
+) -> None:
+    """
+    It raises InvalidIncrementalWatermarkException when time_field values are not valid ISO-8601 strings.
+    """
+    payload = {
+        "data": {
+            "items": {
+                "edges": [
+                    {"cursor": "c1", "node": {"dbId": "1", "modifiedAt": "not-a-timestamp"}},
+                ],
+                "pageInfo": {"hasNextPage": False},
+            }
+        }
+    }
+
+    with pytest.raises(InvalidIncrementalWatermarkException, match="Unparseable"):
+        XledgerDeserializer().get_incremental_watermark(
+            payload,
+            metadata=read_metadata_incremental,
+        )
+
+
+def test_get_incremental_watermark_returns_latest_time_field_value(
+    read_metadata_incremental: MetaData,
+) -> None:
+    """
+    It returns the chronologically latest timestamp for time_field watermarks.
+    """
+    payload = {
+        "data": {
+            "items": {
+                "edges": [
+                    {"cursor": "c1", "node": {"dbId": "1", "modifiedAt": "2025-01-01T00:00:00Z"}},
+                    {"cursor": "c2", "node": {"dbId": "2", "modifiedAt": "2025-06-01T00:00:00Z"}},
+                ],
+                "pageInfo": {"hasNextPage": False},
+            }
+        }
+    }
+
+    result = XledgerDeserializer().get_incremental_watermark(
+        payload,
+        metadata=read_metadata_incremental,
+    )
+
+    assert result == "2025-06-01T00:00:00Z"
+
+
+def test_get_incremental_watermark_returns_none_without_incremental_metadata(read_metadata: MetaData) -> None:
+    """
+    It does not derive a watermark when read metadata has no incremental section.
+    """
+    assert read_metadata.incremental is None
+    payload = {
+        "data": {
+            "items": {
+                "edges": [
+                    {"cursor": "c1", "node": {"dbId": "1", "modifiedAt": "2025-01-01T00:00:00Z"}},
+                ],
+                "pageInfo": {"hasNextPage": False},
+            }
+        }
+    }
+
+    result = XledgerDeserializer().get_incremental_watermark(
+        payload,
+        metadata=read_metadata,
+    )
+
+    assert result is None

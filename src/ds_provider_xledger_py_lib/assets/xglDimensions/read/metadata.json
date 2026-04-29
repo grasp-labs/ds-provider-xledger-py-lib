@@ -2,7 +2,16 @@
   "name": "xglDimensions",
   "type": "read",
   "description": "Xledger xglDimensions dataset.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -26,12 +35,18 @@
       "name": "createdAt",
       "type": "datetime",
       "description": "The timestamp when the XGL Dimension was created.",
-      "default": true
+      "default": false
     },
     {
       "name": "modifiedAt",
       "type": "datetime",
       "description": "The timestamp when the XGL Dimension was last modified.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int",
+      "description": "The unique identifier of the dimension's owner.",
       "default": true
     },
     {
@@ -41,10 +56,76 @@
       "default": true
     },
     {
-      "name": "ownerDbId",
-      "type": "int",
-      "description": "The unique identifier of the dimension's owner.",
-      "default": true
+      "name": "field1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field 1.",
+      "default": false
+    },
+    {
+      "name": "field2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field 2.",
+      "default": false
+    },
+    {
+      "name": "field3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field 3.",
+      "default": false
+    },
+    {
+      "name": "field4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field 4.",
+      "default": false
+    },
+    {
+      "name": "field5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field 5.",
+      "default": false
+    },
+    {
+      "name": "field6_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field 6.",
+      "default": false
+    },
+    {
+      "name": "field7_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field 7.",
+      "default": false
+    },
+    {
+      "name": "field8_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field 8.",
+      "default": false
+    },
+    {
+      "name": "field9_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field 9.",
+      "default": false
+    },
+    {
+      "name": "field10_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field 10.",
+      "default": false
+    },
+    {
+      "name": "field11_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field 11.",
+      "default": false
+    },
+    {
+      "name": "field12_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field 12.",
+      "default": false
     }
   ]
 }

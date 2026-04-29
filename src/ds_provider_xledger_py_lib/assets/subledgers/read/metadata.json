@@ -2,7 +2,16 @@
   "name": "subledgers",
   "type": "read",
   "description": "Query Subledgers.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -23,40 +32,34 @@
       "default": true
     },
     {
+      "name": "invoiceNumber",
+      "type": "string",
+      "description": "The invoice number of the subledger.",
+      "default": false
+    },
+    {
       "name": "email",
       "type": "string",
       "description": "The email of the Subledger.",
       "default": true
     },
     {
-      "name": "contract",
+      "name": "phone",
       "type": "string",
-      "description": "The contract of the Subledger.",
-      "default": true
+      "description": "The phone number of the subledger.",
+      "default": false
     },
     {
-      "name": "companyDbId",
-      "type": "int",
-      "description": "The unique identifier of the Subledger's company.",
-      "default": true
-    },
-    {
-      "name": "bankAccount",
+      "name": "fromDate",
       "type": "string",
-      "description": "The bank account of the Subledger.",
-      "default": true
+      "description": "The start date of the subledger.",
+      "default": false
     },
     {
-      "name": "ownerDbId",
-      "type": "int",
-      "description": "The unique identifier of the Subledger's owner.",
-      "default": true
-    },
-    {
-      "name": "yourReference",
+      "name": "toDate",
       "type": "string",
-      "description": "Your reference.",
-      "default": true
+      "description": "The end date of the subledger.",
+      "default": false
     },
     {
       "name": "createdAt",
@@ -69,6 +72,642 @@
       "type": "datetime",
       "description": "The timestamp when the Subledger was last modified.",
       "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int",
+      "description": "The unique identifier of the Subledger's owner.",
+      "default": true
+    },
+    {
+      "name": "number",
+      "type": "string",
+      "description": "The number of the subledger.",
+      "default": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "The id of the subledger.",
+      "default": false
+    },
+    {
+      "name": "subledgerGroupDbId",
+      "type": "string",
+      "description": "The subledger group db id of the subledger.",
+      "default": false
+    },
+    {
+      "name": "bankAccount",
+      "type": "string",
+      "description": "The bank account of the Subledger.",
+      "default": true
+    },
+    {
+      "name": "codeTranslated",
+      "type": "string",
+      "description": "The code translated of the subledger.",
+      "default": false
+    },
+    {
+      "name": "contract",
+      "type": "string",
+      "description": "The contract of the Subledger.",
+      "default": true
+    },
+    {
+      "name": "creditLimit",
+      "type": "string",
+      "description": "The credit limit of the subledger.",
+      "default": false
+    },
+    {
+      "name": "descriptionTranslated",
+      "type": "string",
+      "description": "The description translated of the subledger.",
+      "default": false
+    },
+    {
+      "name": "extIdentifier",
+      "type": "string",
+      "description": "The external identifier of the subledger.",
+      "default": false
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "The notes of the subledger.",
+      "default": false
+    },
+    {
+      "name": "payDocText",
+      "type": "string",
+      "description": "The pay doc text of the subledger.",
+      "default": false
+    },
+    {
+      "name": "paymentNotification",
+      "type": "string",
+      "description": "The payment notification of the subledger.",
+      "default": false
+    },
+    {
+      "name": "phone2",
+      "type": "string",
+      "description": "The phone 2 of the subledger.",
+      "default": false
+    },
+    {
+      "name": "taxNo",
+      "type": "string",
+      "description": "The tax no of the subledger.",
+      "default": false
+    },
+    {
+      "name": "yourReference",
+      "type": "string",
+      "description": "Your reference.",
+      "default": true
+    },
+    {
+      "name": "address_dbId",
+      "type": "string",
+      "description": "The unique identifier of the address.",
+      "default": false
+    },
+    {
+      "name": "address_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the address.",
+      "default": false
+    },
+    {
+      "name": "address_zipCode",
+      "type": "string",
+      "description": "The zip code of the address.",
+      "default": false
+    },
+    {
+      "name": "address_place",
+      "type": "string",
+      "description": "The place of the address.",
+      "default": false
+    },
+    {
+      "name": "address_streetAddress",
+      "type": "string",
+      "description": "The street address of the address.",
+      "default": false
+    },
+    {
+      "name": "address_country_dbId",
+      "type": "string",
+      "description": "The unique identifier of the country.",
+      "default": false
+    },
+    {
+      "name": "address_country_code",
+      "type": "string",
+      "description": "The code of the country.",
+      "default": false
+    },
+    {
+      "name": "address_country_description",
+      "type": "string",
+      "description": "The description of the country.",
+      "default": false
+    },
+    {
+      "name": "apTaxReporting_dbId",
+      "type": "string",
+      "description": "The unique identifier of the ap tax reporting.",
+      "default": false
+    },
+    {
+      "name": "apTaxReporting_name",
+      "type": "string",
+      "description": "The name of the ap tax reporting.",
+      "default": false
+    },
+    {
+      "name": "apTaxReporting_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the ap tax reporting.",
+      "default": false
+    },
+    {
+      "name": "apTaxReporting_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the ap tax reporting.",
+      "default": false
+    },
+    {
+      "name": "apTaxReporting_definitionId",
+      "type": "string",
+      "description": "The definition id of the ap tax reporting.",
+      "default": false
+    },
+    {
+      "name": "billAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the billing address.",
+      "default": false
+    },
+    {
+      "name": "billAddress_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the billing address.",
+      "default": false
+    },
+    {
+      "name": "billAddress_zipCode",
+      "type": "string",
+      "description": "The zip code of the billing address.",
+      "default": false
+    },
+    {
+      "name": "billAddress_place",
+      "type": "string",
+      "description": "The place of the billing address.",
+      "default": false
+    },
+    {
+      "name": "billAddress_streetAddress",
+      "type": "string",
+      "description": "The street address of the billing address.",
+      "default": false
+    },
+    {
+      "name": "billAddress_country_dbId",
+      "type": "string",
+      "description": "The unique identifier of the country.",
+      "default": false
+    },
+    {
+      "name": "billAddress_country_code",
+      "type": "string",
+      "description": "The code of the country.",
+      "default": false
+    },
+    {
+      "name": "billAddress_country_description",
+      "type": "string",
+      "description": "The description of the country.",
+      "default": false
+    },
+    {
+      "name": "collection_dbId",
+      "type": "string",
+      "description": "The unique identifier of the collection.",
+      "default": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company.",
+      "default": false
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number of the company.",
+      "default": false
+    },
+    {
+      "name": "contact_dbId",
+      "type": "string",
+      "description": "The unique identifier of the contact.",
+      "default": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "string",
+      "description": "The unique identifier of the currency.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_dbId",
+      "type": "string",
+      "description": "The unique identifier of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date1",
+      "type": "string",
+      "description": "The date 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date2",
+      "type": "string",
+      "description": "The date 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date3",
+      "type": "string",
+      "description": "The date 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date4",
+      "type": "string",
+      "description": "The date 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag1",
+      "type": "string",
+      "description": "The flag 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag2",
+      "type": "string",
+      "description": "The flag 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag3",
+      "type": "string",
+      "description": "The flag 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag4",
+      "type": "string",
+      "description": "The flag 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_number1",
+      "type": "string",
+      "description": "The number 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_number2",
+      "type": "string",
+      "description": "The number 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text1",
+      "type": "string",
+      "description": "The text 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text2",
+      "type": "string",
+      "description": "The text 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text3",
+      "type": "string",
+      "description": "The text 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text4",
+      "type": "string",
+      "description": "The text 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text5",
+      "type": "string",
+      "description": "The text 5 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text6",
+      "type": "string",
+      "description": "The text 6 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text7",
+      "type": "string",
+      "description": "The text 7 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text8",
+      "type": "string",
+      "description": "The text 8 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value1",
+      "type": "string",
+      "description": "The value 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value2",
+      "type": "string",
+      "description": "The value 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value3",
+      "type": "string",
+      "description": "The value 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value4",
+      "type": "string",
+      "description": "The value 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 1.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 2.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 3.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 4.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 5.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code6_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 6.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code7_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 7.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code8_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 8.",
+      "default": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 5.",
+      "default": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_dbId",
+      "type": "string",
+      "description": "The unique identifier of the invoice delivery method.",
+      "default": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_name",
+      "type": "string",
+      "description": "The name of the invoice delivery method.",
+      "default": false
+    },
+    {
+      "name": "language_dbId",
+      "type": "string",
+      "description": "The unique identifier of the language.",
+      "default": false
+    },
+    {
+      "name": "language_name",
+      "type": "string",
+      "description": "The name of the language.",
+      "default": false
+    },
+    {
+      "name": "ledgerType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the ledger type.",
+      "default": false
+    },
+    {
+      "name": "ledgerType_name",
+      "type": "string",
+      "description": "The name of the ledger type.",
+      "default": false
+    },
+    {
+      "name": "ledgerType_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the ledger type.",
+      "default": false
+    },
+    {
+      "name": "ledgerType_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the ledger type.",
+      "default": false
+    },
+    {
+      "name": "ledgerType_definitionId",
+      "type": "string",
+      "description": "The definition id of the ledger type.",
+      "default": false
+    },
+    {
+      "name": "ourRef_dbId",
+      "type": "string",
+      "description": "The unique identifier of the our ref.",
+      "default": false
+    },
+    {
+      "name": "ourSales_dbId",
+      "type": "string",
+      "description": "The unique identifier of the our sales.",
+      "default": false
+    },
+    {
+      "name": "paymentCharge_dbId",
+      "type": "string",
+      "description": "The unique identifier of the payment charge.",
+      "default": false
+    },
+    {
+      "name": "paymentCharge_name",
+      "type": "string",
+      "description": "The name of the payment charge.",
+      "default": false
+    },
+    {
+      "name": "paymentCharge_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the payment charge.",
+      "default": false
+    },
+    {
+      "name": "paymentCharge_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the payment charge.",
+      "default": false
+    },
+    {
+      "name": "paymentCharge_definitionId",
+      "type": "string",
+      "description": "The definition id of the payment charge.",
+      "default": false
+    },
+    {
+      "name": "payMethod_dbId",
+      "type": "string",
+      "description": "The unique identifier of the pay method.",
+      "default": false
+    },
+    {
+      "name": "payTerms_dbId",
+      "type": "string",
+      "description": "The unique identifier of the pay terms.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the ship address.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the ship address.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_zipCode",
+      "type": "string",
+      "description": "The zip code of the ship address.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_place",
+      "type": "string",
+      "description": "The place of the ship address.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_streetAddress",
+      "type": "string",
+      "description": "The street address of the ship address.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_country_dbId",
+      "type": "string",
+      "description": "The unique identifier of the country.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_country_code",
+      "type": "string",
+      "description": "The code of the country.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_country_description",
+      "type": "string",
+      "description": "The description of the country.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
     }
   ]
 }

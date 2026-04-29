@@ -57,7 +57,6 @@ def main() -> None:
                     "code",
                     "description",
                 ],
-                pagination=True,
                 first=1000,
             ),
         ),

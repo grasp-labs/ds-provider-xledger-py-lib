@@ -2,7 +2,16 @@
   "name": "objectValues",
   "type": "read",
   "description": "Query Object Values.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -23,22 +32,16 @@
       "default": true
     },
     {
-        "name": "posting",
-        "type": "boolean",
-        "description": "The posting status of the object value.",
-        "default": true
+      "name": "dateFrom",
+      "type": "datetime64[ns]",
+      "description": "The date from which the object value is valid.",
+      "default": true
     },
     {
-        "name": "dateFrom",
-        "type": "datetime64[ns]",
-        "description": "The date from which the object value is valid.",
-        "default": true
-    },
-    {
-        "name": "dateTo",
-        "type": "datetime64[ns]",
-        "description": "The date to which the object value is valid.",
-        "default": true
+      "name": "dateTo",
+      "type": "datetime64[ns]",
+      "description": "The date to which the object value is valid.",
+      "default": true
     },
     {
       "name": "createdAt",
@@ -51,6 +54,210 @@
       "type": "datetime64[ns]",
       "description": "The timestamp when the Object Value was last modified.",
       "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the object value.",
+      "default": false
+    },
+    {
+      "name": "dbSubId",
+      "type": "string",
+      "description": "The db sub id of the object value.",
+      "default": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "The id of the object value.",
+      "default": false
+    },
+    {
+      "name": "objectKindDbId",
+      "type": "string",
+      "description": "The object kind db id of the object value.",
+      "default": false
+    },
+    {
+      "name": "posting",
+      "type": "boolean",
+      "description": "The posting status of the object value.",
+      "default": true
+    },
+    {
+      "name": "code2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 2.",
+      "default": false
+    },
+    {
+      "name": "code2_name",
+      "type": "string",
+      "description": "The name of the code 2.",
+      "default": false
+    },
+    {
+      "name": "code2_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the code 2.",
+      "default": false
+    },
+    {
+      "name": "code2_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the code 2.",
+      "default": false
+    },
+    {
+      "name": "code2_definitionId",
+      "type": "string",
+      "description": "The definition id of the code 2.",
+      "default": false
+    },
+    {
+      "name": "code3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 3.",
+      "default": false
+    },
+    {
+      "name": "code3_name",
+      "type": "string",
+      "description": "The name of the code 3.",
+      "default": false
+    },
+    {
+      "name": "code3_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the code 3.",
+      "default": false
+    },
+    {
+      "name": "code3_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the code 3.",
+      "default": false
+    },
+    {
+      "name": "code3_definitionId",
+      "type": "string",
+      "description": "The definition id of the code 3.",
+      "default": false
+    },
+    {
+      "name": "code4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 4.",
+      "default": false
+    },
+    {
+      "name": "code4_name",
+      "type": "string",
+      "description": "The name of the code 4.",
+      "default": false
+    },
+    {
+      "name": "code4_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the code 4.",
+      "default": false
+    },
+    {
+      "name": "code4_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the code 4.",
+      "default": false
+    },
+    {
+      "name": "code4_definitionId",
+      "type": "string",
+      "description": "The definition id of the code 4.",
+      "default": false
+    },
+    {
+      "name": "definition_dbId",
+      "type": "string",
+      "description": "The unique identifier of the definition.",
+      "default": false
+    },
+    {
+      "name": "definition_code",
+      "type": "string",
+      "description": "The code of the definition.",
+      "default": false
+    },
+    {
+      "name": "definition_description",
+      "type": "string",
+      "description": "The description of the definition.",
+      "default": false
+    },
+    {
+      "name": "levelParent_dbId",
+      "type": "string",
+      "description": "The unique identifier of the level parent.",
+      "default": false
+    },
+    {
+      "name": "object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object.",
+      "default": false
+    },
+    {
+      "name": "object_name",
+      "type": "string",
+      "description": "The name of the object.",
+      "default": false
+    },
+    {
+      "name": "object_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the object.",
+      "default": false
+    },
+    {
+      "name": "object_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the object.",
+      "default": false
+    },
+    {
+      "name": "object_definitionId",
+      "type": "string",
+      "description": "The definition id of the object.",
+      "default": false
+    },
+    {
+      "name": "source_dbId",
+      "type": "string",
+      "description": "The unique identifier of the source.",
+      "default": false
+    },
+    {
+      "name": "source_name",
+      "type": "string",
+      "description": "The name of the source.",
+      "default": false
+    },
+    {
+      "name": "source_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the source.",
+      "default": false
+    },
+    {
+      "name": "source_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the source.",
+      "default": false
+    },
+    {
+      "name": "source_definitionId",
+      "type": "string",
+      "description": "The definition id of the source.",
+      "default": false
     }
   ]
 }

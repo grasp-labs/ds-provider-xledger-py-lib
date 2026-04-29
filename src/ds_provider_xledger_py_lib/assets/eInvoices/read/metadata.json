@@ -2,7 +2,12 @@
   "name": "eInvoices",
   "type": "read",
   "description": "Xledger eInvoices dataset.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": null,
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -20,7 +25,7 @@
       "name": "supplier_dbId",
       "type": "int64",
       "description": "The unique identifier for the supplier.",
-      "default": false
+      "default": true
     }
   ]
 }

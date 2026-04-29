@@ -1,0 +1,317 @@
+{
+  "name": "workflowSetupItems",
+  "type": "read",
+  "description": "Xledger workflowSetupItems dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the workflow setup item.",
+      "default": true
+    },
+    {
+      "name": "fromDate",
+      "type": "string",
+      "description": "The start date of the workflow setup item.",
+      "default": true
+    },
+    {
+      "name": "toDate",
+      "type": "string",
+      "description": "The end date of the workflow setup item.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the workflow setup item.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the workflow setup item.",
+      "default": true
+    },
+    {
+      "name": "processTypeDbId",
+      "type": "string",
+      "description": "The process type db id of the workflow setup item.",
+      "default": false
+    },
+    {
+      "name": "amountFrom",
+      "type": "string",
+      "description": "The amount from of the workflow setup item.",
+      "default": false
+    },
+    {
+      "name": "amountTo",
+      "type": "string",
+      "description": "The amount to of the workflow setup item.",
+      "default": false
+    },
+    {
+      "name": "autoApprove",
+      "type": "string",
+      "description": "The auto approve of the workflow setup item.",
+      "default": false
+    },
+    {
+      "name": "filter",
+      "type": "string",
+      "description": "The filter of the workflow setup item.",
+      "default": false
+    },
+    {
+      "name": "glObject1Link",
+      "type": "string",
+      "description": "The gl object 1 link of the workflow setup item.",
+      "default": false
+    },
+    {
+      "name": "glObject2Link",
+      "type": "string",
+      "description": "The gl object 2 link of the workflow setup item.",
+      "default": false
+    },
+    {
+      "name": "negation",
+      "type": "string",
+      "description": "The negation of the workflow setup item.",
+      "default": false
+    },
+    {
+      "name": "sequence",
+      "type": "string",
+      "description": "The sequence of the workflow setup item.",
+      "default": false
+    },
+    {
+      "name": "account_dbId",
+      "type": "string",
+      "description": "The unique identifier of the account.",
+      "default": false
+    },
+    {
+      "name": "accountGroup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the account group.",
+      "default": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company.",
+      "default": false
+    },
+    {
+      "name": "company_description",
+      "type": "string",
+      "description": "The description of the company.",
+      "default": false
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number of the company.",
+      "default": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 5.",
+      "default": false
+    },
+    {
+      "name": "journalEntryType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the journal entry type.",
+      "default": false
+    },
+    {
+      "name": "journalEntryType_name",
+      "type": "string",
+      "description": "The name of the journal entry type.",
+      "default": false
+    },
+    {
+      "name": "journalEntryType_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the journal entry type.",
+      "default": false
+    },
+    {
+      "name": "journalEntryType_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the journal entry type.",
+      "default": false
+    },
+    {
+      "name": "journalEntryType_definitionId",
+      "type": "string",
+      "description": "The definition id of the journal entry type.",
+      "default": false
+    },
+    {
+      "name": "ourRef_dbId",
+      "type": "string",
+      "description": "The unique identifier of the our ref.",
+      "default": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "string",
+      "description": "The unique identifier of the owner.",
+      "default": false
+    },
+    {
+      "name": "processAccess_dbId",
+      "type": "string",
+      "description": "The unique identifier of the process access.",
+      "default": false
+    },
+    {
+      "name": "processAccess_name",
+      "type": "string",
+      "description": "The name of the process access.",
+      "default": false
+    },
+    {
+      "name": "processAccess_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the process access.",
+      "default": false
+    },
+    {
+      "name": "processAccess_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the process access.",
+      "default": false
+    },
+    {
+      "name": "processAccess_definitionId",
+      "type": "string",
+      "description": "The definition id of the process access.",
+      "default": false
+    },
+    {
+      "name": "processType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the process type.",
+      "default": false
+    },
+    {
+      "name": "processType_name",
+      "type": "string",
+      "description": "The name of the process type.",
+      "default": false
+    },
+    {
+      "name": "processType_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the process type.",
+      "default": false
+    },
+    {
+      "name": "processType_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the process type.",
+      "default": false
+    },
+    {
+      "name": "processType_definitionId",
+      "type": "string",
+      "description": "The definition id of the process type.",
+      "default": false
+    },
+    {
+      "name": "transactionSource_dbId",
+      "type": "string",
+      "description": "The unique identifier of the transaction source.",
+      "default": false
+    },
+    {
+      "name": "transactionSource_code",
+      "type": "string",
+      "description": "The code of the transaction source.",
+      "default": false
+    },
+    {
+      "name": "trProcessLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "trProcessLevel_name",
+      "type": "string",
+      "description": "The name of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "trProcessLevel_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "trProcessLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "trProcessLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "user_dbId",
+      "type": "string",
+      "description": "The unique identifier of the user.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
+    }
+  ]
+}

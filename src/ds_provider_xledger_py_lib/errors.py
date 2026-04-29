@@ -45,6 +45,45 @@ class InvalidMutationException(CreateError, UpdateError):
         super().__init__(message, code, status_code, details)
 
 
+class IncrementalFieldMissingException(ReadError):
+    """Raised when incremental metadata expects a field that is absent from every node."""
+
+    def __init__(
+        self,
+        message: str,
+        code: str = "DS_XLEDGER_INCREMENTAL_FIELD_MISSING",
+        status_code: int = 502,
+        details: dict[str, Any] | None = None,
+    ) -> None:
+        super().__init__(message, code, status_code, details)
+
+
+class InvalidIncrementalWatermarkException(ReadError):
+    """Raised when an incremental watermark value is not valid for the configured strategy."""
+
+    def __init__(
+        self,
+        message: str,
+        code: str = "DS_XLEDGER_INCREMENTAL_WATERMARK_INVALID",
+        status_code: int = 500,
+        details: dict[str, Any] | None = None,
+    ) -> None:
+        super().__init__(message, code, status_code, details)
+
+
+class UnsupportedIncrementalKindException(ReadError):
+    """Raised when incremental metadata uses an unsupported ``kind``."""
+
+    def __init__(
+        self,
+        message: str,
+        code: str = "DS_XLEDGER_INCREMENTAL_KIND_UNSUPPORTED",
+        status_code: int = 500,
+        details: dict[str, Any] | None = None,
+    ) -> None:
+        super().__init__(message, code, status_code, details)
+
+
 class OutOfCreditException(DatasetException):
     """Raised when the user has no available Xledger credits."""
 

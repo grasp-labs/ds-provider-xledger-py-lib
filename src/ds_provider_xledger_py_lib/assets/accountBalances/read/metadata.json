@@ -2,6 +2,12 @@
   "name": "accountBalances",
   "type": "read",
   "description": "Xledger accountBalances dataset.",
+  "pattern": "direct",
+  "incremental": null,
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -16,40 +22,16 @@
       "default": true
     },
     {
-      "name": "owner_dbId",
-      "type": "int64",
-      "description": "The unique identifier for the owner.",
-      "default": true
-    },
-    {
-      "name": "owner_code",
+      "name": "ownerDbId",
       "type": "string",
-      "description": "The code identifier for the owner.",
-      "default": true
-    },
-    {
-      "name": "account_dbId",
-      "type": "int64",
-      "description": "The unique identifier for the account.",
-      "default": true
-    },
-    {
-      "name": "account_code",
-      "type": "string",
-      "description": "The code identifier for the account.",
-      "default": true
-    },
-    {
-      "name": "period_fiscalYear",
-      "type": "int64",
-      "description": "The fiscal year of period for the account.",
+      "description": "The owner identifier of the account balance.",
       "default": false
     },
     {
-      "name": "period_fiscalPeriod",
+      "name": "periodNumber",
       "type": "int64",
-      "description": "The fiscal period for the account.",
-      "default": false
+      "description": "The period number for the account.",
+      "default": true
     },
     {
       "name": "periodId",
@@ -58,16 +40,10 @@
       "default": false
     },
     {
-      "name": "amount2",
-      "type": "string",
-      "description": "The amount2 value for the account.",
-      "default": false
-    },
-    {
       "name": "amount3",
       "type": "string",
       "description": "The amount3 value for the account.",
-      "default": false
+      "default": true
     },
     {
       "name": "amount4",
@@ -82,15 +58,9 @@
       "default": false
     },
     {
-      "name": "monthNumber",
-      "type": "int64",
-      "description": "The month number for the account.",
-      "default": false
-    },
-    {
-      "name": "periodNumber",
-      "type": "int64",
-      "description": "The period number for the account.",
+      "name": "budget",
+      "type": "string",
+      "description": "The budget of the account balance.",
       "default": false
     },
     {
@@ -103,6 +73,96 @@
       "name": "quantityBudget",
       "type": "string",
       "description": "The quantityBudget value of the account.",
+      "default": false
+    },
+    {
+      "name": "account_dbId",
+      "type": "int64",
+      "description": "The unique identifier for the account.",
+      "default": true
+    },
+    {
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company.",
+      "default": false
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number of the company.",
+      "default": false
+    },
+    {
+      "name": "glDimension_glObject1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 1.",
+      "default": false
+    },
+    {
+      "name": "glDimension_glObject2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 2.",
+      "default": false
+    },
+    {
+      "name": "glDimension_glObject3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 3.",
+      "default": false
+    },
+    {
+      "name": "glDimension_glObject4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 4.",
+      "default": false
+    },
+    {
+      "name": "glDimension_glObject5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger object 5.",
+      "default": false
+    },
+    {
+      "name": "period_dbId",
+      "type": "string",
+      "description": "The unique identifier of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_monthNumber",
+      "type": "string",
+      "description": "The month number of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalPeriod",
+      "type": "int64",
+      "description": "The fiscal period for the account.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalYear",
+      "type": "int64",
+      "description": "The fiscal year of period for the account.",
+      "default": false
+    },
+    {
+      "name": "period_year",
+      "type": "string",
+      "description": "The year of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "systemAccount_dbId",
+      "type": "string",
+      "description": "The unique identifier of the system account.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
       "default": false
     }
   ]

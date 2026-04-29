@@ -33,6 +33,28 @@ class MetaField(Serializable):
 
 
 @dataclass(kw_only=True)
+class IncrementalMetaData(Serializable):
+    """Incremental read section from packaged read metadata.
+
+    ``field`` names the node attribute used for watermarks; ``filter_field`` names the
+    GraphQL filter argument (e.g. ``modifiedAt_gte``). They are distinct and both required
+    when ``incremental`` is present in JSON.
+    """
+
+    kind: str
+    field: str
+    filter_field: str
+
+
+@dataclass(kw_only=True)
+class PaginationMetaData(Serializable):
+    """Static pagination read definition from metadata."""
+
+    kind: str
+    first: int | None = None
+
+
+@dataclass(kw_only=True)
 class MetaData(Serializable):
     """Operation-level metadata plus packaged GraphQL query template."""
 
@@ -41,7 +63,9 @@ class MetaData(Serializable):
     description: str
     fields: list[MetaField]
     query: str
-    supportPagination: bool = False
+    pattern: str | None = None
+    incremental: IncrementalMetaData | None = None
+    pagination: PaginationMetaData | None = None
 
 
 @dataclass(frozen=True, kw_only=True)

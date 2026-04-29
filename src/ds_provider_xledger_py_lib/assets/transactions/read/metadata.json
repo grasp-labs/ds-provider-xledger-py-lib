@@ -1,0 +1,499 @@
+{
+  "name": "transactions",
+  "type": "read",
+  "description": "Xledger transactions dataset.",
+  "pattern": "direct",
+  "incremental": null,
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the transaction.",
+      "default": true
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text of the transaction.",
+      "default": true
+    },
+    {
+      "name": "amount",
+      "type": "string",
+      "description": "The amount of the transaction.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the transaction.",
+      "default": false
+    },
+    {
+      "name": "monthNumber",
+      "type": "string",
+      "description": "The month number of the transaction.",
+      "default": true
+    },
+    {
+      "name": "periodNumber",
+      "type": "string",
+      "description": "The period number of the transaction.",
+      "default": true
+    },
+    {
+      "name": "positionNumber",
+      "type": "string",
+      "description": "The position number of the transaction.",
+      "default": false
+    },
+    {
+      "name": "invoiceAmount",
+      "type": "string",
+      "description": "The invoice amount of the transaction.",
+      "default": false
+    },
+    {
+      "name": "taxAmount",
+      "type": "string",
+      "description": "The tax amount of the transaction.",
+      "default": false
+    },
+    {
+      "name": "accountDbId",
+      "type": "string",
+      "description": "The account db id of the transaction.",
+      "default": false
+    },
+    {
+      "name": "companyDbId",
+      "type": "string",
+      "description": "The company db id of the transaction.",
+      "default": false
+    },
+    {
+      "name": "glObject1DbId",
+      "type": "string",
+      "description": "The gl object 1 db id of the transaction.",
+      "default": false
+    },
+    {
+      "name": "glObject2DbId",
+      "type": "string",
+      "description": "The gl object 2 db id of the transaction.",
+      "default": false
+    },
+    {
+      "name": "glObject3DbId",
+      "type": "string",
+      "description": "The gl object 3 db id of the transaction.",
+      "default": false
+    },
+    {
+      "name": "glObject4DbId",
+      "type": "string",
+      "description": "The gl object 4 db id of the transaction.",
+      "default": false
+    },
+    {
+      "name": "glObject5DbId",
+      "type": "string",
+      "description": "The gl object 5 db id of the transaction.",
+      "default": false
+    },
+    {
+      "name": "matchId",
+      "type": "string",
+      "description": "The match identifier of the transaction.",
+      "default": false
+    },
+    {
+      "name": "periodId",
+      "type": "string",
+      "description": "The period id of the transaction.",
+      "default": false
+    },
+    {
+      "name": "amount3",
+      "type": "string",
+      "description": "The amount 3 of the transaction.",
+      "default": false
+    },
+    {
+      "name": "amount4",
+      "type": "string",
+      "description": "The amount 4 of the transaction.",
+      "default": false
+    },
+    {
+      "name": "amount5",
+      "type": "string",
+      "description": "The amount 5 of the transaction.",
+      "default": false
+    },
+    {
+      "name": "quantity",
+      "type": "string",
+      "description": "The quantity of the transaction.",
+      "default": false
+    },
+    {
+      "name": "reconciled",
+      "type": "string",
+      "description": "Indicates whether the transaction is reconciled.",
+      "default": false
+    },
+    {
+      "name": "bankAccount_dbId",
+      "type": "string",
+      "description": "The unique identifier of the bank account.",
+      "default": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company.",
+      "default": false
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number of the company.",
+      "default": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "string",
+      "description": "The unique identifier of the currency.",
+      "default": false
+    },
+    {
+      "name": "header_dbId",
+      "type": "string",
+      "description": "The unique identifier of the header.",
+      "default": false
+    },
+    {
+      "name": "header_transactionNumber",
+      "type": "string",
+      "description": "The transaction number of the header.",
+      "default": false
+    },
+    {
+      "name": "header_text",
+      "type": "string",
+      "description": "The text of the header.",
+      "default": false
+    },
+    {
+      "name": "header_postedDate",
+      "type": "string",
+      "description": "The posting date of the header.",
+      "default": false
+    },
+    {
+      "name": "header_createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the header.",
+      "default": false
+    },
+    {
+      "name": "header_modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the header.",
+      "default": false
+    },
+    {
+      "name": "header_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the header.",
+      "default": false
+    },
+    {
+      "name": "header_importedAt",
+      "type": "string",
+      "description": "The import timestamp of the header.",
+      "default": false
+    },
+    {
+      "name": "header_registeredAt",
+      "type": "string",
+      "description": "The registration timestamp of the header.",
+      "default": false
+    },
+    {
+      "name": "header_archive",
+      "type": "string",
+      "description": "Indicates whether the header is archive.",
+      "default": false
+    },
+    {
+      "name": "header_fiscalYear",
+      "type": "string",
+      "description": "The fiscal year of the header.",
+      "default": false
+    },
+    {
+      "name": "header_invoiceFile_dbId",
+      "type": "string",
+      "description": "The unique identifier of the invoice file.",
+      "default": false
+    },
+    {
+      "name": "header_jobLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the job level.",
+      "default": false
+    },
+    {
+      "name": "header_jobLevel_name",
+      "type": "string",
+      "description": "The name of the job level.",
+      "default": false
+    },
+    {
+      "name": "header_jobLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the job level.",
+      "default": false
+    },
+    {
+      "name": "header_jobLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the job level.",
+      "default": false
+    },
+    {
+      "name": "header_period_dbId",
+      "type": "string",
+      "description": "The unique identifier of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "header_period_monthNumber",
+      "type": "string",
+      "description": "The month number of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "header_period_fiscalPeriod",
+      "type": "string",
+      "description": "The fiscal period of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "header_period_fiscalYear",
+      "type": "string",
+      "description": "The fiscal year of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "header_period_year",
+      "type": "string",
+      "description": "The year of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "header_processType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the process type.",
+      "default": false
+    },
+    {
+      "name": "header_processType_name",
+      "type": "string",
+      "description": "The name of the process type.",
+      "default": false
+    },
+    {
+      "name": "header_processType_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the process type.",
+      "default": false
+    },
+    {
+      "name": "header_processType_definitionId",
+      "type": "string",
+      "description": "The definition id of the process type.",
+      "default": false
+    },
+    {
+      "name": "header_transactionSource_dbId",
+      "type": "string",
+      "description": "The unique identifier of the transaction source.",
+      "default": false
+    },
+    {
+      "name": "header_transactionSource_code",
+      "type": "string",
+      "description": "The code of the transaction source.",
+      "default": false
+    },
+    {
+      "name": "header_transProcessLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "header_transProcessLevel_name",
+      "type": "string",
+      "description": "The name of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "header_transProcessLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "header_transProcessLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "header_trProcessAction_dbId",
+      "type": "string",
+      "description": "The unique identifier of the transaction process action.",
+      "default": false
+    },
+    {
+      "name": "header_trProcessAction_name",
+      "type": "string",
+      "description": "The name of the transaction process action.",
+      "default": false
+    },
+    {
+      "name": "header_trProcessAction_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the transaction process action.",
+      "default": false
+    },
+    {
+      "name": "header_trProcessAction_definitionId",
+      "type": "string",
+      "description": "The definition id of the transaction process action.",
+      "default": false
+    },
+    {
+      "name": "header_trProcessLevel_dbId",
+      "type": "string",
+      "description": "The unique identifier of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "header_trProcessLevel_name",
+      "type": "string",
+      "description": "The name of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "header_trProcessLevel_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "header_trProcessLevel_definitionId",
+      "type": "string",
+      "description": "The definition id of the transaction process level.",
+      "default": false
+    },
+    {
+      "name": "period_dbId",
+      "type": "string",
+      "description": "The unique identifier of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_monthNumber",
+      "type": "string",
+      "description": "The month number of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalPeriod",
+      "type": "string",
+      "description": "The fiscal period of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalYear",
+      "type": "string",
+      "description": "The fiscal year of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "period_year",
+      "type": "string",
+      "description": "The year of the accounting period.",
+      "default": false
+    },
+    {
+      "name": "taxRule_dbId",
+      "type": "string",
+      "description": "The unique identifier of the tax rule.",
+      "default": false
+    },
+    {
+      "name": "unitNumber_dbId",
+      "type": "string",
+      "description": "The unique identifier of the unit number.",
+      "default": false
+    },
+    {
+      "name": "unitNumber_name",
+      "type": "string",
+      "description": "The name of the unit number.",
+      "default": false
+    },
+    {
+      "name": "unitNumber_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the unit number.",
+      "default": false
+    },
+    {
+      "name": "unitNumber_definitionId",
+      "type": "string",
+      "description": "The definition id of the unit number.",
+      "default": false
+    },
+    {
+      "name": "unitQuantity_dbId",
+      "type": "string",
+      "description": "The unique identifier of the unit quantity.",
+      "default": false
+    },
+    {
+      "name": "unitQuantity_name",
+      "type": "string",
+      "description": "The name of the unit quantity.",
+      "default": false
+    },
+    {
+      "name": "unitQuantity_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the unit quantity.",
+      "default": false
+    },
+    {
+      "name": "unitQuantity_definitionId",
+      "type": "string",
+      "description": "The definition id of the unit quantity.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "string",
+      "description": "The unique identifier of the general ledger dimension.",
+      "default": false
+    }
+  ]
+}

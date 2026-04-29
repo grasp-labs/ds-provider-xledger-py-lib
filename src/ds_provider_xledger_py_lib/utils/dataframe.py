@@ -23,13 +23,7 @@ def dataframe_to_records(df: pd.DataFrame) -> list[dict[str, Any]]:
     Returns:
         List of row dictionaries.
     """
-    records: list[dict[str, Any]] = []
-    for _, row in df.iterrows():
-        record: dict[str, Any] = {}
-        for key, value in row.items():
-            record[str(key)] = None if pd.isna(value) else value
-        records.append(record)
-    return records
+    return [{str(k): (None if pd.isna(v) else v) for k, v in record.items()} for record in df.to_dict("records")]
 
 
 def edges_to_dataframe(
@@ -46,9 +40,8 @@ def edges_to_dataframe(
     Returns:
         Flattened dataframe.
     """
-    nodes = [edge.get("node") for edge in edges if isinstance(edge, dict)]
-    normalized_nodes = [node for node in nodes if isinstance(node, dict)]
-    df = pd.json_normalize(normalized_nodes, sep="_")
+    nodes = [node for edge in edges if isinstance(edge, dict) if isinstance(node := edge.get("node"), dict)]
+    df = pd.json_normalize(nodes, sep="_")
     if columns:
         return df.reindex(columns=columns)
     return df

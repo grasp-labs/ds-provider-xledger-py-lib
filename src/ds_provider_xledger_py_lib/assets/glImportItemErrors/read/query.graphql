@@ -1,5 +1,5 @@
 {
-  glImportItemErrors(first: 1000) {
+  glImportItemErrors() {
     pageInfo {
       hasNextPage
       hasPreviousPage

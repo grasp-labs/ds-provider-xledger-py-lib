@@ -1,0 +1,161 @@
+{
+  "name": "taxTableSetups",
+  "type": "read",
+  "description": "Xledger taxTableSetups dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the tax table setup.",
+      "default": true
+    },
+    {
+      "name": "dateFrom",
+      "type": "string",
+      "description": "The start date of the tax table setup.",
+      "default": true
+    },
+    {
+      "name": "dateTo",
+      "type": "string",
+      "description": "The end date of the tax table setup.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the tax table setup.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the tax table setup.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the tax table setup.",
+      "default": false
+    },
+    {
+      "name": "accountDbId",
+      "type": "string",
+      "description": "The account db id of the tax table setup.",
+      "default": false
+    },
+    {
+      "name": "objectValueDbId",
+      "type": "string",
+      "description": "The object value db id of the tax table setup.",
+      "default": false
+    },
+    {
+      "name": "taxTableDbId",
+      "type": "string",
+      "description": "The tax table db id of the tax table setup.",
+      "default": false
+    },
+    {
+      "name": "correctionPercent",
+      "type": "string",
+      "description": "The correction percent of the tax table setup.",
+      "default": false
+    },
+    {
+      "name": "taxPercent",
+      "type": "string",
+      "description": "The tax percent of the tax table setup.",
+      "default": false
+    },
+    {
+      "name": "account_accountGroupDbId",
+      "type": "string",
+      "description": "The account group db id of the account.",
+      "default": false
+    },
+    {
+      "name": "account_chartOfAccountDbId",
+      "type": "string",
+      "description": "The chart of account db id of the account.",
+      "default": false
+    },
+    {
+      "name": "account_accountGroup_code",
+      "type": "string",
+      "description": "The code of the account group.",
+      "default": false
+    },
+    {
+      "name": "account_accountIndicator_dbId",
+      "type": "string",
+      "description": "The unique identifier of the account indicator.",
+      "default": false
+    },
+    {
+      "name": "account_accountIndicator_code",
+      "type": "string",
+      "description": "The code of the account indicator.",
+      "default": false
+    },
+    {
+      "name": "account_chartOfAccount_dbId",
+      "type": "string",
+      "description": "The unique identifier of the chart of account.",
+      "default": false
+    },
+    {
+      "name": "account_chartOfAccount_name",
+      "type": "string",
+      "description": "The name of the chart of account.",
+      "default": false
+    },
+    {
+      "name": "object_description",
+      "type": "string",
+      "description": "The description of the object.",
+      "default": false
+    },
+    {
+      "name": "object_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "object_objectKind_name",
+      "type": "string",
+      "description": "The name of the object kind.",
+      "default": false
+    },
+    {
+      "name": "objectValue_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object value.",
+      "default": false
+    },
+    {
+      "name": "objectValue_definitionId",
+      "type": "string",
+      "description": "The definition id of the object value.",
+      "default": false
+    },
+    {
+      "name": "objectValue_objectKindDbId",
+      "type": "string",
+      "description": "The object kind db id of the object value.",
+      "default": false
+    }
+  ]
+}

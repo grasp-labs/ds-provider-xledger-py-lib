@@ -1,0 +1,137 @@
+{
+  "name": "inventoryItems",
+  "type": "read",
+  "description": "Xledger inventoryItems dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the inventory item.",
+      "default": true
+    },
+    {
+      "name": "fromDate",
+      "type": "string",
+      "description": "The start date of the inventory item.",
+      "default": true
+    },
+    {
+      "name": "toDate",
+      "type": "string",
+      "description": "The end date of the inventory item.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the inventory item.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the inventory item.",
+      "default": true
+    },
+    {
+      "name": "lotNumber",
+      "type": "string",
+      "description": "The lot number of the inventory item.",
+      "default": false
+    },
+    {
+      "name": "locationDbId",
+      "type": "string",
+      "description": "The location db id of the inventory item.",
+      "default": false
+    },
+    {
+      "name": "productDbId",
+      "type": "string",
+      "description": "The product db id of the inventory item.",
+      "default": false
+    },
+    {
+      "name": "warehouseDbId",
+      "type": "string",
+      "description": "The warehouse db id of the inventory item.",
+      "default": false
+    },
+    {
+      "name": "costPrice",
+      "type": "string",
+      "description": "The cost price of the inventory item.",
+      "default": false
+    },
+    {
+      "name": "quantity",
+      "type": "string",
+      "description": "The quantity of the inventory item.",
+      "default": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "string",
+      "description": "The unique identifier of the owner.",
+      "default": false
+    },
+    {
+      "name": "priorityQueue_dbId",
+      "type": "string",
+      "description": "The unique identifier of the priority queue.",
+      "default": false
+    },
+    {
+      "name": "priorityQueue_name",
+      "type": "string",
+      "description": "The name of the priority queue.",
+      "default": false
+    },
+    {
+      "name": "priorityQueue_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the priority queue.",
+      "default": false
+    },
+    {
+      "name": "priorityQueue_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the priority queue.",
+      "default": false
+    },
+    {
+      "name": "priorityQueue_definitionId",
+      "type": "string",
+      "description": "The definition id of the priority queue.",
+      "default": false
+    },
+    {
+      "name": "productDimension_dbId",
+      "type": "string",
+      "description": "The unique identifier of the product dimension.",
+      "default": false
+    },
+    {
+      "name": "productItem_dbId",
+      "type": "string",
+      "description": "The unique identifier of the product item.",
+      "default": false
+    },
+    {
+      "name": "unit_dbId",
+      "type": "string",
+      "description": "The unique identifier of the unit.",
+      "default": false
+    }
+  ]
+}

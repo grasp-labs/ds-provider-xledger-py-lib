@@ -2,7 +2,16 @@
   "name": "entities",
   "type": "read",
   "description": "Query entities.",
-  "supportPagination": true,
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
   "fields": [
     {
       "name": "dbId",
@@ -23,10 +32,28 @@
       "default": true
     },
     {
-      "name": "ownerDbId",
+      "name": "email",
       "type": "string",
-      "description": "The owner of the entities.",
-      "default": true
+      "description": "The email address of the entity.",
+      "default": false
+    },
+    {
+      "name": "phone",
+      "type": "string",
+      "description": "The phone number of the entity.",
+      "default": false
+    },
+    {
+      "name": "fromDate",
+      "type": "string",
+      "description": "The start date of the entity.",
+      "default": false
+    },
+    {
+      "name": "toDate",
+      "type": "string",
+      "description": "The end date of the entity.",
+      "default": false
     },
     {
       "name": "createdAt",
@@ -39,6 +66,870 @@
       "type": "datetime",
       "description": "The timestamp when the entities was last modified.",
       "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner of the entities.",
+      "default": true
+    },
+    {
+      "name": "sicCode",
+      "type": "string",
+      "description": "The sic code of the entity.",
+      "default": false
+    },
+    {
+      "name": "fiscalYearStartMonth",
+      "type": "string",
+      "description": "The fiscal year start month of the entity.",
+      "default": false
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "The notes of the entity.",
+      "default": false
+    },
+    {
+      "name": "address_dbId",
+      "type": "string",
+      "description": "The unique identifier of the address.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_dbId",
+      "type": "string",
+      "description": "The unique identifier of the amount setup entries.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the amount setup entries.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_amountField_dbId",
+      "type": "string",
+      "description": "The unique identifier of the amount field.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_amountField_name",
+      "type": "string",
+      "description": "The name of the amount field.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_amountField_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the amount field.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_amountField_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the amount field.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_amountField_definitionId",
+      "type": "string",
+      "description": "The definition id of the amount field.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_baseAmountField_dbId",
+      "type": "string",
+      "description": "The unique identifier of the base amount field.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_baseAmountField_name",
+      "type": "string",
+      "description": "The name of the base amount field.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_baseAmountField_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the base amount field.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_baseAmountField_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the base amount field.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_baseAmountField_definitionId",
+      "type": "string",
+      "description": "The definition id of the base amount field.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_currency_dbId",
+      "type": "string",
+      "description": "The unique identifier of the currency.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_exchangeRate_dbId",
+      "type": "string",
+      "description": "The unique identifier of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_exchangeRate_name",
+      "type": "string",
+      "description": "The name of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_exchangeRate_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_exchangeRate_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "amountSetupEntries_exchangeRate_definitionId",
+      "type": "string",
+      "description": "The definition id of the exchange rate.",
+      "default": false
+    },
+    {
+      "name": "billAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the billing address.",
+      "default": false
+    },
+    {
+      "name": "company_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company.",
+      "default": false
+    },
+    {
+      "name": "company_companyNumber",
+      "type": "string",
+      "description": "The company number of the company.",
+      "default": false
+    },
+    {
+      "name": "cultureInfo_dbId",
+      "type": "string",
+      "description": "The unique identifier of the culture info.",
+      "default": false
+    },
+    {
+      "name": "cultureInfo_name",
+      "type": "string",
+      "description": "The name of the culture info.",
+      "default": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "string",
+      "description": "The unique identifier of the currency.",
+      "default": false
+    },
+    {
+      "name": "entitySize_dbId",
+      "type": "string",
+      "description": "The unique identifier of the entity size.",
+      "default": false
+    },
+    {
+      "name": "entitySize_name",
+      "type": "string",
+      "description": "The name of the entity size.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_dbId",
+      "type": "string",
+      "description": "The unique identifier of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code1Title",
+      "type": "string",
+      "description": "The code 1 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code2Title",
+      "type": "string",
+      "description": "The code 2 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code3Title",
+      "type": "string",
+      "description": "The code 3 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code4Title",
+      "type": "string",
+      "description": "The code 4 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code5Title",
+      "type": "string",
+      "description": "The code 5 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code6Title",
+      "type": "string",
+      "description": "The code 6 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code7Title",
+      "type": "string",
+      "description": "The code 7 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code8Title",
+      "type": "string",
+      "description": "The code 8 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_date1Title",
+      "type": "string",
+      "description": "The date 1 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_date2Title",
+      "type": "string",
+      "description": "The date 2 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_date3Title",
+      "type": "string",
+      "description": "The date 3 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_date4Title",
+      "type": "string",
+      "description": "The date 4 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_flag1Title",
+      "type": "string",
+      "description": "The flag 1 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_flag2Title",
+      "type": "string",
+      "description": "The flag 2 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_flag3Title",
+      "type": "string",
+      "description": "The flag 3 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_flag4Title",
+      "type": "string",
+      "description": "The flag 4 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_number1Title",
+      "type": "string",
+      "description": "The number 1 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_number2Title",
+      "type": "string",
+      "description": "The number 2 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_text1Title",
+      "type": "string",
+      "description": "The text 1 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_text2Title",
+      "type": "string",
+      "description": "The text 2 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_text3Title",
+      "type": "string",
+      "description": "The text 3 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_text4Title",
+      "type": "string",
+      "description": "The text 4 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_text5Title",
+      "type": "string",
+      "description": "The text 5 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_text6Title",
+      "type": "string",
+      "description": "The text 6 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_text7Title",
+      "type": "string",
+      "description": "The text 7 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_text8Title",
+      "type": "string",
+      "description": "The text 8 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_value1Title",
+      "type": "string",
+      "description": "The value 1 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_value2Title",
+      "type": "string",
+      "description": "The value 2 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_value3Title",
+      "type": "string",
+      "description": "The value 3 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_value4Title",
+      "type": "string",
+      "description": "The value 4 title of the flexi field setup entries.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code1Object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 1 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code1Object_code",
+      "type": "string",
+      "description": "The code of the code 1 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code1Object_description",
+      "type": "string",
+      "description": "The description of the code 1 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code1Object_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the code 1 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code1Object_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code2Object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 2 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code2Object_code",
+      "type": "string",
+      "description": "The code of the code 2 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code2Object_description",
+      "type": "string",
+      "description": "The description of the code 2 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code2Object_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the code 2 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code2Object_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code3Object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 3 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code3Object_code",
+      "type": "string",
+      "description": "The code of the code 3 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code3Object_description",
+      "type": "string",
+      "description": "The description of the code 3 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code3Object_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the code 3 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code3Object_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code4Object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 4 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code4Object_code",
+      "type": "string",
+      "description": "The code of the code 4 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code4Object_description",
+      "type": "string",
+      "description": "The description of the code 4 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code4Object_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the code 4 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code4Object_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code5Object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 5 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code5Object_code",
+      "type": "string",
+      "description": "The code of the code 5 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code5Object_description",
+      "type": "string",
+      "description": "The description of the code 5 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code5Object_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the code 5 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code5Object_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code6Object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 6 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code6Object_code",
+      "type": "string",
+      "description": "The code of the code 6 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code6Object_description",
+      "type": "string",
+      "description": "The description of the code 6 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code6Object_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the code 6 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code6Object_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code7Object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 7 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code7Object_code",
+      "type": "string",
+      "description": "The code of the code 7 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code7Object_description",
+      "type": "string",
+      "description": "The description of the code 7 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code7Object_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the code 7 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code7Object_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code8Object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 8 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code8Object_code",
+      "type": "string",
+      "description": "The code of the code 8 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code8Object_description",
+      "type": "string",
+      "description": "The description of the code 8 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code8Object_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the code 8 object.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_code8Object_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_flexiFieldType_dbId",
+      "type": "string",
+      "description": "The unique identifier of the flexi field type.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_flexiFieldType_name",
+      "type": "string",
+      "description": "The name of the flexi field type.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_flexiFieldType_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the flexi field type.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_flexiFieldType_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the flexi field type.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldSetupEntries_flexiFieldType_definitionId",
+      "type": "string",
+      "description": "The definition id of the flexi field type.",
+      "default": false
+    },
+    {
+      "name": "glSetupEntries_dbId",
+      "type": "string",
+      "description": "The unique identifier of the gl setup entries.",
+      "default": false
+    },
+    {
+      "name": "glSetupEntries_field_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field.",
+      "default": false
+    },
+    {
+      "name": "glSetupEntries_field_name",
+      "type": "string",
+      "description": "The name of the field.",
+      "default": false
+    },
+    {
+      "name": "glSetupEntries_field_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the field.",
+      "default": false
+    },
+    {
+      "name": "glSetupEntries_field_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the field.",
+      "default": false
+    },
+    {
+      "name": "glSetupEntries_field_definitionId",
+      "type": "string",
+      "description": "The definition id of the field.",
+      "default": false
+    },
+    {
+      "name": "glSetupEntries_fieldObject_dbId",
+      "type": "string",
+      "description": "The unique identifier of the field object.",
+      "default": false
+    },
+    {
+      "name": "glSetupEntries_fieldObject_code",
+      "type": "string",
+      "description": "The code of the field object.",
+      "default": false
+    },
+    {
+      "name": "glSetupEntries_fieldObject_description",
+      "type": "string",
+      "description": "The description of the field object.",
+      "default": false
+    },
+    {
+      "name": "glSetupEntries_fieldObject_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the field object.",
+      "default": false
+    },
+    {
+      "name": "glSetupEntries_fieldObject_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "language_dbId",
+      "type": "string",
+      "description": "The unique identifier of the language.",
+      "default": false
+    },
+    {
+      "name": "language_name",
+      "type": "string",
+      "description": "The name of the language.",
+      "default": false
+    },
+    {
+      "name": "ourContact_dbId",
+      "type": "string",
+      "description": "The unique identifier of the our contact.",
+      "default": false
+    },
+    {
+      "name": "owner_description",
+      "type": "string",
+      "description": "The description of the owner.",
+      "default": false
+    },
+    {
+      "name": "owner_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the owner.",
+      "default": false
+    },
+    {
+      "name": "owner_ownerCode",
+      "type": "string",
+      "description": "The owner code of the owner.",
+      "default": false
+    },
+    {
+      "name": "parent_dbId",
+      "type": "string",
+      "description": "The unique identifier of the parent.",
+      "default": false
+    },
+    {
+      "name": "parent_code",
+      "type": "string",
+      "description": "The code of the parent.",
+      "default": false
+    },
+    {
+      "name": "parent_description",
+      "type": "string",
+      "description": "The description of the parent.",
+      "default": false
+    },
+    {
+      "name": "region_dbId",
+      "type": "string",
+      "description": "The unique identifier of the region.",
+      "default": false
+    },
+    {
+      "name": "region_name",
+      "type": "string",
+      "description": "The name of the region.",
+      "default": false
+    },
+    {
+      "name": "region_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the region.",
+      "default": false
+    },
+    {
+      "name": "region_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the region.",
+      "default": false
+    },
+    {
+      "name": "region_definitionId",
+      "type": "string",
+      "description": "The definition id of the region.",
+      "default": false
+    },
+    {
+      "name": "shipAddress_dbId",
+      "type": "string",
+      "description": "The unique identifier of the ship address.",
+      "default": false
+    },
+    {
+      "name": "treeStructure_dbId",
+      "type": "string",
+      "description": "The unique identifier of the tree structure.",
+      "default": false
+    },
+    {
+      "name": "treeStructure_name",
+      "type": "string",
+      "description": "The name of the tree structure.",
+      "default": false
+    },
+    {
+      "name": "treeStructure_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the tree structure.",
+      "default": false
+    },
+    {
+      "name": "treeStructure_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the tree structure.",
+      "default": false
+    },
+    {
+      "name": "treeStructure_definitionId",
+      "type": "string",
+      "description": "The definition id of the tree structure.",
+      "default": false
+    },
+    {
+      "name": "xlCategory_dbId",
+      "type": "string",
+      "description": "The unique identifier of the xl category.",
+      "default": false
+    },
+    {
+      "name": "xlCategory_name",
+      "type": "string",
+      "description": "The name of the xl category.",
+      "default": false
+    },
+    {
+      "name": "xlCategory_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the xl category.",
+      "default": false
+    },
+    {
+      "name": "xlCategory_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the xl category.",
+      "default": false
+    },
+    {
+      "name": "xlCategory_definitionId",
+      "type": "string",
+      "description": "The definition id of the xl category.",
+      "default": false
     }
   ]
 }
