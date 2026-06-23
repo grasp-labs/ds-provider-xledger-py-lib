@@ -16,7 +16,7 @@
     {
       "name": "dbId",
       "type": "int64",
-      "description": "The unique identifier for the accountBalance.",
+      "description": "The unique identifier for the periodStatusItem.",
       "default": true
     },
     {
@@ -70,7 +70,7 @@
     {
       "name": "period_dbId",
       "type": "int64",
-      "description": "The unique identifier of the owner.",
+      "description": "The unique identifier of the period.",
       "default": false
     },
     {
