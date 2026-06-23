@@ -1,0 +1,131 @@
+{
+  "name": "periodStatusItems",
+  "type": "read",
+  "description": "Xledger periodStatusItems dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier for the accountBalance.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the periodStatusItem.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int64",
+      "description": "The owner identifier of the periodStatusItem.",
+      "default": false
+    },
+    {
+      "name": "periodDbId",
+      "type": "int64",
+      "description": "The identifier of the period associated with the periodStatusItem.",
+      "default": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the owner.",
+      "default": false
+    },
+    {
+      "name": "owner_code",
+      "type": "string",
+      "description": "The code of the owner.",
+      "default": false
+    },
+    {
+      "name": "owner_description",
+      "type": "string",
+      "description": "The description of the owner.",
+      "default": false
+    },
+    {
+      "name": "owner_ownerDbId",
+      "type": "int64",
+      "description": "The owner identifier of the owner.",
+      "default": false
+    },
+    {
+      "name": "owner_ownerCode",
+      "type": "string",
+      "description": "The owner code of the owner.",
+      "default": false
+    },
+    {
+      "name": "period_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the owner.",
+      "default": false
+    },
+    {
+      "name": "period_code",
+      "type": "string",
+      "description": "The code of the period.",
+      "default": false
+    },
+    {
+      "name": "period_description",
+      "type": "string",
+      "description": "The description of the period.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalYear",
+      "type": "int64",
+      "description": "The fiscal year of the period.",
+      "default": false
+    },
+    {
+      "name": "period_toDate",
+      "type": "string",
+      "description": "The end date of the period.",
+      "default": false
+    },
+    {
+      "name": "period_fromDate",
+      "type": "string",
+      "description": "The start date of the period.",
+      "default": false
+    },
+    {
+      "name": "period_year",
+      "type": "int64",
+      "description": "The year of the period.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalPeriod",
+      "type": "int64",
+      "description": "The fiscal period of the period.",
+      "default": false
+    },
+    {
+      "name": "period_fiscalYearStartMonth",
+      "type": "string",
+      "description": "The start month of the fiscal year.",
+      "default": false
+    },
+    {
+      "name": "period_monthNumber",
+      "type": "int64",
+      "description": "The month number of the period.",
+      "default": false
+    }
+  ]
+}
