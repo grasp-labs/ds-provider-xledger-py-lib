@@ -1,0 +1,800 @@
+{
+  "name": "addSalesOrderItems",
+  "type": "create",
+  "description": "Create Xledger SalesOrderItems.",
+  "fields": [
+    {
+      "name": "owner_dbId",
+      "type": "int64",
+      "description": "The unique identifier of owner.",
+      "required": false
+    },
+    {
+      "name": "owner_code",
+      "type": "string",
+      "description": "The code of the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_description",
+      "type": "string",
+      "description": "The description of the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_ownerCode",
+      "type": "int64",
+      "description": "The owner code.",
+      "required": false
+    },
+    {
+      "name": "previousSalesOrder_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the previous sales order.",
+      "required": false
+    },
+    {
+      "name": "orderType_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the order type.",
+      "required": false
+    },
+    {
+      "name": "orderType_code",
+      "type": "string",
+      "description": "The code of the order type.",
+      "required": false
+    },
+    {
+      "name": "orderType_subDbId",
+      "type": "int64",
+      "description": "The unique identifier of the order type sub.",
+      "required": false
+    },
+    {
+      "name": "orderType_name",
+      "type": "string",
+      "description": "The name of the order type.",
+      "required": false
+    },
+    {
+      "name": "orderLevel_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the order level.",
+      "required": false
+    },
+    {
+
+      "name": "orderLevel_code",
+      "type": "string",
+      "description": "The code of the order level.",
+      "required": false
+    },
+    {
+      "name": "orderLevel_name",
+      "type": "string",
+      "description": "The name of the order level.",
+      "required": false
+    },
+    {
+      "name": "orderLevel_dbSubId",
+      "type": "int64",
+      "description": "The unique identifier of the order level sub.",
+      "required": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the invoice delivery method.",
+      "required": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_code",
+      "type": "string",
+      "description": "The code of the invoice delivery method.",
+      "required": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_name",
+      "type": "string",
+      "description": "The name of the invoice delivery method.",
+      "required": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_dbSubId",
+      "type": "string",
+      "description": "The sub-identifier of the invoice delivery method.",
+      "required": false
+    },
+    {
+      "name": "invoiceLayout_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the invoice layout.",
+      "required": false
+    },
+    {
+      "name": "invoiceLayout_code",
+      "type": "string",
+      "description": "The code of the invoice layout.",
+      "required": false
+    },
+    {
+      "name": "invoiceLayout_name",
+      "type": "string",
+      "description": "The name of the invoice layout.",
+      "required": false
+    },
+    {
+      "name": "invoiceLayout_dbSubId",
+      "type": "string",
+      "description": "The sub-identifier of the invoice layout.",
+      "required": false
+    },
+    {
+      "name": "reportSetup_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the report setup.",
+      "required": false
+    },
+    {
+      "name": "reportSetup_code",
+      "type": "string",
+      "description": "The code of the report setup.",
+      "required": false
+    },
+    {
+      "name": "reportSetup_description",
+      "type": "string",
+      "description": "The description of the report setup.",
+      "required": false
+    },
+    {
+      "name": "serviceType_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the service type.",
+      "required": false
+    },
+    {
+      "name": "serviceType_code",
+      "type": "string",
+      "description": "The code of the service type.",
+      "required": false
+    },
+    {
+      "name": "serviceType_description",
+      "type": "string",
+      "description": "The description of the service type.",
+      "required": false
+    },
+    {
+      "name": "attachments",
+      "type": "object",
+      "description": "Attachment changes for the sales order item.",
+      "required": false
+    },
+    {
+      "name": "customer_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the customer.",
+      "required": false
+    },
+    {
+      "name": "customer_code",
+      "type": "string",
+      "description": "The code of the customer.",
+      "required": false
+    },
+    {
+      "name": "customer_description",
+      "type": "string",
+      "description": "The description of the customer.",
+      "required": false
+    },
+    {
+      "name": "orderDate",
+      "type": "string",
+      "description": "The order date.",
+      "required": false
+    },
+    {
+      "name": "invoiceDate",
+      "type": "string",
+      "description": "The invoice date.",
+      "required": false
+    },
+    {
+      "name": "dueDate",
+      "type": "string",
+      "description": "The due date.",
+      "required": false
+    },
+    {
+      "name": "orderedBy",
+      "type": "string",
+      "description": "The ordered by value.",
+      "required": false
+    },
+    {
+      "name": "ourSales_dbId",
+      "type": "int64",
+      "description": "The our sales contact reference.",
+      "required": false
+    },
+    {
+      "name": "ourSales_code",
+      "type": "string",
+      "description": "The our sales contact code.",
+      "required": false
+    },
+    {
+      "name": "ourRef_dbId",
+      "type": "int64",
+      "description": "The our reference contact.",
+      "required": false
+    },
+    {
+      "name": "ourRef_code",
+      "type": "string",
+      "description": "The our reference contact code.",
+      "required": false
+    },
+    {
+      "name": "yourRef_dbId",
+      "type": "int64",
+      "description": "The your reference contact.",
+      "required": false
+    },
+    {
+      "name": "yourRef_code",
+      "type": "string",
+      "description": "The your reference contact code.",
+      "required": false
+    },
+    {
+      "name": "contract",
+      "type": "string",
+      "description": "The contract value.",
+      "required": false
+    },
+    {
+      "name": "extGL",
+      "type": "string",
+      "description": "The external GL value.",
+      "required": false
+    },
+    {
+      "name": "project_dbId",
+      "type": "int64",
+      "description": "The project reference.",
+      "required": false
+    },
+    {
+      "name": "project_code",
+      "type": "string",
+      "description": "The project code.",
+      "required": false
+    },
+    {
+      "name": "project_description",
+      "type": "string",
+      "description": "The project description.",
+      "required": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the first GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject1_code",
+      "type": "string",
+      "description": "The code representing the first GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject1_description",
+      "type": "string",
+      "description": "A description of the first GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the second GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject2_code",
+      "type": "string",
+      "description": "The code representing the second GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject2_description",
+      "type": "string",
+      "description": "A description of the second GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the third GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject3_code",
+      "type": "string",
+      "description": "The code representing the third GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject3_description",
+      "type": "string",
+      "description": "A description of the third GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the fourth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject4_code",
+      "type": "string",
+      "description": "The code representing the fourth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject4_description",
+      "type": "string",
+      "description": "A description of the fourth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the fifth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject5_code",
+      "type": "string",
+      "description": "The code representing the fifth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject5_description",
+      "type": "string",
+      "description": "A description of the fifth GL object.",
+      "required": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the Xledger object.",
+      "required": false
+    },
+    {
+      "name": "xgl_code",
+      "type": "string",
+      "description": "The code representing the Xledger object.",
+      "required": false
+    },
+    {
+      "name": "xgl_description",
+      "type": "string",
+      "description": "A description of the Xledger object.",
+      "required": false
+    },
+    {
+      "name": "periodStart_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the period start.",
+      "required": false
+    },
+    {
+      "name": "numberOfPeriods",
+      "type": "int64",
+      "description": "The number of periods.",
+      "required": false
+    },
+    {
+      "name": "latePaymentCode_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the late payment code.",
+      "required": false
+    },
+    {
+      "name": "latePaymentCode_code",
+      "type": "string",
+      "description": "The code representing the late payment code.",
+      "required": false
+    },
+    {
+      "name": "latePaymentCode_description",
+      "type": "string",
+      "description": "A description of the late payment code.",
+      "required": false
+    },
+    {
+      "name": "currency_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the currency.",
+      "required": false
+    },
+    {
+      "name": "currency_code",
+      "type": "string",
+      "description": "The code representing the currency.",
+      "required": false
+    },
+    {
+      "name": "currency_description",
+      "type": "string",
+      "description": "A description of the currency.",
+      "required": false
+    },
+    {
+      "name": "payTerms_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the payment terms.",
+      "required": false
+    },
+    {
+      "name": "payTerms_code",
+      "type": "string",
+      "description": "The code representing the payment terms.",
+      "required": false
+    },
+    {
+      "name": "payTerms_description",
+      "type": "string",
+      "description": "A description of the payment terms.",
+      "required": false
+    },
+    {
+      "name": "payMethod_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the payment method.",
+      "required": false
+    },
+    {
+      "name": "payMethod_code",
+      "type": "string",
+      "description": "The code representing the payment method.",
+      "required": false
+    },
+    {
+      "name": "payMethod_description",
+      "type": "string",
+      "description": "A description of the payment method.",
+      "required": false
+    },
+    {
+      "name": "extOrder",
+      "type": "string",
+      "description": "The external order value.",
+      "required": false
+    },
+    {
+      "name": "bankAccount_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the bank account.",
+      "required": false
+    },
+    {
+      "name": "bankAccount_code",
+      "type": "string",
+      "description": "The code representing the bank account.",
+      "required": false
+    },
+    {
+      "name": "bankAccount_description",
+      "type": "string",
+      "description": "A description of the bank account.",
+      "required": false
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text value.",
+      "required": false
+    },
+    {
+      "name": "fromDate",
+      "type": "string",
+      "description": "The from date value.",
+      "required": false
+    },
+    {
+      "name": "toDate",
+      "type": "string",
+      "description": "The to date value.",
+      "required": false
+    },
+    {
+      "name": "salesOrderGroup_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the sales order group.",
+      "required": false
+    },
+    {
+      "name": "salesOrderGroup_code",
+      "type": "string",
+      "description": "The code representing the sales order group.",
+      "required": false
+    },
+    {
+      "name": "salesOrderGroup_description",
+      "type": "string",
+      "description": "A description of the sales order group.",
+      "required": false
+    },
+    {
+      "name": "headerText_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the header text.",
+      "required": false
+    },
+    {
+      "name": "headerText_code",
+      "type": "string",
+      "description": "The code representing the header text.",
+      "required": false
+    },
+    {
+      "name": "headerText_description",
+      "type": "string",
+      "description": "A description of the header text.",
+      "required": false
+    },
+    {
+      "name": "footerText_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the footer text.",
+      "required": false
+    },
+    {
+      "name": "footerText_code",
+      "type": "string",
+      "description": "The code representing the footer text.",
+      "required": false
+    },
+    {
+      "name": "footerText_description",
+      "type": "string",
+      "description": "A description of the footer text.",
+      "required": false
+    },
+    {
+      "name": "invoiceHeader",
+      "type": "string",
+      "description": "The invoice header value.",
+      "required": false
+    },
+    {
+      "name": "jobLevel_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the job level.",
+      "required": false
+    },
+    {
+      "name": "jobLevel_dbSubId",
+      "type": "int64",
+      "description": "The unique identifier of the job level sub.",
+      "required": false
+    },
+    {
+      "name": "jobLevel_code",
+      "type": "string",
+      "description": "The code representing the job level.",
+      "required": false
+    },
+    {
+      "name": "jobLevel_name",
+      "type": "string",
+      "description": "The name of the job level.",
+      "required": false
+    },
+    {
+      "name": "flexiFieldsItem_dbId",
+      "type": "string",
+      "description": "The unique identifier of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date1",
+      "type": "string",
+      "description": "The date 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date2",
+      "type": "string",
+      "description": "The date 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date3",
+      "type": "string",
+      "description": "The date 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_date4",
+      "type": "string",
+      "description": "The date 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag1",
+      "type": "string",
+      "description": "The flag 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag2",
+      "type": "string",
+      "description": "The flag 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag3",
+      "type": "string",
+      "description": "The flag 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_flag4",
+      "type": "string",
+      "description": "The flag 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_number1",
+      "type": "string",
+      "description": "The number 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_number2",
+      "type": "string",
+      "description": "The number 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text1",
+      "type": "string",
+      "description": "The text 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text2",
+      "type": "string",
+      "description": "The text 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text3",
+      "type": "string",
+      "description": "The text 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text4",
+      "type": "string",
+      "description": "The text 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text5",
+      "type": "string",
+      "description": "The text 5 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text6",
+      "type": "string",
+      "description": "The text 6 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text7",
+      "type": "string",
+      "description": "The text 7 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_text8",
+      "type": "string",
+      "description": "The text 8 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value1",
+      "type": "string",
+      "description": "The value 1 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value2",
+      "type": "string",
+      "description": "The value 2 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value3",
+      "type": "string",
+      "description": "The value 3 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_value4",
+      "type": "string",
+      "description": "The value 4 of the flexi fields item.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 1.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 2.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 3.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 4.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code5_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 5.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code6_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 6.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code7_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 7.",
+      "default": false
+    },
+    {
+      "name": "flexiFieldsItem_code8_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 8.",
+      "default": false
+    },
+    {
+      "name": "details",
+      "type": "object",
+      "description": "The sales order detail list.",
+      "required": false
+    }
+  ]
+}
