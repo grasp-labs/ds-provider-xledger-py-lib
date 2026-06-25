@@ -283,12 +283,6 @@
     {
       "name": "glObject1_dbId",
       "type": "int64",
-      "description": "The GL object 1 reference.",
-      "required": false
-    },
-    {
-      "name": "glObject1_dbId",
-      "type": "int64",
       "description": "The unique identifier of the first GL object.",
       "required": false
     },
@@ -576,7 +570,7 @@
     },
     {
       "name": "invoiceHeader",
-      "type": "String",
+      "type": "string",
       "description": "The invoice header value.",
       "required": false
     },
