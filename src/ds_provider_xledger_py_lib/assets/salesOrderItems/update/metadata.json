@@ -532,24 +532,6 @@
       "required": false
     },
     {
-      "name": "footerText_dbId",
-      "type": "int64",
-      "description": "The unique identifier of the footer text.",
-      "required": false
-    },
-    {
-      "name": "footerText_code",
-      "type": "string",
-      "description": "The code representing the footer text.",
-      "required": false
-    },
-    {
-      "name": "footerText_description",
-      "type": "string",
-      "description": "A description of the footer text.",
-      "required": false
-    },
-    {
       "name": "invoiceHeader",
       "type": "string",
       "description": "The invoice header value.",
