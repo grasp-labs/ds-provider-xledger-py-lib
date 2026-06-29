@@ -7,8 +7,7 @@
       "name": "owner_dbId",
       "type": "int64",
       "description": "The unique identifier of owner.",
-      "required": false,
-      "default": true
+      "required": false
     },
     {
       "name": "owner_code",
