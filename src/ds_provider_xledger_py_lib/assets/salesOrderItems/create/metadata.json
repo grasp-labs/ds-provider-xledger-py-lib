@@ -776,9 +776,141 @@
       "required": false
     },
     {
-      "name": "details",
-      "type": "object",
-      "description": "The sales order detail list.",
+      "name": "details_lineNumber",
+      "type": "int64",
+      "description": "The line number of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_periodStartDbId",
+      "type": "int64",
+      "description": "The period start identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_numberOfPeriods",
+      "type": "int64",
+      "description": "The number of periods of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_accrualDateFrom",
+      "type": "string",
+      "description": "The accrual from date of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_accrualDateTo",
+      "type": "string",
+      "description": "The accrual to date of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_productDbId",
+      "type": "int64",
+      "description": "The product identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_text",
+      "type": "string",
+      "description": "The text of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_projectDbId",
+      "type": "int64",
+      "description": "The project identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_glObject1DbId",
+      "type": "int64",
+      "description": "The first GL object identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_glObject2DbId",
+      "type": "int64",
+      "description": "The second GL object identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_glObject3DbId",
+      "type": "int64",
+      "description": "The third GL object identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_glObject4DbId",
+      "type": "int64",
+      "description": "The fourth GL object identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_glObject5DbId",
+      "type": "int64",
+      "description": "The fifth GL object identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_xglDbId",
+      "type": "int64",
+      "description": "The Xledger object identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_transactionDate",
+      "type": "string",
+      "description": "The transaction date of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_excludePrint",
+      "type": "boolean",
+      "description": "Whether the sales order detail is excluded from print.",
+      "required": false
+    },
+    {
+      "name": "details_unitDbId",
+      "type": "int64",
+      "description": "The unit identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_quantity",
+      "type": "float64",
+      "description": "The quantity of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_unitPrice",
+      "type": "string",
+      "description": "The unit price of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_priceCalculation",
+      "type": "boolean",
+      "description": "Whether price calculation is enabled for the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_discountPercent",
+      "type": "float64",
+      "description": "The discount percent of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_taxRuleDbId",
+      "type": "int64",
+      "description": "The tax rule identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_regAmount",
+      "type": "string",
+      "description": "The registration amount of the sales order detail.",
       "required": false
     }
   ]
