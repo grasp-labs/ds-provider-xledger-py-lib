@@ -64,7 +64,6 @@
       "required": false
     },
     {
-
       "name": "orderLevel_code",
       "type": "string",
       "description": "The code of the order level.",
@@ -182,7 +181,8 @@
       "name": "customer_code",
       "type": "string",
       "description": "The code of the customer.",
-      "required": false
+      "required": false,
+      "default": true
     },
     {
       "name": "customer_description",
@@ -194,7 +194,8 @@
       "name": "orderDate",
       "type": "string",
       "description": "The order date.",
-      "required": false
+      "required": false,
+      "default": true
     },
     {
       "name": "invoiceDate",
@@ -206,7 +207,8 @@
       "name": "dueDate",
       "type": "string",
       "description": "The due date.",
-      "required": false
+      "required": false,
+      "default": true
     },
     {
       "name": "orderedBy",
@@ -551,24 +553,6 @@
       "required": false
     },
     {
-      "name": "footerText_dbId",
-      "type": "int64",
-      "description": "The unique identifier of the footer text.",
-      "required": false
-    },
-    {
-      "name": "footerText_code",
-      "type": "string",
-      "description": "The code representing the footer text.",
-      "required": false
-    },
-    {
-      "name": "footerText_description",
-      "type": "string",
-      "description": "A description of the footer text.",
-      "required": false
-    },
-    {
       "name": "invoiceHeader",
       "type": "string",
       "description": "The invoice header value.",
@@ -602,198 +586,330 @@
       "name": "flexiFieldsItem_dbId",
       "type": "string",
       "description": "The unique identifier of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_ownerDbId",
       "type": "string",
       "description": "The owner identifier of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_date1",
       "type": "string",
       "description": "The date 1 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_date2",
       "type": "string",
       "description": "The date 2 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_date3",
       "type": "string",
       "description": "The date 3 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_date4",
       "type": "string",
       "description": "The date 4 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_flag1",
       "type": "string",
       "description": "The flag 1 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_flag2",
       "type": "string",
       "description": "The flag 2 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_flag3",
       "type": "string",
       "description": "The flag 3 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_flag4",
       "type": "string",
       "description": "The flag 4 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_number1",
       "type": "string",
       "description": "The number 1 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_number2",
       "type": "string",
       "description": "The number 2 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_text1",
       "type": "string",
       "description": "The text 1 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_text2",
       "type": "string",
       "description": "The text 2 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_text3",
       "type": "string",
       "description": "The text 3 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_text4",
       "type": "string",
       "description": "The text 4 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_text5",
       "type": "string",
       "description": "The text 5 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_text6",
       "type": "string",
       "description": "The text 6 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_text7",
       "type": "string",
       "description": "The text 7 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_text8",
       "type": "string",
       "description": "The text 8 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_value1",
       "type": "string",
       "description": "The value 1 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_value2",
       "type": "string",
       "description": "The value 2 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_value3",
       "type": "string",
       "description": "The value 3 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_value4",
       "type": "string",
       "description": "The value 4 of the flexi fields item.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_code1_dbId",
       "type": "string",
       "description": "The unique identifier of the code 1.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_code2_dbId",
       "type": "string",
       "description": "The unique identifier of the code 2.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_code3_dbId",
       "type": "string",
       "description": "The unique identifier of the code 3.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_code4_dbId",
       "type": "string",
       "description": "The unique identifier of the code 4.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_code5_dbId",
       "type": "string",
       "description": "The unique identifier of the code 5.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_code6_dbId",
       "type": "string",
       "description": "The unique identifier of the code 6.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_code7_dbId",
       "type": "string",
       "description": "The unique identifier of the code 7.",
-      "default": false
+      "required": false
     },
     {
       "name": "flexiFieldsItem_code8_dbId",
       "type": "string",
       "description": "The unique identifier of the code 8.",
-      "default": false
+      "required": false
     },
     {
-      "name": "details",
-      "type": "object",
-      "description": "The sales order detail list.",
+      "name": "details_lineNumber",
+      "type": "int64",
+      "description": "The line number of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_periodStartDbId",
+      "type": "int64",
+      "description": "The period start identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_numberOfPeriods",
+      "type": "int64",
+      "description": "The number of periods of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_accrualDateFrom",
+      "type": "string",
+      "description": "The accrual from date of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_accrualDateTo",
+      "type": "string",
+      "description": "The accrual to date of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_productDbId",
+      "type": "int64",
+      "description": "The product identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_text",
+      "type": "string",
+      "description": "The text of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_projectDbId",
+      "type": "int64",
+      "description": "The project identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_glObject1DbId",
+      "type": "int64",
+      "description": "The first GL object identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_glObject2DbId",
+      "type": "int64",
+      "description": "The second GL object identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_glObject3DbId",
+      "type": "int64",
+      "description": "The third GL object identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_glObject4DbId",
+      "type": "int64",
+      "description": "The fourth GL object identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_glObject5DbId",
+      "type": "int64",
+      "description": "The fifth GL object identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_xglDbId",
+      "type": "int64",
+      "description": "The Xledger object identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_transactionDate",
+      "type": "string",
+      "description": "The transaction date of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_excludePrint",
+      "type": "boolean",
+      "description": "Whether the sales order detail is excluded from print.",
+      "required": false
+    },
+    {
+      "name": "details_unitDbId",
+      "type": "int64",
+      "description": "The unit identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_quantity",
+      "type": "float64",
+      "description": "The quantity of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_unitPrice",
+      "type": "string",
+      "description": "The unit price of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_priceCalculation",
+      "type": "boolean",
+      "description": "Whether price calculation is enabled for the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_discountPercent",
+      "type": "float64",
+      "description": "The discount percent of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_taxRuleDbId",
+      "type": "int64",
+      "description": "The tax rule identifier of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "details_regAmount",
+      "type": "string",
+      "description": "The registration amount of the sales order detail.",
       "required": false
     }
   ]
