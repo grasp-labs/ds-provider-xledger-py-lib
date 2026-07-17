@@ -1,0 +1,77 @@
+{
+  "name": "entityContacts",
+  "type": "read",
+  "description": "Xledger entityContacts dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "The unique identifier of the entity contact.",
+      "default": true
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "description": "The code of the entity contact.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the entity contact.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the entity contact.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the entity contact.",
+      "default": true
+    },
+    {
+      "name": "companyRole_dbId",
+      "type": "string",
+      "description": "The unique identifier of the company role.",
+      "default": true
+    },
+    {
+      "name": "companyRole_code",
+      "type": "string",
+      "description": "The code of the company role.",
+      "default": true
+    },
+    {
+      "name": "companyRole_name",
+      "type": "string",
+      "description": "The name of the company role.",
+      "default": true
+    },
+    {
+      "name": "companyRole_definitionId",
+      "type": "string",
+      "description": "The definition identifier of the company role.",
+      "default": true
+    },
+    {
+      "name": "contact_dbId",
+      "type": "string",
+      "description": "The unique identifier of the contact.",
+      "default": true
+    }
+  ]
+}
