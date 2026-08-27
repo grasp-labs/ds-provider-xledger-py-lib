@@ -1,0 +1,301 @@
+{
+  "name": "updateSalesOrderDetailsItems",
+  "type": "update",
+  "description": "Update Xledger SalesOrderDetailsItems.",
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier of the sales order details item.",
+      "required": true
+    },
+    {
+      "name": "periodStart_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the period start.",
+      "required": false
+    },
+    {
+      "name": "numberOfPeriods",
+      "type": "int64",
+      "description": "The number of periods.",
+      "required": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "int64",
+      "description": "The unique identifier of owner.",
+      "required": false
+    },
+    {
+      "name": "owner_code",
+      "type": "string",
+      "description": "The code of the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_description",
+      "type": "string",
+      "description": "The description of the owner.",
+      "required": false
+    },
+    {
+      "name": "owner_ownerCode",
+      "type": "string",
+      "description": "The owner code.",
+      "required": false
+    },
+    {
+      "name": "salesOrderItem_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the sales order item.",
+      "required": false
+    },
+    {
+      "name": "lineNumber",
+      "type": "string",
+      "description": "The line number of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "accuralDateFrom",
+      "type": "string",
+      "description": "The accrual date from of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "accuralDateTo",
+      "type": "string",
+      "description": "The accrual date to of the sales order detail.",
+      "required": false
+    },
+    {
+      "name": "product_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the product.",
+      "required": false
+    },
+    {
+      "name": "product_code",
+      "type": "string",
+      "description": "The code of the product.",
+      "required": false
+    },
+    {
+      "name": "product_description",
+      "type": "string",
+      "description": "The description of the product.",
+      "required": false
+    },
+    {
+      "name": "unit_dbId",
+      "type": "int64",
+      "description": "The dbid of the unit.",
+      "required": false
+    },
+    {
+      "name": "unit_code",
+      "type": "string",
+      "description": "The code of the unit.",
+      "required": false
+    },
+    {
+      "name": "unit_description",
+      "type": "string",
+      "description": "The description of the unit.",
+      "required": false
+    },
+    {
+      "name": "excludePrint",
+      "type": "boolean",
+      "description": "Whether to exclude the print.",
+      "required": false
+    },
+    {
+      "name": "transactionDate",
+      "type": "string",
+      "description": "The transaction date.",
+      "required": false
+    },
+    {
+      "name": "project_dbId",
+      "type": "int64",
+      "description": "The project reference.",
+      "required": false
+    },
+    {
+      "name": "project_code",
+      "type": "string",
+      "description": "The project code.",
+      "required": false
+    },
+    {
+      "name": "project_description",
+      "type": "string",
+      "description": "The project description.",
+      "required": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the first GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject1_code",
+      "type": "string",
+      "description": "The code representing the first GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject1_description",
+      "type": "string",
+      "description": "A description of the first GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the second GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject2_code",
+      "type": "string",
+      "description": "The code representing the second GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject2_description",
+      "type": "string",
+      "description": "A description of the second GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the third GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject3_code",
+      "type": "string",
+      "description": "The code representing the third GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject3_description",
+      "type": "string",
+      "description": "A description of the third GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the fourth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject4_code",
+      "type": "string",
+      "description": "The code representing the fourth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject4_description",
+      "type": "string",
+      "description": "A description of the fourth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the fifth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject5_code",
+      "type": "string",
+      "description": "The code representing the fifth GL object.",
+      "required": false
+    },
+    {
+      "name": "glObject5_description",
+      "type": "string",
+      "description": "A description of the fifth GL object.",
+      "required": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the Xledger object.",
+      "required": false
+    },
+    {
+      "name": "xgl_code",
+      "type": "string",
+      "description": "The code representing the Xledger object.",
+      "required": false
+    },
+    {
+      "name": "xgl_description",
+      "type": "string",
+      "description": "A description of the Xledger object.",
+      "required": false
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text value.",
+      "required": false
+    },
+    {
+      "name": "quantity",
+      "type": "float64",
+      "description": "The quantity value.",
+      "required": false
+    },
+    {
+      "name": "unitPrice",
+      "type": "string",
+      "description": "The unit price value.",
+      "required": false
+    },
+    {
+      "name": "discountPercent",
+      "type": "float64",
+      "description": "The discount percentage value.",
+      "required": false
+    },
+    {
+      "name": "priceCalculation",
+      "type": "boolean",
+      "description": "Indicates whether price calculation is enabled.",
+      "required": false
+    },
+    {
+      "name": "taxRule_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the tax rule.",
+      "required": false
+    },
+    {
+      "name": "taxRule_code",
+      "type": "string",
+      "description": "The code representing the tax rule.",
+      "required": false
+    },
+    {
+      "name": "taxRule_description",
+      "type": "string",
+      "description": "A description of the tax rule.",
+      "required": false
+    },
+    {
+      "name": "regAmount",
+      "type": "string",
+      "description": "The registered amount associated with the tax rule.",
+      "required": false
+    }
+  ]
+}
