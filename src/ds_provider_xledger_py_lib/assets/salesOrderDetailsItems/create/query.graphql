@@ -1,4 +1,4 @@
-mutation ($PlaceHolderInput: [AddSalesOrderItemsInput!]!) {
+mutation ($PlaceHolderInput: [AddSalesOrderDetailsItemsInput!]!) {
   addSalesOrderDetailsItems(inputs: $PlaceHolderInput) {
     edges {
       clientId

@@ -54,13 +54,13 @@
       "required": false
     },
     {
-      "name": "accuralDateFrom",
+      "name": "accrualDateFrom",
       "type": "string",
       "description": "The accrual date from of the sales order detail.",
       "required": false
     },
     {
-      "name": "accuralDateTo",
+      "name": "accrualDateTo",
       "type": "string",
       "description": "The accrual date to of the sales order detail.",
       "required": false

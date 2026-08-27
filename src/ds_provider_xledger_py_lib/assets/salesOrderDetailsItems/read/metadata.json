@@ -32,7 +32,7 @@
       "default": false
     },
     {
-      "name": "ownerdbId",
+      "name": "ownerDbId",
       "type": "int64",
       "description": "The unique identifier of owner.",
       "default": true
@@ -530,13 +530,13 @@
       "default": false
     },
     {
-      "name": "accuralDateFrom",
+      "name": "accrualDateFrom",
       "type": "string",
       "description": "The accrual date from of the sales order detail.",
       "default": false
     },
     {
-      "name": "accuralDateTo",
+      "name": "accrualDateTo",
       "type": "string",
       "description": "The accrual date to of the sales order detail.",
       "default": false
