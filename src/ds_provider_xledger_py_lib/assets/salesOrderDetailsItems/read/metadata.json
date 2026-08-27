@@ -1,0 +1,761 @@
+{
+  "name": "salesOrderDetailsItems",
+  "type": "read",
+  "description": "Read Xledger SalesOrderDetailsItems.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int64",
+      "description": "The unique identifier of the sales order details item.",
+      "default": true
+    },
+    {
+      "name": "periodStartDbId",
+      "type": "int64",
+      "description": "The unique identifier of the period start.",
+      "default": false
+    },
+    {
+      "name": "numberOfPeriods",
+      "type": "int64",
+      "description": "The number of periods.",
+      "default": false
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int64",
+      "description": "The unique identifier of owner.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "description": "The creation date of the sales order detail.",
+      "default": false
+    },
+    {
+      "name": "modifiedAt",
+      "type": "string",
+      "description": "The last modified date of the sales order detail.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the sales order item.",
+      "default": true
+    },
+    {
+      "name": "salesOrderItem_ownerDbId",
+      "type": "int64",
+      "description": "The owner identifier of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_text",
+      "type": "string",
+      "description": "The text value of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_createdAt",
+      "type": "string",
+      "description": "The creation timestamp of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_modifiedAt",
+      "type": "string",
+      "description": "The last modified timestamp of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_orderTypeDbId",
+      "type": "int64",
+      "description": "The unique identifier of the order type.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_orderLevelDbId",
+      "type": "int64",
+      "description": "The unique identifier of the order level.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_customerDbId",
+      "type": "int64",
+      "description": "The unique identifier of the customer to the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_orderDate",
+      "type": "string",
+      "description": "The order date of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_invoiceDate",
+      "type": "string",
+      "description": "The invoice date of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_dueDate",
+      "type": "string",
+      "description": "The due date of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_orderedBy",
+      "type": "string",
+      "description": "The ordered by value of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_yourRef",
+      "type": "string",
+      "description": "The your reference value of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_contract",
+      "type": "string",
+      "description": "The contract value of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_extGL",
+      "type": "string",
+      "description": "The external GL value of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_projectDbId",
+      "type": "int64",
+      "description": "The project reference of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_glObject1DbId",
+      "type": "int64",
+      "description": "The unique identifier of the first GL object of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_glObject2DbId",
+      "type": "int64",
+      "description": "The unique identifier of the second GL object of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_glObject3DbId",
+      "type": "int64",
+      "description": "The unique identifier of the third GL object of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_glObject4DbId",
+      "type": "int64",
+      "description": "The unique identifier of the fourth GL object of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_glObject5DbId",
+      "type": "int64",
+      "description": "The unique identifier of the fifth GL object of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_periodStartDbId",
+      "type": "int64",
+      "description": "The dbid of period start of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_numberOfPeriods",
+      "type": "int64",
+      "description": "The number of periods of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_extOrder",
+      "type": "string",
+      "description": "The external order value of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_previousSalesOrder_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the previous sales order of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_invoiceDeliveryMethod_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the invoice delivery method of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_invoiceDeliveryMethod_code",
+      "type": "string",
+      "description": "The code of the invoice delivery method of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_invoiceDeliveryMethod_name",
+      "type": "string",
+      "description": "The name of the invoice delivery method of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_invoiceDeliveryMethod_definitionId",
+      "type": "string",
+      "description": "The definition id of the invoice delivery method of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_invoiceDeliveryMethod_dbSubId",
+      "type": "string",
+      "description": "The sub-identifier of the invoice delivery method of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_invoiceLayout_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the invoice layout of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_invoiceLayout_code",
+      "type": "string",
+      "description": "The code of the invoice layout of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_invoiceLayout_name",
+      "type": "string",
+      "description": "The name of the invoice layout of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_invoiceLayout_definitionId",
+      "type": "string",
+      "description": "The definition id of the invoice layout of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_invoiceLayout_dbSubId",
+      "type": "string",
+      "description": "The sub-identifier of the invoice layout of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_reportSetup_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the report setup of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_reportSetup_code",
+      "type": "string",
+      "description": "The code of the report setup of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_reportSetup_description",
+      "type": "string",
+      "description": "The description of the report setup of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_serviceType_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the service type of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_serviceType_code",
+      "type": "string",
+      "description": "The code of the service type of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_serviceType_description",
+      "type": "string",
+      "description": "The description of the service type of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_customer_dbId",
+      "type": "int64",
+      "description": "The customer reference of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_customer_code",
+      "type": "string",
+      "description": "The customer code of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_ourSales_dbId",
+      "type": "int64",
+      "description": "The our sales contact reference of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_ourSales_code",
+      "type": "string",
+      "description": "The our sales contact code of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_ourRef_dbId",
+      "type": "int64",
+      "description": "The our reference contact of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_ourRef_code",
+      "type": "string",
+      "description": "The our reference contact code of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_project_dbId",
+      "type": "int64",
+      "description": "The project reference of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_project_code",
+      "type": "string",
+      "description": "The project code of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_glObject1_dbId",
+      "type": "int64",
+      "description": "The GL Object 1 reference of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_glObject2_dbId",
+      "type": "int64",
+      "description": "The GL Object 2 reference  of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_glObject3_dbId",
+      "type": "int64",
+      "description": "The GL Object 3 reference of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_glObject4_dbId",
+      "type": "int64",
+      "description": "The GL Object 4 reference of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_glObject5_dbId",
+      "type": "int64",
+      "description": "The GL Object 5 reference of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_xgl_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the Xledger object of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_xgl_code",
+      "type": "string",
+      "description": "The code representing the Xledger object of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_xgl_description",
+      "type": "string",
+      "description": "A description of the Xledger object of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_latePaymentCode_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the late payment code of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_latePaymentCode_code",
+      "type": "string",
+      "description": "The code representing the late payment code of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_latePaymentCode_description",
+      "type": "string",
+      "description": "A description of the late payment code of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_currency_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the currency of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_currency_code",
+      "type": "string",
+      "description": "The code representing the currency of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_currency_description",
+      "type": "string",
+      "description": "A description of the currency of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_payTerms_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the payment terms of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_payTerms_code",
+      "type": "string",
+      "description": "The code representing the payment terms of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_payTerms_description",
+      "type": "string",
+      "description": "A description of the payment terms of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_payMethod_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the payment method of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_payMethod_code",
+      "type": "string",
+      "description": "The code representing the payment method of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_payMethod_description",
+      "type": "string",
+      "description": "A description of the payment method of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_bankAccount_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the bank account of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_bankAccount_code",
+      "type": "string",
+      "description": "The code representing the bank account of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_bankAccount_description",
+      "type": "string",
+      "description": "A description of the bank account of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_jobLevel_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the job level of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_jobLevel_dbSubId",
+      "type": "int64",
+      "description": "The unique identifier of the job level sub of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_jobLevel_code",
+      "type": "string",
+      "description": "The code representing the job level of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_jobLevel_name",
+      "type": "string",
+      "description": "The name of the job level of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_flexiFieldsItem_dbId",
+      "type": "string",
+      "description": "The unique identifier of the flexi fields item of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_flexiFieldsItem_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the flexi fields item of the sales order item.",
+      "default": false
+    },
+    {
+      "name": "salesOrderItem_details_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the sales order detail.",
+      "default": false
+    },
+    {
+      "name": "lineNumber",
+      "type": "string",
+      "description": "The line number of the sales order detail.",
+      "default": false
+    },
+    {
+      "name": "accrualDateFrom",
+      "type": "string",
+      "description": "The accrual date from of the sales order detail.",
+      "default": false
+    },
+    {
+      "name": "accrualDateTo",
+      "type": "string",
+      "description": "The accrual date to of the sales order detail.",
+      "default": false
+    },
+    {
+      "name": "productDbId",
+      "type": "int64",
+      "description": "The unique identifier of the product.",
+      "default": false
+    },
+    {
+      "name": "unit_dbId",
+      "type": "int64",
+      "description": "The dbid of the unit.",
+      "default": false
+    },
+    {
+      "name": "unit_code",
+      "type": "string",
+      "description": "The code of the unit.",
+      "default": false
+    },
+    {
+      "name": "unit_description",
+      "type": "string",
+      "description": "The description of the unit.",
+      "default": false
+    },
+    {
+      "name": "excludePrint",
+      "type": "boolean",
+      "description": "Whether to exclude the print.",
+      "default": false
+    },
+    {
+      "name": "transactionDate",
+      "type": "string",
+      "description": "The transaction date.",
+      "default": false
+    },
+    {
+      "name": "project_dbId",
+      "type": "int64",
+      "description": "The project reference.",
+      "default": false
+    },
+    {
+      "name": "project_code",
+      "type": "string",
+      "description": "The project code.",
+      "default": false
+    },
+    {
+      "name": "project_description",
+      "type": "string",
+      "description": "The project description.",
+      "default": false
+    },
+    {
+      "name": "glObject1_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the first GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject1_code",
+      "type": "string",
+      "description": "The code representing the first GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject1_description",
+      "type": "string",
+      "description": "A description of the first GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject2_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the second GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject2_code",
+      "type": "string",
+      "description": "The code representing the second GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject2_description",
+      "type": "string",
+      "description": "A description of the second GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject3_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the third GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject3_code",
+      "type": "string",
+      "description": "The code representing the third GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject3_description",
+      "type": "string",
+      "description": "A description of the third GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject4_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the fourth GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject4_code",
+      "type": "string",
+      "description": "The code representing the fourth GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject4_description",
+      "type": "string",
+      "description": "A description of the fourth GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject5_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the fifth GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject5_code",
+      "type": "string",
+      "description": "The code representing the fifth GL object.",
+      "default": false
+    },
+    {
+      "name": "glObject5_description",
+      "type": "string",
+      "description": "A description of the fifth GL object.",
+      "default": false
+    },
+    {
+      "name": "xgl_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the Xledger object.",
+      "default": false
+    },
+    {
+      "name": "xgl_code",
+      "type": "string",
+      "description": "The code representing the Xledger object.",
+      "default": false
+    },
+    {
+      "name": "xgl_description",
+      "type": "string",
+      "description": "A description of the Xledger object.",
+      "default": false
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The text value.",
+      "default": false
+    },
+    {
+      "name": "quantity",
+      "type": "float64",
+      "description": "The quantity value.",
+      "default": false
+    },
+    {
+      "name": "unitPrice",
+      "type": "string",
+      "description": "The unit price value.",
+      "default": false
+    },
+    {
+      "name": "discountPercent",
+      "type": "float64",
+      "description": "The discount percentage value.",
+      "default": false
+    },
+    {
+      "name": "priceCalculation",
+      "type": "boolean",
+      "description": "Indicates whether price calculation is enabled.",
+      "default": false
+    },
+    {
+      "name": "taxRule_dbId",
+      "type": "int64",
+      "description": "The unique identifier of the tax rule.",
+      "default": false
+    },
+    {
+      "name": "taxRule_code",
+      "type": "string",
+      "description": "The code representing the tax rule.",
+      "default": false
+    },
+    {
+      "name": "taxRule_description",
+      "type": "string",
+      "description": "A description of the tax rule.",
+      "default": false
+    },
+    {
+      "name": "regAmount",
+      "type": "string",
+      "description": "The registered amount associated with the tax rule.",
+      "default": false
+    }
+  ]
+}
