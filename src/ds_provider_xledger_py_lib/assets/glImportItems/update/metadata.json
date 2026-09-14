@@ -812,6 +812,318 @@
       "type": "string",
       "description": "A description of the import definition.",
       "required": false
+    },
+    {
+      "name": "entity_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "entity_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "entity_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "slTransactionType_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "payMethod_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "paymentStatus_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "payCode_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "collection_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "collection_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "collection_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "glField1_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "glField1_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "glField1_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "glField2_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "glField2_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "glField2_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "glField3_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "glField3_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "glField3_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "glField4_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "glField4_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "glField4_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "glField5_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "glField5_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "glField5_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "glField6_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "glField6_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "glField6_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "glField7_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "glField7_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "glField7_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "glField8_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "glField8_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "glField8_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "glField9_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "glField9_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "glField9_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "glField10_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "glField10_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "glField10_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "glField11_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "glField11_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "glField11_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "glField12_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "glField12_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "glField12_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "bankAccountRef_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "bankAccountRef_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "unitQuantity_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "unitNumber_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "jobLevel_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "externalInvoice",
+      "type": "string",
+      "description": "GraphQL input field 'externalInvoice'.",
+      "required": false
     }
   ]
 }

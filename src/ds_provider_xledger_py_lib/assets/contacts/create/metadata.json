@@ -831,6 +831,18 @@
       "type": "boolean",
       "description": "Flag to create Company/Person, if the contact address dbId is not 0.",
       "required": false
+    },
+    {
+      "name": "phoneType3_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "phoneType3_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`.",
+      "required": false
     }
   ]
 }

@@ -182,6 +182,12 @@
       "type": "boolean",
       "description": "Indicates whether this account is used for payroll disbursements.",
       "required": false
+    },
+    {
+      "name": "owner_ownerCode",
+      "type": "int64",
+      "description": "Lookup reference matching field `ownerCode`.",
+      "required": false
     }
   ]
 }

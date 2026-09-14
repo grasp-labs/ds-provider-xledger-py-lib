@@ -155,6 +155,12 @@
       "type": "string",
       "description": "The country of the shipping address.",
       "required": false
+    },
+    {
+      "name": "owner_ownerCode",
+      "type": "int64",
+      "description": "Lookup reference matching field `ownerCode`.",
+      "required": false
     }
   ]
 }

@@ -918,6 +918,120 @@
       "type": "string",
       "description": "Project fund recipient description.",
       "required": false
+    },
+    {
+      "name": "incomePeriodization_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`.",
+      "required": false
+    },
+    {
+      "name": "incomePeriodization_dbSubId",
+      "type": "int64",
+      "description": "Lookup reference matching field `dbSubId`.",
+      "required": false
+    },
+    {
+      "name": "incomePeriodization_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "incomePeriodization_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`.",
+      "required": false
+    },
+    {
+      "name": "owner_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`.",
+      "required": false
+    },
+    {
+      "name": "owner_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`.",
+      "required": false
+    },
+    {
+      "name": "owner_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`.",
+      "required": false
+    },
+    {
+      "name": "owner_ownerCode",
+      "type": "int64",
+      "description": "Lookup reference matching field `ownerCode`.",
+      "required": false
+    },
+    {
+      "name": "projectCategory_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`.",
+      "required": false
+    },
+    {
+      "name": "projectCategory_dbSubId",
+      "type": "int64",
+      "description": "Lookup reference matching field `dbSubId`.",
+      "required": false
+    },
+    {
+      "name": "projectCategory_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "projectCategory_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`.",
+      "required": false
+    },
+    {
+      "name": "fixedGl1",
+      "type": "boolean",
+      "description": "GraphQL input field 'fixedGl1'.",
+      "required": false
+    },
+    {
+      "name": "fixedGl2",
+      "type": "boolean",
+      "description": "GraphQL input field 'fixedGl2'.",
+      "required": false
+    },
+    {
+      "name": "fixedGl3",
+      "type": "boolean",
+      "description": "GraphQL input field 'fixedGl3'.",
+      "required": false
+    },
+    {
+      "name": "fixedGl4",
+      "type": "boolean",
+      "description": "GraphQL input field 'fixedGl4'.",
+      "required": false
+    },
+    {
+      "name": "fixedGl5",
+      "type": "boolean",
+      "description": "GraphQL input field 'fixedGl5'.",
+      "required": false
+    },
+    {
+      "name": "fixedXgl",
+      "type": "boolean",
+      "description": "GraphQL input field 'fixedXgl'.",
+      "required": false
+    },
+    {
+      "name": "budgetCoveragePercent",
+      "type": "float64",
+      "description": "GraphQL input field 'budgetCoveragePercent'.",
+      "required": false
     }
   ]
 }

@@ -865,6 +865,60 @@
       "type": "string",
       "description": "The swift of the customer.",
       "required": false
+    },
+    {
+      "name": "pricelist_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "pricelist_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "pricelist_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "bank_swift",
+      "type": "string",
+      "description": "Lookup reference matching field `swift`",
+      "required": false
+    },
+    {
+      "name": "creditLimit",
+      "type": "string",
+      "description": "GraphQL input field 'creditLimit'.",
+      "required": false
+    },
+    {
+      "name": "isIntraGroup",
+      "type": "boolean",
+      "description": "GraphQL input field 'isIntraGroup'.",
+      "required": false
+    },
+    {
+      "name": "taxRule_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "taxRule_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "taxRule_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
     }
   ]
 }
