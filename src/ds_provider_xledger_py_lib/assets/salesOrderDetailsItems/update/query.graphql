@@ -1,0 +1,8 @@
+mutation ($PlaceHolderInput: [UpdateSalesOrderDetailsItemsInput!]!) {
+  updateSalesOrderDetailsItems(inputs: $PlaceHolderInput) {
+    edges {
+      clientId
+      node { {{ FIELDS }} }
+    }
+  }
+}
