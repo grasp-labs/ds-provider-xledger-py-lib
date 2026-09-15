@@ -292,6 +292,18 @@
       "type": "string",
       "description": "The registered amount associated with the tax rule.",
       "required": false
+    },
+    {
+      "name": "periodStart_parts_year",
+      "type": "int64",
+      "description": "GraphQL input field 'periodStart_parts_year'.",
+      "required": false
+    },
+    {
+      "name": "periodStart_parts_month",
+      "type": "string",
+      "description": "GraphQL input field 'periodStart_parts_month'.",
+      "required": false
     }
   ]
 }

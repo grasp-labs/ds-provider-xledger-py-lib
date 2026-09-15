@@ -931,6 +931,60 @@
       "type": "string",
       "description": "A description of the service type.",
       "required": false
+    },
+    {
+      "name": "invoiceLayout_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "import_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "pricelist_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "pricelist_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "pricelist_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "invoiceDeliveryMethod_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "xlg_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "xlg_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "xlg_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
     }
   ]
 }

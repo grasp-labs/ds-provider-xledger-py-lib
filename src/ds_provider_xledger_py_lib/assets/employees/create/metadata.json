@@ -787,6 +787,78 @@
       "type": "string",
       "description": "The superior description of the employee.",
       "required": false
+    },
+    {
+      "name": "trialTo",
+      "type": "string",
+      "description": "GraphQL input field 'trialTo'.",
+      "required": false
+    },
+    {
+      "name": "dateTo",
+      "type": "string",
+      "description": "GraphQL input field 'dateTo'.",
+      "required": false
+    },
+    {
+      "name": "date2",
+      "type": "string",
+      "description": "GraphQL input field 'date2'.",
+      "required": false
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "description": "GraphQL input field 'email'.",
+      "required": false
+    },
+    {
+      "name": "phoneSubledger",
+      "type": "string",
+      "description": "GraphQL input field 'phoneSubledger'.",
+      "required": false
+    },
+    {
+      "name": "employmentType_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "employmentType_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "employmentType_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "paySlipDeliveryMethod_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`.",
+      "required": false
+    },
+    {
+      "name": "paySlipDeliveryMethod_dbSubId",
+      "type": "int64",
+      "description": "Lookup reference matching field `dbSubId`.",
+      "required": false
+    },
+    {
+      "name": "paySlipDeliveryMethod_name",
+      "type": "string",
+      "description": "Lookup reference matching field `name`.",
+      "required": false
+    },
+    {
+      "name": "paySlipDeliveryMethod_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`.",
+      "required": false
     }
   ]
 }

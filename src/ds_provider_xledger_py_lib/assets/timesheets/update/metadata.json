@@ -1,0 +1,271 @@
+{
+  "name": "updateTimesheets",
+  "type": "update",
+  "description": "Update Xledger Timesheets.",
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "string",
+      "description": "GraphQL input field 'dbId'.",
+      "required": false
+    },
+    {
+      "name": "employee_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "employee_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "employee_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "project_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "project_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "project_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "position_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "position_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "position_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "assignment_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "assignment_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "assignment_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "subledger_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "subledger_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "subledger_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "timeType_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "timeType_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "timeType_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "timeFrom",
+      "type": "string",
+      "description": "GraphQL input field 'timeFrom'.",
+      "required": false
+    },
+    {
+      "name": "timeTo",
+      "type": "string",
+      "description": "GraphQL input field 'timeTo'.",
+      "required": false
+    },
+    {
+      "name": "product_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "product_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "product_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "GraphQL input field 'text'.",
+      "required": false
+    },
+    {
+      "name": "comment",
+      "type": "string",
+      "description": "GraphQL input field 'comment'.",
+      "required": false
+    },
+    {
+      "name": "workingHours",
+      "type": "string",
+      "description": "GraphQL input field 'workingHours'.",
+      "required": false
+    },
+    {
+      "name": "invoiceHours",
+      "type": "string",
+      "description": "GraphQL input field 'invoiceHours'.",
+      "required": false
+    },
+    {
+      "name": "trHeader_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "trHeader_text",
+      "type": "string",
+      "description": "Lookup reference matching field `text`",
+      "required": false
+    },
+    {
+      "name": "timesheetHeader_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "hourlyCost",
+      "type": "string",
+      "description": "GraphQL input field 'hourlyCost'.",
+      "required": false
+    },
+    {
+      "name": "hourlyRevenueCurrency",
+      "type": "string",
+      "description": "GraphQL input field 'hourlyRevenueCurrency'.",
+      "required": false
+    },
+    {
+      "name": "assignmentDate",
+      "type": "string",
+      "description": "GraphQL input field 'assignmentDate'.",
+      "required": false
+    },
+    {
+      "name": "activity_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "activity_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "activity_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "object_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "object_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "object_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "objectValue_dbId",
+      "type": "string",
+      "description": "Lookup reference matching field `dbId`",
+      "required": false
+    },
+    {
+      "name": "objectValue_code",
+      "type": "string",
+      "description": "Lookup reference matching field `code`",
+      "required": false
+    },
+    {
+      "name": "objectValue_description",
+      "type": "string",
+      "description": "Lookup reference matching field `description`",
+      "required": false
+    },
+    {
+      "name": "approved",
+      "type": "boolean",
+      "description": "GraphQL input field 'approved'.",
+      "required": false
+    }
+  ]
+}
