@@ -3,7 +3,7 @@ name: xledger
 description: Xledger provider for the DS Business Workflow
 
 
-linked-service:
+linked_service:
   - name: Xledger
     type: ds.resource.linked-service.xledger
     version: 1.0.0
