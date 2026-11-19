@@ -1,0 +1,329 @@
+{
+  "name": "linkValues",
+  "type": "read",
+  "description": "Query Link Values.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The unique identifier of the link value.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int",
+      "description": "The owner identifier of the link value.",
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "datetime",
+      "description": "The timestamp when the link value was created.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The timestamp when the link value was last modified.",
+      "default": true
+    },
+    {
+      "name": "dateFrom",
+      "type": "string",
+      "description": "The date from which the link value is valid.",
+      "default": false
+    },
+    {
+      "name": "dateTo",
+      "type": "string",
+      "description": "The date to which the link value is valid.",
+      "default": false
+    },
+    {
+      "name": "linkDbId",
+      "type": "int",
+      "description": "The link db id of the link value.",
+      "default": true
+    },
+    {
+      "name": "linkParentDbId",
+      "type": "int",
+      "description": "The link parent db id of the link value.",
+      "default": false
+    },
+    {
+      "name": "linkChildDbId",
+      "type": "int",
+      "description": "The link child db id of the link value.",
+      "default": false
+    },
+    {
+      "name": "text1",
+      "type": "string",
+      "description": "The text 1 of the link value.",
+      "default": false
+    },
+    {
+      "name": "text2",
+      "type": "string",
+      "description": "The text 2 of the link value.",
+      "default": false
+    },
+    {
+      "name": "number1",
+      "type": "int",
+      "description": "The number 1 of the link value.",
+      "default": false
+    },
+    {
+      "name": "number2",
+      "type": "int",
+      "description": "The number 2 of the link value.",
+      "default": false
+    },
+    {
+      "name": "value1",
+      "type": "float64",
+      "description": "The value 1 of the link value.",
+      "default": false
+    },
+    {
+      "name": "value2",
+      "type": "float64",
+      "description": "The value 2 of the link value.",
+      "default": false
+    },
+    {
+      "name": "date1",
+      "type": "string",
+      "description": "The date 1 of the link value.",
+      "default": false
+    },
+    {
+      "name": "date2",
+      "type": "string",
+      "description": "The date 2 of the link value.",
+      "default": false
+    },
+    {
+      "name": "date3",
+      "type": "string",
+      "description": "The date 3 of the link value.",
+      "default": false
+    },
+    {
+      "name": "date4",
+      "type": "string",
+      "description": "The date 4 of the link value.",
+      "default": false
+    },
+    {
+      "name": "date5",
+      "type": "string",
+      "description": "The date 5 of the link value.",
+      "default": false
+    },
+    {
+      "name": "date6",
+      "type": "string",
+      "description": "The date 6 of the link value.",
+      "default": false
+    },
+    {
+      "name": "linkParent_dbId",
+      "type": "string",
+      "description": "The unique identifier of the link parent.",
+      "default": false
+    },
+    {
+      "name": "linkParent_code",
+      "type": "string",
+      "description": "The code of the link parent.",
+      "default": false
+    },
+    {
+      "name": "linkParent_description",
+      "type": "string",
+      "description": "The description of the link parent.",
+      "default": false
+    },
+    {
+      "name": "linkChild_dbId",
+      "type": "string",
+      "description": "The unique identifier of the link child.",
+      "default": false
+    },
+    {
+      "name": "linkChild_code",
+      "type": "string",
+      "description": "The code of the link child.",
+      "default": false
+    },
+    {
+      "name": "linkChild_description",
+      "type": "string",
+      "description": "The description of the link child.",
+      "default": false
+    },
+    {
+      "name": "link_dbId",
+      "type": "string",
+      "description": "The unique identifier of the link.",
+      "default": false
+    },
+    {
+      "name": "link_code",
+      "type": "string",
+      "description": "The code of the link.",
+      "default": false
+    },
+    {
+      "name": "link_description",
+      "type": "string",
+      "description": "The description of the link.",
+      "default": false
+    },
+    {
+      "name": "systemValue_dbId",
+      "type": "string",
+      "description": "The unique identifier of the system value.",
+      "default": false
+    },
+    {
+      "name": "systemValue_name",
+      "type": "string",
+      "description": "The name of the system value.",
+      "default": false
+    },
+    {
+      "name": "systemValue_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the system value.",
+      "default": false
+    },
+    {
+      "name": "systemValue_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the system value.",
+      "default": false
+    },
+    {
+      "name": "systemValue_definitionId",
+      "type": "string",
+      "description": "The definition id of the system value.",
+      "default": false
+    },
+    {
+      "name": "systemValue2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the system value 2.",
+      "default": false
+    },
+    {
+      "name": "systemValue2_name",
+      "type": "string",
+      "description": "The name of the system value 2.",
+      "default": false
+    },
+    {
+      "name": "systemValue2_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the system value 2.",
+      "default": false
+    },
+    {
+      "name": "systemValue2_dbSubId",
+      "type": "string",
+      "description": "The db sub id of the system value 2.",
+      "default": false
+    },
+    {
+      "name": "systemValue2_definitionId",
+      "type": "string",
+      "description": "The definition id of the system value 2.",
+      "default": false
+    },
+    {
+      "name": "code1_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 1.",
+      "default": false
+    },
+    {
+      "name": "code1_code",
+      "type": "string",
+      "description": "The code of the code 1.",
+      "default": false
+    },
+    {
+      "name": "code1_description",
+      "type": "string",
+      "description": "The description of the code 1.",
+      "default": false
+    },
+    {
+      "name": "code2_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 2.",
+      "default": false
+    },
+    {
+      "name": "code2_code",
+      "type": "string",
+      "description": "The code of the code 2.",
+      "default": false
+    },
+    {
+      "name": "code2_description",
+      "type": "string",
+      "description": "The description of the code 2.",
+      "default": false
+    },
+    {
+      "name": "code3_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 3.",
+      "default": false
+    },
+    {
+      "name": "code3_code",
+      "type": "string",
+      "description": "The code of the code 3.",
+      "default": false
+    },
+    {
+      "name": "code3_description",
+      "type": "string",
+      "description": "The description of the code 3.",
+      "default": false
+    },
+    {
+      "name": "code4_dbId",
+      "type": "string",
+      "description": "The unique identifier of the code 4.",
+      "default": false
+    },
+    {
+      "name": "code4_code",
+      "type": "string",
+      "description": "The code of the code 4.",
+      "default": false
+    },
+    {
+      "name": "code4_description",
+      "type": "string",
+      "description": "The description of the code 4.",
+      "default": false
+    }
+  ]
+}
