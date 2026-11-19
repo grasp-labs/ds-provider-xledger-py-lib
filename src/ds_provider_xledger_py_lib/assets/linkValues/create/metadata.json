@@ -1,0 +1,294 @@
+{
+  "name": "addLinkValues",
+  "type": "create",
+  "description": "Create Xledger Link Values.",
+  "fields": [
+    {
+      "name": "ownerDbId",
+      "type": "int",
+      "description": "The owner identifier of the link value.",
+      "required": false
+    },
+    {
+      "name": "dateFrom",
+      "type": "datetime64[ns]",
+      "description": "The date from which the link value is valid.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "dateTo",
+      "type": "datetime64[ns]",
+      "description": "The date to which the link value is valid.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "linkDbId",
+      "type": "int",
+      "description": "The link dbId of the link value.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "linkParentDbId",
+      "type": "int",
+      "description": "The link parent dbId of the link value.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "linkChildDbId",
+      "type": "int",
+      "description": "The link child dbId of the link value.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "text1",
+      "type": "string",
+      "description": "The text1 of the link value.",
+      "required": false
+    },
+    {
+      "name": "text2",
+      "type": "string",
+      "description": "The text2 of the link value.",
+      "required": false
+    },
+    {
+      "name": "number1",
+      "type": "int",
+      "description": "The number1 of the link value.",
+      "required": false
+    },
+    {
+      "name": "number2",
+      "type": "int",
+      "description": "The number2 of the link value.",
+      "required": false
+    },
+    {
+      "name": "value1",
+      "type": "float64",
+      "description": "The value1 of the link value.",
+      "required": false
+    },
+    {
+      "name": "value2",
+      "type": "float64",
+      "description": "The value2 of the link value.",
+      "required": false
+    },
+    {
+      "name": "date1",
+      "type": "datetime64[ns]",
+      "description": "The date1 of the link value.",
+      "required": false
+    },
+    {
+      "name": "date2",
+      "type": "datetime64[ns]",
+      "description": "The date2 of the link value.",
+      "required": false
+    },
+    {
+      "name": "date3",
+      "type": "datetime64[ns]",
+      "description": "The date3 of the link value.",
+      "required": false
+    },
+    {
+      "name": "date4",
+      "type": "datetime64[ns]",
+      "description": "The date4 of the link value.",
+      "required": false
+    },
+    {
+      "name": "date5",
+      "type": "datetime64[ns]",
+      "description": "The date5 of the link value.",
+      "required": false
+    },
+    {
+      "name": "date6",
+      "type": "datetime64[ns]",
+      "description": "The date6 of the link value.",
+      "required": false
+    },
+    {
+      "name": "linkParent_dbId",
+      "type": "int",
+      "description": "The link parent dbId of the link value.",
+      "required": false
+    },
+    {
+      "name": "linkParent_code",
+      "type": "string",
+      "description": "The link parent code of the link value.",
+      "required": false
+    },
+    {
+      "name": "linkParent_description",
+      "type": "string",
+      "description": "The link parent description of the link value.",
+      "required": false
+    },
+    {
+      "name": "linkChild_dbId",
+      "type": "int",
+      "description": "The link child dbId of the link value.",
+      "required": false
+    },
+    {
+      "name": "linkChild_code",
+      "type": "string",
+      "description": "The link child code of the link value.",
+      "required": false
+    },
+    {
+      "name": "linkChild_description",
+      "type": "string",
+      "description": "The link child description of the link value.",
+      "required": false
+    },
+    {
+      "name": "link_dbId",
+      "type": "int",
+      "description": "The link dbId of the link value.",
+      "required": false
+    },
+    {
+      "name": "link_code",
+      "type": "string",
+      "description": "The link code of the link value.",
+      "required": false
+    },
+    {
+      "name": "link_description",
+      "type": "string",
+      "description": "The link description of the link value.",
+      "required": false
+    },
+    {
+      "name": "systemValue_dbId",
+      "type": "int64",
+      "description": "The system value dbId of the link value.",
+      "required": false
+    },
+    {
+      "name": "systemValue_dbSubId",
+      "type": "int",
+      "description": "The system value dbSubId of the link value.",
+      "required": false
+    },
+    {
+      "name": "systemValue_name",
+      "type": "string",
+      "description": "The system value name of the link value.",
+      "required": false
+    },
+    {
+      "name": "systemValue_code",
+      "type": "string",
+      "description": "The system value code of the link value.",
+      "required": false
+    },
+    {
+      "name": "systemValue2_dbId",
+      "type": "int64",
+      "description": "The system value 2 dbId of the link value.",
+      "required": false
+    },
+    {
+      "name": "systemValue2_dbSubId",
+      "type": "int",
+      "description": "The system value 2 dbSubId of the link value.",
+      "required": false
+    },
+    {
+      "name": "systemValue2_name",
+      "type": "string",
+      "description": "The system value 2 name of the link value.",
+      "required": false
+    },
+    {
+      "name": "systemValue2_code",
+      "type": "string",
+      "description": "The system value 2 code of the link value.",
+      "required": false
+    },
+    {
+      "name": "code1_dbId",
+      "type": "int",
+      "description": "The code1 dbId of the link value.",
+      "required": false
+    },
+    {
+      "name": "code1_code",
+      "type": "string",
+      "description": "The code1 code of the link value.",
+      "required": false
+    },
+    {
+      "name": "code1_description",
+      "type": "string",
+      "description": "The code1 description of the link value.",
+      "required": false
+    },
+    {
+      "name": "code2_dbId",
+      "type": "int",
+      "description": "The code2 dbId of the link value.",
+      "required": false
+    },
+    {
+      "name": "code2_code",
+      "type": "string",
+      "description": "The code2 code of the link value.",
+      "required": false
+    },
+    {
+      "name": "code2_description",
+      "type": "string",
+      "description": "The code2 description of the link value.",
+      "required": false
+    },
+    {
+      "name": "code3_dbId",
+      "type": "int",
+      "description": "The code3 dbId of the link value.",
+      "required": false
+    },
+    {
+      "name": "code3_code",
+      "type": "string",
+      "description": "The code3 code of the link value.",
+      "required": false
+    },
+    {
+      "name": "code3_description",
+      "type": "string",
+      "description": "The code3 description of the link value.",
+      "required": false
+    },
+    {
+      "name": "code4_dbId",
+      "type": "int",
+      "description": "The code4 dbId of the link value.",
+      "required": false
+    },
+    {
+      "name": "code4_code",
+      "type": "string",
+      "description": "The code4 code of the link value.",
+      "required": false
+    },
+    {
+      "name": "code4_description",
+      "type": "string",
+      "description": "The code4 description of the link value.",
+      "required": false
+    }
+  ]
+}
