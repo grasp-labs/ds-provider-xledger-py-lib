@@ -1,0 +1,91 @@
+{
+  "name": "updateDataAccess",
+  "type": "update",
+  "description": "Update xledger data access dataset.",
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The dbId of the data access.",
+      "required": true,
+      "default": true
+    },
+    {
+      "name": "isUserGroup",
+      "type": "boolean",
+      "description": "Specifies whether the data access applies to a user group.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "userId_dbId",
+      "type": "int64",
+      "description": "The user dbId of the data access.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "userId_code",
+      "type": "string",
+      "description": "The user code of the data access.",
+      "required": false
+    },
+    {
+      "name": "userId_description",
+      "type": "string",
+      "description": "The user description of the data access.",
+      "required": false
+    },
+    {
+      "name": "userGroup_dbId",
+      "type": "int64",
+      "description": "The user group dbId of the data access.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "object_dbId",
+      "type": "int64",
+      "description": "The object dbId of the data access.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "object_code",
+      "type": "string",
+      "description": "The object code of the data access.",
+      "required": false
+    },
+    {
+      "name": "object_description",
+      "type": "string",
+      "description": "The object description of the data access.",
+      "required": false
+    },
+    {
+      "name": "objectValue_dbId",
+      "type": "int64",
+      "description": "The object value dbId of the data access.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "objectValue_code",
+      "type": "string",
+      "description": "The object value code of the data access.",
+      "required": false
+    },
+    {
+      "name": "objectValue_description",
+      "type": "string",
+      "description": "The object value description of the data access.",
+      "required": false
+    },
+    {
+      "name": "userGroupKey_dbId",
+      "type": "int64",
+      "description": "The user group key dbId of the data access.",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+mutation ($PlaceHolderInput: [UpdateDataAccessInput!]!) {
+  updateDataAccess(inputs: $PlaceHolderInput) {
+    edges {
+      clientId
+      node { {{ FIELDS }} }
+    }
+  }
+}
