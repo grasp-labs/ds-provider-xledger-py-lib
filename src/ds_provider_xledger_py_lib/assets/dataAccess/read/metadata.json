@@ -1,0 +1,137 @@
+{
+  "name": "dataAccess",
+  "type": "read",
+  "description": "Xledger data access dataset.",
+  "pattern": "direct",
+  "incremental": {
+    "kind": "time_field",
+    "field": "modifiedAt",
+    "filter_field": "modifiedAt_gte"
+  },
+  "pagination": {
+    "kind": "cursor",
+    "first": 1000
+  },
+  "fields": [
+    {
+      "name": "dbId",
+      "type": "int",
+      "description": "The unique identifier of the data access.",
+      "default": true
+    },
+    {
+      "name": "ownerDbId",
+      "type": "int",
+      "description": "The owner identifier of the data access.",
+      "default": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "datetime",
+      "description": "The timestamp when the data access was last modified.",
+      "default": true
+    },
+    {
+      "name": "isUserGroup",
+      "type": "boolean",
+      "description": "Specifies whether the data access applies to a user group.",
+      "default": true
+    },
+    {
+      "name": "userIdDbId",
+      "type": "int",
+      "description": "The user db id of the data access.",
+      "default": true
+    },
+    {
+      "name": "userGroupDbId",
+      "type": "int",
+      "description": "The user group db id of the data access.",
+      "default": true
+    },
+    {
+      "name": "objectDbId",
+      "type": "int",
+      "description": "The object db id of the data access.",
+      "default": true
+    },
+    {
+      "name": "objectValueDbId",
+      "type": "int",
+      "description": "The object value db id of the data access.",
+      "default": true
+    },
+    {
+      "name": "userGroupKeyDbId",
+      "type": "int",
+      "description": "The user group key db id of the data access.",
+      "default": false
+    },
+    {
+      "name": "userId_dbId",
+      "type": "string",
+      "description": "The unique identifier of the user.",
+      "default": false
+    },
+    {
+      "name": "userGroup_dbId",
+      "type": "string",
+      "description": "The unique identifier of the user group.",
+      "default": false
+    },
+    {
+      "name": "object_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object.",
+      "default": false
+    },
+    {
+      "name": "object_code",
+      "type": "string",
+      "description": "The code of the object.",
+      "default": false
+    },
+    {
+      "name": "object_description",
+      "type": "string",
+      "description": "The description of the object.",
+      "default": false
+    },
+    {
+      "name": "object_ownerDbId",
+      "type": "string",
+      "description": "The owner identifier of the object.",
+      "default": false
+    },
+    {
+      "name": "object_objectKind_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object kind.",
+      "default": false
+    },
+    {
+      "name": "objectValue_dbId",
+      "type": "string",
+      "description": "The unique identifier of the object value.",
+      "default": false
+    },
+    {
+      "name": "objectValue_code",
+      "type": "string",
+      "description": "The code of the object value.",
+      "default": false
+    },
+    {
+      "name": "objectValue_description",
+      "type": "string",
+      "description": "The description of the object value.",
+      "default": false
+    },
+    {
+      "name": "userGroupKey_dbId",
+      "type": "string",
+      "description": "The unique identifier of the user group key.",
+      "default": false
+    }
+  ]
+}
